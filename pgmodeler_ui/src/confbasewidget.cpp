@@ -79,7 +79,7 @@ void ConfBaseWidget::carregarConfiguracao(const QString &id_conf, const vector<Q
 //-----------------------------------------------------------
 void ConfBaseWidget::obterParamsConfiguracao(const vector<QString> &atribs_chave)
 {
- map<QString, QString> atrib_aux;
+ /*map<QString, QString> atrib_aux;
  map<QString, QString>::iterator itr, itr_end;
  QString chave;
 
@@ -99,6 +99,6 @@ void ConfBaseWidget::obterParamsConfiguracao(const vector<QString> &atribs_chave
   chave=ParserXML::obterNomeElemento();
 
  if(!atrib_aux.empty())
-  params_config[chave]=atrib_aux;
+  params_config[chave]=atrib_aux;*/
 }
 //***********************************************************

@@ -6272,7 +6272,6 @@ QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def)
      objetos[0]=relacao->obterTabela(Relacionamento::TABELA_ORIGEM);
      objetos[1]=relacao->obterTabela(Relacionamento::TABELA_DESTINO);
      objetos[2]=relacao;
-     itr++;
 
      for(i=0; i < 3; i++)
      {
