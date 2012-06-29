@@ -35,6 +35,9 @@ class ConfGeralWidget: public QWidget, public Ui::ConfGeralWidget, public ConfBa
 
   void salvarConfiguracao(void);
   void carregarConfiguracao(void);
+
+ private slots:
+   //void converterUnidadeMargem(void);
 };
 //***********************************************************
 #endif

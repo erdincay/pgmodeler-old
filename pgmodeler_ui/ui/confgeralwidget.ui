@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>420</width>
+    <width>481</width>
     <height>250</height>
    </rect>
   </property>
@@ -194,7 +194,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QSpinBox" name="marg_esq">
+      <widget class="QDoubleSpinBox" name="marg_esq">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -210,13 +210,10 @@
        <property name="toolTip">
         <string>Margem esquerda</string>
        </property>
-       <property name="maximum">
-        <number>16777215</number>
-       </property>
       </widget>
      </item>
      <item row="0" column="2" colspan="2">
-      <widget class="QSpinBox" name="marg_topo">
+      <widget class="QDoubleSpinBox" name="marg_topo">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -232,35 +229,10 @@
        <property name="toolTip">
         <string>Margem topo</string>
        </property>
-       <property name="maximum">
-        <number>16777215</number>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="5">
-      <widget class="QSpinBox" name="marg_base">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="toolTip">
-        <string>Margem base</string>
-       </property>
-       <property name="maximum">
-        <number>16777215</number>
-       </property>
       </widget>
      </item>
      <item row="0" column="4">
-      <widget class="QSpinBox" name="marg_dir">
+      <widget class="QDoubleSpinBox" name="marg_dir">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -276,8 +248,24 @@
        <property name="toolTip">
         <string>Margem direita</string>
        </property>
-       <property name="maximum">
-        <number>16777215</number>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QDoubleSpinBox" name="marg_base">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Margem base</string>
        </property>
       </widget>
      </item>
@@ -362,7 +350,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <item>
       <property name="text">
@@ -511,13 +499,13 @@
      </item>
      <item>
       <property name="text">
-       <string>Personalizado</string>
+       <string>Personalizado (Baseado nas margens)</string>
       </property>
      </item>
     </widget>
    </item>
    <item row="3" column="0" colspan="3">
-    <widget class="QCheckBox" name="rest_sessao_chk">
+    <widget class="QCheckBox" name="salvar_sessao_chk">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -531,7 +519,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Restaurar sessão anterior</string>
+      <string>Salvar sessão atual </string>
      </property>
     </widget>
    </item>
@@ -565,7 +553,7 @@
     </widget>
    </item>
    <item row="2" column="0" colspan="3">
-    <widget class="QCheckBox" name="memo_wgts_chk">
+    <widget class="QCheckBox" name="salvar_wgts_chk">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -579,7 +567,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Memorizar posição de widgets</string>
+      <string>Salvar posição de widgets</string>
      </property>
     </widget>
    </item>
@@ -597,15 +585,6 @@
     </widget>
    </item>
   </layout>
-  <zorder>salvar_mod_chk</zorder>
-  <zorder>tam_lista_lbl</zorder>
-  <zorder>orientacao_lbl</zorder>
-  <zorder>papel_cmb</zorder>
-  <zorder>rest_sessao_chk</zorder>
-  <zorder>frame_2</zorder>
-  <zorder>papel_lbl</zorder>
-  <zorder>memo_wgts_chk</zorder>
-  <zorder>margens_lbl</zorder>
  </widget>
  <resources/>
  <connections/>

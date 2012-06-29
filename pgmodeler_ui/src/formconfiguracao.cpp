@@ -30,4 +30,20 @@ FormConfiguracao::FormConfiguracao(QWidget *parent, Qt::WindowFlags f) : QDialog
 
  conf_geral->carregarConfiguracao();
 }
+//-----------------------------------------------------------
+ConfBaseWidget *FormConfiguracao::obterWidgetConfiguracao(unsigned idx)
+{
+ if(idx >= static_cast<unsigned>(stackedWidget->count()))
+  return(NULL);
+ else
+ {
+  switch(idx)
+  {
+   case 0: return(dynamic_cast<ConfBaseWidget *>(conf_geral)); break;
+   case 1: return(dynamic_cast<ConfBaseWidget *>(conf_aparencia)); break;
+   default:
+   case 2: return(dynamic_cast<ConfBaseWidget *>(conf_conexoes)); break;
+  }
+ }
+}
 //***********************************************************

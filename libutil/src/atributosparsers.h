@@ -319,7 +319,20 @@ static const QString
   COLUNA_PROTEGIDA="prot-column",
   SELECAO_OBJETO="obj-selection",
   COLUNA_REF="ref-column",
-  COLUNAS_PK_ESPECIAL="special-pk-cols";
+  COLUNAS_PK_ESPECIAL="special-pk-cols",
+  TAM_LISTA_OP="op-list-size",
+  INTERVALO_SALVAR_AUTO="autosave-interval",
+  TIPO_PAPEL_IMP="paper-type",
+  ORIENTACAO_PAPEL="paper-orientation",
+  MARGEM_PAPEL="paper-margin",
+  SALVAR_SESSAO="save-session",
+  SALVAR_WIDGETS="save-widgets",
+  ARQUIVO="file",
+  WIDGET="widget",
+  RETRATO="portrait",
+  VISIVEL="visible",
+  HABILITAR="enable",
+  CAMINHO="path";
 }
 //***********************************************************
 #endif

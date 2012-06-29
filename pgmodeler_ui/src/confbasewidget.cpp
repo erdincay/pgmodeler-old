@@ -6,12 +6,9 @@ void ConfBaseWidget::adicionarParamConfiguracao(const QString &param, const map<
   params_config[param]=atributos;
 }
 //-----------------------------------------------------------
-map<QString, QString> ConfBaseWidget::obterParamConfiguracao(const QString &param)
+map<QString, map<QString, QString> > ConfBaseWidget::obterParamsConfiguracao(void)
 {
- if(params_config.count(param))
-  return(params_config.at(param));
- else
-  return(map<QString, QString>());
+ return(params_config);
 }
 //-----------------------------------------------------------
 void ConfBaseWidget::excluirParamConfiguracao(const QString &param)
@@ -79,7 +76,7 @@ void ConfBaseWidget::carregarConfiguracao(const QString &id_conf, const vector<Q
 //-----------------------------------------------------------
 void ConfBaseWidget::obterParamsConfiguracao(const vector<QString> &atribs_chave)
 {
- /*map<QString, QString> atrib_aux;
+ map<QString, QString> atrib_aux;
  map<QString, QString>::iterator itr, itr_end;
  QString chave;
 
@@ -99,6 +96,6 @@ void ConfBaseWidget::obterParamsConfiguracao(const vector<QString> &atribs_chave
   chave=ParserXML::obterNomeElemento();
 
  if(!atrib_aux.empty())
-  params_config[chave]=atrib_aux;*/
+  params_config[chave]=atrib_aux;
 }
 //***********************************************************

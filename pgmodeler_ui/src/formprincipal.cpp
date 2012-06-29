@@ -66,10 +66,12 @@ RelacionamentoWidget *relacao_wgt=NULL;
 TabelaWidget *tabela_wgt=NULL;
 ProgressoTarefa *prog_tarefa=NULL;
 ListaObjetosWidget *deps_refs_wgt=NULL;
-FormConfiguracao *fconfiguracoes=NULL;
+FormConfiguracao *fconfiguracao=NULL;
 //----------------------------------------------------------
 FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
 {
+ map<QString, map<QString, QString> >confs;
+ ConfBaseWidget *conf_wgt=NULL;
  TipoObjetoBase tipos[27]={
           OBJETO_RELACAO_BASE,OBJETO_RELACAO, OBJETO_TABELA, OBJETO_VISAO,
           OBJETO_FUNC_AGREGACAO, OBJETO_OPERADOR, OBJETO_INDICE, OBJETO_RESTRICAO,
@@ -87,7 +89,7 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  //Alocando os formulários globais
  fsobre=new FormSobre;
  caixa_msg=new CaixaMensagem(this, (Qt::WindowTitleHint | Qt::WindowSystemMenuHint));
- fconfiguracoes=new FormConfiguracao(this);
+ fconfiguracao=new FormConfiguracao(this);
 
  lista_oper=new ListaOperacoesWidget;
  visao_objs=new VisaoObjetosWidget;
@@ -176,7 +178,7 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  connect(modelos_tab, SIGNAL(tabCloseRequested(int)), this, SLOT(fecharModelo(int)));
 
  connect(action_imprimir, SIGNAL(triggered(bool)), this, SLOT(imprimirModelo(void)));
- connect(action_configuracoes, SIGNAL(triggered(bool)), fconfiguracoes, SLOT(show(void)));
+ connect(action_configuracoes, SIGNAL(triggered(bool)), fconfiguracao, SLOT(show(void)));
 
  /* Conectando os sinais de objetos manipulados disparados pelos formulários de criação de objetos
     para forçar a atualização da visão de objetos */
@@ -210,6 +212,10 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  //Inserindo a versão do software na janela principal
  titulo_janela=this->windowTitle() + " " + AtributosGlobais::VERSAO_PGMODELER;
  this->setWindowTitle(titulo_janela);
+
+ //Aplicando as configurações carregadas
+ //conf_wgt=fconfiguracao->obterWidgetConfiguracao(0);
+ //confs=conf_wgt->obterParamsConfiguracao();
 }
 //----------------------------------------------------------
 FormPrincipal::~FormPrincipal(void)

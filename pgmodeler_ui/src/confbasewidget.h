@@ -27,22 +27,22 @@
 #include "excecao.h"
 #include "parserxml.h"
 #include "atributosparsers.h"
+#include <algorithm>
 //***********************************************************
 class ConfBaseWidget {
- private:
-  map<QString, map<QString, QString> > params_config;
-  void obterParamsConfiguracao(const vector<QString> &atribs_chave);
-
  protected:
+  map<QString, map<QString, QString> > params_config;
+
   void salvarConfiguracao(const QString &id_conf);
   void carregarConfiguracao(const QString &id_conf, const vector<QString> &atribs_chave=vector<QString>());
+  void obterParamsConfiguracao(const vector<QString> &atribs_chave);
 
  public:
   ConfBaseWidget(void){}
 
   void adicionarParamConfiguracao(const QString &param, const map<QString, QString> &atributos);
-  map<QString, QString> obterParamConfiguracao(const QString &param);
 
+  map<QString, map<QString, QString> > obterParamsConfiguracao(void);
   void excluirParamConfiguracao(const QString &param);
   void excluirParamsConfiguracao(void);
 };

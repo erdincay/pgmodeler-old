@@ -6,14 +6,16 @@
   CAUTION: Do not modify this file directly on it's code unless you know what you are doing.
            Unexpected results may occur if the code is changed deliberately.
 -->
-<!ELEMENT pgmodeler (operation-list, autosave-model, paper-conf, widget-conf*, session*)>
+<!ELEMENT pgmodeler (configuration, widget-conf*, session*)>
 
-<!ELEMENT operation-list EMPTY>
-<!ATTLIST operation-list size CDATA #REQUIRED>
-
-<!ELEMENT autosave-model EMPTY>
-<!ATTLIST autosave-model enable (false|true) "false">
-<!ATTLIST autosave-model interval CDATA #IMPLIED>
+<!ELEMENT configuration EMPTY>
+<!ATTLIST configuration op-list-size CDATA #REQUIRED>
+<!ATTLIST configuration autosave-interval CDATA #IMPLIED>
+<!ATTLIST configuration paper-type CDATA #IMPLIED>
+<!ATTLIST configuration paper-orientation CDATA #IMPLIED>
+<!ATTLIST configuration paper-margin CDATA #IMPLIED>
+<!ATTLIST configuration save-session (false|true) "true">
+<!ATTLIST configuration save-widgets (false|true) "true">
 
 <!ELEMENT widget-conf (widget+)>
 <!ELEMENT widget EMPTY>

@@ -38,6 +38,7 @@ class FormConfiguracao: public QDialog, public Ui::FormConfiguracao {
 
  public:
   FormConfiguracao(QWidget * parent = 0, Qt::WindowFlags f = 0);
+  ConfBaseWidget *obterWidgetConfiguracao(unsigned idx);
 };
 //***********************************************************
 #endif
