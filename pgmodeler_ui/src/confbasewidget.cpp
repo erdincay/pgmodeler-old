@@ -21,6 +21,41 @@ void ConfBaseWidget::excluirParamsConfiguracao(void)
  params_config.clear();
 }
 //-----------------------------------------------------------
+void ConfBaseWidget::salvarConfiguracao(const QString &id_conf)
+{
+ QString buf,
+         nome_arq_sch=AtributosGlobais::DIR_CONFIGURACOES +
+                      AtributosGlobais::SEP_DIRETORIO +
+                      id_conf +
+                      AtributosGlobais::EXT_ESQUEMA,
+         nome_arq=AtributosGlobais::DIR_CONFIGURACOES +
+                  AtributosGlobais::SEP_DIRETORIO +
+                  id_conf +
+                  AtributosGlobais::EXT_CONFIGURACAO;
+ QFile saida(nome_arq);
+
+ try
+ {
+  buf=ParserEsquema::obterDefinicaoObjeto(nome_arq_sch, params_config[id_conf]);
+
+  saida.open(QFile::WriteOnly);
+
+  //Caso não consiga abrir o arquivo para gravação
+  if(!saida.isOpen())
+   throw Excecao(Excecao::obterMensagemErro(ERR_PGMODELER_ARQNAOGRAVADO).arg(nome_arq),
+                 ERR_PGMODELER_ARQNAOGRAVADO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
+
+  saida.write(buf.toStdString().c_str(), buf.size());
+  saida.close();
+ }
+ catch(Excecao &e)
+ {
+  if(saida.isOpen()) saida.close();
+  throw Excecao(Excecao::obterMensagemErro(ERR_PGMODELER_ARQNAOGRAVADODEFINV).arg(nome_arq),
+                ERR_PGMODELER_ARQNAOGRAVADODEFINV,__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
+ }
+}
+//-----------------------------------------------------------
 void ConfBaseWidget::carregarConfiguracao(const QString &id_conf, const vector<QString> &atribs_chave)
 {
  try

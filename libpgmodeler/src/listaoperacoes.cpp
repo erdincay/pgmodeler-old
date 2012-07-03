@@ -116,6 +116,8 @@ void copiarObjeto(ObjetoBase **pobj_orig, ObjetoBase *obj_copia, TipoObjetoBase 
  }
 }
 //***********************************************************
+unsigned ListaOperacoes::tam_maximo=500;
+//***********************************************************
 ListaOperacoes::ListaOperacoes(ModeloBD *modelo)
 {
  //Dispara uma exceção caso o modelo passado não esteja alocado
@@ -123,7 +125,6 @@ ListaOperacoes::ListaOperacoes(ModeloBD *modelo)
   throw Excecao(ERR_PGMODELER_ATROBJNAOALOC,__PRETTY_FUNCTION__,__FILE__,__LINE__);
 
  this->modelo=modelo;
- tam_maximo=500;
  idx_atual=0;
  enc_prox_oper=Operacao::SEM_ENCADEAMENTO;
  anular_enc=false;

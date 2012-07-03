@@ -107,13 +107,14 @@ class ListaOperacoes: public QObject {
   //Modelo ao qual a lista se aplica
   ModeloBD *modelo;
 
-  //Número máximo de entradas que a lista pode aceitar
-  unsigned tam_maximo,
+  //Número máximo de entradas que a lista pode aceitar (global)
+  static unsigned tam_maximo;
+
            /* Armazena o tipo de encadeamento para a próxima
               operação a ser armazenada na lista. Este atributo
               é usado em conjunto com os metodos de inicialização
               e encerramento de encademanento de operações */
-           enc_prox_oper;
+  unsigned enc_prox_oper;
 
   //Índice atual da lista de operações
   int idx_atual;
@@ -183,7 +184,7 @@ class ListaOperacoes: public QObject {
   void obterDadosOperacao(unsigned idx_oper, unsigned &tipo_oper, QString &nome_obj, TipoObjetoBase &tipo_obj);
 
   //Define o tamanho máximo da lista
-  void definirTamanhoMaximo(unsigned tam_max);
+  static void definirTamanhoMaximo(unsigned tam_max);
 
   /* Registra na lista de operaçõe que o objeto passado sofreu algum tipo
      de operação (modificação, removido, inserido) além de armazenar o conteúdo

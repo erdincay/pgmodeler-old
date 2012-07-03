@@ -25,10 +25,24 @@ FormConfiguracao::FormConfiguracao(QWidget *parent, Qt::WindowFlags f) : QDialog
  layout->addWidget(conf_conexoes);
  conexoes_frm->setLayout(layout);
 
+ ObjetoGrafico::carregarEstiloObjetos();
+ conf_geral->carregarConfiguracao();
+
  connect(lista_ico_lst, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
  connect(cancelar_btn, SIGNAL(clicked(void)), this, SLOT(close(void)));
-
- conf_geral->carregarConfiguracao();
+ connect(aplicar_btn, SIGNAL(clicked(void)), this, SLOT(salvarConfiguracao(void)));
+ connect(padroes_btn, SIGNAL(clicked(void)), this, SLOT(restaurarPadroes(void)));
+}
+//-----------------------------------------------------------
+void FormConfiguracao::salvarConfiguracao(void)
+{
+ conf_geral->salvarConfiguracao();
+ close();
+}
+//-----------------------------------------------------------
+void FormConfiguracao::restaurarPadroes(void)
+{
+ this->obterWidgetConfiguracao(stackedWidget->currentIndex())->restaurarPadroes();
 }
 //-----------------------------------------------------------
 ConfBaseWidget *FormConfiguracao::obterWidgetConfiguracao(unsigned idx)

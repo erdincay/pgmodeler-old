@@ -49,6 +49,8 @@ class FormPrincipal: public QMainWindow, public Ui::FormPrincipal {
   QLabel *icone_op;
   QString titulo_janela;
 
+  void closeEvent(QCloseEvent *);
+
  public:
    FormPrincipal(QWidget *parent = 0);
   ~FormPrincipal(void);

@@ -71,6 +71,9 @@ FormConfiguracao *fconfiguracao=NULL;
 FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
 {
  map<QString, map<QString, QString> >confs;
+ map<QString, QString> atribs;
+ map<QString, QString>::iterator itr, itr_end;
+
  ConfBaseWidget *conf_wgt=NULL;
  TipoObjetoBase tipos[27]={
           OBJETO_RELACAO_BASE,OBJETO_RELACAO, OBJETO_TABELA, OBJETO_VISAO,
@@ -81,8 +84,6 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
           OBJETO_DOMINIO, OBJETO_TIPO, OBJETO_FUNCAO, OBJETO_ESQUEMA,
           OBJETO_LINGUAGEM, OBJETO_ESPACO_TABELA, OBJETO_PAPEL,
           OBJETO_REGRA, OBJETO_COLUNA, OBJETO_GATILHO, OBJETO_INDICE, OBJETO_RESTRICAO };
-
- ObjetoGrafico::carregarEstiloObjetos();
 
  setupUi(this);
 
@@ -214,8 +215,18 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  this->setWindowTitle(titulo_janela);
 
  //Aplicando as configurações carregadas
- //conf_wgt=fconfiguracao->obterWidgetConfiguracao(0);
- //confs=conf_wgt->obterParamsConfiguracao();
+ conf_wgt=fconfiguracao->obterWidgetConfiguracao(0);
+ confs=conf_wgt->obterParamsConfiguracao();
+ atribs=confs[AtributosParsers::SESSAO];
+
+ itr=atribs.begin();
+ itr_end=atribs.end();
+
+ while(itr!=itr_end)
+ {
+  cout << itr->first.toStdString() << "=" << itr->second.toStdString() << endl;
+  itr++;
+ }
 }
 //----------------------------------------------------------
 FormPrincipal::~FormPrincipal(void)
@@ -225,6 +236,17 @@ FormPrincipal::~FormPrincipal(void)
  delete(nome_op);
  delete(lista_oper);
  delete(visao_objs);
+}
+//----------------------------------------------------------
+void FormPrincipal::closeEvent(QCloseEvent *)
+{
+ /*QSettings conf_sessao("/root/pgmodeler/build/conf/session", QSettings::NativeFormat);
+
+ conf_sessao.beginGroup("models");
+ conf_sessao.setValue("file","teste.pgmodel");
+ conf_sessao.setValue("file1","teste1.pgmodel");
+ conf_sessao.setValue("file2","teste2.pgmodel");
+ conf_sessao.endGroup();*/
 }
 //----------------------------------------------------------
 void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
@@ -331,9 +353,6 @@ void FormPrincipal::definirModeloAtual(void)
   menuEditar->addAction(modelo_atual->action_recortar);
   menuEditar->addAction(modelo_atual->action_colar);
   menuEditar->addAction(modelo_atual->action_excluir);
-  menuEditar->addSeparator();
-  menuEditar->addAction(action_configuracoes);
-
 
   if(modelo_atual->obterNomeArquivo().isEmpty())
    this->setWindowTitle(titulo_janela);
@@ -353,6 +372,9 @@ void FormPrincipal::definirModeloAtual(void)
   connect(action_exibir_grade, SIGNAL(triggered(bool)), this, SLOT(definirOpcoesGrade(void)));
   connect(action_exibir_lim_paginas, SIGNAL(triggered(bool)), this, SLOT(definirOpcoesGrade(void)));
  }
+
+ menuEditar->addSeparator();
+ menuEditar->addAction(action_configuracoes);
 
  atualizarEstadoFerramentas();
 

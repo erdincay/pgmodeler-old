@@ -327,12 +327,10 @@ static const QString
   MARGEM_PAPEL="paper-margin",
   SALVAR_SESSAO="save-session",
   SALVAR_WIDGETS="save-widgets",
-  ARQUIVO="file",
-  WIDGET="widget",
   RETRATO="portrait",
-  VISIVEL="visible",
-  HABILITAR="enable",
-  CAMINHO="path";
+  PAISAGEM="landscape",
+  TAM_GRADE="grid-size",
+  SESSAO="session";
 }
 //***********************************************************
 #endif

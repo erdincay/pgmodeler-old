@@ -24,13 +24,21 @@
 #define CONF_APARENCIA_WIDGET_H
 
 #include "ui_confaparenciawidget.h"
+#include "confbasewidget.h"
 //***********************************************************
-class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget {
+class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, public ConfBaseWidget {
  private:
   Q_OBJECT
 
  public:
   ConfAparenciaWidget(QWidget * parent=0);
+
+  void salvarConfiguracao(void);
+  void carregarConfiguracao(void);
+
+ public slots:
+  void aplicarConfiguracao(void){}
+  void restaurarPadroes(void){}
 };
 //***********************************************************
 #endif

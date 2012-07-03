@@ -53,6 +53,7 @@ static const QString
    CONF_ESTILO_OBJETOS="objects-style",
    CONF_GERAL="pgmodeler",
    CONF_CONEXOES="connections",
+   CONF_SESSAO="session",
    CONF_DESTAQUE_SQL="sql-highlight",
    CONF_DESTAQUE_XML="xml-highlight";
 };

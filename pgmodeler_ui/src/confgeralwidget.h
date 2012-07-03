@@ -25,6 +25,8 @@
 
 #include "ui_confgeralwidget.h"
 #include "confbasewidget.h"
+#include "cenaobjetos.h"
+#include "listaoperacoes.h"
 //***********************************************************
 class ConfGeralWidget: public QWidget, public Ui::ConfGeralWidget, public ConfBaseWidget {
  private:
@@ -36,8 +38,12 @@ class ConfGeralWidget: public QWidget, public Ui::ConfGeralWidget, public ConfBa
   void salvarConfiguracao(void);
   void carregarConfiguracao(void);
 
+ public slots:
+  void aplicarConfiguracao(void);
+  void restaurarPadroes(void);
+
  private slots:
-   //void converterUnidadeMargem(void);
+   void converterUnidadeMargem(void);
 };
 //***********************************************************
 #endif

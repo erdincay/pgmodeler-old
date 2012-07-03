@@ -103,11 +103,6 @@ class ParserEsquema {
   //Versão padrão do pgsql adotada pelo parser
   static QString versao_pgsql;
 
-  /* Método genérico que carrega um arquivo de esquema e dado um mapa de atributos
-     o mesmo retorna os dados arquivo analisado e preenchido com os valores do mapa
-     de atributos */
-  static QString obterDefinicaoObjeto(const QString &nome_arq, map<QString, QString> &atributos);
-
  public:
 
   static const QString /* Constantes de versões do PostgreSQL. Criadas apenas por comodidade
@@ -137,6 +132,11 @@ class ParserEsquema {
      pelo mapa 'atributos'. Para definição SQL é necessário indicar a versão do PostgreSQL
      para que esquema correto seja carregado */
   static QString obterDefinicaoObjeto(const QString &nome_obj, map<QString, QString> &atributos, unsigned tipo_def);
+
+  /* Método genérico que carrega um arquivo de esquema e dado um mapa de atributos
+     o mesmo retorna os dados arquivo analisado e preenchido com os valores do mapa
+     de atributos */
+  static QString obterDefinicaoObjeto(const QString &nome_arq, map<QString, QString> &atributos);
 
   //Varre o diretório de esquemas em busca das versões disponíveis de esquemas SQL
   static void obterVersoesPgSQL(vector<QString> &vet_versoes);

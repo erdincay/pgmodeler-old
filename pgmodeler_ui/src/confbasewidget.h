@@ -45,6 +45,9 @@ class ConfBaseWidget {
   map<QString, map<QString, QString> > obterParamsConfiguracao(void);
   void excluirParamConfiguracao(const QString &param);
   void excluirParamsConfiguracao(void);
+
+  virtual void restaurarPadroes(void)=0;
+  virtual void aplicarConfiguracao(void)=0;
 };
 //***********************************************************
 #endif

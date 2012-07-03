@@ -24,13 +24,21 @@
 #define CONF_CONEXOES_WIDGET_H
 
 #include "ui_confconexoeswidget.h"
+#include "confbasewidget.h"
 //***********************************************************
-class ConfConexoesWidget: public QWidget, public Ui::ConfConexoesWidget {
+class ConfConexoesWidget: public QWidget, public Ui::ConfConexoesWidget, public ConfBaseWidget {
  public:
   Q_OBJECT
 
  public:
   ConfConexoesWidget(QWidget * parent=0);
+
+  void salvarConfiguracao(void);
+  void carregarConfiguracao(void);
+
+ public slots:
+  void aplicarConfiguracao(void){}
+  void restaurarPadroes(void){}
 };
 //***********************************************************
 #endif

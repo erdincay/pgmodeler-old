@@ -216,6 +216,10 @@ void CenaObjetos::definirConfiguracaoPagina(QPrinter::PaperSize tam_papel, QPrin
  CenaObjetos::tam_papel=tam_papel;
  CenaObjetos::orientacao_pag=orientacao;
  CenaObjetos::margens_pag=margens;
+
+ //Reseta a grade para forçar a sua reconfiguração com os novos parâmetros de página
+ CenaObjetos::grade.setStyle(Qt::NoBrush);
+ CenaObjetos::definirGrade(CenaObjetos::tam_grade);
 }
 //-----------------------------------------------------------
 void CenaObjetos::obterConfiguracaoPagina(QPrinter::PaperSize &tam_papel, QPrinter::Orientation &orientacao, QRectF &margens)

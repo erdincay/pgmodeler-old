@@ -272,6 +272,12 @@ void ModeloWidget::mousePressEvent(QMouseEvent *evento)
  }
 }
 //----------------------------------------------------------
+void ModeloWidget::focusInEvent(QFocusEvent *evento)
+{
+ cena->update();
+ QWidget::focusInEvent(evento);
+}
+//----------------------------------------------------------
 void ModeloWidget::aplicarZoom(float zoom)
 {
  //Aplica o zoom somente se este for válido

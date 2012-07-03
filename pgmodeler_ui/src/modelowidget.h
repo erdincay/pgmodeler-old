@@ -107,6 +107,7 @@ class ModeloWidget: public QWidget {
   void resizeEvent(QResizeEvent *);
   void mousePressEvent(QMouseEvent *evento);
   void keyPressEvent(QKeyEvent *evento);
+  void focusInEvent(QFocusEvent *evento);
 
   //Cancela a operação de adição de novo objeto (valido apenas para objetos gráficos)
   void cancelarAdicaoObjeto(void);
