@@ -445,6 +445,11 @@
      </item>
      <item>
       <property name="text">
+       <string>Executive (191 x 254 mm)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Folio (210 x 330 mm)</string>
       </property>
      </item>
@@ -593,6 +598,9 @@
        <property name="toolTip">
         <string>Margem esquerda</string>
        </property>
+       <property name="maximum">
+        <double>5000.000000000000000</double>
+       </property>
       </widget>
      </item>
      <item row="0" column="2">
@@ -618,6 +626,9 @@
        </property>
        <property name="toolTip">
         <string>Margem topo</string>
+       </property>
+       <property name="maximum">
+        <double>5000.000000000000000</double>
        </property>
       </widget>
      </item>
@@ -645,6 +656,9 @@
        <property name="toolTip">
         <string>Margem direita</string>
        </property>
+       <property name="maximum">
+        <double>5000.000000000000000</double>
+       </property>
       </widget>
      </item>
      <item row="1" column="2">
@@ -670,6 +684,9 @@
        </property>
        <property name="toolTip">
         <string>Margem base</string>
+       </property>
+       <property name="maximum">
+        <double>5000.000000000000000</double>
        </property>
       </widget>
      </item>

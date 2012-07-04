@@ -26,4 +26,5 @@
  
 <!ELEMENT session (file+)>
 <!ELEMENT file EMPTY>
+<!ATTLIST file id CDATA #REQUIRED>
 <!ATTLIST file path CDATA #REQUIRED>

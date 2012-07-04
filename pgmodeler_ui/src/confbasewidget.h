@@ -31,22 +31,41 @@
 //***********************************************************
 class ConfBaseWidget {
  protected:
+  //Mapa que armazena os parâmetros de configuração carregados do arquivos
   map<QString, map<QString, QString> > params_config;
 
+  /* Salva as configurações em arquivo. O parâmetro 'id_conf' indica qual o
+     tipo da configuração a ser salva. (vide AtributosGlobais::CONF_???) */
   void salvarConfiguracao(const QString &id_conf);
+
+  /* Carrega as configurações do arquivo. O vetor 'atribs_chaves' é usado para especificar o nome de elementos
+     considerados chave do mapa de configuração */
   void carregarConfiguracao(const QString &id_conf, const vector<QString> &atribs_chave=vector<QString>());
+
+  //Obtém um parâmetro do arquivo de configuração carregado pelo ParserXML
   void obterParamsConfiguracao(const vector<QString> &atribs_chave);
 
  public:
   ConfBaseWidget(void){}
 
+  //Adiciona um parâmetro de configuração ao mapa de configurações. Caso o mesmo já existe seus valores são substituídos
   void adicionarParamConfiguracao(const QString &param, const map<QString, QString> &atributos);
 
+
+  //Obtém os parâmetros carregados do arquivo
   map<QString, map<QString, QString> > obterParamsConfiguracao(void);
+
+  //Exclui os valores de um dado parâmetro de configuração
   void excluirParamConfiguracao(const QString &param);
+
+  //Exclui todos os parâmetros de configuração
   void excluirParamsConfiguracao(void);
 
+  /** Métodos puramente virtuais **/
+  //Restaura as configurações padrão
   virtual void restaurarPadroes(void)=0;
+
+  //Aplica as configurações padrão
   virtual void aplicarConfiguracao(void)=0;
 };
 //***********************************************************

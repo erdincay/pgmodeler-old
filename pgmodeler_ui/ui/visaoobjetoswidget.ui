@@ -18,7 +18,7 @@
     <normaloff>:/icones/icones/pgsqlModeler48x48.png</normaloff>:/icones/icones/pgsqlModeler48x48.png</iconset>
   </property>
   <property name="allowedAreas">
-   <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   <set>Qt::AllDockWidgetAreas</set>
   </property>
   <property name="windowTitle">
    <string>Objetos do Modelo</string>

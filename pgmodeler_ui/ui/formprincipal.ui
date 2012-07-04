@@ -237,7 +237,6 @@
    </attribute>
    <addaction name="action_desfazer"/>
    <addaction name="action_refazer"/>
-   <addaction name="separator"/>
   </widget>
   <widget class="QToolBar" name="modelo_tb">
    <property name="enabled">

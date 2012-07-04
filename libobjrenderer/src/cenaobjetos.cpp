@@ -12,7 +12,7 @@ QBrush CenaObjetos::grade;
 CenaObjetos::CenaObjetos(void)
 {
  //Define a grade padrão ao alocar uma cena
- definirGrade(tam_grade);
+ //definirGrade(tam_grade);
 
  movendo_objs=false;
  this->setBackgroundBrush(grade);
@@ -122,8 +122,9 @@ void CenaObjetos::definirGrade(unsigned tam)
   else
    tam_aux=margens_pag.size();
 
-  larg=roundf(tam_aux.width()/static_cast<float>(tam)) * tam;
-  alt=roundf(tam_aux.height()/static_cast<float>(tam)) * tam;
+
+  larg=fabs(roundf(tam_aux.width()/static_cast<float>(tam)) * tam);
+  alt=fabs(roundf(tam_aux.height()/static_cast<float>(tam)) * tam);
 
   //Cria uma instância de QImage para ser a textura do brush
   tam_grade=tam;

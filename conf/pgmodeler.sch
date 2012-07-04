@@ -18,7 +18,7 @@ $br
 [-->] $br
 
 <pgmodeler> $br
-$sp <configuration op-list-size="] @{op-list-size} ["] $br
+$sp [<configuration op-list-size="] @{op-list-size} ["] $br
 [		 grid-size="] @{grid-size} ["] $br
 [                autosave-interval="] @{autosave-interval} ["] $br
 [		paper-type="] @{paper-type} ["] $br
@@ -27,10 +27,15 @@ $sp <configuration op-list-size="] @{op-list-size} ["] $br
 [		save-session="] %if @{save-session} %then true %else false %end ["] $br
 [		save-widgets="] %if @{save-widgets} %then true %else false %end ["/>] $br
 
+%if @{save-widgets} %then
+ $sp <widget-conf> $br
+ $sp $sp @{widget} $br
+ $sp </widget-conf> $br
+%end
 
-%if @{files} %then
+%if @{save-session} %then
  $sp <session> $br
- $sp $sp @{files}
+ $sp $sp @{files} $br
  $sp </session> $br
 %end
 

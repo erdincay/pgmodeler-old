@@ -43,6 +43,7 @@ class ConfGeralWidget: public QWidget, public Ui::ConfGeralWidget, public ConfBa
   void restaurarPadroes(void);
 
  private slots:
+   //Faz a conversão dos valores das margens para a unidade selecionada
    void converterUnidadeMargem(void);
 };
 //***********************************************************

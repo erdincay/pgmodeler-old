@@ -2,6 +2,7 @@
 //***********************************************************
 void ConfBaseWidget::adicionarParamConfiguracao(const QString &param, const map<QString, QString> &atributos)
 {
+ //Adiciona um parâmetro somente se o identificador 'param' e os atributos não estejam vazio
  if(!param.isEmpty() && !atributos.empty())
   params_config[param]=atributos;
 }
@@ -24,10 +25,12 @@ void ConfBaseWidget::excluirParamsConfiguracao(void)
 void ConfBaseWidget::salvarConfiguracao(const QString &id_conf)
 {
  QString buf,
+         //Configura o nome do arquivo de modelo (esquema) de configuração
          nome_arq_sch=AtributosGlobais::DIR_CONFIGURACOES +
                       AtributosGlobais::SEP_DIRETORIO +
                       id_conf +
                       AtributosGlobais::EXT_ESQUEMA,
+         //Configura o nome do arquivo de configuração
          nome_arq=AtributosGlobais::DIR_CONFIGURACOES +
                   AtributosGlobais::SEP_DIRETORIO +
                   id_conf +
@@ -36,8 +39,10 @@ void ConfBaseWidget::salvarConfiguracao(const QString &id_conf)
 
  try
  {
+  //Gera o modelo de configuração com base nos parâmetros atuais
   buf=ParserEsquema::obterDefinicaoObjeto(nome_arq_sch, params_config[id_conf]);
 
+  //Abre o arquivo de configuração para gravação
   saida.open(QFile::WriteOnly);
 
   //Caso não consiga abrir o arquivo para gravação
@@ -45,6 +50,7 @@ void ConfBaseWidget::salvarConfiguracao(const QString &id_conf)
    throw Excecao(Excecao::obterMensagemErro(ERR_PGMODELER_ARQNAOGRAVADO).arg(nome_arq),
                  ERR_PGMODELER_ARQNAOGRAVADO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
 
+  //Grava o buffer gerado no arquivo
   saida.write(buf.toStdString().c_str(), buf.size());
   saida.close();
  }
@@ -115,21 +121,27 @@ void ConfBaseWidget::obterParamsConfiguracao(const vector<QString> &atribs_chave
  map<QString, QString>::iterator itr, itr_end;
  QString chave;
 
+ //Obtém os atributos do elemento atual
  ParserXML::obterAtributosElemento(atrib_aux);
 
  itr=atrib_aux.begin();
  itr_end=atrib_aux.end();
 
+ //Substituindo a chave pelo atributo chave passado
  while(itr!=itr_end && chave.isEmpty())
  {
+  //Caso o atributo chave seja encontrado em um dos atributos obtidos do elemento
   if(chave.isEmpty() && find(atribs_chave.begin(), atribs_chave.end(), itr->first)!=atribs_chave.end())
+   //A chave passa a ser o valor do atributo encontrado
    chave=itr->second;
   itr++;
  }
 
+ //Caso a chave não foi definida, a chave padrão será o nome do elemento
  if(chave.isEmpty())
   chave=ParserXML::obterNomeElemento();
 
+ //Atribui os dados obtidos do elemento atual à chave do mapa de parâmetros de configuração
  if(!atrib_aux.empty())
   params_config[chave]=atrib_aux;
 }

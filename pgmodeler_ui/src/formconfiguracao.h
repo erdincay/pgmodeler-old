@@ -42,6 +42,7 @@ class FormConfiguracao: public QDialog, public Ui::FormConfiguracao {
 
  public slots:
   void salvarConfiguracao(void);
+  void carregarConfiguracao(void);
 
  private slots:
   void restaurarPadroes(void);

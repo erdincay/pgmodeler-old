@@ -2,17 +2,31 @@
 //***********************************************************
 ConfGeralWidget::ConfGeralWidget(QWidget * parent) : QWidget(parent)
 {
- int cod_tipo_papel[]={5, 6, 7, 8, 0, 9, 10, 11, 12, 13,
-                       14, 15, 16, 17, 18, 19, 1, 20, 21, 22,
-                       23, 24, 25, 26, 4, 27, 28, 3, 2, 29, 30 };
+ QPrinter::PaperSize cod_tipo_papel[]={QPrinter::A0, QPrinter::A1, QPrinter::A2, QPrinter::A3, QPrinter::A4, QPrinter::A5,
+                       QPrinter::A6, QPrinter::A7, QPrinter::A8, QPrinter::A9, QPrinter::B0, QPrinter::B1,
+                       QPrinter::B10, QPrinter::B2, QPrinter::B3, QPrinter::B4, QPrinter::B5, QPrinter::B6,
+                       QPrinter::B7, QPrinter::B8, QPrinter::B9, QPrinter::C5E, QPrinter::Comm10E, QPrinter::DLE,
+                       QPrinter::Executive, QPrinter::Folio, QPrinter::Ledger, QPrinter::Legal, QPrinter::Letter,
+                       QPrinter::Tabloid, QPrinter::Custom };
 
  Ui_ConfGeralWidget::setupUi(this);
 
- for(int i=0; i <= 30; i++)
+ //Atribui os tipos de papel aos elementos do combo de tipo de papel
+ for(int i=0; i < 31; i++)
   papel_cmb->setItemData(i, QVariant(cod_tipo_papel[i]));
 
  connect(unidade_cmb, SIGNAL(currentIndexChanged(int)), this, SLOT(converterUnidadeMargem(void)));
  connect(salvar_mod_chk, SIGNAL(toggled(bool)), salvar_mod_spb, SLOT(setEnabled(bool)));
+
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::TAM_GRADE]="";
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::TAM_LISTA_OP]="";
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::INTERVALO_SALVAR_AUTO]="";
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::TIPO_PAPEL_IMP]="";
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::ORIENTACAO_PAPEL]="";
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::MARGEM_PAPEL]="";
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::SALVAR_SESSAO]="";
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::SALVAR_WIDGETS]="";
+ params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::ARQUIVOS]="";
 }
 //-----------------------------------------------------------
 void ConfGeralWidget::carregarConfiguracao(void)
@@ -21,9 +35,13 @@ void ConfGeralWidget::carregarConfiguracao(void)
  vector<QString> atribs_chave;
  unsigned interv;
 
+ //Para a sessão de configuração geral, o 'id' será usado como campo chave
  atribs_chave.push_back(AtributosParsers::ID);
+
+ //Carrega as configurações
  ConfBaseWidget::carregarConfiguracao(AtributosGlobais::CONF_GERAL, atribs_chave);
 
+ //Repassa os valores obtidos no arquivo de configuração para os widgets do formulário
  tam_grade_spb->setValue((params_config[AtributosParsers::CONFIGURACAO][AtributosParsers::TAM_GRADE]).toUInt());
  tam_lista_spb->setValue((params_config[AtributosParsers::CONFIGURACAO][AtributosParsers::TAM_LISTA_OP]).toUInt());
 
@@ -45,6 +63,7 @@ void ConfGeralWidget::carregarConfiguracao(void)
  marg_dir->setValue((margem.count() >= 3 ? margem[2].toFloat() : 10));
  marg_base->setValue((margem.count() >= 4 ? margem[3].toFloat() : 10));
 
+ //Efetiva as configurações do formulário aplicando-as às classes interessadas
  this->aplicarConfiguracao();
 }
 //-----------------------------------------------------------
@@ -52,6 +71,7 @@ void ConfGeralWidget::salvarConfiguracao(void)
 {
  try
  {
+  //Armazena no mapa de parâmetros de configuração os valores dos widgets no formulário
   params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::TAM_GRADE]=QString("%1").arg(tam_grade_spb->value());
   params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::TAM_LISTA_OP]=QString("%1").arg(tam_lista_spb->value());
   params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::INTERVALO_SALVAR_AUTO]=QString("%1").arg(salvar_mod_chk->isChecked() ? salvar_mod_spb->value() : 0);
@@ -66,9 +86,12 @@ void ConfGeralWidget::salvarConfiguracao(void)
 
   params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::SALVAR_SESSAO]=(salvar_sessao_chk->isChecked() ? "1" : "");
   params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::SALVAR_WIDGETS]=(salvar_wgts_chk->isChecked() ? "1" : "");
+  params_config[AtributosGlobais::CONF_GERAL][AtributosParsers::ARQUIVOS]="";
 
+  //Salva a configuração em arquivo
   ConfBaseWidget::salvarConfiguracao(AtributosGlobais::CONF_GERAL);
 
+  //Aplica as novas configurações
   this->aplicarConfiguracao();
  }
  catch(Excecao &e)
@@ -79,11 +102,14 @@ void ConfGeralWidget::salvarConfiguracao(void)
 //-----------------------------------------------------------
 void ConfGeralWidget::aplicarConfiguracao(void)
 {
+ //Aplica a configuração de grade à cena
  CenaObjetos::definirGrade(tam_grade_spb->value());
+ //Aplica as configurações de papel à cena
  CenaObjetos::definirConfiguracaoPagina(static_cast<QPrinter::PaperSize>(papel_cmb->itemData(papel_cmb->currentIndex()).toInt()),
                                         (retrato_rb->isChecked() ? QPrinter::Portrait : QPrinter::Landscape),
                                         QRectF(marg_esq->value(), marg_topo->value(),
                                                marg_dir->value(), marg_base->value()));
+ //Aplica as configurações à lista de operações
  ListaOperacoes::definirTamanhoMaximo(tam_lista_spb->value());
 }
 //-----------------------------------------------------------

@@ -330,7 +330,20 @@ static const QString
   RETRATO="portrait",
   PAISAGEM="landscape",
   TAM_GRADE="grid-size",
-  SESSAO="session";
+  SESSAO="session",
+  CAMINHO="path",
+  ARQUIVOS="files",
+  TB_ARQUIVO="fileToolbar",
+  TB_EDICAO="editToolbar",
+  TB_EXIBICAO="viewToolbar",
+  TB_MODELO="modelToolbar",
+  DK_OPERACOES="operationsDock",
+  DK_OBJETOS="objectsDock",
+  ESQUERDA="left",
+  DIREITA="right",
+  BASE="bottom",
+  TOPO="top",
+  VISIVEL="visible";
 }
 //***********************************************************
 #endif

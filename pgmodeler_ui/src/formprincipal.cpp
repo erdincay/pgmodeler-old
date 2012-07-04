@@ -71,8 +71,13 @@ FormConfiguracao *fconfiguracao=NULL;
 FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
 {
  map<QString, map<QString, QString> >confs;
+ map<QString, map<QString, QString> >::iterator itr, itr_end;
  map<QString, QString> atribs;
- map<QString, QString>::iterator itr, itr_end;
+ map<QString, Qt::DockWidgetArea> areas_dock;
+ map<QString, Qt::ToolBarArea> areas_toolbar;
+ map<QString, QDockWidget *> dock_wgts;
+ map<QString, QToolBar *> toolbars;
+ QString id;
 
  ConfBaseWidget *conf_wgt=NULL;
  TipoObjetoBase tipos[27]={
@@ -134,10 +139,6 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
                               QIcon(QString(":/icones/icones/") +
                                     ObjetoBase::obterNomeEsquemaObjeto(tipos[i]) +
                                     QString(".png")));
-
- this->addDockWidget(Qt::RightDockWidgetArea, visao_objs);
- this->addDockWidget(Qt::RightDockWidgetArea, lista_oper);
- //this->tabifyDockWidget(lista_oper, visao_objs);
 
  icone_op=new QLabel;
  icone_op->setFrameShape(QFrame::Panel);
@@ -214,18 +215,71 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  titulo_janela=this->windowTitle() + " " + AtributosGlobais::VERSAO_PGMODELER;
  this->setWindowTitle(titulo_janela);
 
- //Aplicando as configurações carregadas
- conf_wgt=fconfiguracao->obterWidgetConfiguracao(0);
- confs=conf_wgt->obterParamsConfiguracao();
- atribs=confs[AtributosParsers::SESSAO];
-
- itr=atribs.begin();
- itr_end=atribs.end();
-
- while(itr!=itr_end)
+ try
  {
-  cout << itr->first.toStdString() << "=" << itr->second.toStdString() << endl;
-  itr++;
+  fconfiguracao->carregarConfiguracao();
+
+  areas_dock[AtributosParsers::ESQUERDA]=Qt::LeftDockWidgetArea;
+  areas_dock[AtributosParsers::DIREITA]=Qt::RightDockWidgetArea;
+  areas_dock[AtributosParsers::BASE]=Qt::BottomDockWidgetArea;
+  areas_dock[AtributosParsers::TOPO]=Qt::TopDockWidgetArea;
+  dock_wgts[AtributosParsers::DK_OBJETOS]=visao_objs;
+  dock_wgts[AtributosParsers::DK_OPERACOES]=lista_oper;
+
+  areas_toolbar[AtributosParsers::ESQUERDA]=Qt::LeftToolBarArea;
+  areas_toolbar[AtributosParsers::DIREITA]=Qt::RightToolBarArea;
+  areas_toolbar[AtributosParsers::BASE]=Qt::BottomToolBarArea;
+  areas_toolbar[AtributosParsers::TOPO]=Qt::TopToolBarArea;
+  toolbars[AtributosParsers::TB_ARQUIVO]=arquivo_tb;
+  toolbars[AtributosParsers::TB_EDICAO]=edicao_tb;
+  toolbars[AtributosParsers::TB_EXIBICAO]=exibicao_tb;
+  toolbars[AtributosParsers::TB_MODELO]=modelo_tb;
+
+  //Aplicando as configurações carregadas
+  conf_wgt=fconfiguracao->obterWidgetConfiguracao(0);
+  confs=conf_wgt->obterParamsConfiguracao();
+
+  itr=confs.begin();
+  itr_end=confs.end();
+
+  while(itr!=itr_end)
+  {
+   atribs=itr->second;
+   id=atribs[AtributosParsers::ID];
+
+   if(id==AtributosParsers::DK_OBJETOS ||
+      id==AtributosParsers::DK_OPERACOES)
+   {
+    this->addDockWidget(areas_dock[atribs[AtributosParsers::POSICAO]], dock_wgts[id]);
+    dock_wgts[id]->setVisible(atribs[AtributosParsers::VISIVEL]==AtributosParsers::VERDADEIRO);
+   }
+   else if(id==AtributosParsers::TB_ARQUIVO ||
+           id==AtributosParsers::TB_EDICAO ||
+           id==AtributosParsers::TB_EXIBICAO ||
+           id==AtributosParsers::TB_MODELO)
+   {
+    this->addToolBar(areas_toolbar[atribs[AtributosParsers::POSICAO]], toolbars[id]);
+    toolbars[id]->setVisible(atribs[AtributosParsers::VISIVEL]==AtributosParsers::VERDADEIRO);
+   }
+   else if(atribs.count(AtributosParsers::CAMINHO)!=0)
+   {
+    try
+    {
+     if(!atribs[AtributosParsers::CAMINHO].isEmpty())
+      this->adicionarNovoModelo(atribs[AtributosParsers::CAMINHO]);
+    }
+    catch(Excecao &e)
+    {
+     caixa_msg->show(e);
+    }
+   }
+
+   itr++;
+  }
+ }
+ catch(Excecao &e)
+ {
+  caixa_msg->show(e);
  }
 }
 //----------------------------------------------------------
@@ -240,13 +294,21 @@ FormPrincipal::~FormPrincipal(void)
 //----------------------------------------------------------
 void FormPrincipal::closeEvent(QCloseEvent *)
 {
- /*QSettings conf_sessao("/root/pgmodeler/build/conf/session", QSettings::NativeFormat);
+ ConfGeralWidget *conf_wgt=NULL;
+ map<QString, map<QString, QString> > confs;
 
- conf_sessao.beginGroup("models");
- conf_sessao.setValue("file","teste.pgmodel");
- conf_sessao.setValue("file1","teste1.pgmodel");
- conf_sessao.setValue("file2","teste2.pgmodel");
- conf_sessao.endGroup();*/
+ conf_wgt=dynamic_cast<ConfGeralWidget *>(fconfiguracao->obterWidgetConfiguracao(0));
+ confs=conf_wgt->obterParamsConfiguracao();
+
+ if(!confs[AtributosParsers::CONFIGURACAO][AtributosParsers::SALVAR_WIDGETS].isEmpty())
+ {
+  cout << "Salvar Widgets!" << endl;
+ }
+
+ if(!confs[AtributosParsers::CONFIGURACAO][AtributosParsers::SALVAR_SESSAO].isEmpty())
+ {
+  cout << "Salvar Sessão!" << endl;
+ }
 }
 //----------------------------------------------------------
 void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
@@ -323,9 +385,9 @@ void FormPrincipal::definirModeloAtual(void)
  menuEditar->addAction(action_refazer);
  menuEditar->addSeparator();
 
- if(objeto->objectName()=="action_proximo")
+ if(objeto==action_proximo)
   modelos_tab->setCurrentIndex(modelos_tab->currentIndex()+1);
- else if(objeto->objectName()=="action_anterior")
+ else if(objeto==action_anterior)
   modelos_tab->setCurrentIndex(modelos_tab->currentIndex()-1);
 
  modelo_atual=dynamic_cast<ModeloWidget *>(modelos_tab->currentWidget());
@@ -343,7 +405,6 @@ void FormPrincipal::definirModeloAtual(void)
   modelo_tb->addAction(modelo_atual->action_desproteger);
   modelo_tb->addAction(modelo_atual->action_selecionar_todos);
 
-  edicao_tb->addSeparator();
   edicao_tb->addAction(modelo_atual->action_copiar);
   edicao_tb->addAction(modelo_atual->action_recortar);
   edicao_tb->addAction(modelo_atual->action_colar);
