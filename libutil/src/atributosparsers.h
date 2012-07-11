@@ -332,7 +332,7 @@ static const QString
   TAM_GRADE="grid-size",
   SESSAO="session",
   CAMINHO="path",
-  ARQUIVOS="files",
+  ARQUIVO="file",
   TB_ARQUIVO="fileToolbar",
   TB_EDICAO="editToolbar",
   TB_EXIBICAO="viewToolbar",
@@ -343,7 +343,8 @@ static const QString
   DIREITA="right",
   BASE="bottom",
   TOPO="top",
-  VISIVEL="visible";
+  VISIVEL="visible",
+  WIDGET="widget";
 }
 //***********************************************************
 #endif

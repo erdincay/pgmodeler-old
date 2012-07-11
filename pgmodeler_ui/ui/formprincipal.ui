@@ -123,9 +123,15 @@
     </property>
     <addaction name="action_sobre"/>
    </widget>
+   <widget class="QMenu" name="menuExibir">
+    <property name="title">
+     <string>Widgets</string>
+    </property>
+   </widget>
    <addaction name="menuArquivo"/>
    <addaction name="menuEditar"/>
    <addaction name="menuSobre"/>
+   <addaction name="menuExibir"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="arquivo_tb">
@@ -473,7 +479,7 @@
     <string>Refazer</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+Z</string>
+    <string>Ctrl+Y</string>
    </property>
   </action>
   <action name="action_preferencias">
@@ -673,6 +679,11 @@
    </property>
    <property name="text">
     <string>Configurações</string>
+   </property>
+  </action>
+  <action name="actionWidgets">
+   <property name="text">
+    <string>Widgets</string>
    </property>
   </action>
  </widget>

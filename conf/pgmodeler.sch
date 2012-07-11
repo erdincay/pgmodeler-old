@@ -27,15 +27,15 @@ $sp [<configuration op-list-size="] @{op-list-size} ["] $br
 [		save-session="] %if @{save-session} %then true %else false %end ["] $br
 [		save-widgets="] %if @{save-widgets} %then true %else false %end ["/>] $br
 
-%if @{save-widgets} %then
+%if @{widget} %then
  $sp <widget-conf> $br
- $sp $sp @{widget} $br
+ $sp @{widget}
  $sp </widget-conf> $br
 %end
 
-%if @{save-session} %then
+%if @{file} %then
  $sp <session> $br
- $sp $sp @{files} $br
+ $sp @{file}
  $sp </session> $br
 %end
 

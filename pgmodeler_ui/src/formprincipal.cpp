@@ -77,7 +77,7 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  map<QString, Qt::ToolBarArea> areas_toolbar;
  map<QString, QDockWidget *> dock_wgts;
  map<QString, QToolBar *> toolbars;
- QString id;
+ QString tipo;
 
  ConfBaseWidget *conf_wgt=NULL;
  TipoObjetoBase tipos[27]={
@@ -214,6 +214,8 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  //Inserindo a versão do software na janela principal
  titulo_janela=this->windowTitle() + " " + AtributosGlobais::VERSAO_PGMODELER;
  this->setWindowTitle(titulo_janela);
+ this->addDockWidget(Qt::RightDockWidgetArea, visao_objs);
+ this->addDockWidget(Qt::RightDockWidgetArea, lista_oper);
 
  try
  {
@@ -245,21 +247,21 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
   while(itr!=itr_end)
   {
    atribs=itr->second;
-   id=atribs[AtributosParsers::ID];
+   tipo=atribs[AtributosParsers::TIPO];
 
-   if(id==AtributosParsers::DK_OBJETOS ||
-      id==AtributosParsers::DK_OPERACOES)
+   if(tipo==AtributosParsers::DK_OBJETOS ||
+      tipo==AtributosParsers::DK_OPERACOES)
    {
-    this->addDockWidget(areas_dock[atribs[AtributosParsers::POSICAO]], dock_wgts[id]);
-    dock_wgts[id]->setVisible(atribs[AtributosParsers::VISIVEL]==AtributosParsers::VERDADEIRO);
+    this->addDockWidget(areas_dock[atribs[AtributosParsers::POSICAO]], dock_wgts[tipo]);
+    dock_wgts[tipo]->setVisible(atribs[AtributosParsers::VISIVEL]==AtributosParsers::VERDADEIRO);
    }
-   else if(id==AtributosParsers::TB_ARQUIVO ||
-           id==AtributosParsers::TB_EDICAO ||
-           id==AtributosParsers::TB_EXIBICAO ||
-           id==AtributosParsers::TB_MODELO)
+   else if(tipo==AtributosParsers::TB_ARQUIVO ||
+           tipo==AtributosParsers::TB_EDICAO ||
+           tipo==AtributosParsers::TB_EXIBICAO ||
+           tipo==AtributosParsers::TB_MODELO)
    {
-    this->addToolBar(areas_toolbar[atribs[AtributosParsers::POSICAO]], toolbars[id]);
-    toolbars[id]->setVisible(atribs[AtributosParsers::VISIVEL]==AtributosParsers::VERDADEIRO);
+    this->addToolBar(areas_toolbar[atribs[AtributosParsers::POSICAO]], toolbars[tipo]);
+    toolbars[tipo]->setVisible(atribs[AtributosParsers::VISIVEL]==AtributosParsers::VERDADEIRO);
    }
    else if(atribs.count(AtributosParsers::CAMINHO)!=0)
    {
@@ -281,6 +283,7 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  {
   caixa_msg->show(e);
  }
+
 }
 //----------------------------------------------------------
 FormPrincipal::~FormPrincipal(void)
@@ -296,19 +299,90 @@ void FormPrincipal::closeEvent(QCloseEvent *)
 {
  ConfGeralWidget *conf_wgt=NULL;
  map<QString, map<QString, QString> > confs;
+ bool salvar_conf=false;
 
  conf_wgt=dynamic_cast<ConfGeralWidget *>(fconfiguracao->obterWidgetConfiguracao(0));
  confs=conf_wgt->obterParamsConfiguracao();
 
  if(!confs[AtributosParsers::CONFIGURACAO][AtributosParsers::SALVAR_WIDGETS].isEmpty())
  {
-  cout << "Salvar Widgets!" << endl;
+  int i, qtd=6;
+  QString id_param;
+  map<QString, QString> atribs;
+  map<Qt::DockWidgetArea, QString> areas_dock;
+  map<Qt::ToolBarArea, QString> areas_toolbar;
+  map<QWidget *, QString> id_widgets;
+  QWidget *vet_wgts[]={ arquivo_tb, edicao_tb, exibicao_tb,
+                        modelo_tb, visao_objs, lista_oper };
+  QToolBar *toolbar=NULL;
+  QDockWidget *dock=NULL;
+
+  salvar_conf=true;
+
+  id_widgets[visao_objs]=AtributosParsers::DK_OBJETOS;
+  id_widgets[lista_oper]=AtributosParsers::DK_OPERACOES;
+  id_widgets[arquivo_tb]=AtributosParsers::TB_ARQUIVO;
+  id_widgets[edicao_tb]=AtributosParsers::TB_EDICAO;
+  id_widgets[exibicao_tb]=AtributosParsers::TB_EXIBICAO;
+  id_widgets[modelo_tb]=AtributosParsers::TB_MODELO;
+
+  areas_dock[Qt::LeftDockWidgetArea]=AtributosParsers::ESQUERDA;
+  areas_dock[Qt::RightDockWidgetArea]=AtributosParsers::DIREITA;
+  areas_dock[Qt::BottomDockWidgetArea]=AtributosParsers::BASE;
+  areas_dock[Qt::TopDockWidgetArea]=AtributosParsers::TOPO;
+
+  areas_toolbar[Qt::LeftToolBarArea]=AtributosParsers::ESQUERDA;
+  areas_toolbar[Qt::RightToolBarArea]=AtributosParsers::DIREITA;
+  areas_toolbar[Qt::BottomToolBarArea]=AtributosParsers::BASE;
+  areas_toolbar[Qt::TopToolBarArea]=AtributosParsers::TOPO;
+
+  for(i=0; i < qtd; i++)
+  {
+   toolbar=dynamic_cast<QToolBar *>(vet_wgts[i]);
+   dock=dynamic_cast<QDockWidget *>(vet_wgts[i]);
+
+   id_param=QString("%1%2").arg(AtributosParsers::WIDGET).arg(i);
+   atribs[AtributosParsers::TIPO]=id_widgets[vet_wgts[i]];
+   atribs[AtributosParsers::ID]=id_param;
+   atribs[AtributosParsers::VISIVEL]=(vet_wgts[i]->isVisible() ?
+                                      AtributosParsers::VERDADEIRO :  AtributosParsers::FALSO);
+
+   if(dock)
+    atribs[AtributosParsers::POSICAO]=areas_dock[this->dockWidgetArea(dock)];
+   else
+    atribs[AtributosParsers::POSICAO]=areas_toolbar[this->toolBarArea(toolbar)];
+
+   conf_wgt->adicionarParamConfiguracao(id_param, atribs);
+   atribs.clear();
+  }
  }
 
  if(!confs[AtributosParsers::CONFIGURACAO][AtributosParsers::SALVAR_SESSAO].isEmpty())
  {
-  cout << "Salvar Sessão!" << endl;
+  int i, qtd;
+  ModeloWidget *modelo=NULL;
+  QString id_param;
+  map<QString, QString> atribs;
+
+  qtd=modelos_tab->count();
+  for(i=0; i < qtd; i++)
+  {
+   modelo=dynamic_cast<ModeloWidget *>(modelos_tab->widget(i));
+
+   if(!modelo->obterNomeArquivo().isEmpty())
+   {
+    id_param=QString("%1%2").arg(AtributosParsers::ARQUIVO).arg(i);
+    atribs[AtributosParsers::ID]=id_param;
+    atribs[AtributosParsers::CAMINHO]=modelo->obterNomeArquivo();
+    conf_wgt->adicionarParamConfiguracao(id_param, atribs);
+    atribs.clear();
+   }
+  }
+  salvar_conf=true;
  }
+
+ if(salvar_conf)
+  conf_wgt->salvarConfiguracao();
 }
 //----------------------------------------------------------
 void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
@@ -391,6 +465,7 @@ void FormPrincipal::definirModeloAtual(void)
   modelos_tab->setCurrentIndex(modelos_tab->currentIndex()-1);
 
  modelo_atual=dynamic_cast<ModeloWidget *>(modelos_tab->currentWidget());
+
  if(modelo_atual)
  {
   this->aplicarZoom();

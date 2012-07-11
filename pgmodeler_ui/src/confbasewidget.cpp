@@ -36,11 +36,22 @@ void ConfBaseWidget::salvarConfiguracao(const QString &id_conf)
                   id_conf +
                   AtributosGlobais::EXT_CONFIGURACAO;
  QFile saida(nome_arq);
+ map<QString, QString> atribs;
+ map<QString, map<QString, QString> >::iterator itr, itr_end;
 
  try
  {
+  itr=params_config.begin();
+  itr_end=params_config.end();
+
+  while(itr!=itr_end)
+  {
+   atribs.insert((itr->second).begin(), (itr->second).end());
+   itr++;
+  }
+
   //Gera o modelo de configuração com base nos parâmetros atuais
-  buf=ParserEsquema::obterDefinicaoObjeto(nome_arq_sch, params_config[id_conf]);
+  buf=ParserEsquema::obterDefinicaoObjeto(nome_arq_sch, atribs);
 
   //Abre o arquivo de configuração para gravação
   saida.open(QFile::WriteOnly);
