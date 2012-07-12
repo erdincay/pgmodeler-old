@@ -154,6 +154,7 @@ void SeletorObjetoWidget::exibirSelecaoObjetos(void)
  /* Exibe o form de seleção de objetos exibindo apenas os objetos
     do tipo aceito pelo seletor */
  selecaoobjetos_wgt->definirObjetoVisivel(tipo_obj_seletor, true);
- selecaoobjetos_wgt->show(this->modelo);
+ selecaoobjetos_wgt->definirModelo(this->modelo);
+ selecaoobjetos_wgt->show();
 }
 //***********************************************************

@@ -100,7 +100,8 @@ class CenaObjetos: public QGraphicsScene {
   static void definirOpcoesGrade(bool exibir_grade, bool alin_objs_grade, bool exibir_lim_pagina);
   static void obterOpcoesGrade(bool &exibir_grade, bool &alin_objs_grade, bool &exibir_lim_pagina);
 
-  //Métodos de configuração das propriedades da página
+  /* Métodos de configuração das propriedades da página. Obs.: O usuário precisa chamar o método definirGrade
+     para atualiza as configurações da página */
   static void definirConfiguracaoPagina(QPrinter::PaperSize tam_papel, QPrinter::Orientation orientacao, QRectF margens);
   static void obterConfiguracaoPagina(QPrinter::PaperSize &tam_papel, QPrinter::Orientation &orientacao, QRectF &margens);
 

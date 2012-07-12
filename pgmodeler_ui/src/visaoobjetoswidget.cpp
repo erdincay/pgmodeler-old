@@ -1124,15 +1124,15 @@ void VisaoObjetosWidget::close(void)
  QDockWidget::close();
 }
 //----------------------------------------------------------
-void VisaoObjetosWidget::show(ModeloWidget *modelo_wgt)
+void VisaoObjetosWidget::definirModelo(ModeloWidget *modelo_wgt)
 {
  this->modelo_wgt=modelo_wgt;
 
  if(modelo_wgt)
-  show(modelo_wgt->modelo);
+  definirModelo(modelo_wgt->modelo);
 }
 //----------------------------------------------------------
-void VisaoObjetosWidget::show(ModeloBD *modelo_bd)
+void VisaoObjetosWidget::definirModelo(ModeloBD *modelo_bd)
 {
  this->modelo_bd=modelo_bd;
 
@@ -1145,8 +1145,6 @@ void VisaoObjetosWidget::show(ModeloBD *modelo_bd)
 
  atualizarVisaoObjetos();
  visaoobjetos_stw->setEnabled(true);
-
- QDockWidget::show();
 }
 //----------------------------------------------------------
 void VisaoObjetosWidget::closeEvent(QCloseEvent *)

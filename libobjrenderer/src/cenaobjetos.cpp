@@ -11,9 +11,6 @@ QBrush CenaObjetos::grade;
 //***********************************************************
 CenaObjetos::CenaObjetos(void)
 {
- //Define a grade padrão ao alocar uma cena
- //definirGrade(tam_grade);
-
  movendo_objs=false;
  this->setBackgroundBrush(grade);
 
@@ -194,15 +191,20 @@ void CenaObjetos::exibirLinhaRelacionamento(bool valor, const QPointF &p)
 //-----------------------------------------------------------
 void CenaObjetos::definirOpcoesGrade(bool exibir_grade, bool alin_objs_grade, bool exibir_lim_pagina)
 {
+ bool redef_grade=(CenaObjetos::exibir_grade!=exibir_grade ||
+                   CenaObjetos::exibir_lim_pagina!=exibir_lim_pagina ||
+                   grade.style()==Qt::NoBrush);
+
  CenaObjetos::exibir_grade=exibir_grade;
  CenaObjetos::exibir_lim_pagina=exibir_lim_pagina;
  CenaObjetos::alin_objs_grade=alin_objs_grade;
 
- //Caso não se deseja exibir a grade limpa o tipo de brush da grade
- if(!exibir_grade && !exibir_lim_pagina)
+ //Redefine a grade se necessário
+ if(redef_grade)
+ {
   grade.setStyle(Qt::NoBrush);
- else
   definirGrade(CenaObjetos::tam_grade);
+ }
 }
 //-----------------------------------------------------------
 void CenaObjetos::obterOpcoesGrade(bool &exibir_grade, bool &alin_objs_grade, bool &exibir_lim_pagina)
@@ -217,10 +219,6 @@ void CenaObjetos::definirConfiguracaoPagina(QPrinter::PaperSize tam_papel, QPrin
  CenaObjetos::tam_papel=tam_papel;
  CenaObjetos::orientacao_pag=orientacao;
  CenaObjetos::margens_pag=margens;
-
- //Reseta a grade para forçar a sua reconfiguração com os novos parâmetros de página
- CenaObjetos::grade.setStyle(Qt::NoBrush);
- CenaObjetos::definirGrade(CenaObjetos::tam_grade);
 }
 //-----------------------------------------------------------
 void CenaObjetos::obterConfiguracaoPagina(QPrinter::PaperSize &tam_papel, QPrinter::Orientation &orientacao, QRectF &margens)

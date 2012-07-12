@@ -233,7 +233,7 @@
         </size>
        </property>
        <property name="text">
-        <string>minutos</string>
+        <string>minuto(s)</string>
        </property>
       </widget>
      </item>

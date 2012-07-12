@@ -44,7 +44,7 @@ class ListaOperacoesWidget: public QDockWidget, public Ui::ListaOperacoesWidget 
 
  public slots:
    void atualizarListaOperacoes(void);
-   void show(ModeloWidget *modelo);
+   void definirModelo(ModeloWidget *modelo);
    void desfazerOperacao(void);
    void refazerOperacao(void);
    void excluirOperacoes(void);

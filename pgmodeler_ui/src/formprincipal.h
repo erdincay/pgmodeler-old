@@ -48,6 +48,7 @@ class FormPrincipal: public QMainWindow, public Ui::FormPrincipal {
   QLabel *nome_op;
   QLabel *icone_op;
   QString titulo_janela;
+  int interv_salvar;
 
   void closeEvent(QCloseEvent *);
 
@@ -74,7 +75,8 @@ class FormPrincipal: public QMainWindow, public Ui::FormPrincipal {
   void fecharModelo(int idx_modelo=-1);
 
   void carregarModelo(void);
-  void salvarModelo(void);
+  void salvarModelo(ModeloWidget *modelo=NULL);
+  void salvarTodosModelos(void);
   void imprimirModelo(void);
 
   void aplicarZoom(void);

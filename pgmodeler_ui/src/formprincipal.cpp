@@ -170,6 +170,7 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  connect(action_carregar_modelo,SIGNAL(triggered(bool)),this,SLOT(carregarModelo()));
  connect(action_salvar_modelo,SIGNAL(triggered(bool)),this,SLOT(salvarModelo()));
  connect(action_salvar_como,SIGNAL(triggered(bool)),this,SLOT(salvarModelo()));
+ connect(action_salvar_tudo,SIGNAL(triggered(bool)),this,SLOT(salvarTodosModelos()));
 
  connect(lista_oper, SIGNAL(s_operacaoExecutada(void)), this, SLOT(__atualizarDockWidgets(void)));
  connect(lista_oper, SIGNAL(s_listaOperacoesAtualizada(void)), this, SLOT(__atualizarEstadoFerramentas(void)));
@@ -208,6 +209,24 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  connect(indice_wgt, SIGNAL(s_objetoManipulado(void)), this, SLOT(__atualizarDockWidgets(void)));
  connect(relacao_wgt, SIGNAL(s_objetoManipulado(void)), this, SLOT(__atualizarDockWidgets(void)));
  connect(tabela_wgt, SIGNAL(s_objetoManipulado(void)), this, SLOT(__atualizarDockWidgets(void)));
+
+ connect(arquivo_tb, SIGNAL(visibilityChanged(bool)), action_arquivo, SLOT(setChecked(bool)));
+ connect(action_arquivo, SIGNAL(toggled(bool)), arquivo_tb, SLOT(setVisible(bool)));
+
+ connect(edicao_tb, SIGNAL(visibilityChanged(bool)), action_edicao, SLOT(setChecked(bool)));
+ connect(action_edicao, SIGNAL(toggled(bool)), edicao_tb, SLOT(setVisible(bool)));
+
+ connect(exibicao_tb, SIGNAL(visibilityChanged(bool)), action_exibicao, SLOT(setChecked(bool)));
+ connect(action_exibicao, SIGNAL(toggled(bool)), exibicao_tb, SLOT(setVisible(bool)));
+
+ connect(modelo_tb, SIGNAL(visibilityChanged(bool)), action_modelo, SLOT(setChecked(bool)));
+ connect(action_modelo, SIGNAL(toggled(bool)), modelo_tb, SLOT(setVisible(bool)));
+
+ connect(lista_oper, SIGNAL(visibilityChanged(bool)), action_operacoes, SLOT(setChecked(bool)));
+ connect(action_operacoes, SIGNAL(toggled(bool)), lista_oper, SLOT(setVisible(bool)));
+
+ connect(visao_objs, SIGNAL(visibilityChanged(bool)), action_visao_objetos, SLOT(setChecked(bool)));
+ connect(action_visao_objetos, SIGNAL(toggled(bool)), visao_objs, SLOT(setVisible(bool)));
 
  modelo_atual=NULL;
 
@@ -284,6 +303,9 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
   caixa_msg->show(e);
  }
 
+ interv_salvar=confs[AtributosParsers::CONFIGURACAO][AtributosParsers::INTERVALO_SALVAR_AUTO].toInt() * 60000;
+ if(interv_salvar > 0)
+  QTimer::singleShot(interv_salvar, this, SLOT(salvarTodosModelos()));
 }
 //----------------------------------------------------------
 FormPrincipal::~FormPrincipal(void)
@@ -514,11 +536,11 @@ void FormPrincipal::definirModeloAtual(void)
 
  atualizarEstadoFerramentas();
 
- if(lista_oper->isVisible())
-  lista_oper->show(modelo_atual);
+ //if(lista_oper->isVisible())
+ lista_oper->definirModelo(modelo_atual);
 
- if(visao_objs->isVisible())
-  visao_objs->show(modelo_atual);
+ //if(visao_objs->isVisible())
+ visao_objs->definirModelo(modelo_atual);
 }
 //----------------------------------------------------------
 void FormPrincipal::definirOpcoesGrade(void)
@@ -633,8 +655,8 @@ void FormPrincipal::fecharModelo(int idx_modelo)
  {
   modelo_atual=NULL;
   this->exibirTelaCheia(false);
-  visao_objs->show(static_cast<ModeloBD *>(NULL));
-  lista_oper->show(static_cast<ModeloWidget *>(NULL));
+  visao_objs->definirModelo(static_cast<ModeloBD *>(NULL));
+  lista_oper->definirModelo(static_cast<ModeloWidget *>(NULL));
   atualizarEstadoFerramentas(true);
  }
  else
@@ -643,27 +665,51 @@ void FormPrincipal::fecharModelo(int idx_modelo)
  }
 }
 //----------------------------------------------------------
-void FormPrincipal::salvarModelo(void)
+void FormPrincipal::salvarTodosModelos(void)
+{
+ ModeloWidget *modelo=NULL;
+ int i, qtd;
+
+ qtd=modelos_tab->count();
+
+ for(i=0; i < qtd; i++)
+ {
+  modelo=dynamic_cast<ModeloWidget *>(modelos_tab->widget(i));
+  this->salvarModelo(modelo);
+ }
+
+ if(interv_salvar > 0)
+  QTimer::singleShot(interv_salvar, this, SLOT(salvarTodosModelos()));
+}
+//----------------------------------------------------------
+void FormPrincipal::salvarModelo(ModeloWidget *modelo)
 {
  try
  {
-  if(sender()==action_salvar_como || modelo_atual->nome_arquivo.isEmpty())
+  if(!modelo)
+   modelo=modelo_atual;
+
+  if(modelo)
   {
-   QFileDialog arquivo_dlg;
-
-   arquivo_dlg.setFilter(tr("Modelo de Banco de Dados (*.pgmodel);;Todos os Arquivos (*.*)"));
-   arquivo_dlg.setFileMode(QFileDialog::AnyFile);
-   arquivo_dlg.setAcceptMode(QFileDialog::AcceptSave);
-   arquivo_dlg.setModal(true);
-
-   if(arquivo_dlg.exec()==QFileDialog::Accepted)
+   if(sender()==action_salvar_como || modelo->nome_arquivo.isEmpty())
    {
-    if(!arquivo_dlg.selectedFiles().isEmpty())
-     modelo_atual->salvarModelo(arquivo_dlg.selectedFiles().at(0));
+    QFileDialog arquivo_dlg;
+
+    arquivo_dlg.setWindowTitle(trUtf8("Salvar '%1' como...").arg(modelo->modelo->obterNome()));
+    arquivo_dlg.setFilter(tr("Modelo de Banco de Dados (*.pgmodel);;Todos os Arquivos (*.*)"));
+    arquivo_dlg.setFileMode(QFileDialog::AnyFile);
+    arquivo_dlg.setAcceptMode(QFileDialog::AcceptSave);
+    arquivo_dlg.setModal(true);
+
+    if(arquivo_dlg.exec()==QFileDialog::Accepted)
+    {
+     if(!arquivo_dlg.selectedFiles().isEmpty())
+      modelo->salvarModelo(arquivo_dlg.selectedFiles().at(0));
+    }
    }
+   else
+    modelo->salvarModelo();
   }
-  else
-   modelo_atual->salvarModelo();
  }
  catch(Excecao &e)
  {

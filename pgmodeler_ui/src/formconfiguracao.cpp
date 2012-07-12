@@ -34,6 +34,7 @@ FormConfiguracao::FormConfiguracao(QWidget *parent, Qt::WindowFlags f) : QDialog
 void FormConfiguracao::salvarConfiguracao(void)
 {
  conf_geral->salvarConfiguracao();
+ conf_geral->aplicarConfiguracao();
  close();
 }
 //-----------------------------------------------------------
@@ -47,7 +48,6 @@ void FormConfiguracao::carregarConfiguracao(void)
  catch(Excecao &e)
  {
   conf_geral->aplicarConfiguracao();
-  //conf_aparencia->aplicarConfiguracao();
   throw Excecao(ERR_PGMODELERUI_CONFNAOCARREGADA,__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
 }

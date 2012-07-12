@@ -101,8 +101,8 @@ class VisaoObjetosWidget: public QDockWidget, public Ui::VisaoObjetosWidget {
    void mouseMoveEvent(QMouseEvent *);
 
  public slots:
-   void show(ModeloWidget *modelo_wgt);
-   void show(ModeloBD *modelo_bd);
+   void definirModelo(ModeloWidget *modelo_wgt);
+   void definirModelo(ModeloBD *modelo_bd);
    void mudarVisaoObjetos(void);
    void atualizarVisaoObjetos(void);
    void definirObjetoVisivel(TipoObjetoBase tipo_obj, bool visivel);

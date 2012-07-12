@@ -209,7 +209,8 @@ void PermissaoWidget::definirAtributos(ModeloBD *modelo, ObjetoBase *objeto_pai,
 void PermissaoWidget::selecionarPapel(void)
 {
  selecaoobjetos_wgt->definirObjetoVisivel(OBJETO_PAPEL, true);
- selecaoobjetos_wgt->show(this->modelo);
+ selecaoobjetos_wgt->definirModelo(this->modelo);
+ selecaoobjetos_wgt->show();
 }
 //-----------------------------------------------------------
 void PermissaoWidget::selecionarPermissao(int idx_perm)

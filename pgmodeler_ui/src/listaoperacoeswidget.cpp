@@ -147,12 +147,12 @@ void ListaOperacoesWidget::atualizarListaOperacoes(void)
  emit s_listaOperacoesAtualizada();
 }
 //----------------------------------------------------------
-void ListaOperacoesWidget::show(ModeloWidget *modelo)
+void ListaOperacoesWidget::definirModelo(ModeloWidget *modelo)
 {
  operacoes_tw->clear();
  this->modelo_wgt=modelo;
  atualizarListaOperacoes();
- QDockWidget::show();
+ //QDockWidget::show();
 }
 //-----------------------------------------------------------
 void ListaOperacoesWidget::desfazerOperacao(void)

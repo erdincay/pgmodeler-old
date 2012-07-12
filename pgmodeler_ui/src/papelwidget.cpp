@@ -82,7 +82,8 @@ void PapelWidget::configurarSelecaoPapeis(void)
 void PapelWidget::selecionarPapelMembro(void)
 {
  selecaoobjetos_wgt->definirObjetoVisivel(OBJETO_PAPEL, true);
- selecaoobjetos_wgt->show(this->modelo);
+ selecaoobjetos_wgt->definirModelo(this->modelo);
+ selecaoobjetos_wgt->show();
 }
 //----------------------------------------------------------
 void PapelWidget::hideEvent(QHideEvent *evento)

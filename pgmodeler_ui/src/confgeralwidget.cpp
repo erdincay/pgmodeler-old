@@ -68,7 +68,7 @@ void ConfGeralWidget::carregarConfiguracao(void)
  this->aplicarConfiguracao();
 }
 //-----------------------------------------------------------
-void ConfGeralWidget::salvarConfiguracao(void)
+void ConfGeralWidget::salvarConfiguracao()
 {
  try
  {
@@ -107,6 +107,7 @@ void ConfGeralWidget::salvarConfiguracao(void)
   itr=params_config.begin();
   itr_end=params_config.end();
 
+  //Salvando as configurações da sessão e dos widgets
   while(itr!=itr_end)
   {
    if(salvar_sessao_chk->isChecked() &&
@@ -131,9 +132,6 @@ void ConfGeralWidget::salvarConfiguracao(void)
 
   //Salva a configuração em arquivo
   ConfBaseWidget::salvarConfiguracao(AtributosGlobais::CONF_GERAL);
-
-  //Aplica as novas configurações
-  this->aplicarConfiguracao();
  }
  catch(Excecao &e)
  {
@@ -143,13 +141,15 @@ void ConfGeralWidget::salvarConfiguracao(void)
 //-----------------------------------------------------------
 void ConfGeralWidget::aplicarConfiguracao(void)
 {
- //Aplica a configuração de grade à cena
- CenaObjetos::definirGrade(tam_grade_spb->value());
  //Aplica as configurações de papel à cena
  CenaObjetos::definirConfiguracaoPagina(static_cast<QPrinter::PaperSize>(papel_cmb->itemData(papel_cmb->currentIndex()).toInt()),
                                         (retrato_rb->isChecked() ? QPrinter::Portrait : QPrinter::Landscape),
                                         QRectF(marg_esq->value(), marg_topo->value(),
                                                marg_dir->value(), marg_base->value()));
+
+ //Aplica a configuração de grade à cena
+ CenaObjetos::definirGrade(tam_grade_spb->value());
+
  //Aplica as configurações à lista de operações
  ListaOperacoes::definirTamanhoMaximo(tam_lista_spb->value());
 }

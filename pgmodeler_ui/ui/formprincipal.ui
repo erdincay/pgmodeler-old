@@ -100,6 +100,7 @@
     <addaction name="action_fechar_modelo"/>
     <addaction name="action_salvar_modelo"/>
     <addaction name="action_salvar_como"/>
+    <addaction name="action_salvar_tudo"/>
     <addaction name="separator"/>
     <addaction name="action_imprimir"/>
     <addaction name="separator"/>
@@ -125,13 +126,34 @@
    </widget>
    <widget class="QMenu" name="menuExibir">
     <property name="title">
-     <string>Widgets</string>
+     <string>Exibir</string>
     </property>
+    <widget class="QMenu" name="menuFerramentas">
+     <property name="title">
+      <string>Ferramentas</string>
+     </property>
+     <addaction name="action_arquivo"/>
+     <addaction name="action_exibicao"/>
+     <addaction name="action_edicao"/>
+     <addaction name="action_modelo"/>
+     <addaction name="separator"/>
+     <addaction name="action_operacoes"/>
+     <addaction name="action_visao_objetos"/>
+    </widget>
+    <addaction name="action_exibir_grade"/>
+    <addaction name="action_exibir_lim_paginas"/>
+    <addaction name="action_tela_cheia"/>
+    <addaction name="separator"/>
+    <addaction name="action_zoom_normal"/>
+    <addaction name="action_ampliar_zoom"/>
+    <addaction name="action_diminuir_zoom"/>
+    <addaction name="separator"/>
+    <addaction name="menuFerramentas"/>
    </widget>
    <addaction name="menuArquivo"/>
    <addaction name="menuEditar"/>
-   <addaction name="menuSobre"/>
    <addaction name="menuExibir"/>
+   <addaction name="menuSobre"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="arquivo_tb">
@@ -323,7 +345,7 @@
     <string>Ampliar zoom</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl++</string>
+    <string>Ctrl+=</string>
    </property>
    <property name="menuRole">
     <enum>QAction::PreferencesRole</enum>
@@ -608,6 +630,9 @@
    <property name="text">
     <string>Zoom Normal</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
+   </property>
   </action>
   <action name="action_alin_objs_grade">
    <property name="checkable">
@@ -671,6 +696,9 @@
    <property name="toolTip">
     <string>Exibe os limitadores de página</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
   </action>
   <action name="action_configuracoes">
    <property name="icon">
@@ -684,6 +712,59 @@
   <action name="actionWidgets">
    <property name="text">
     <string>Widgets</string>
+   </property>
+  </action>
+  <action name="action_arquivo">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Arquivo</string>
+   </property>
+  </action>
+  <action name="action_exibicao">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Exibição</string>
+   </property>
+  </action>
+  <action name="action_edicao">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Edição</string>
+   </property>
+  </action>
+  <action name="action_modelo">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Modelo</string>
+   </property>
+  </action>
+  <action name="action_operacoes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Operações</string>
+   </property>
+  </action>
+  <action name="action_visao_objetos">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Visão de Objetos</string>
+   </property>
+  </action>
+  <action name="action_salvar_tudo">
+   <property name="text">
+    <string>Salvar Tudo</string>
    </property>
   </action>
  </widget>
