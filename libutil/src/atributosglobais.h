@@ -55,7 +55,9 @@ static const QString
    CONF_CONEXOES="connections",
    CONF_SESSAO="session",
    CONF_DESTAQUE_SQL="sql-highlight",
-   CONF_DESTAQUE_XML="xml-highlight";
+   CONF_DESTAQUE_XML="xml-highlight",
+
+   MODELO_EXEMPLO="example.pgmodel";
 };
 //***********************************************************
 #endif

@@ -228,6 +228,9 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  connect(visao_objs, SIGNAL(visibilityChanged(bool)), action_visao_objetos, SLOT(setChecked(bool)));
  connect(action_visao_objetos, SIGNAL(toggled(bool)), visao_objs, SLOT(setVisible(bool)));
 
+ connect(fconfiguracao, SIGNAL(finished(int)), this, SLOT(atualizarIntervaloSalvamento(void)));
+ connect(&tm_salvamento, SIGNAL(timeout(void)), this, SLOT(salvarTodosModelos(void)));
+
  modelo_atual=NULL;
 
  //Inserindo a versão do software na janela principal
@@ -304,8 +307,9 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  }
 
  interv_salvar=confs[AtributosParsers::CONFIGURACAO][AtributosParsers::INTERVALO_SALVAR_AUTO].toInt() * 60000;
+
  if(interv_salvar > 0)
-  QTimer::singleShot(interv_salvar, this, SLOT(salvarTodosModelos()));
+  tm_salvamento.start(interv_salvar, false);
 }
 //----------------------------------------------------------
 FormPrincipal::~FormPrincipal(void)
@@ -325,6 +329,7 @@ void FormPrincipal::closeEvent(QCloseEvent *)
 
  conf_wgt=dynamic_cast<ConfGeralWidget *>(fconfiguracao->obterWidgetConfiguracao(0));
  confs=conf_wgt->obterParamsConfiguracao();
+ conf_wgt->excluirParamsConfiguracao();
 
  if(!confs[AtributosParsers::CONFIGURACAO][AtributosParsers::SALVAR_WIDGETS].isEmpty())
  {
@@ -536,10 +541,7 @@ void FormPrincipal::definirModeloAtual(void)
 
  atualizarEstadoFerramentas();
 
- //if(lista_oper->isVisible())
  lista_oper->definirModelo(modelo_atual);
-
- //if(visao_objs->isVisible())
  visao_objs->definirModelo(modelo_atual);
 }
 //----------------------------------------------------------
@@ -665,21 +667,39 @@ void FormPrincipal::fecharModelo(int idx_modelo)
  }
 }
 //----------------------------------------------------------
+void FormPrincipal::atualizarIntervaloSalvamento(void)
+{
+ ConfGeralWidget *conf_wgt=NULL;
+
+ conf_wgt=dynamic_cast<ConfGeralWidget *>(fconfiguracao->obterWidgetConfiguracao(0));
+
+ if(!conf_wgt->salvar_mod_chk->isChecked())
+ {
+  interv_salvar=0;
+  tm_salvamento.stop();
+ }
+ else if(conf_wgt->salvar_mod_chk->isChecked())
+ {
+  interv_salvar=conf_wgt->salvar_mod_spb->value() * 60000;
+  tm_salvamento.start(interv_salvar, false);
+ }
+}
+//----------------------------------------------------------
 void FormPrincipal::salvarTodosModelos(void)
 {
- ModeloWidget *modelo=NULL;
- int i, qtd;
-
- qtd=modelos_tab->count();
-
- for(i=0; i < qtd; i++)
- {
-  modelo=dynamic_cast<ModeloWidget *>(modelos_tab->widget(i));
-  this->salvarModelo(modelo);
- }
-
  if(interv_salvar > 0)
-  QTimer::singleShot(interv_salvar, this, SLOT(salvarTodosModelos()));
+ {
+  ModeloWidget *modelo=NULL;
+  int i, qtd;
+
+  qtd=modelos_tab->count();
+
+  for(i=0; i < qtd; i++)
+  {
+   modelo=dynamic_cast<ModeloWidget *>(modelos_tab->widget(i));
+   this->salvarModelo(modelo);
+  }
+ }
 }
 //----------------------------------------------------------
 void FormPrincipal::salvarModelo(ModeloWidget *modelo)

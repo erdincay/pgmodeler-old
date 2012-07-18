@@ -13,12 +13,12 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="confaparencia_grid">
    <property name="margin">
-    <number>4</number>
+    <number>2</number>
    </property>
    <item row="0" column="0">
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="elemento_lbl">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -31,10 +31,10 @@
     </widget>
    </item>
    <item row="0" column="1" colspan="3">
-    <widget class="QComboBox" name="comboBox_3"/>
+    <widget class="QComboBox" name="elemento_cmb"/>
    </item>
    <item row="1" column="0">
-    <widget class="QLabel" name="label_10">
+    <widget class="QLabel" name="fonte_lbl">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -47,7 +47,7 @@
     </widget>
    </item>
    <item row="1" column="1" colspan="3">
-    <widget class="QFontComboBox" name="fontComboBox">
+    <widget class="QFontComboBox" name="fonte_cmb">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -78,7 +78,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QDoubleSpinBox" name="doubleSpinBox">
+      <widget class="QDoubleSpinBox" name="tam_fonte_spb">
        <property name="decimals">
         <number>1</number>
        </property>
@@ -103,7 +103,7 @@
     </layout>
    </item>
    <item row="2" column="2">
-    <widget class="QCheckBox" name="checkBox_4">
+    <widget class="QCheckBox" name="negrito_chk">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -122,7 +122,7 @@
     </widget>
    </item>
    <item row="2" column="3">
-    <widget class="QCheckBox" name="checkBox_5">
+    <widget class="QCheckBox" name="italico_chk">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -141,7 +141,7 @@
     </widget>
    </item>
    <item row="3" column="0">
-    <widget class="QLabel" name="label_12">
+    <widget class="QLabel" name="cores_lbl">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -156,7 +156,7 @@
    <item row="3" column="1" colspan="3">
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
-      <widget class="QToolButton" name="toolButton">
+      <widget class="QToolButton" name="cor1">
        <property name="minimumSize">
         <size>
          <width>60</width>
@@ -178,7 +178,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_2">
+      <widget class="QToolButton" name="cor2">
        <property name="minimumSize">
         <size>
          <width>60</width>
@@ -200,7 +200,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_3">
+      <widget class="QToolButton" name="cor3">
        <property name="minimumSize">
         <size>
          <width>60</width>

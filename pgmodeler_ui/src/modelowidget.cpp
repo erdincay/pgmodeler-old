@@ -62,6 +62,8 @@ ModeloWidget *ModeloWidget::modelo_orig=NULL;
 //**********************************************************
 ModeloWidget::ModeloWidget(QWidget *parent) : QWidget(parent)
 {
+ QFont fonte;
+ QLabel *label=NULL;
  QGridLayout *grid=NULL;
  QMenu *menu_rels=NULL;
  QAction *acao=NULL;
@@ -81,6 +83,38 @@ ModeloWidget::ModeloWidget(QWidget *parent) : QWidget(parent)
 
  zoom_atual=1;
  tipo_novo_obj=OBJETO_BASE;
+
+ modelo_protegido_frm=new QFrame(this);
+ modelo_protegido_frm->setGeometry(QRect(20, 10, 511, 48));
+ modelo_protegido_frm->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+ modelo_protegido_frm->setMinimumSize(QSize(0, 48));
+ modelo_protegido_frm->setFrameShape(QFrame::StyledPanel);
+ modelo_protegido_frm->setFrameShadow(QFrame::Raised);
+ modelo_protegido_frm->setVisible(false);
+
+ label=new QLabel(modelo_protegido_frm);
+ label->setMinimumSize(QSize(32, 32));
+ label->setMaximumSize(QSize(32, 32));
+ label->setPixmap(QPixmap(QString::fromUtf8(":/icones/icones/msgbox_alerta.png")));
+
+ grid=new QGridLayout;
+ grid->addWidget(label, 0, 0, 1, 1);
+
+ label=new QLabel(modelo_protegido_frm);
+
+ fonte.setPointSize(9);
+ fonte.setBold(false);
+ fonte.setItalic(false);
+ fonte.setUnderline(false);
+ fonte.setWeight(50);
+ fonte.setStrikeOut(false);
+ fonte.setKerning(true);
+ label->setFont(fonte);
+ label->setWordWrap(true);
+ label->setText(trUtf8("<strong>ATENÇÃO:</strong> O modelo de objetos encontra-se protegido! Novos objetos só poderão ser inseridos quando esta situação for revertida!"));
+
+ grid->addWidget(label, 0, 1, 1, 1);
+ modelo_protegido_frm->setLayout(grid);
 
  //Aloca o modelo e a lista de operações
  modelo=new ModeloBD;
@@ -108,7 +142,8 @@ ModeloWidget::ModeloWidget(QWidget *parent) : QWidget(parent)
 
  //Aloca um grid layout para agrupar os widgets que formam o ModeloWidget
  grid=new QGridLayout;
- grid->addWidget(viewport, 0,0,1,1);
+ grid->addWidget(modelo_protegido_frm, 0,0,1,1);
+ grid->addWidget(viewport, 1,0,1,1);
  this->setLayout(grid);
 
  //Aloca as ações do menu popup
@@ -705,6 +740,8 @@ void ModeloWidget::carregarModelo(const QString &nome_arq)
 
   prog_tarefa->close();
   disconnect(modelo, NULL, prog_tarefa, NULL);
+
+  modelo_protegido_frm->setVisible(modelo->objetoProtegido());
  }
  catch(Excecao &e)
  {
@@ -1277,6 +1314,8 @@ void ModeloWidget::protegerObjeto(void)
   {
    if(obj_sender==action_proteger || obj_sender==action_desproteger)
     modelo->definirProtegido(!modelo->objetoProtegido());
+
+   modelo_protegido_frm->setVisible(modelo->objetoProtegido());
   }
   //Caso haja mais de um objeto selecionado, faz a proteção em lote
   else
@@ -1975,6 +2014,8 @@ void ModeloWidget::configurarMenuPopup(vector<ObjetoBase *> objs_sel)
  this->desabilitarAcoesModelo();
  this->objs_selecionados=objs_sel;
 
+ menu_novo_obj.setEnabled(!this->modelo->objetoProtegido());
+
  if(objs_sel.size() <= 1)
  {
   //Caso não haja objetos selecionados
@@ -2061,8 +2102,11 @@ void ModeloWidget::configurarMenuPopup(vector<ObjetoBase *> objs_sel)
 
  /* Adiciona a ação de proteger/desproteger quando o objeto selecionado
     não foi incluído por relacionamento e caso se tratar de um objeto de
-    tabela, a tabela pai não está protegido */
+    tabela, a tabela pai não está protegido. Caso o modelo esteja protegido a ação
+    de proteger/desproteger não será exibida pois isso força o usário a desproteger
+    todo o modelo para depois manipular os demais objetos */
  if(!objs_sel.empty() &&
+    !this->modelo->objetoProtegido() &&
     (!obj_tab || (obj_tab && !obj_tab->obterTabelaPai()->objetoProtegido() && !obj_tab->incluidoPorRelacionamento())))
  {
   if(!objs_sel[0]->objetoProtegido())

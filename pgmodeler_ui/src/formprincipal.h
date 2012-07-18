@@ -42,6 +42,7 @@ class FormPrincipal: public QMainWindow, public Ui::FormPrincipal {
  private:
   static const QString VERSAO_PGMODELER;
 
+  QTimer tm_salvamento;
   ListaOperacoesWidget *lista_oper;
   VisaoObjetosWidget *visao_objs;
   ModeloWidget *modelo_atual;
@@ -78,6 +79,7 @@ class FormPrincipal: public QMainWindow, public Ui::FormPrincipal {
   void salvarModelo(ModeloWidget *modelo=NULL);
   void salvarTodosModelos(void);
   void imprimirModelo(void);
+  void atualizarIntervaloSalvamento(void);
 
   void aplicarZoom(void);
   void exibirTelaCheia(bool tela_cheixa);

@@ -164,6 +164,8 @@ void CenaObjetos::exibirLinhaRelacionamento(bool valor, const QPointF &p)
 {
  QList<QGraphicsItem *> itens=this->items();
  QGraphicsItem::GraphicsItemFlags flags;
+ ObjetoGrafico *objeto=NULL;
+ ObjetoGraficoBase *obj_base=NULL;
 
  if(!isnan(p.x()) && !isnan(p.y()))
   linha_rel->setLine(QLineF(p,p));
@@ -172,18 +174,27 @@ void CenaObjetos::exibirLinhaRelacionamento(bool valor, const QPointF &p)
 
  /* Caso a linha for exibida configura a flag dos objetos
     como sendo não movíveis */
- if(valor)
-  flags=QGraphicsItem::ItemIsSelectable |
-        QGraphicsItem::ItemSendsGeometryChanges;
- else
-  //Restaura as flags dos objetos
-  flags=QGraphicsItem::ItemIsMovable |
-        QGraphicsItem::ItemIsSelectable |
-        QGraphicsItem::ItemSendsGeometryChanges;
+ flags=QGraphicsItem::ItemIsSelectable |
+       QGraphicsItem::ItemSendsGeometryChanges;
 
  //Configura as flags dos objetos na cena
  while(!itens.isEmpty())
  {
+  objeto=dynamic_cast<ObjetoGrafico *>(itens.front());
+
+  if(objeto && objeto->obterObjetoOrigem())
+  {
+   obj_base=dynamic_cast<ObjetoGraficoBase *>(objeto->obterObjetoOrigem());
+
+   /* Caso o objeto gráfico seja uma tabela, visão ou caixa texto, ativa
+      a flag de movimento caso o mesmo não esteja protegido */
+   if(!valor && obj_base &&
+      obj_base->obterTipoObjeto()!=OBJETO_RELACAO &&
+      obj_base->obterTipoObjeto()!=OBJETO_RELACAO_BASE &&
+      !obj_base->objetoProtegido())
+    flags|=QGraphicsItem::ItemIsMovable;
+  }
+
   itens.front()->setFlags(flags);
   itens.pop_front();
  }

@@ -25,13 +25,22 @@
 
 #include "ui_confaparenciawidget.h"
 #include "confbasewidget.h"
+#include "cenaobjetos.h"
+#include "modelobd.h"
 //***********************************************************
 class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, public ConfBaseWidget {
  private:
   Q_OBJECT
 
+  QGraphicsView *viewp;
+  CenaObjetos *cena;
+  ModeloBD *modelo;
+
+  void criarObjetosExemplo(void);
+
  public:
   ConfAparenciaWidget(QWidget * parent=0);
+  ~ConfAparenciaWidget(void);
 
   void salvarConfiguracao(void);
   void carregarConfiguracao(void);

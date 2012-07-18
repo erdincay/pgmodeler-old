@@ -43,7 +43,7 @@ void FormConfiguracao::carregarConfiguracao(void)
  try
  {
   conf_geral->carregarConfiguracao();
-  ObjetoGrafico::carregarEstiloObjetos();
+  conf_aparencia->carregarConfiguracao();
  }
  catch(Excecao &e)
  {

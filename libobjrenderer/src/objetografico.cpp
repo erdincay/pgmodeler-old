@@ -84,8 +84,8 @@ void ObjetoGrafico::definirObjetoOrigem(ObjetoBase *objeto)
   /* Por padrão, todo objeto gráfico pode ser selecionado, movido e também comunica a instâncias
      superiores sobre alterações em sua geometria */
   this->setFlags(QGraphicsItem::ItemIsSelectable |
-                 QGraphicsItem::ItemIsMovable |
                  QGraphicsItem::ItemSendsGeometryChanges);
+  this->setFlag(QGraphicsItem::ItemIsMovable, !obj_graf->objetoProtegido());
 
   /* Calcula a proporção entre a fonte configurada e o tamanho padrão da fonte,
      para compatibilizar o tamanho dos objetos com o tamanho da fonte */

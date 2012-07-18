@@ -57,6 +57,9 @@ class ModeloWidget: public QWidget {
   //Objetos copiados no modelo de origem
   static vector<ObjetoBase *> objs_copiados;
 
+  //Frame que indica que o modelo está protegido
+  QFrame *modelo_protegido_frm;
+
   //Cena de objetos gráficos do modelo
   CenaObjetos *cena;
 

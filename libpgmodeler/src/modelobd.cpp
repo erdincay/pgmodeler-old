@@ -3090,10 +3090,7 @@ void ModeloBD::definirAtributosBasicos(ObjetoBase *objeto)
  }
 
  ParserXML::restaurarPosicao();
- if(tipo_obj==OBJETO_TABELA)
-  dynamic_cast<Tabela *>(objeto)->definirProtegido(protegido);
- else
-  objeto->definirProtegido(protegido);
+ objeto->definirProtegido(protegido);
 
  if(erro)
  {
@@ -4578,6 +4575,8 @@ Tabela *ModeloBD::criarTabela(void)
    }
    while(ParserXML::acessarElemento(ParserXML::ELEMENTO_POSTERIOR));
   }
+
+  tabela->definirProtegido(tabela->objetoProtegido());
  }
  catch(Excecao &e)
  {
