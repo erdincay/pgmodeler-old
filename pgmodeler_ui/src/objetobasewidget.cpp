@@ -770,7 +770,11 @@ void ObjetoBaseWidget::finalizarConfiguracao(void)
    //Caso o objeto editado seja um objeto de tabela, atualiza a tabela pai
    if(!obj_graf && obj_tab)
    {
-    obj_graf=dynamic_cast<ObjetoGraficoBase *>(obj_tab->obterTabelaPai());
+    if(this->tabela)
+     obj_graf=dynamic_cast<ObjetoGraficoBase *>(this->tabela);
+    else
+     obj_graf=dynamic_cast<ObjetoGraficoBase *>(this->relacionamento);
+
     obj_graf->definirModificado(true);
    }
    //Caso não seja um objeto de tabela atualiza o próprio objeto

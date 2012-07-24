@@ -58,6 +58,7 @@ void OGVisao::configurarObjeto(void)
    referencia=new OGSubItemObjeto;
 
   //Configura o subitem (referência)
+  referencias->removeFromGroup(referencia);
   referencia->configurarObjeto(ref_visao);
   referencia->moveBy(ESP_HORIZONTAL, (i * referencia->boundingRect().height()) + ESP_VERTICAL);
   //Adiciona a referência configurada ao grupo

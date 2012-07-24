@@ -12,7 +12,7 @@ OGRelacionamento::OGRelacionamento(RelacionamentoBase *relacao) : ObjetoGrafico(
   //Aloca os rótulos
   if(relacao->obterRotulo(i))
   {
-   relacao->obterRotulo(i)->definirCorTexto(QColor(ObjetoGrafico::obterCorFonte(AtributosParsers::ROTULO)));
+   relacao->obterRotulo(i)->definirCorTexto(ObjetoGrafico::obterEstiloFonte(AtributosParsers::ROTULO).foreground());
    rotulos[i]=new OGCaixaTexto(relacao->obterRotulo(i),
                                ObjetoGrafico::obterEstiloPreenchimento(AtributosParsers::ROTULO),
                                ObjetoGrafico::obterEstiloBorda(AtributosParsers::ROTULO));
@@ -372,6 +372,7 @@ void OGRelacionamento::configurarInfoPosicao(void)
  {
   QPolygonF pol;
 
+  txt_info_pos->setFont(config_fonte[AtributosParsers::GLOBAL].font());
   txt_info_pos->setText(QString(" x=%1 y=%2 ").arg(descritor->pos().x()).arg(descritor->pos().y()));
   pol.append(txt_info_pos->boundingRect().topLeft());
   pol.append(txt_info_pos->boundingRect().topRight());

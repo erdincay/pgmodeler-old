@@ -197,6 +197,8 @@ void OGTabela::configurarObjeto(void)
     item_coluna=dynamic_cast<OGSubItemObjeto *>(subitens[i]);
     //Redefine o objeto de origem
     item_coluna->definirObjetoOrigem(obj_tab);
+    item_coluna->configurarObjeto();
+
     //Move o item para a origem para ser reposicionado posteriormente
     item_coluna->moveBy(-item_coluna->scenePos().x(),
                         -item_coluna->scenePos().y());
@@ -237,6 +239,7 @@ void OGTabela::configurarObjeto(void)
   while(!itens_cols.isEmpty())
   {
    item_coluna=dynamic_cast<OGSubItemObjeto *>(itens_cols.front());
+   grupos[idx]->removeFromGroup(item_coluna);
    itens_cols.pop_front();
    //Posiciona o rótulo de tipo
    item_coluna->definirPosXObjetoFilho(2, px);

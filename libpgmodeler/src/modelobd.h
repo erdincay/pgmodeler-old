@@ -461,6 +461,9 @@ class ModeloBD:  public QObject, public ObjetoBase {
      Para se obter TODAS as referências ao objeto, deve-se espeficicar como 'false' o parâmetro 'modo_exclusão'. */
   void obterReferenciasObjeto(ObjetoBase *objeto, vector<ObjetoBase *> &vet_refs, bool modo_exclusao=false);
 
+  //Marca todos os objetos gráficos do modelo como modificados forçando seu redesenho
+  void definirObjetosModificados(void);
+
  signals:
   //Sinal emitido sempre que um novo objeto for adicionado ao modelo
   void s_objetoAdicionado(ObjetoBase *objeto);

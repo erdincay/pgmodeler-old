@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-ATENÇÃO: Este arquivo é usado como exemplo no formulário de configuração
-         cores dos objetos do modelo. Não apague ou modifique este arquivo a não ser
-	 que você saiba o que está fazendo. Resultados inesperados podem acontecer
+ATENÇÃO: Não modifique este arquivo a não ser que você saiba
+         o que está fazendo. Resultados inesperados podem acontecer
          caso o código seja alterado deliberadamente.
 
-CAUTION: This file is used as an example on the model objects configuration dialog.
-         Do not delete or modify this file unless you know what you are doing.
+CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
 <dbmodel author="Raphael Araújo e Silva">
@@ -44,7 +42,7 @@ CAUTION: This file is used as an example on the model objects configuration dial
 		<type name="serial"/>
 	</column>
 	<column name="column1">
-		<type name="varchar" length="200"/>
+		<type name="text"/>
 	</column>
 	<column name="column2" not-null="true">
 		<type name="integer"/>
@@ -72,35 +70,35 @@ CAUTION: This file is used as an example on the model objects configuration dial
 
 <table name="table1" oids="false" protected="true">
 	<schema name="public"/>
-	<position x="550" y="25"/>
-	<column name="column" not-null="true">
+	<position x="422" y="24"/>
+	<column name="column" not-null="true" protected="true">
 		<type name="serial"/>
 	</column>
-	<column name="column1">
-		<type name="varchar" length="200"/>
-	</column>
-	<column name="column2" not-null="true">
-		<type name="integer"/>
-	</column>
-	<column name="column3">
+	<column name="column1" protected="true">
 		<type name="text"/>
 	</column>
-	<constraint name="table_pk" type="pk-constr" factor="10" table="public.table1">
+	<column name="column2" not-null="true" protected="true">
+		<type name="integer"/>
+	</column>
+	<column name="column3" protected="true">
+		<type name="text"/>
+	</column>
+	<constraint name="table_pk" type="pk-constr" factor="10" protected="true" table="public.table1">
 		<columns names="column" ref-type="src-columns"/>
 	</constraint>
-	<constraint name="table_uq" type="uq-constr" factor="10" table="public.table1">
+	<constraint name="table_uq" type="uq-constr" factor="10" protected="true" table="public.table1">
 		<columns names="column1" ref-type="src-columns"/>
 	</constraint>
-	<constraint name="table_ck" type="ck-constr" table="public.table1">
+	<constraint name="table_ck" type="ck-constr" protected="true" table="public.table1">
 			<expression> column1 &gt; 0 </expression>
 	</constraint>
 	<rule name="rule1" event-type="ON INSERT"
-		 exec-type="ALSO">
+		 exec-type="ALSO" protected="true">
 		<condition>column1 = 0</condition>
 		<commands>UPDATE public.table1 SET column1 = 1</commands>
 	</rule>
 	<trigger name="trigger1" firing-type="BEFORE" per-line="false"
-		 ins-event="true" del-event="true" upd-event="true" trunc-event="false">
+		 ins-event="true" del-event="true" upd-event="true" trunc-event="false" protected="true">
 		<function signature="public.trigger_func(integer)"/>
 	</trigger>
 </table>
@@ -110,11 +108,23 @@ CAUTION: This file is used as an example on the model objects configuration dial
 	 src-required="false" dst-required="false"
 	 table-name="relationship"
 	 src-table="public.table1"
-	 dst-table="public.table"/>
+	 dst-table="public.table">
+	<column name="attribute">
+		<type name="integer"/>
+	</column>
+        <column name="attribute1">
+		<type name="integer"/>
+	</column>
+	        <column name="attribute2">
+		<type name="integer"/>
+	</column>
+	
+	
+</relationship>
 
 <view name="view" protected="true">
 	<schema name="public"/>
-	<position x="560" y="250"/>
+	<position x="320" y="250"/>
 	<reference table="public.table" column="column1" alias="t1" column-alias="col1"/>
 	<reference table="public.table1" column="column2" alias="t2" column-alias="col2"/>
 	<reference alias="expr">
@@ -138,12 +148,12 @@ CAUTION: This file is used as an example on the model objects configuration dial
 	 dst-table="public.table1"/>
 
 <textbox name="textbox">
-	<position x="20" y="180"/>
+	<position x="20" y="250"/>
 	<comment>Selected Textbox</comment>
 </textbox>
 
 <textbox name="textbox1" protected="true">
-	<position x="20" y="250"/>
+	<position x="20" y="300"/>
 	<comment>Protected Textbox</comment>
 </textbox>
 

@@ -27,14 +27,25 @@
 #include "confbasewidget.h"
 #include "cenaobjetos.h"
 #include "modelobd.h"
+#include <algorithm>
 //***********************************************************
 class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, public ConfBaseWidget {
  private:
   Q_OBJECT
 
+  class ItemConfAparencia {
+   public:
+    QString id_conf;
+    QTextCharFormat fmt_fonte;
+    QColor cores[3];
+    bool conf_obj;
+  };
+
+  QColorDialog cor_dlg;
   QGraphicsView *viewp;
   CenaObjetos *cena;
   ModeloBD *modelo;
+  vector<ItemConfAparencia> itens_conf;
 
   void criarObjetosExemplo(void);
 
@@ -44,6 +55,11 @@ class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, publi
 
   void salvarConfiguracao(void);
   void carregarConfiguracao(void);
+
+ private slots:
+  void habilitarElemConfiguracao(void);
+  void aplicarEstiloFonte(void);
+  void aplicarCorElemento(void);
 
  public slots:
   void aplicarConfiguracao(void){}

@@ -172,14 +172,14 @@ void CenaObjetos::exibirLinhaRelacionamento(bool valor, const QPointF &p)
 
  linha_rel->setVisible(valor);
 
- /* Caso a linha for exibida configura a flag dos objetos
-    como sendo não movíveis */
- flags=QGraphicsItem::ItemIsSelectable |
-       QGraphicsItem::ItemSendsGeometryChanges;
-
  //Configura as flags dos objetos na cena
  while(!itens.isEmpty())
  {
+  /* Caso a linha for exibida configura a flag dos objetos
+     como sendo não movíveis */
+  flags=QGraphicsItem::ItemIsSelectable |
+        QGraphicsItem::ItemSendsGeometryChanges;
+
   objeto=dynamic_cast<ObjetoGrafico *>(itens.front());
 
   if(objeto && objeto->obterObjetoOrigem())
@@ -192,7 +192,14 @@ void CenaObjetos::exibirLinhaRelacionamento(bool valor, const QPointF &p)
       obj_base->obterTipoObjeto()!=OBJETO_RELACAO &&
       obj_base->obterTipoObjeto()!=OBJETO_RELACAO_BASE &&
       !obj_base->objetoProtegido())
-    flags|=QGraphicsItem::ItemIsMovable;
+    flags=QGraphicsItem::ItemIsMovable |
+          QGraphicsItem::ItemIsSelectable |
+          QGraphicsItem::ItemSendsGeometryChanges;
+   else
+    /* Caso a linha for exibida configura a flag dos objetos
+       como sendo não movíveis */
+    flags=QGraphicsItem::ItemIsSelectable |
+          QGraphicsItem::ItemSendsGeometryChanges;
   }
 
   itens.front()->setFlags(flags);

@@ -120,8 +120,15 @@ class ObjetoGrafico: public QObject, public QGraphicsItemGroup {
   /* Métodos utilitário que retornam o estilo de preenhcimento e de borda
      do objeto, conforme configurado no arquivo de estilos de objetos */
   static QLinearGradient obterEstiloPreenchimento(const QString &id);
+  static void obterEstiloPreenchimento(const QString &id, QColor &cor1, QColor &cor2);
   static QPen obterEstiloBorda(const QString &id);
-  static QColor obterCorFonte(const QString &id);
+  static QTextCharFormat obterEstiloFonte(const QString &id);
+
+  // Define o estilo da fonte conforme o id do elemento.
+  static void definirEstiloFonte(const QString &id, QTextCharFormat fmt_fonte);
+
+  //Define a cor de um dado elemento, caso este esteja alocado.
+  static void definirCorElemento(const QString &id, QColor cor, unsigned id_cor);
 
  protected slots:
   //Executa configurações básicas no objeto, como definir a posição do mesmo na cena

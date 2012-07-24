@@ -7643,4 +7643,43 @@ void ModeloBD::obterReferenciasObjeto(ObjetoBase *objeto, vector<ObjetoBase *> &
   }
  }
 }
+//-----------------------------------------------------------
+void ModeloBD::definirObjetosModificados(void)
+{
+ TipoObjetoBase tipos[]={OBJETO_TABELA, OBJETO_VISAO,
+                         OBJETO_RELACAO, OBJETO_RELACAO_BASE,
+                         OBJETO_CAIXA_TEXTO};
+ vector<ObjetoBase *>::iterator itr, itr_end;
+ vector<ObjetoBase *> *lista_obj=NULL;
+ CaixaTexto *rot=NULL;
+ RelacionamentoBase *rel=NULL;
+ unsigned i, i1;
+
+ for(i=0; i < 5; i++)
+ {
+  lista_obj=obterListaObjetos(tipos[i]);
+  itr=lista_obj->begin();
+  itr_end=lista_obj->end();
+
+  while(itr!=itr_end)
+  {
+   dynamic_cast<ObjetoGraficoBase *>(*itr)->definirModificado(true);
+
+   /* Caso especial: Caso o objeto seja um relacionamento, os rótulos
+      do mesmo que são caixas de texto, devem também ser marcados
+      como modificado */
+   if(tipos[i]==OBJETO_RELACAO || tipos[i]==OBJETO_RELACAO_BASE)
+   {
+    rel=dynamic_cast<RelacionamentoBase *>(*itr);
+    for(i1=0; i1 < 3; i1++)
+    {
+     rot=rel->obterRotulo(i1);
+     if(rot) rot->definirModificado(true);
+    }
+   }
+
+   itr++;
+  }
+ }
+}
 //***********************************************************

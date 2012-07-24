@@ -56,15 +56,15 @@ void OGTituloObjeto::configurarObjeto(ObjetoGraficoBase *objeto)
 
  //Configura o descritor de esquema do objeto
  fmt=config_fonte[atrib_nome_esquema];
- esquema->setText(QString::fromUtf8(objeto->obterEsquema()->obterNome() + "."));
  esquema->setFont(fmt.font());
  esquema->setBrush(fmt.foreground());
+ esquema->setText(QString::fromUtf8(objeto->obterEsquema()->obterNome() + "."));
 
  //Configura o descritor de nome do objeto
  fmt=config_fonte[atrib_nome];
- nome->setText(QString::fromUtf8(objeto->obterNome()));
  nome->setFont(fmt.font());
  nome->setBrush(fmt.foreground());
+ nome->setText(QString::fromUtf8(objeto->obterNome()));
 
  //Configura a caixa do título
  caixa->setBrush(this->obterEstiloPreenchimento(atrib_cor_titulo));
@@ -103,7 +103,6 @@ void OGTituloObjeto::redimensionarTitulo(float larg, float alt)
  nome->setPos(esquema->pos().x() + esquema->boundingRect().width(), ESP_VERTICAL);
 
  //O retângulo de dimensão do título será o próprio retângulo de dimensão da caixa
- //this->bounding_rect=caixa->boundingRect();
  this->bounding_rect.setTopLeft(this->pos());
  this->bounding_rect.setSize(QSizeF(caixa->boundingRect().width(), caixa->boundingRect().height()));
 }

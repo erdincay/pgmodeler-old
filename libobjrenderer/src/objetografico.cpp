@@ -181,7 +181,7 @@ void ObjetoGrafico::definirObjetoOrigem(ObjetoBase *objeto)
   pol_info_pos->setBrush(QColor(255,255,128,200));
   pol_info_pos->setPen(QColor(128,0,0));
   pol_info_pos->setVisible(false);
-  txt_info_pos->setFont(config_fonte[AtributosParsers::GLOBAL].font());
+  //txt_info_pos->setFont(config_fonte[AtributosParsers::GLOBAL].font());
   txt_info_pos->setVisible(false);
  }
 }
@@ -290,6 +290,57 @@ void ObjetoGrafico::carregarEstiloObjetos(void)
  }
 }
 //-----------------------------------------------------------
+void ObjetoGrafico::definirEstiloFonte(const QString &id, QTextCharFormat fmt_fonte)
+{
+ QFont fonte;
+
+ fonte=config_fonte[AtributosParsers::GLOBAL].font();
+
+ if(id!=AtributosParsers::GLOBAL)
+ {
+  fonte.setItalic(fmt_fonte.font().italic());
+  fonte.setBold(fmt_fonte.font().bold());
+  fonte.setUnderline(fmt_fonte.font().underline());
+  fmt_fonte.setFont(fonte);
+ }
+ /* Caso o ID global seja modificado, aplica a modificação na fonte aos demais
+    elementos pois todos tem suas configurações de fonte com base no global */
+ else
+ {
+  map<QString, QTextCharFormat>::iterator itr, itr_end;
+
+  itr=config_fonte.begin();
+  itr_end=config_fonte.end();
+
+  while(itr!=itr_end)
+  {
+   fonte.setItalic((itr->second).font().italic());
+   fonte.setBold((itr->second).font().bold());
+   fonte.setUnderline((itr->second).font().underline());
+   (itr->second).setFont(fonte);
+   itr++;
+  }
+ }
+
+ if(config_fonte.count(id))
+  config_fonte[id]=fmt_fonte;
+}
+//-----------------------------------------------------------
+void ObjetoGrafico::definirCorElemento(const QString &id, QColor cor, unsigned id_cor)
+{
+ if(id_cor < 3 && config_cores.count(id))
+  config_cores[id][id_cor]=cor;
+}
+//-----------------------------------------------------------
+void ObjetoGrafico::obterEstiloPreenchimento(const QString &id, QColor &cor1, QColor &cor2)
+{
+ if(config_cores.count(id) > 0)
+ {
+  cor1=config_cores[id][0];
+  cor2=config_cores[id][1];
+ }
+}
+//-----------------------------------------------------------
 QLinearGradient ObjetoGrafico::obterEstiloPreenchimento(const QString &id)
 {
  QColor *cores=NULL;
@@ -339,12 +390,12 @@ QPen ObjetoGrafico::obterEstiloBorda(const QString &id)
  return(pen);
 }
 //-----------------------------------------------------------
-QColor ObjetoGrafico::obterCorFonte(const QString &id)
+QTextCharFormat ObjetoGrafico::obterEstiloFonte(const QString &id)
 {
  if(config_fonte.count(id))
-  return(config_fonte[id].foreground());
+  return(config_fonte[id]);
  else
-  return(QColor(0,0,0));
+  return(QTextCharFormat());
 }
 //-----------------------------------------------------------
 QVariant ObjetoGrafico::itemChange(GraphicsItemChange change, const QVariant &value)
@@ -403,13 +454,13 @@ void ObjetoGrafico::configurarInfoPosicao(QPointF pos_info)
  {
   QPolygonF pol;
 
+  txt_info_pos->setFont(config_fonte[AtributosParsers::GLOBAL].font());
   txt_info_pos->setText(QString(" x=%1 y=%2 ").arg(pos_info.x()).arg(pos_info.y()));
   pol.append(txt_info_pos->boundingRect().topLeft());
   pol.append(txt_info_pos->boundingRect().topRight());
   pol.append(txt_info_pos->boundingRect().bottomRight());
   pol.append(txt_info_pos->boundingRect().bottomLeft());
   pol_info_pos->setPolygon(pol);
-
   txt_info_pos->setPos(0,
                        - txt_info_pos->boundingRect().height());
   pol_info_pos->setPos(0,
@@ -468,6 +519,8 @@ void ObjetoGrafico::configurarObjeto(void)
 
   //O tool tip do objeto grafico será o nome formatado do objeto de origem
   this->setToolTip(QString::fromUtf8(obj_graf->obterNome(true)));
+
+  this->configurarInfoPosicao(obj_graf->obterPosicaoObjeto());
  }
 }
 //-----------------------------------------------------------

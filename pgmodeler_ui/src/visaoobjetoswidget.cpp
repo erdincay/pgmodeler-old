@@ -354,7 +354,7 @@ void VisaoObjetosWidget::atualizarListaObjetos(void)
       fonte=item_tab->font();
       fonte.setItalic(true);
       item_tab->setFont(fonte);
-      item_tab->setForeground(ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+      item_tab->setForeground(ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
      }
 
      //Caso o objeto seja uma função ou operador a assinatura será exibida ao invés do nome do objeto
@@ -473,7 +473,7 @@ void VisaoObjetosWidget::atualizarListaObjetos(void)
            fonte=item_tab->font();
            fonte.setItalic(true);
            item_tab->setFont(fonte);
-           item_tab->setForeground(ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+           item_tab->setForeground(ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
           }
        break;
 
@@ -526,7 +526,7 @@ void VisaoObjetosWidget::atualizarListaObjetos(void)
        fonte=item_tab->font();
        fonte.setItalic(true);
        item_tab->setFont(fonte);
-       item_tab->setForeground(ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_HERDADA));
+       item_tab->setForeground(ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_HERDADA).foreground());
       }
       /* Caso o objeto esteja protegido, configura um estilo de fonte para
         indicar esta situação */
@@ -535,7 +535,7 @@ void VisaoObjetosWidget::atualizarListaObjetos(void)
        fonte=item_tab->font();
        fonte.setItalic(true);
        item_tab->setFont(fonte);
-       item_tab->setForeground(ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+       item_tab->setForeground(ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
       }
 
       //Cria o item descritor de tipo do objeto
@@ -566,7 +566,7 @@ void VisaoObjetosWidget::atualizarListaObjetos(void)
        fonte=item_tab->font();
        fonte.setItalic(true);
        item_tab->setFont(fonte);
-       item_tab->setForeground(ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+       item_tab->setForeground(ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
       }
 
       listaobjetos_tbw->setItem(id_lin, 2, item_tab);
@@ -666,7 +666,7 @@ void VisaoObjetosWidget::atualizarSubArvoreEsquema(QTreeWidgetItem *raiz)
      fonte=item2->font(0);
      fonte.setItalic(true);
      item2->setFont(0,fonte);
-     item2->setForeground(0,ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+     item2->setForeground(0,ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
     }
 
     //Atualiza a subárvore de tabelas para o esquema atual
@@ -710,7 +710,7 @@ void VisaoObjetosWidget::atualizarSubArvoreEsquema(QTreeWidgetItem *raiz)
         fonte=item4->font(0);
         fonte.setItalic(true);
         item4->setFont(0,fonte);
-        item4->setForeground(0,ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+        item4->setForeground(0,ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
        }
 
        //Caso particular para funções
@@ -815,7 +815,7 @@ void VisaoObjetosWidget::atualizarSubArvoreTabela(QTreeWidgetItem *raiz, ObjetoB
      fonte=item1->font(0);
      fonte.setItalic(true);
      item1->setFont(0,fonte);
-     item1->setForeground(0,ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+     item1->setForeground(0,ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
     }
 
     //Configura os elementos filhos da tabela, de acordo com a lista de tipos
@@ -858,7 +858,7 @@ void VisaoObjetosWidget::atualizarSubArvoreTabela(QTreeWidgetItem *raiz, ObjetoB
         fonte=item3->font(0);
         fonte.setItalic(true);
         item3->setFont(0,fonte);
-        item3->setForeground(0,ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_HERDADA));
+        item3->setForeground(0,ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_HERDADA).foreground());
        }
        /* Caso o objeto esteja protegido, configura um estilo de fonte para
           indicar esta situação */
@@ -867,7 +867,7 @@ void VisaoObjetosWidget::atualizarSubArvoreTabela(QTreeWidgetItem *raiz, ObjetoB
         fonte=item3->font(0);
         fonte.setItalic(true);
         item3->setFont(0,fonte);
-        item3->setForeground(0,ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+        item3->setForeground(0,ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
        }
 
        switch(tipos[i1])
@@ -949,7 +949,7 @@ void VisaoObjetosWidget::atualizarArvoreObjetos(void)
      fonte=raiz->font(0);
      fonte.setItalic(true);
      raiz->setFont(0,fonte);
-     raiz->setForeground(0,ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+     raiz->setForeground(0,ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
     }
 
     //Atualiza a subárvore de esquemas
@@ -1001,7 +1001,7 @@ void VisaoObjetosWidget::atualizarArvoreObjetos(void)
         fonte=item2->font(0);
         fonte.setItalic(true);
         item2->setFont(0,fonte);
-        item2->setForeground(0,ObjetoGrafico::obterCorFonte(AtributosParsers::COLUNA_PROTEGIDA));
+        item2->setForeground(0,ObjetoGrafico::obterEstiloFonte(AtributosParsers::COLUNA_PROTEGIDA).foreground());
        }
 
        /* Configurando o ícone especialmente para relacionamentos

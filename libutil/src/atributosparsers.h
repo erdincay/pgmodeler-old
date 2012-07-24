@@ -302,8 +302,6 @@ static const QString
   ID="id",
   CORPO_CADEADO="locker-body",
   ARCO_CADEADO="locker-arc",
-  DESCRITOR_REL1N="rel1n-desc",
-  DESCRITOR_RELGEN="relgen-desc",
   COR_BORDA="border-color",
   COR_PREENCHIMENTO="fill-color",
   TITULO_TABELA="table-title",
