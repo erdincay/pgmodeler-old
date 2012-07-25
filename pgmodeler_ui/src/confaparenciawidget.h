@@ -33,6 +33,7 @@ class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, publi
  private:
   Q_OBJECT
 
+  //Classe auxiliar que armazena os dados da formatação de cada elemento
   class ItemConfAparencia {
    public:
     QString id_conf;
@@ -41,12 +42,22 @@ class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, publi
     bool conf_obj;
   };
 
+  //Diálogo de seleção de cor
   QColorDialog cor_dlg;
+
+  //Viewport que mostra o modelo de exemplo
   QGraphicsView *viewp;
+
+  //Cena que armazena os objetos do modelo de exemplo
   CenaObjetos *cena;
+
+  //Modelo de objetos exemplo
   ModeloBD *modelo;
+
+  //Vetor o qual armazena cada elemento de configuração de aparência do modelo
   vector<ItemConfAparencia> itens_conf;
 
+  //Carrega o modelo de exemplo
   void criarObjetosExemplo(void);
 
  public:
@@ -57,9 +68,17 @@ class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, publi
   void carregarConfiguracao(void);
 
  private slots:
+  //Habilita os itens do formulário conforme o elemento selecionado no combobox 'elemento_cmb'
   void habilitarElemConfiguracao(void);
+
+  //Aplica o estilo de fonte ao elemento atual
   void aplicarEstiloFonte(void);
+
+  //Aplica o estilo de cor ao elemento atual
   void aplicarCorElemento(void);
+
+  /* Este método não é usado nesta classe pois as modificações são aplicadas diretamente
+     ao arquivo, operação esta tratada pelo método salvarConfiguracao() */
   void aplicarConfiguracao(void){};
 
  public slots:

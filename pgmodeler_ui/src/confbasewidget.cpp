@@ -79,11 +79,13 @@ void ConfBaseWidget::restaurarPadroes(const QString &id_conf)
 {
  QString arq_atual, arq_orig;
 
+ //Monta o caminho para o arquivo de configuração atual (conf/arquivo.conf)
  arq_atual=AtributosGlobais::DIR_CONFIGURACOES +
            AtributosGlobais::SEP_DIRETORIO +
            id_conf +
            AtributosGlobais::EXT_CONFIGURACAO;
 
+ //Monta o caminho para o arquivo de configuração original (padrão) (conf/defaults/arquivo.conf)
  arq_orig=AtributosGlobais::DIR_CONFIGURACOES +
           AtributosGlobais::SEP_DIRETORIO +
           AtributosGlobais::DIR_CONF_PADRAO+
@@ -91,12 +93,15 @@ void ConfBaseWidget::restaurarPadroes(const QString &id_conf)
           id_conf +
           AtributosGlobais::EXT_CONFIGURACAO;
 
+ //Verifica a existência do arquivo padrão, caso não existe emite uma exceção e a restauração é abortada
  if(!QFile::exists(arq_orig))
   throw Excecao(Excecao::obterMensagemErro(ERR_PGMODELERUI_CONFPADRAONAORESTAURADA).arg(arq_orig),
                 ERR_PGMODELERUI_CONFPADRAONAORESTAURADA,__PRETTY_FUNCTION__,__FILE__,__LINE__);
  else
  {
+  //Remove o arquivo atual
   QFile::remove(arq_atual);
+  //Copia o arquivo original no lugar do arquivo atual
   QFile::copy(arq_orig, arq_atual);
  }
 }

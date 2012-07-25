@@ -163,6 +163,7 @@ void ConfGeralWidget::restaurarPadroes(void)
 {
  try
  {
+  //Restaura as configurações padrão e recarrega o arquivo restaurado
   ConfBaseWidget::restaurarPadroes(AtributosGlobais::CONF_GERAL);
   this->carregarConfiguracao();
  }

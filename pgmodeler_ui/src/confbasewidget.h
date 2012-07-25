@@ -45,7 +45,7 @@ class ConfBaseWidget {
   //Obtém um parâmetro do arquivo de configuração carregado pelo ParserXML
   void obterParamsConfiguracao(const vector<QString> &atribs_chave);
 
-  //Restaura as configurações padrão
+  //Restaura as configurações padrão carregando-as do arquivo original (na pasta conf/defaults)
   void restaurarPadroes(const QString &id_conf);
 
  public:
