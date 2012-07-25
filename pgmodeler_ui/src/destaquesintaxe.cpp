@@ -539,6 +539,8 @@ void DestaqueSintaxe::carregarConfiguracao(const QString &nome_arq)
      do arquivo xml de destaque de código fonte. */
    ParserXML::definirArquivoDTD(AtributosGlobais::DIR_CONFIGURACOES +
                                 AtributosGlobais::SEP_DIRETORIO +
+                                AtributosGlobais::DIR_DTD_OBJETO +
+                                AtributosGlobais::SEP_DIRETORIO +
                                 AtributosGlobais::CONF_DESTAQUE_CODIGO +
                                 AtributosGlobais::EXT_DTD_OBJETO,
                                 AtributosGlobais::CONF_DESTAQUE_CODIGO);

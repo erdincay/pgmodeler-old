@@ -228,7 +228,7 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  connect(visao_objs, SIGNAL(visibilityChanged(bool)), action_visao_objetos, SLOT(setChecked(bool)));
  connect(action_visao_objetos, SIGNAL(toggled(bool)), visao_objs, SLOT(setVisible(bool)));
 
- connect(fconfiguracao, SIGNAL(finished(int)), this, SLOT(atualizarIntervaloSalvamento(void)));
+ connect(fconfiguracao, SIGNAL(finished(int)), this, SLOT(atualizarModelos(void)));
  connect(&tm_salvamento, SIGNAL(timeout(void)), this, SLOT(salvarTodosModelos(void)));
 
  modelo_atual=NULL;
@@ -667,12 +667,12 @@ void FormPrincipal::fecharModelo(int idx_modelo)
  }
 }
 //----------------------------------------------------------
-void FormPrincipal::atualizarIntervaloSalvamento(void)
+void FormPrincipal::atualizarModelos(void)
 {
  ConfGeralWidget *conf_wgt=NULL;
+ int qtd, i;
 
  conf_wgt=dynamic_cast<ConfGeralWidget *>(fconfiguracao->obterWidgetConfiguracao(0));
-
  if(!conf_wgt->salvar_mod_chk->isChecked())
  {
   interv_salvar=0;
@@ -683,6 +683,10 @@ void FormPrincipal::atualizarIntervaloSalvamento(void)
   interv_salvar=conf_wgt->salvar_mod_spb->value() * 60000;
   tm_salvamento.start(interv_salvar, false);
  }
+
+ qtd=modelos_tab->count();
+ for(i=0; i < qtd; i++)
+  dynamic_cast<ModeloWidget *>(modelos_tab->widget(i))->modelo->definirObjetosModificados();
 }
 //----------------------------------------------------------
 void FormPrincipal::salvarTodosModelos(void)

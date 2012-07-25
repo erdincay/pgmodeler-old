@@ -56,6 +56,7 @@ void ConfGeralWidget::carregarConfiguracao(void)
 
  papel_cmb->setCurrentIndex((params_config[AtributosParsers::CONFIGURACAO][AtributosParsers::TIPO_PAPEL_IMP]).toUInt());
  retrato_rb->setChecked(params_config[AtributosParsers::CONFIGURACAO][AtributosParsers::ORIENTACAO_PAPEL]==AtributosParsers::RETRATO);
+ paisagem_rb->setChecked(params_config[AtributosParsers::CONFIGURACAO][AtributosParsers::ORIENTACAO_PAPEL]==AtributosParsers::PAISAGEM);
 
  margem=params_config[AtributosParsers::CONFIGURACAO][AtributosParsers::MARGEM_PAPEL].split(",");
 
@@ -79,10 +80,14 @@ void ConfGeralWidget::salvarConfiguracao()
            AtributosGlobais::SEP_DIRETORIO;
 
   sch_widget=dir_raiz +
+             AtributosGlobais::DIR_ESQUEMAS +
+             AtributosGlobais::SEP_DIRETORIO +
              AtributosParsers::WIDGET +
              AtributosGlobais::EXT_ESQUEMA;
 
   sch_arquivo=dir_raiz +
+              AtributosGlobais::DIR_ESQUEMAS +
+              AtributosGlobais::SEP_DIRETORIO +
               AtributosParsers::ARQUIVO +
               AtributosGlobais::EXT_ESQUEMA;
 
@@ -156,21 +161,15 @@ void ConfGeralWidget::aplicarConfiguracao(void)
 //-----------------------------------------------------------
 void ConfGeralWidget::restaurarPadroes(void)
 {
- unidade_cmb->setCurrentIndex(0);
- marg_esq->setValue(10);
- marg_dir->setValue(10);
- marg_topo->setValue(10);
- marg_base->setValue(10);
- papel_cmb->setCurrentIndex(4);
- paisagem_rb->setChecked(true);
-
- salvar_sessao_chk->setChecked(true);
- salvar_wgts_chk->setChecked(true);
- salvar_mod_chk->setChecked(true);
- salvar_mod_spb->setValue(10);
-
- tam_lista_spb->setValue(500);
- tam_grade_spb->setValue(20);
+ try
+ {
+  ConfBaseWidget::restaurarPadroes(AtributosGlobais::CONF_GERAL);
+  this->carregarConfiguracao();
+ }
+ catch(Excecao &e)
+ {
+  throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
+ }
 }
 //-----------------------------------------------------------
 void ConfGeralWidget::converterUnidadeMargem(void)

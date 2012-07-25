@@ -91,6 +91,9 @@ class ObjetoGrafico: public QObject, public QGraphicsItemGroup {
   //Configura item de informação do posicionamento do objeto
   void configurarInfoPosicao(QPointF pos_info);
 
+  //Configura o ícone de proteção conforme as alterações de cor e fonte
+  void configurarIconeProtecao(void);
+
  public:
   /* Aloca um objeto gráfico a partir de um objeto que de alguma forma é representado graficamente
      (tabela, visão, caixa de texto, relacionamento). Caso um objeto nulo seja especifcado cria

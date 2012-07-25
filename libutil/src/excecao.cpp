@@ -151,6 +151,7 @@ QString Excecao::mensagens[QTD_ERROS][2]={
 {"ERR_PGMODELERUI_TIPOSQLINDEFREFVISAO", QObject::tr("Uma referência de visão deve possuir pelo menos uma aplicação SQL: SELECT-FROM, FROM-WHERE ou Após WHERE!")},
 {"ERR_PGMODELERUI_RESTPKFKSEMCOLUNAS", QObject::tr("Restrições do tipo chave-primária, chave-estrangeira ou única devem possuir pelo menos uma coluna relacionada às mesmas! Para chaves-estrangeira devem ser selecionadas, adicionalmente, as colunas referenciadas!")},
 {"ERR_PGMODELERUI_CONFNAOCARREGADA", QObject::tr("Não foi possível carregar um ou mais arquivos de configuração! O pgModeler usará as configurações padrão. Por favor, cheque se os arquivos existem na pasta de configurações para que este erro não se repita na próxima inicialização!")},
+{"ERR_PGMODELERUI_CONFPADRAONAORESTAURADA", QObject::tr("Não foi possível encontrar o arquivo de configurações padrão '%1'! Para restaurar as configurações padrão cheque a existência do referido arquivo e tente novamente!")},
 {"ERR_PARSERS_SINTAXEINV", QObject::tr("Sintaxe inválida no arquivo %1, linha %2, coluna %3!")},
 {"ERR_PARSERS_CONDICIONALINV", QObject::tr("Instrução condicional '%1' inválida no arquivo %2, linha %3, coluna %4!")},
 {"ERR_PARSERS_ATRIBUTODESC", QObject::tr("Atributo '%1' desconhecido no arquivo %2, linha %3, coluna %4!")},

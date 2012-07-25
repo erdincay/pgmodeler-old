@@ -28,6 +28,8 @@ void ConfBaseWidget::salvarConfiguracao(const QString &id_conf)
          //Configura o nome do arquivo de modelo (esquema) de configuração
          nome_arq_sch=AtributosGlobais::DIR_CONFIGURACOES +
                       AtributosGlobais::SEP_DIRETORIO +
+                      AtributosGlobais::DIR_ESQUEMAS +
+                      AtributosGlobais::SEP_DIRETORIO +
                       id_conf +
                       AtributosGlobais::EXT_ESQUEMA,
          //Configura o nome do arquivo de configuração
@@ -73,6 +75,32 @@ void ConfBaseWidget::salvarConfiguracao(const QString &id_conf)
  }
 }
 //-----------------------------------------------------------
+void ConfBaseWidget::restaurarPadroes(const QString &id_conf)
+{
+ QString arq_atual, arq_orig;
+
+ arq_atual=AtributosGlobais::DIR_CONFIGURACOES +
+           AtributosGlobais::SEP_DIRETORIO +
+           id_conf +
+           AtributosGlobais::EXT_CONFIGURACAO;
+
+ arq_orig=AtributosGlobais::DIR_CONFIGURACOES +
+          AtributosGlobais::SEP_DIRETORIO +
+          AtributosGlobais::DIR_CONF_PADRAO+
+          AtributosGlobais::SEP_DIRETORIO +
+          id_conf +
+          AtributosGlobais::EXT_CONFIGURACAO;
+
+ if(!QFile::exists(arq_orig))
+  throw Excecao(Excecao::obterMensagemErro(ERR_PGMODELERUI_CONFPADRAONAORESTAURADA).arg(arq_orig),
+                ERR_PGMODELERUI_CONFPADRAONAORESTAURADA,__PRETTY_FUNCTION__,__FILE__,__LINE__);
+ else
+ {
+  QFile::remove(arq_atual);
+  QFile::copy(arq_orig, arq_atual);
+ }
+}
+//-----------------------------------------------------------
 void ConfBaseWidget::carregarConfiguracao(const QString &id_conf, const vector<QString> &atribs_chave)
 {
  try
@@ -81,6 +109,8 @@ void ConfBaseWidget::carregarConfiguracao(const QString &id_conf, const vector<Q
   ParserXML::reiniciarParser();
 
   ParserXML::definirArquivoDTD(AtributosGlobais::DIR_CONFIGURACOES +
+                               AtributosGlobais::SEP_DIRETORIO +
+                               AtributosGlobais::DIR_DTD_OBJETO +
                                AtributosGlobais::SEP_DIRETORIO +
                                id_conf +
                                AtributosGlobais::EXT_DTD_OBJETO,

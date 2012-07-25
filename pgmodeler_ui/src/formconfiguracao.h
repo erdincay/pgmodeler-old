@@ -41,8 +41,9 @@ class FormConfiguracao: public QDialog, public Ui::FormConfiguracao {
   ConfBaseWidget *obterWidgetConfiguracao(unsigned idx);
 
  public slots:
-  void salvarConfiguracao(void);
+  void aplicarConfiguracao(void);
   void carregarConfiguracao(void);
+  void close(void);
 
  private slots:
   void restaurarPadroes(void);

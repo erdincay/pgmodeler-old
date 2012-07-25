@@ -45,12 +45,14 @@ class ConfBaseWidget {
   //Obtém um parâmetro do arquivo de configuração carregado pelo ParserXML
   void obterParamsConfiguracao(const vector<QString> &atribs_chave);
 
+  //Restaura as configurações padrão
+  void restaurarPadroes(const QString &id_conf);
+
  public:
   ConfBaseWidget(void){}
 
   //Adiciona um parâmetro de configuração ao mapa de configurações. Caso o mesmo já existe seus valores são substituídos
   void adicionarParamConfiguracao(const QString &param, const map<QString, QString> &atributos);
-
 
   //Obtém os parâmetros carregados do arquivo
   map<QString, map<QString, QString> > obterParamsConfiguracao(void);
@@ -61,10 +63,7 @@ class ConfBaseWidget {
   //Exclui todos os parâmetros de configuração
   void excluirParamsConfiguracao(void);
 
-  /** Métodos puramente virtuais **/
-  //Restaura as configurações padrão
-  virtual void restaurarPadroes(void)=0;
-
+  /** Método puramente virtual **/
   //Aplica as configurações padrão
   virtual void aplicarConfiguracao(void)=0;
 };

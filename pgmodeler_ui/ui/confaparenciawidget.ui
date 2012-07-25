@@ -49,6 +49,16 @@
      </item>
      <item>
       <property name="text">
+       <string>Global: Texto informativo de posição</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Global: Caixa do informativo de posição</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Global: Tipo de objetos</string>
       </property>
      </item>
@@ -283,7 +293,7 @@
         <number>1</number>
        </property>
        <property name="minimum">
-        <double>8.000000000000000</double>
+        <double>5.000000000000000</double>
        </property>
        <property name="maximum">
         <double>100.000000000000000</double>

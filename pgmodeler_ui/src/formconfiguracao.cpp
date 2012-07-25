@@ -27,15 +27,29 @@ FormConfiguracao::FormConfiguracao(QWidget *parent, Qt::WindowFlags f) : QDialog
 
  connect(lista_ico_lst, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
  connect(cancelar_btn, SIGNAL(clicked(void)), this, SLOT(close(void)));
- connect(aplicar_btn, SIGNAL(clicked(void)), this, SLOT(salvarConfiguracao(void)));
+ connect(aplicar_btn, SIGNAL(clicked(void)), this, SLOT(aplicarConfiguracao(void)));
  connect(padroes_btn, SIGNAL(clicked(void)), this, SLOT(restaurarPadroes(void)));
 }
 //-----------------------------------------------------------
-void FormConfiguracao::salvarConfiguracao(void)
+void FormConfiguracao::close(void)
+{
+ try
+ {
+  if(sender()==cancelar_btn)
+   conf_aparencia->carregarConfiguracao();
+ }
+ catch(Excecao &e)
+ {}
+
+ QDialog::close();
+}
+//-----------------------------------------------------------
+void FormConfiguracao::aplicarConfiguracao(void)
 {
  conf_geral->salvarConfiguracao();
  conf_geral->aplicarConfiguracao();
- close();
+ conf_aparencia->salvarConfiguracao();
+ this->close();
 }
 //-----------------------------------------------------------
 void FormConfiguracao::carregarConfiguracao(void)
@@ -47,14 +61,26 @@ void FormConfiguracao::carregarConfiguracao(void)
  }
  catch(Excecao &e)
  {
-  conf_geral->aplicarConfiguracao();
+  conf_geral->restaurarPadroes();
   throw Excecao(ERR_PGMODELERUI_CONFNAOCARREGADA,__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
 }
 //-----------------------------------------------------------
 void FormConfiguracao::restaurarPadroes(void)
 {
- this->obterWidgetConfiguracao(stackedWidget->currentIndex())->restaurarPadroes();
+ switch(stackedWidget->currentIndex())
+ {
+  case 0:
+   dynamic_cast<ConfGeralWidget *>(this->obterWidgetConfiguracao(0))->restaurarPadroes();
+  break;
+
+  case 1:
+   dynamic_cast<ConfAparenciaWidget *>(this->obterWidgetConfiguracao(1))->restaurarPadroes();
+  break;
+
+  default:
+  break;
+ }
 }
 //-----------------------------------------------------------
 ConfBaseWidget *FormConfiguracao::obterWidgetConfiguracao(unsigned idx)

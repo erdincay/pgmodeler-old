@@ -342,7 +342,8 @@ static const QString
   BASE="bottom",
   TOPO="top",
   VISIVEL="visible",
-  WIDGET="widget";
+  WIDGET="widget",
+  INFO_POSICAO="pos-info";
 }
 //***********************************************************
 #endif

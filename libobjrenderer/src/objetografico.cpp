@@ -74,8 +74,6 @@ void ObjetoGrafico::definirObjetoOrigem(ObjetoBase *objeto)
  else
  {
   QGraphicsPolygonItem *item_pol=NULL;
-  QPolygonF pol;
-  float fator;
 
   //Conecta os sinais da classe ObjetoGraficoBase aos slots correspondentes da classe ObjetoGrafico
   connect(obj_graf, SIGNAL(s_objetoProtegido(bool)), this, SLOT(exibirProtecaoObjeto(bool)));
@@ -87,66 +85,21 @@ void ObjetoGrafico::definirObjetoOrigem(ObjetoBase *objeto)
                  QGraphicsItem::ItemSendsGeometryChanges);
   this->setFlag(QGraphicsItem::ItemIsMovable, !obj_graf->objetoProtegido());
 
-  /* Calcula a proporção entre a fonte configurada e o tamanho padrão da fonte,
-     para compatibilizar o tamanho dos objetos com o tamanho da fonte */
-  fator=config_fonte[AtributosParsers::GLOBAL].font().pointSizeF()/TAM_PADRAO_FONTE;
-
   //Aloca o ícone de proteção caso não ainda esteja
   if(!icone_protegido)
   {
    icone_protegido=new QGraphicsItemGroup;
    icone_protegido->setVisible(obj_graf->objetoProtegido());
    icone_protegido->setZValue(3);
+
+   item_pol=new QGraphicsPolygonItem;
+   icone_protegido->addToGroup(item_pol);
+
+   item_pol=new QGraphicsPolygonItem;
+   icone_protegido->addToGroup(item_pol);
+
    this->addToGroup(icone_protegido);
   }
-
-  /* Configura os polígonos do ícone de proteção aplicando o fator de redimensionamento
-     definido acima */
-  pol.append(QPointF(2,5)); pol.append(QPointF(2,2));
-  pol.append(QPointF(3,1)); pol.append(QPointF(4,0));
-  pol.append(QPointF(7,0)); pol.append(QPointF(8,1));
-  pol.append(QPointF(9,2)); pol.append(QPointF(9,5));
-  pol.append(QPointF(7,5)); pol.append(QPointF(7,3));
-  pol.append(QPointF(6,2)); pol.append(QPointF(5,2));
-  pol.append(QPointF(4,3)); pol.append(QPointF(4,5));
-
-  if(fator!=1.0f)
-   this->redimensionarPoligono(pol, pol.boundingRect().width() * fator,
-                                    pol.boundingRect().height() * fator);
-
-  if(icone_protegido->children().isEmpty())
-  {
-   item_pol=new QGraphicsPolygonItem;
-   icone_protegido->addToGroup(item_pol);
-  }
-  else
-   item_pol=dynamic_cast<QGraphicsPolygonItem *>(icone_protegido->children().at(0));
-
-  item_pol->setPolygon(pol);
-  item_pol->setBrush(this->obterEstiloPreenchimento(AtributosParsers::ARCO_CADEADO));
-  item_pol->setPen(this->obterEstiloBorda(AtributosParsers::ARCO_CADEADO));
-
-  pol.clear();
-  pol.append(QPointF(1,5));  pol.append(QPointF(10,5));
-  pol.append(QPointF(11,6)); pol.append(QPointF(11,9));
-  pol.append(QPointF(10,10)); pol.append(QPointF(1,10));
-  pol.append(QPointF(0,9)); pol.append(QPointF(0,6));
-
-  if(fator!=1.0f)
-   this->redimensionarPoligono(pol, pol.boundingRect().width() * fator,
-                                    pol.boundingRect().height() * fator);
-
-  if(icone_protegido->children().size()==1)
-  {
-   item_pol=new QGraphicsPolygonItem;
-   icone_protegido->addToGroup(item_pol);
-  }
-  else
-   item_pol=dynamic_cast<QGraphicsPolygonItem *>(icone_protegido->children().at(1));
-
-  item_pol->setPolygon(pol);
-  item_pol->setBrush(this->obterEstiloPreenchimento(AtributosParsers::CORPO_CADEADO));
-  item_pol->setPen(this->obterEstiloBorda(AtributosParsers::CORPO_CADEADO));
 
   //Aloca e configura a seleção do objeto
   if(!selecao_obj)
@@ -167,7 +120,6 @@ void ObjetoGrafico::definirObjetoOrigem(ObjetoBase *objeto)
    this->addToGroup(sombra);
   }
 
-
   if(!txt_info_pos)
   {
    pol_info_pos=new QGraphicsPolygonItem;
@@ -178,10 +130,7 @@ void ObjetoGrafico::definirObjetoOrigem(ObjetoBase *objeto)
    this->addToGroup(txt_info_pos);
   }
 
-  pol_info_pos->setBrush(QColor(255,255,128,200));
-  pol_info_pos->setPen(QColor(128,0,0));
   pol_info_pos->setVisible(false);
-  //txt_info_pos->setFont(config_fonte[AtributosParsers::GLOBAL].font());
   txt_info_pos->setVisible(false);
  }
 }
@@ -231,6 +180,8 @@ void ObjetoGrafico::carregarEstiloObjetos(void)
   ParserXML::reiniciarParser();
   ParserXML::definirArquivoDTD(AtributosGlobais::DIR_CONFIGURACOES +
                                AtributosGlobais::SEP_DIRETORIO +
+                               AtributosGlobais::DIR_DTD_OBJETO +
+                               AtributosGlobais::SEP_DIRETORIO +
                                AtributosGlobais::CONF_ESTILO_OBJETOS +
                                AtributosGlobais::EXT_DTD_OBJETO, AtributosGlobais::CONF_ESTILO_OBJETOS);
   ParserXML::carregarArquivoXML(arq_conf);
@@ -249,7 +200,7 @@ void ObjetoGrafico::carregarEstiloObjetos(void)
      //Obtendo a configuração da fonte global
      if(elem==AtributosParsers::GLOBAL)
      {
-      fonte.setFamily(atributos[AtributosParsers::NOME]);
+      fonte.setFamily(atributos[AtributosParsers::FONTE]);
       fonte.setPointSizeF(atributos[AtributosParsers::TAMANHO].toFloat());
       fonte.setBold(atributos[AtributosParsers::NEGRITO]==AtributosParsers::VERDADEIRO);
       fonte.setItalic(atributos[AtributosParsers::ITALICO]==AtributosParsers::VERDADEIRO);
@@ -294,10 +245,9 @@ void ObjetoGrafico::definirEstiloFonte(const QString &id, QTextCharFormat fmt_fo
 {
  QFont fonte;
 
- fonte=config_fonte[AtributosParsers::GLOBAL].font();
-
  if(id!=AtributosParsers::GLOBAL)
  {
+  fonte=config_fonte[AtributosParsers::GLOBAL].font();
   fonte.setItalic(fmt_fonte.font().italic());
   fonte.setBold(fmt_fonte.font().bold());
   fonte.setUnderline(fmt_fonte.font().underline());
@@ -311,6 +261,7 @@ void ObjetoGrafico::definirEstiloFonte(const QString &id, QTextCharFormat fmt_fo
 
   itr=config_fonte.begin();
   itr_end=config_fonte.end();
+  fonte=fmt_fonte.font();
 
   while(itr!=itr_end)
   {
@@ -454,7 +405,11 @@ void ObjetoGrafico::configurarInfoPosicao(QPointF pos_info)
  {
   QPolygonF pol;
 
-  txt_info_pos->setFont(config_fonte[AtributosParsers::GLOBAL].font());
+  pol_info_pos->setBrush(ObjetoGrafico::obterEstiloPreenchimento(AtributosParsers::INFO_POSICAO));
+  pol_info_pos->setPen(ObjetoGrafico::obterEstiloBorda(AtributosParsers::INFO_POSICAO));
+  txt_info_pos->setFont(config_fonte[AtributosParsers::INFO_POSICAO].font());
+  txt_info_pos->setBrush(config_fonte[AtributosParsers::INFO_POSICAO].foreground());
+
   txt_info_pos->setText(QString(" x=%1 y=%2 ").arg(pos_info.x()).arg(pos_info.y()));
   pol.append(txt_info_pos->boundingRect().topLeft());
   pol.append(txt_info_pos->boundingRect().topRight());
@@ -507,6 +462,53 @@ void ObjetoGrafico::configurarSelecaoObjeto(void)
   selecao_obj->setPolygon(pol);
   selecao_obj->setPos(0,0);
  }
+}//-----------------------------------------------------------
+void ObjetoGrafico::configurarIconeProtecao(void)
+{
+ if(icone_protegido)
+ {
+  QGraphicsPolygonItem *item_pol=NULL;
+  QPolygonF pol;
+  float fator;
+
+  /* Calcula a proporção entre a fonte configurada e o tamanho padrão da fonte,
+     para compatibilizar o tamanho dos objetos com o tamanho da fonte */
+  fator=config_fonte[AtributosParsers::GLOBAL].font().pointSizeF()/TAM_PADRAO_FONTE;
+
+  /* Configura os polígonos do ícone de proteção aplicando o fator de redimensionamento
+     definido acima */
+  pol.append(QPointF(2,5)); pol.append(QPointF(2,2));
+  pol.append(QPointF(3,1)); pol.append(QPointF(4,0));
+  pol.append(QPointF(7,0)); pol.append(QPointF(8,1));
+  pol.append(QPointF(9,2)); pol.append(QPointF(9,5));
+  pol.append(QPointF(7,5)); pol.append(QPointF(7,3));
+  pol.append(QPointF(6,2)); pol.append(QPointF(5,2));
+  pol.append(QPointF(4,3)); pol.append(QPointF(4,5));
+
+  if(fator!=1.0f)
+   this->redimensionarPoligono(pol, pol.boundingRect().width() * fator,
+                                    pol.boundingRect().height() * fator);
+
+  item_pol=dynamic_cast<QGraphicsPolygonItem *>(icone_protegido->children().at(0));
+  item_pol->setPolygon(pol);
+  item_pol->setBrush(this->obterEstiloPreenchimento(AtributosParsers::ARCO_CADEADO));
+  item_pol->setPen(this->obterEstiloBorda(AtributosParsers::ARCO_CADEADO));
+
+  pol.clear();
+  pol.append(QPointF(1,5));  pol.append(QPointF(10,5));
+  pol.append(QPointF(11,6)); pol.append(QPointF(11,9));
+  pol.append(QPointF(10,10)); pol.append(QPointF(1,10));
+  pol.append(QPointF(0,9)); pol.append(QPointF(0,6));
+
+  if(fator!=1.0f)
+   this->redimensionarPoligono(pol, pol.boundingRect().width() * fator,
+                                    pol.boundingRect().height() * fator);
+
+  item_pol=dynamic_cast<QGraphicsPolygonItem *>(icone_protegido->children().at(1));
+  item_pol->setPolygon(pol);
+  item_pol->setBrush(this->obterEstiloPreenchimento(AtributosParsers::CORPO_CADEADO));
+  item_pol->setPen(this->obterEstiloBorda(AtributosParsers::CORPO_CADEADO));
+ }
 }
 //-----------------------------------------------------------
 void ObjetoGrafico::configurarObjeto(void)
@@ -521,6 +523,7 @@ void ObjetoGrafico::configurarObjeto(void)
   this->setToolTip(QString::fromUtf8(obj_graf->obterNome(true)));
 
   this->configurarInfoPosicao(obj_graf->obterPosicaoObjeto());
+  this->configurarIconeProtecao();
  }
 }
 //-----------------------------------------------------------

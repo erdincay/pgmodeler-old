@@ -60,10 +60,10 @@ class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, publi
   void habilitarElemConfiguracao(void);
   void aplicarEstiloFonte(void);
   void aplicarCorElemento(void);
+  void aplicarConfiguracao(void){};
 
  public slots:
-  void aplicarConfiguracao(void){}
-  void restaurarPadroes(void){}
+  void restaurarPadroes(void);
 };
 //***********************************************************
 #endif

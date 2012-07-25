@@ -370,16 +370,7 @@ void OGRelacionamento::configurarInfoPosicao(void)
 {
  if(this->isSelected())
  {
-  QPolygonF pol;
-
-  txt_info_pos->setFont(config_fonte[AtributosParsers::GLOBAL].font());
-  txt_info_pos->setText(QString(" x=%1 y=%2 ").arg(descritor->pos().x()).arg(descritor->pos().y()));
-  pol.append(txt_info_pos->boundingRect().topLeft());
-  pol.append(txt_info_pos->boundingRect().topRight());
-  pol.append(txt_info_pos->boundingRect().bottomRight());
-  pol.append(txt_info_pos->boundingRect().bottomLeft());
-  pol_info_pos->setPolygon(pol);
-
+  ObjetoGrafico::configurarInfoPosicao(descritor->pos());
   txt_info_pos->setPos(descritor->pos().x(),
                        descritor->pos().y() - txt_info_pos->boundingRect().height());
   pol_info_pos->setPos(descritor->pos().x(),
@@ -584,6 +575,7 @@ void OGRelacionamento::configurarLinha(void)
   //Configura os rótulos e o descritor
   this->configurarDescritor();
   this->configurarRotulos();
+  this->configurarIconeProtecao();
   configurando_linha=false;
 
   //O tool tip do objeto grafico será o nome formatado do objeto de origem
@@ -748,31 +740,23 @@ void OGRelacionamento::configurarAtributos(void)
     //Cria a linha que conecta o atributo ao centro do descritor
     lin=new QGraphicsLineItem;
     lin->setZValue(-1);
-    lin->setPen(ObjetoGrafico::obterEstiloBorda(AtributosParsers::RELACIONAMENTO));
     atributo->addToGroup(lin);
 
     //Cria o descritor do atributo
     desc=new QGraphicsEllipseItem;
-    desc->setRect(ret);
-    desc->setPen(ObjetoGrafico::obterEstiloBorda(AtributosParsers::ATRIBUTO));
-    desc->setBrush(ObjetoGrafico::obterEstiloPreenchimento(AtributosParsers::ATRIBUTO));
     desc->setZValue(0);
     atributo->addToGroup(desc);
 
     //Cria o texto do atributo
     texto=new QGraphicsSimpleTextItem;
     texto->setZValue(0);
-    texto->setBrush(fmt.foreground());
-    texto->setFont(fonte);
     atributo->addToGroup(texto);
 
     sel_atrib=new QGraphicsPolygonItem;
     sel_atrib->setZValue(1);
-    sel_atrib->setPen(ObjetoGrafico::obterEstiloBorda(AtributosParsers::SELECAO_OBJETO));
-    sel_atrib->setBrush(ObjetoGrafico::obterEstiloPreenchimento(AtributosParsers::SELECAO_OBJETO));
     sel_atrib->setVisible(false);
-
     atributo->addToGroup(sel_atrib);
+
     //Adiciona o atributo recém criado ao relacionamento
     this->addToGroup(atributo);
     atributos.push_back(atributo);
@@ -785,6 +769,15 @@ void OGRelacionamento::configurarAtributos(void)
     texto=dynamic_cast<QGraphicsSimpleTextItem *>(atributo->children().at(2));
     sel_atrib=dynamic_cast<QGraphicsPolygonItem *>(atributo->children().at(3));
    }
+
+   desc->setRect(ret);
+   desc->setPen(ObjetoGrafico::obterEstiloBorda(AtributosParsers::ATRIBUTO));
+   desc->setBrush(ObjetoGrafico::obterEstiloPreenchimento(AtributosParsers::ATRIBUTO));
+   lin->setPen(ObjetoGrafico::obterEstiloBorda(AtributosParsers::RELACIONAMENTO));
+   texto->setBrush(fmt.foreground());
+   texto->setFont(fonte);
+   sel_atrib->setPen(ObjetoGrafico::obterEstiloBorda(AtributosParsers::SELECAO_OBJETO));
+   sel_atrib->setBrush(ObjetoGrafico::obterEstiloPreenchimento(AtributosParsers::SELECAO_OBJETO));
 
    //Move o atributo para a posição calculada
    atributo->setPos(px, py);
@@ -806,7 +799,7 @@ void OGRelacionamento::configurarAtributos(void)
                                    descritor->pos().y() + (descritor->boundingRect().height()/2.0f));
    lin->setLine(QLineF(p_aux, desc->boundingRect().center()));
 
-   py+=atributo->boundingRect().height() + (2 * ESP_VERTICAL);
+   py+=desc->boundingRect().height() + (2 * ESP_VERTICAL);
   }
 
   //Remove os atributos não utilizados

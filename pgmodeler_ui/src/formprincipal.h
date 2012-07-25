@@ -79,7 +79,9 @@ class FormPrincipal: public QMainWindow, public Ui::FormPrincipal {
   void salvarModelo(ModeloWidget *modelo=NULL);
   void salvarTodosModelos(void);
   void imprimirModelo(void);
-  void atualizarIntervaloSalvamento(void);
+
+  //Atualiza os modelos abertos com as novas configurações
+  void atualizarModelos(void);
 
   void aplicarZoom(void);
   void exibirTelaCheia(bool tela_cheixa);

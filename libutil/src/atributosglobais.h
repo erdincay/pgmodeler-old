@@ -33,31 +33,35 @@
 namespace AtributosGlobais {
 static const QString
    VERSAO_PGMODELER="0.1.0-alfa",
+
    DIR_RAIZ_ESQUEMAS=getenv("PGMODELER_SCHEMAS_DIR"),
    DIR_CONFIGURACOES=getenv("PGMODELER_CONFIGS_DIR"),
    DIR_LINGUAS=getenv("PGMODELER_LANG_DIR"),
 
    //Caractere separador de diretórios (/ -> Linux, \\ -> M$ Window$)
    SEP_DIRETORIO=QDir::toNativeSeparators("/"),
-   DIR_ESQUEMA_SQL="sql",
-   DIR_ESQUEMA_XML="xml",
-   DIR_ESQUEMA_COMUM="common",
-   EXT_ESQUEMA=".sch",
-   DIR_DTD_OBJETO="dtd",
-   EXT_DTD_OBJETO=".dtd",
-   DTD_RAIZ="dbmodel",
-   EXT_CONFIGURACAO=".conf",
-   SUF_ARQ_DESTAQUE="-highlight",
 
-   CONF_DESTAQUE_CODIGO="source-code-highlight",
-   CONF_ESTILO_OBJETOS="objects-style",
-   CONF_GERAL="pgmodeler",
-   CONF_CONEXOES="connections",
-   CONF_SESSAO="session",
-   CONF_DESTAQUE_SQL="sql-highlight",
-   CONF_DESTAQUE_XML="xml-highlight",
+   DIR_CONF_PADRAO="defaults", //Nome do diretório o qual guarda as configurações padrão do pgModeler
+   DIR_ESQUEMAS="schemas", //Nome padrão de diretórios de esquemas
+   DIR_ESQUEMA_SQL="sql", //Nome padrão para diretório de esquemas sql
+   DIR_ESQUEMA_XML="xml", //Nome padrão para diretório de esquemas xml
+   DIR_ESQUEMA_COMUM="common", //Nome padrão para diretório de esquemas comuns entres as versões do pgsql
+   EXT_ESQUEMA=".sch", //Extensão padrão de arquivos de esquema
+   DIR_DTD_OBJETO="dtd", //Diretório padrão de arquivos dtd para os xml de objetos
+   EXT_DTD_OBJETO=".dtd", //Extensão padrão de arquivos dtd
+   DTD_RAIZ="dbmodel", //Nome do DTD raiz dos arquivos XML de modelo
+   EXT_CONFIGURACAO=".conf", //Extensão padrão para arquivos de configuração
+   SUF_ARQ_DESTAQUE="-highlight", //Sufixo de arquivos de destaque de sintaxe de linguagens
 
-   MODELO_EXEMPLO="example.pgmodel";
+   CONF_DESTAQUE_CODIGO="source-code-highlight", //Nome padrão para o dtd de sintaxe de linguagem
+   CONF_ESTILO_OBJETOS="objects-style", //Nome padrão para o arquivo de estilo de objetos
+   CONF_GERAL="pgmodeler", //Nome padrão para o arquivo de configuração geral do pgModeler
+   CONF_CONEXOES="connections", //Nome padrão para o arquivo de configuração de conexões a SGBDs
+
+   CONF_DESTAQUE_SQL="sql-highlight", //Arquivo de configuração de destaque da linguagem SQL
+   CONF_DESTAQUE_XML="xml-highlight", //Arquivo de configuração de destaque da linguagem XML
+
+   MODELO_EXEMPLO="example.pgmodel"; //Nome padrão do arquivo de modelo de exemplo da configuração de aparência de objetos
 };
 //***********************************************************
 #endif
