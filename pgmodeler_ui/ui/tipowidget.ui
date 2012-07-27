@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>460</width>
+    <width>491</width>
     <height>502</height>
    </rect>
   </property>
@@ -22,6 +22,9 @@
   <layout class="QGridLayout" name="tipo_grid">
    <property name="margin">
     <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>4</number>
    </property>
    <item row="0" column="0">
     <widget class="QLabel" name="configuracao_lbl">
@@ -366,8 +369,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../res/resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
