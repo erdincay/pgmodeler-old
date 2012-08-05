@@ -30,6 +30,8 @@ ConfConexoesWidget::ConfConexoesWidget(QWidget * parent) : QWidget(parent)
 //------------------------------------------------------------
 ConfConexoesWidget::~ConfConexoesWidget(void)
 {
+ /* Remove todas as conexões carregadas ao destruir o formulário,
+    (desalocando os descritores de conexão criados) */
  while(conexoes_cmb->count() > 0)
   this->removerConexao();
 }
@@ -39,6 +41,8 @@ void ConfConexoesWidget::carregarConfiguracao(void)
  vector<QString> atribs_chave;
  map<QString, map<QString, QString> >::iterator itr, itr_end;
  ConexaoBD *conexao=NULL;
+
+ //Expressão regular usada para validar o endereço digitado para o servidor
  QRegExp ip_regexp("[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+");
 
  //Para a sessão de configuração de conexões, o 'alias' será usado como campo chave
@@ -52,13 +56,19 @@ void ConfConexoesWidget::carregarConfiguracao(void)
 
  while(itr!=itr_end)
  {
+  //Aloca uma nova conexão
   conexao=new ConexaoBD;
 
+  /* Caso o host da conexão seja um IP, atribui o valor ao parâmetro,
+     ConexaoBD::PARAM_IP_SERVIDOR da conexão. Caso contrário atribui ao
+     ConexaoBD::PARAM_FQDN_SERVIDOR. A libpq trata separadamente IP e FQDN do servidor
+     por isso é necessária esta distinção */
   if(ip_regexp.exactMatch(itr->second[ConexaoBD::PARAM_FQDN_SERVIDOR]))
    conexao->definirParamConexao(ConexaoBD::PARAM_IP_SERVIDOR, itr->second[ConexaoBD::PARAM_FQDN_SERVIDOR]);
   else
    conexao->definirParamConexao(ConexaoBD::PARAM_FQDN_SERVIDOR, itr->second[ConexaoBD::PARAM_FQDN_SERVIDOR]);
 
+  //Atribuindo os demais valores à conexão
   conexao->definirParamConexao(ConexaoBD::PARAM_PORTA, itr->second[ConexaoBD::PARAM_PORTA]);
   conexao->definirParamConexao(ConexaoBD::PARAM_USUARIO, itr->second[ConexaoBD::PARAM_USUARIO]);
   conexao->definirParamConexao(ConexaoBD::PARAM_SENHA,itr->second[ConexaoBD::PARAM_SENHA]);
@@ -73,18 +83,23 @@ void ConfConexoesWidget::carregarConfiguracao(void)
   conexao->definirParamConexao(ConexaoBD::PARAM_SERVIDOR_KERBEROS, itr->second[ConexaoBD::PARAM_SERVIDOR_KERBEROS]);
   conexao->definirParamConexao(ConexaoBD::PARAM_OPCOES, itr->second[ConexaoBD::PARAM_OPCOES]);
 
+  //Adiciona a conexão ao combo de conexões
   conexoes_cmb->addItem(QString::fromUtf8(itr->second[AtributosParsers::ALIAS]),
                         QVariant::fromValue<void *>(reinterpret_cast<void *>(conexao)));
 
   itr++;
  }
 
+ /* Habilita os botões de edição e exclusão caso, após o carregamento,
+    hajam conexões inseridas no combo */
  editar_tb->setEnabled(conexoes_cmb->count() > 0);
  excluir_tb->setEnabled(conexoes_cmb->count() > 0);
 }
 //------------------------------------------------------------
 void ConfConexoesWidget::habilitarCertificados(void)
 {
+ /* Habilita os campos relacionados aos certificados SSL quando o modo
+    SSL escolhido é diferente de 'disable ' */
  cert_cliente_lbl->setEnabled(modo_ssl_cmb->currentIndex()!=0);
  cert_cliente_edt->setEnabled(modo_ssl_cmb->currentIndex()!=0);
  cert_raiz_lbl->setEnabled(modo_ssl_cmb->currentIndex()!=0);
@@ -97,6 +112,8 @@ void ConfConexoesWidget::habilitarCertificados(void)
 //------------------------------------------------------------
 void ConfConexoesWidget::habilitarTesteConexao(void)
 {
+ /* O teste de conexão só é habilitado quando informações básicas
+    como alias, host, usuario, senha e db de conexão estão especificados */
  testar_tb->setEnabled(!alias_edt->text().isEmpty() &&
                        !host_edt->text().isEmpty() &&
                        !usuario_edt->text().isEmpty() &&
@@ -108,6 +125,8 @@ void ConfConexoesWidget::habilitarTesteConexao(void)
 //------------------------------------------------------------
 void ConfConexoesWidget::novaConexao(void)
 {
+ /* Limpa todo o formulário e reverte os valores de alguns
+    campos para seus valores padrão */
  bd_conexao_edt->clear();
  alias_edt->clear();
  usuario_edt->clear();
@@ -140,21 +159,29 @@ void ConfConexoesWidget::novaConexao(void)
 void ConfConexoesWidget::manipularConexao(void)
 {
  ConexaoBD *conexao=NULL;
+ QString alias;
+ unsigned i=1;
 
  try
  {
-  //Verificar duplicidade nos alias das conexões antes de adicionar
+  /* Verificando duplicidade nos alias das conexões antes de manipular.
+     Caso alguma seja detectada, a conexão terá um sufixo '([0-9]+)'
+     adicionado */
+  alias=alias_edt->text();
+  while(conexoes_cmb->findText(alias)>=0)
+   alias=QString("%1(%2)").arg(alias_edt->text()).arg(i++);
+
   if(!atualizar_tb->isVisible())
   {
    conexao=new ConexaoBD;
    this->configurarConexao(conexao);
-   conexoes_cmb->addItem(alias_edt->text(), QVariant::fromValue<void *>(reinterpret_cast<void *>(conexao)));
+   conexoes_cmb->addItem(alias, QVariant::fromValue<void *>(reinterpret_cast<void *>(conexao)));
   }
   else
   {
    conexao=reinterpret_cast<ConexaoBD *>(conexoes_cmb->itemData(conexoes_cmb->currentIndex()).value<void *>());
    this->configurarConexao(conexao);
-   conexoes_cmb->setItemText(conexoes_cmb->currentIndex(), alias_edt->text());
+   conexoes_cmb->setItemText(conexoes_cmb->currentIndex(), alias);
   }
 
   this->novaConexao();
@@ -172,24 +199,36 @@ void ConfConexoesWidget::manipularConexao(void)
 //------------------------------------------------------------
 void ConfConexoesWidget::removerConexao(void)
 {
+ //Caso haja uma conexão selecionada no combo
  if(conexoes_cmb->currentIndex() >= 0)
  {
   ConexaoBD *conexao=NULL;
+
+  //Obtém a conexão do item do combobox
   conexao=reinterpret_cast<ConexaoBD *>(conexoes_cmb->itemData(conexoes_cmb->currentIndex()).value<void *>());
+
+  //Remove o item do combo
   conexoes_cmb->removeItem(conexoes_cmb->currentIndex());
+
+  //Desaloca o descritor de conexão
   delete(conexao);
 
+  //Reinicia o formulário
   this->novaConexao();
  }
 }
 //------------------------------------------------------------
 void ConfConexoesWidget::editarConexao(void)
 {
+ //Caso hajam itens no combo de conexões
  if(conexoes_cmb->count() > 0)
  {
   ConexaoBD *conexao=NULL;
 
+  //Obtém a conexão selecionada
   conexao=reinterpret_cast<ConexaoBD *>(conexoes_cmb->itemData(conexoes_cmb->currentIndex()).value<void *>());
+
+  //Preenche os campos do formulário com os valores dos atributos da conexão
   alias_edt->setText(conexoes_cmb->currentText());
 
   if(!conexao->obterParamConexao(ConexaoBD::PARAM_FQDN_SERVIDOR).isEmpty())
@@ -207,6 +246,7 @@ void ConfConexoesWidget::editarConexao(void)
   aut_gssapi_chk->setChecked(conexao->obterParamConexao(ConexaoBD::PARAM_LIB_GSSAPI)=="gssapi");
   opcoes_edt->setText(conexao->obterParamConexao(ConexaoBD::PARAM_OPCOES));
 
+  //Seta o modo de conexão SSL
   if(conexao->obterParamConexao(ConexaoBD::PARAM_MODO_SSL)==ConexaoBD::SSL_DESATIVADO)
    modo_ssl_cmb->setCurrentIndex(0);
   else if(conexao->obterParamConexao(ConexaoBD::PARAM_MODO_SSL)==ConexaoBD::SSL_PERMITIR)
@@ -218,6 +258,7 @@ void ConfConexoesWidget::editarConexao(void)
   else
    modo_ssl_cmb->setCurrentIndex(4);
 
+  //Caso haja um modo SSL escolhido, preenche os campos de certificados digitais
   if(modo_ssl_cmb->currentIndex() > 0)
   {
    cert_cliente_edt->setText(conexao->obterParamConexao(ConexaoBD::PARAM_CERT_SSL));
@@ -242,17 +283,22 @@ void ConfConexoesWidget::configurarConexao(ConexaoBD *conexao)
  {
   QRegExp ip_regexp("[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+");
 
+  /* Caso o nome do host especificado no formulário seja um IP (combinando com a expressão regular)
+     atribui o valor ao campo respectivo na conexão. Caso contrário atribui ao campo de
+     nome de host (fqdn) */
   if(ip_regexp.exactMatch(host_edt->text()))
    conexao->definirParamConexao(ConexaoBD::PARAM_IP_SERVIDOR, host_edt->text());
   else
    conexao->definirParamConexao(ConexaoBD::PARAM_FQDN_SERVIDOR, host_edt->text());
 
+  //Atribuindo os valores básicos de conexão
   conexao->definirParamConexao(ConexaoBD::PARAM_PORTA, QString("%1").arg(porta_sbp->value()));
   conexao->definirParamConexao(ConexaoBD::PARAM_USUARIO, usuario_edt->text());
   conexao->definirParamConexao(ConexaoBD::PARAM_SENHA, senha_edt->text());
   conexao->definirParamConexao(ConexaoBD::PARAM_NOME_BD, bd_conexao_edt->text());
   conexao->definirParamConexao(ConexaoBD::PARAM_TEMPO_CONEXAO, QString("%1").arg(timeout_sbp->value()));
 
+  //Configurando o modo SSL da conexão
   switch(modo_ssl_cmb->currentIndex())
   {
    case 1:
@@ -273,6 +319,7 @@ void ConfConexoesWidget::configurarConexao(ConexaoBD *conexao)
    break;
   }
 
+  //Caso haja um modo SSL selecionado, atribui os certificados usados para conexão
   if(modo_ssl_cmb->currentIndex()!=0)
   {
    conexao->definirParamConexao(ConexaoBD::PARAM_CERT_RAIZ_SSL, cert_raiz_edt->text());
@@ -281,12 +328,15 @@ void ConfConexoesWidget::configurarConexao(ConexaoBD *conexao)
    conexao->definirParamConexao(ConexaoBD::PARAM_CRL_SSL, crl_edt->text());
   }
 
+  //Especificando autenticação GSSAPI caso esteja marcada no formulário
   if(aut_gssapi_chk->isChecked())
    conexao->definirParamConexao(ConexaoBD::PARAM_LIB_GSSAPI, "gssapi");
 
+  //Especificando o endereço do servidor Kerberus quando especificado
   if(!serv_kerberus_edt->text().isEmpty())
    conexao->definirParamConexao(ConexaoBD::PARAM_SERVIDOR_KERBEROS, serv_kerberus_edt->text());
 
+  //Atribuindo opções adicionas de conexão
   if(!opcoes_edt->text().isEmpty())
    conexao->definirParamConexao(ConexaoBD::PARAM_OPCOES, opcoes_edt->text());
  }
@@ -298,8 +348,14 @@ void ConfConexoesWidget::testarConexao(void)
 
  try
  {
+  //Configura uma conexão com os valores do formulário
   this->configurarConexao(&conexao);
+
+  /* Tenta a conexão. Se neste ponto nenhuma exceção for disparada
+     considera-se que a conexão foi realizada com sucesso */
   conexao.conectar();
+
+  //Exibe a mensagem de sucesso
   caixa_msg->show(trUtf8("Sucesso"), trUtf8("Conexão efetuada com sucesso!"), CaixaMensagem::ICONE_INFO);
  }
  catch(Excecao &e)
@@ -315,9 +371,11 @@ void ConfConexoesWidget::restaurarPadroes(void)
   //Restaura as configurações padrão e recarrega o arquivo restaurado
   ConfBaseWidget::restaurarPadroes(AtributosGlobais::CONF_CONEXOES);
 
+  //Remove as conexões atuais
   while(conexoes_cmb->count() > 0)
    this->removerConexao();
 
+  //Recarrega a configuração de conexões
   this->carregarConfiguracao();
  }
  catch(Excecao &e)
@@ -337,21 +395,37 @@ void ConfConexoesWidget::salvarConfiguracao(void)
   params_config[AtributosGlobais::CONF_CONEXOES].clear();
   qtd=conexoes_cmb->count();
 
+  /* Workaround: Quando não existem conexões, para se gravar um arquivo vazio, é necessário
+     preencher o atributo 'params_config[AtributosGlobais::CONF_CONEXOES][AtributosParsers::CONEXOES]'
+     espaços */
   if(qtd==0)
    params_config[AtributosGlobais::CONF_CONEXOES][AtributosParsers::CONEXOES]="  ";
   else
   {
+   /* Quando se tem conexões no combo, os atributos de cada uma são obtidos e é
+      gerado um esquema com base nestes valores */
    for(i=0; i < qtd; i++)
    {
+    //Obtém uma conexão e seus atributos
     conexao=reinterpret_cast<ConexaoBD *>(conexoes_cmb->itemData(i).value<void *>());
     atribs=conexao->obterParamsConexao();
 
+    /* Caso na conexão não esteja especificado o host significa que o endereço usado é o IP,
+       sendo assim, o IP é atribuido ao parâmetro FQDN, desta forma ao gerar o esquema
+       da conexão, o parser conseguirá identificar o parâmetro 'host' */
     if(atribs.count(ConexaoBD::PARAM_FQDN_SERVIDOR)==0)
      atribs[ConexaoBD::PARAM_FQDN_SERVIDOR]=atribs[ConexaoBD::PARAM_IP_SERVIDOR];
 
+    /* Armazena também nos atributos o alias da conexão pois este precisa ser gravado
+       no arquivo de configuração */
     atribs[AtributosParsers::ALIAS]=conexoes_cmb->itemText(i);
 
+    /* Ativa o modo de ignorar atributos desconhecidos do parser, pois, alguns
+       atributos da conexão nem sempre são especificados (opcionais) e isso
+       geraria muitos erros se o modo citado não estivesse ativado */
     ParserEsquema::ignorarAtributosDesc(true);
+
+    //Gera o esquema da conexão e contatena à demais geradas
     params_config[AtributosGlobais::CONF_CONEXOES][AtributosParsers::CONEXOES]+=
     ParserEsquema::obterDefinicaoObjeto(AtributosGlobais::DIR_CONFIGURACOES +
                                         AtributosGlobais::SEP_DIRETORIO +
@@ -364,6 +438,7 @@ void ConfConexoesWidget::salvarConfiguracao(void)
    }
   }
 
+  //Gera o arquivo de configuração completo
   ConfBaseWidget::salvarConfiguracao(AtributosGlobais::CONF_CONEXOES);
  }
  catch(Excecao &e)

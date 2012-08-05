@@ -31,6 +31,7 @@ class ConfConexoesWidget: public QWidget, public Ui::ConfConexoesWidget, public 
  private:
   Q_OBJECT
 
+  //Configura uma instância de conexão com os valores preenchidos no formulário
   void configurarConexao(ConexaoBD *conexao);
 
  public:
@@ -44,13 +45,29 @@ class ConfConexoesWidget: public QWidget, public Ui::ConfConexoesWidget, public 
   void restaurarPadroes(void);
 
  private slots:
+   //Limpa o formulário para criação de uma nova conexão
    void novaConexao(void);
+
+   //Manipula (cria / atualiza) uma conexão com base nos dados do formulário
    void manipularConexao(void);
+
+   //Edita uma conexão selecionada no combo de conexões
    void editarConexao(void);
+
+   //Efetua o teste de conexão com base nos dados do formulário
    void testarConexao(void);
+
+   //Remove a conexão selecionada no combo
    void removerConexao(void);
+
+   //Habilita os campos relacionados com os certificados digitais
    void habilitarCertificados(void);
+
+   //Habilita o botão de teste de conexão
    void habilitarTesteConexao(void);
+
+   /* Este método não é usado nesta classe pois as modificações são aplicadas diretamente
+      ao arquivo, operação esta tratada pelo método salvarConfiguracao() */
    void aplicarConfiguracao(void){}
 };
 //***********************************************************

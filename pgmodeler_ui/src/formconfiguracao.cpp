@@ -66,7 +66,6 @@ void FormConfiguracao::carregarConfiguracao(void)
  }
  catch(Excecao &e)
  {
-  //conf_geral->restaurarPadroes();
   throw Excecao(ERR_PGMODELERUI_CONFNAOCARREGADA,__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
 }

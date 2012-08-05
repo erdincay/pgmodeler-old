@@ -79,7 +79,7 @@ class ConfAparenciaWidget: public QWidget, public Ui::ConfAparenciaWidget, publi
 
   /* Este método não é usado nesta classe pois as modificações são aplicadas diretamente
      ao arquivo, operação esta tratada pelo método salvarConfiguracao() */
-  void aplicarConfiguracao(void){};
+  void aplicarConfiguracao(void){}
 
  public slots:
   void restaurarPadroes(void);
