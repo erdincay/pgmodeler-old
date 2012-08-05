@@ -103,7 +103,6 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
 
 
  //*** CRIAÇÃO DOS FORMULÁRIOS GLOBAIS ***
- //Formulário de visualização da SQL de obdestsintaxe_wgtjetos
  permissao_wgt=new PermissaoWidget(this);
  codigofonte_wgt=new CodigoFonteWidget(this);
  caixatexto_wgt=new CaixaTextoWidget(this);
@@ -410,6 +409,8 @@ void FormPrincipal::closeEvent(QCloseEvent *)
 
  if(salvar_conf)
   conf_wgt->salvarConfiguracao();
+
+ QMainWindow::close();
 }
 //----------------------------------------------------------
 void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)

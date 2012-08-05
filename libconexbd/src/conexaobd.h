@@ -27,39 +27,6 @@
 #include "resultado.h"
 #include <map>
 //***********************************************************
-//Opções de conexão usando SSL
-namespace ModoSSL {
-static const QString
-  SSL_DESATIVADO="disabled",
-  SSL_PERMITIR="allow",
-  SSL_PREFERIR="prefer",
-  SSL_REQUERER="require",
-  SSL_VERIF_AUT_CERT="verify-ca",
-  SSL_VERIF_COMPLETA="verify-full";
-};
-
-//Parametros usados na string de conexão com o banco
-namespace ParamConexao {
-static const QString
-  PARAM_FQDN_SERVIDOR="host",
-  PARAM_IP_SERVIDOR="hostaddr",
-  PARAM_PORTA="port",
-  PARAM_NOME_BD="dbname",
-  PARAM_USUARIO="user",
-  PARAM_SENHA="password",
-  PARAM_TEMPO_CONEXAO="connect_timeout",
-  PARAM_OPCOES="options",
-  //PARAM_TTY="tty",
-  PARAM_MODO_SSL="sslmode",
-  PARAM_CERT_SSL="sslcert",
-  PARAM_CHAVE_SSL="sslkey",
-  PARAM_CERT_RAIZ_SSL="sslrootcert",
-  PARAM_CRL_SSL="sslcrl",
-  PARAM_SERVIDOR_KERBEROS="krbsrvname",
-  PARAM_LIB_GSSAPI="gsslib";
-  //PARAM_SERVICO="service";
-};
-//-----------------------------------------------------------
 class ConexaoBD {
  private:
   //Descritor de conexão com o banco
@@ -75,6 +42,27 @@ class ConexaoBD {
   void gerarStringConexao(void);
 
  public:
+  static const QString PARAM_FQDN_SERVIDOR,
+                       PARAM_IP_SERVIDOR,
+                       PARAM_PORTA,
+                       PARAM_NOME_BD,
+                       PARAM_USUARIO,
+                       PARAM_SENHA,
+                       PARAM_TEMPO_CONEXAO,
+                       PARAM_OPCOES,
+                       PARAM_MODO_SSL,
+                       PARAM_CERT_SSL,
+                       PARAM_CHAVE_SSL,
+                       PARAM_CERT_RAIZ_SSL,
+                       PARAM_CRL_SSL,
+                       PARAM_SERVIDOR_KERBEROS,
+                       PARAM_LIB_GSSAPI,
+                       SSL_DESATIVADO,
+                       SSL_PERMITIR,
+                       SSL_PREFERIR,
+                       SSL_REQUERER,
+                       SSL_VERIF_AUT_CERT,
+                       SSL_VERIF_COMPLETA;
   ConexaoBD(void);
   ConexaoBD(const QString &servidor, const QString &porta, const QString &usuario, const QString &senha, const QString &nome_bd);
   ~ConexaoBD(void);
@@ -87,13 +75,16 @@ class ConexaoBD {
   void conectar(void);
 
   //Reinicia a conexão com o banco de dados
-  void reiniciarConexao(void);
+  void reiniciar(void);
 
   //Fecha a conexão aberta
-  void fecharConexao(void);
+  void fechar(void);
 
   //Retorna o valor definido atualmente para um dado parâmetro da conexão
   QString obterParamConexao(const QString &parametro);
+
+  //Retorna o mapa com os parâmetros de configuração da conexão
+  map<QString, QString> obterParamsConexao(void);
 
   //Retorna a string de conexão usada para se conectar ao banco
   QString obterStringConexao(void);

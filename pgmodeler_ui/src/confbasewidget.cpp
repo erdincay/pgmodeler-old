@@ -110,6 +110,9 @@ void ConfBaseWidget::carregarConfiguracao(const QString &id_conf, const vector<Q
 {
  try
  {
+  //Limpa os parâmetros de configuração atuais
+  params_config.clear();
+
   //Reinicia o parser XML para a leitura do arquivo
   ParserXML::reiniciarParser();
 

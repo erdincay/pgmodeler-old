@@ -15,7 +15,9 @@ src \
 ../libpgmodeler/src \
 ../libparsers/src \
 ../libconexbd/src \
-/usr/include/libxml2
+/usr/include/libxml2 \
+/usr/local/pgsql/include \
+/usr/include
 
 
 SOURCES += src/main.cpp \
@@ -165,4 +167,5 @@ LIBS += ../build/lib/libutil.so.1 \
         ../build/lib/libobjrenderer.so.1 \
         ../build/lib/libpgmodeler.so.1 \
         ../build/lib/libparsers.so.1 \
+        ../build/lib/libconexbd.so.1 \
         -lxml2

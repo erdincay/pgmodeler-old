@@ -343,7 +343,8 @@ static const QString
   TOPO="top",
   VISIVEL="visible",
   WIDGET="widget",
-  INFO_POSICAO="pos-info";
+  INFO_POSICAO="pos-info",
+  CONEXOES="connections";
 }
 //***********************************************************
 #endif

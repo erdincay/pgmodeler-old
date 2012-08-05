@@ -25,10 +25,16 @@ int main(int argc, char **argv)
 
   //Atribui o formulário alocado à aplicação
   app.setMainWidget(fmain);
+
   //Exibe o formulário principal e prossegue com a execução da aplicação
   fmain->showMaximized();
-  app.installEventFilter(fmain);
-  return(app.exec());
+
+  //Executa a aplicação
+  app.exec();
+
+  //Desloca a janela principal ao término do loop principal
+  delete(fmain);
+  return(0);
  }
  //Caso um erro seja capturado durante a inicialização da aplicação
  catch(Excecao &e)

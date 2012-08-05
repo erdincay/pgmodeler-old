@@ -1,4 +1,7 @@
 #include "formconfiguracao.h"
+#include "caixamensagem.h"
+
+extern CaixaMensagem *caixa_msg;
 //***********************************************************
 FormConfiguracao::FormConfiguracao(QWidget *parent, Qt::WindowFlags f) : QDialog(parent, f)
 {
@@ -49,6 +52,7 @@ void FormConfiguracao::aplicarConfiguracao(void)
  conf_geral->salvarConfiguracao();
  conf_geral->aplicarConfiguracao();
  conf_aparencia->salvarConfiguracao();
+ conf_conexoes->salvarConfiguracao();
  this->close();
 }
 //-----------------------------------------------------------
@@ -58,28 +62,41 @@ void FormConfiguracao::carregarConfiguracao(void)
  {
   conf_geral->carregarConfiguracao();
   conf_aparencia->carregarConfiguracao();
+  conf_conexoes->carregarConfiguracao();
  }
  catch(Excecao &e)
  {
-  conf_geral->restaurarPadroes();
+  //conf_geral->restaurarPadroes();
   throw Excecao(ERR_PGMODELERUI_CONFNAOCARREGADA,__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
 }
 //-----------------------------------------------------------
 void FormConfiguracao::restaurarPadroes(void)
 {
- switch(stackedWidget->currentIndex())
+ caixa_msg->show(trUtf8("Confirmação"),
+                 trUtf8("Qualquer modificação feita até agora na seção atual será perdida! Deseja realmente restaurar as configurações padrão?"),
+                 CaixaMensagem::ICONE_CONFIRM,
+                 CaixaMensagem::BOTAO_SIM_NAO);
+
+ if(caixa_msg->result()==QDialog::Accepted)
  {
-  case 0:
-   dynamic_cast<ConfGeralWidget *>(this->obterWidgetConfiguracao(0))->restaurarPadroes();
-  break;
+  switch(stackedWidget->currentIndex())
+  {
+   case 0:
+    dynamic_cast<ConfGeralWidget *>(this->obterWidgetConfiguracao(0))->restaurarPadroes();
+   break;
 
-  case 1:
-   dynamic_cast<ConfAparenciaWidget *>(this->obterWidgetConfiguracao(1))->restaurarPadroes();
-  break;
+   case 1:
+    dynamic_cast<ConfAparenciaWidget *>(this->obterWidgetConfiguracao(1))->restaurarPadroes();
+   break;
 
-  default:
-  break;
+   case 2:
+    dynamic_cast<ConfConexoesWidget *>(this->obterWidgetConfiguracao(2))->restaurarPadroes();
+   break;
+
+   default:
+   break;
+  }
  }
 }
 //-----------------------------------------------------------

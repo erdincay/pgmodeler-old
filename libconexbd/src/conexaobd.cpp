@@ -1,5 +1,27 @@
 #include "conexaobd.h"
 //***********************************************************
+const QString ConexaoBD::SSL_DESATIVADO="disable";
+const QString ConexaoBD::SSL_PERMITIR="allow";
+const QString ConexaoBD::SSL_PREFERIR="prefer";
+const QString ConexaoBD::SSL_REQUERER="require";
+const QString ConexaoBD::SSL_VERIF_AUT_CERT="verify-ca";
+const QString ConexaoBD::SSL_VERIF_COMPLETA="verify-full";
+const QString ConexaoBD::PARAM_FQDN_SERVIDOR="host";
+const QString ConexaoBD::PARAM_IP_SERVIDOR="hostaddr";
+const QString ConexaoBD::PARAM_PORTA="port";
+const QString ConexaoBD::PARAM_NOME_BD="dbname";
+const QString ConexaoBD::PARAM_USUARIO="user";
+const QString ConexaoBD::PARAM_SENHA="password";
+const QString ConexaoBD::PARAM_TEMPO_CONEXAO="connect_timeout";
+const QString ConexaoBD::PARAM_OPCOES="options";
+const QString ConexaoBD::PARAM_MODO_SSL="sslmode";
+const QString ConexaoBD::PARAM_CERT_SSL="sslcert";
+const QString ConexaoBD::PARAM_CHAVE_SSL="sslkey";
+const QString ConexaoBD::PARAM_CERT_RAIZ_SSL="sslrootcert";
+const QString ConexaoBD::PARAM_CRL_SSL="sslcrl";
+const QString ConexaoBD::PARAM_SERVIDOR_KERBEROS="krbsrvname";
+const QString ConexaoBD::PARAM_LIB_GSSAPI="gsslib";
+//-----------------------------------------------------------
 ConexaoBD::ConexaoBD(void)
 {
  conexao=NULL;
@@ -8,11 +30,11 @@ ConexaoBD::ConexaoBD(void)
 ConexaoBD::ConexaoBD(const QString &servidor, const QString &porta, const QString &usuario, const QString &senha, const QString &nome_bd)
 {
  //Configura os parâmetros básicos de conexão
- definirParamConexao(ParamConexao::PARAM_FQDN_SERVIDOR, servidor);
- definirParamConexao(ParamConexao::PARAM_PORTA, porta);
- definirParamConexao(ParamConexao::PARAM_USUARIO, usuario);
- definirParamConexao(ParamConexao::PARAM_SENHA, senha);
- definirParamConexao(ParamConexao::PARAM_NOME_BD, nome_bd);
+ definirParamConexao(PARAM_FQDN_SERVIDOR, servidor);
+ definirParamConexao(PARAM_PORTA, porta);
+ definirParamConexao(PARAM_USUARIO, usuario);
+ definirParamConexao(PARAM_SENHA, senha);
+ definirParamConexao(PARAM_NOME_BD, nome_bd);
 
  //Estabelece a conexão
  conectar();
@@ -47,7 +69,8 @@ void ConexaoBD::gerarStringConexao(void)
  while(itr!=itr_end)
  {
   //Concatena cada parâmetro a seu valor, separândo-os por um sinal de igual
-  str_conexao+=itr->first + "=" + itr->second + " ";
+  if(!itr->second.isEmpty())
+   str_conexao+=itr->first + "=" + itr->second + " ";
   itr++;
  }
 }
@@ -77,7 +100,7 @@ void ConexaoBD::conectar(void)
  }
 }
 //-----------------------------------------------------------
-void ConexaoBD::fecharConexao(void)
+void ConexaoBD::fechar(void)
 {
  //Dispara um erro caso o usuário tente fechar uma conexão não iniciada
  if(!conexao)
@@ -88,7 +111,7 @@ void ConexaoBD::fecharConexao(void)
  conexao=NULL;
 }
 //-----------------------------------------------------------
-void ConexaoBD::reiniciarConexao(void)
+void ConexaoBD::reiniciar(void)
 {
  //Dispara um erro caso o usuário tente reiniciar uma conexão não iniciada
  if(!conexao)
@@ -101,6 +124,11 @@ void ConexaoBD::reiniciarConexao(void)
 QString ConexaoBD::obterParamConexao(const QString &parametro)
 {
  return(params_conexao[parametro]);
+}
+//-----------------------------------------------------------
+map<QString, QString> ConexaoBD::obterParamsConexao(void)
+{
+ return(params_conexao);
 }
 //-----------------------------------------------------------
 QString ConexaoBD::obterStringConexao(void)

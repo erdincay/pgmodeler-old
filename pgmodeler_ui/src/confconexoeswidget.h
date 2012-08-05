@@ -25,20 +25,33 @@
 
 #include "ui_confconexoeswidget.h"
 #include "confbasewidget.h"
+#include "conexaobd.h"
 //***********************************************************
 class ConfConexoesWidget: public QWidget, public Ui::ConfConexoesWidget, public ConfBaseWidget {
- public:
+ private:
   Q_OBJECT
+
+  void configurarConexao(ConexaoBD *conexao);
 
  public:
   ConfConexoesWidget(QWidget * parent=0);
+  ~ConfConexoesWidget(void);
 
   void salvarConfiguracao(void);
   void carregarConfiguracao(void);
 
  public slots:
-  void aplicarConfiguracao(void){}
-  void restaurarPadroes(void){}
+  void restaurarPadroes(void);
+
+ private slots:
+   void novaConexao(void);
+   void manipularConexao(void);
+   void editarConexao(void);
+   void testarConexao(void);
+   void removerConexao(void);
+   void habilitarCertificados(void);
+   void habilitarTesteConexao(void);
+   void aplicarConfiguracao(void){}
 };
 //***********************************************************
 #endif
