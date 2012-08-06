@@ -141,5 +141,7 @@
         <file>imagens/barra_logo_meio_cinza.png</file>
         <file>imagens/barra_logo_topo.png</file>
         <file>imagens/barra_logo_base.png</file>
+        <file>imagens/model2sql.png</file>
+        <file>imagens/model2sgdb.png</file>
     </qresource>
 </RCC>

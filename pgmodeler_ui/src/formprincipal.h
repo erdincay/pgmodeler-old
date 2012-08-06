@@ -32,7 +32,6 @@
 #include "formbasico.h"
 #include "listaoperacoeswidget.h"
 #include "visaoobjetoswidget.h"
-#include "formconfiguracao.h"
 
 using namespace std;
 //***********************************************************
@@ -79,6 +78,7 @@ class FormPrincipal: public QMainWindow, public Ui::FormPrincipal {
   void salvarModelo(ModeloWidget *modelo=NULL);
   void salvarTodosModelos(void);
   void imprimirModelo(void);
+  void exportarModelo(void);
 
   //Atualiza os modelos abertos com as novas configurações
   void atualizarModelos(void);

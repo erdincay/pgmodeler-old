@@ -1,8 +1,8 @@
 /*
 # Projeto: Modelador de Banco de Dados PostgreSQL (pgsqlDBM)
 # Sub-projeto: Biblioteca pgsqldbm_ui
-# Classe: FormConfiguracao
-# Descrição: Formulario que reúne todos os widgets de configuração.
+# Classe: FormExportacao
+# Descrição: Formulário de exportação do modelo
 #
 # Copyright (C) 2006-2012 - Raphael Araújo e Silva <rkhaotix@gmail.com>
 #
@@ -20,36 +20,29 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
-#ifndef FORM_CONFIGURACAO_H
-#define FORM_CONFIGURACAO_H
+#ifndef FORM_EXPORTACAO_H
+#define FORM_EXPORTACAO_H
 
-#include "ui_formconfiguracao.h"
-#include "confaparenciawidget.h"
-#include "confgeralwidget.h"
-#include "confconexoeswidget.h"
+#include "ui_formexportacao.h"
+#include "parseresquema.h"
+#include "modelobd.h"
 //***********************************************************
-class FormConfiguracao: public QDialog, public Ui::FormConfiguracao {
+class FormExportacao: public QDialog, public Ui::FormExportacao {
  private:
   Q_OBJECT
-
-  ConfGeralWidget *conf_geral;
-  ConfAparenciaWidget *conf_aparencia;
-  ConfConexoesWidget *conf_conexoes;
+  ModeloBD *modelo;
 
  public:
-  static const int WGT_CONF_GERAL=0,
-                   WGT_CONF_APARENCIA=1,
-                   WGT_CONF_CONEXOES=2;
-  FormConfiguracao(QWidget * parent = 0, Qt::WindowFlags f = 0);
-  ConfBaseWidget *obterWidgetConfiguracao(unsigned idx);
+  FormExportacao(QWidget * parent = 0, Qt::WindowFlags f = 0);
 
  public slots:
-  void aplicarConfiguracao(void);
-  void carregarConfiguracao(void);
-  void close(void);
+  void show(ModeloBD *modelo);
+  void hideEvent(QHideEvent *);
 
  private slots:
-  void restaurarPadroes(void);
+  void habilitarTipoExportacao(void);
+  void exportarModelo(void);
+  void selecionarArquivoDestino(void);
 };
 //***********************************************************
 #endif

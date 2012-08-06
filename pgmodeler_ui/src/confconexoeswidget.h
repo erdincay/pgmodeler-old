@@ -41,6 +41,9 @@ class ConfConexoesWidget: public QWidget, public Ui::ConfConexoesWidget, public 
   void salvarConfiguracao(void);
   void carregarConfiguracao(void);
 
+  //Preenche um mapa com as conexões carregadas no formulário
+  void obterConexoes(map<QString, ConexaoBD *> &conexoes);
+
  public slots:
   void restaurarPadroes(void);
 

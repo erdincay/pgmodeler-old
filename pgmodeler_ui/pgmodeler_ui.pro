@@ -66,7 +66,8 @@ SOURCES += src/main.cpp \
            src/confaparenciawidget.cpp \
            src/confconexoeswidget.cpp \
            src/formconfiguracao.cpp \
-    src/confbasewidget.cpp
+    src/confbasewidget.cpp \
+    src/formexportacao.cpp
 
 HEADERS += src/formprincipal.h \
            src/modelowidget.h \
@@ -115,7 +116,8 @@ HEADERS += src/formprincipal.h \
            src/formconfiguracao.h \
     src/confconexoeswidget.h \
     src/confaparenciawidget.h \
-    src/confbasewidget.h
+    src/confbasewidget.h \
+    src/formexportacao.h
 
 FORMS += ui/formprincipal.ui \
          ui/formsobre.ui \

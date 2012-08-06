@@ -59,14 +59,13 @@ void ConexaoBD::definirParamConexao(const QString &parametro, const QString &val
 //-----------------------------------------------------------
 void ConexaoBD::gerarStringConexao(void)
 {
- map<QString, QString>::iterator itr, itr_end;
+ map<QString, QString>::iterator itr;
 
  itr=params_conexao.begin();
- itr_end=params_conexao.end();
 
  //Varre o mapa de parâmetros de conexão
  str_conexao="";
- while(itr!=itr_end)
+ while(itr!=params_conexao.end())
  {
   //Concatena cada parâmetro a seu valor, separândo-os por um sinal de igual
   if(!itr->second.isEmpty())

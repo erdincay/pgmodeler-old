@@ -39,7 +39,10 @@ void FormConfiguracao::close(void)
  try
  {
   if(sender()==cancelar_btn)
+  {
    conf_aparencia->carregarConfiguracao();
+   conf_conexoes->carregarConfiguracao();
+  }
  }
  catch(Excecao &e)
  {}
@@ -81,15 +84,15 @@ void FormConfiguracao::restaurarPadroes(void)
  {
   switch(stackedWidget->currentIndex())
   {
-   case 0:
+   case WGT_CONF_GERAL:
     dynamic_cast<ConfGeralWidget *>(this->obterWidgetConfiguracao(0))->restaurarPadroes();
    break;
 
-   case 1:
+   case WGT_CONF_APARENCIA:
     dynamic_cast<ConfAparenciaWidget *>(this->obterWidgetConfiguracao(1))->restaurarPadroes();
    break;
 
-   case 2:
+   case WGT_CONF_CONEXOES:
     dynamic_cast<ConfConexoesWidget *>(this->obterWidgetConfiguracao(2))->restaurarPadroes();
    break;
 
@@ -107,10 +110,10 @@ ConfBaseWidget *FormConfiguracao::obterWidgetConfiguracao(unsigned idx)
  {
   switch(idx)
   {
-   case 0: return(dynamic_cast<ConfBaseWidget *>(conf_geral)); break;
-   case 1: return(dynamic_cast<ConfBaseWidget *>(conf_aparencia)); break;
+   case WGT_CONF_GERAL: return(dynamic_cast<ConfBaseWidget *>(conf_geral)); break;
+   case WGT_CONF_APARENCIA: return(dynamic_cast<ConfBaseWidget *>(conf_aparencia)); break;
    default:
-   case 2: return(dynamic_cast<ConfBaseWidget *>(conf_conexoes)); break;
+   case WGT_CONF_CONEXOES: return(dynamic_cast<ConfBaseWidget *>(conf_conexoes)); break;
   }
  }
 }

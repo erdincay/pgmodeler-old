@@ -446,5 +446,16 @@ void ConfConexoesWidget::salvarConfiguracao(void)
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
 }
+//-----------------------------------------------------------
+void ConfConexoesWidget::obterConexoes(map<QString, ConexaoBD *> &conexoes)
+{
+ int i, qtd;
+
+ conexoes.clear();
+ qtd=conexoes_cmb->count();
+
+ for(i=0; i < qtd; i++)
+  conexoes[conexoes_cmb->itemText(i)]=reinterpret_cast<ConexaoBD *>(conexoes_cmb->itemData(i).value<void *>());
+}
 //***********************************************************
 

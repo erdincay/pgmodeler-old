@@ -144,17 +144,16 @@ ObjetoBase *ObjetoGrafico::obterObjetoOrigem(void)
 //-----------------------------------------------------------
 void ObjetoGrafico::redimensionarPoligono(QPolygonF &pol, float larg, float alt)
 {
- QVector<QPointF>::iterator itr,itr_end;
+ QVector<QPointF>::iterator itr;
  float coef_a, coef_b;
 
  //Obtém a referência ao primeiro elemento da lista de pontos
  itr=pol.begin();
- itr_end=pol.end();
  coef_a=larg / pol.boundingRect().width();
  coef_b=alt / pol.boundingRect().height();
 
  //Aplicando os coeficientes calculados à todos os pontos do polígono
- while(itr!=itr_end)
+ while(itr!=pol.end())
  {
   itr->setX(itr->x() * coef_a);
   itr->setY(itr->y() * coef_b);
@@ -257,13 +256,12 @@ void ObjetoGrafico::definirEstiloFonte(const QString &id, QTextCharFormat fmt_fo
     elementos pois todos tem suas configurações de fonte com base no global */
  else
  {
-  map<QString, QTextCharFormat>::iterator itr, itr_end;
+  map<QString, QTextCharFormat>::iterator itr;
 
   itr=config_fonte.begin();
-  itr_end=config_fonte.end();
   fonte=fmt_fonte.font();
 
-  while(itr!=itr_end)
+  while(itr!=config_fonte.end())
   {
    fonte.setItalic((itr->second).font().italic());
    fonte.setBold((itr->second).font().bold());

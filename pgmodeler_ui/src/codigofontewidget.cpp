@@ -28,9 +28,7 @@ CodigoFonteWidget::CodigoFonteWidget(QWidget *parent): ObjetoBaseWidget(parent)
   ParserEsquema::obterVersoesPgSQL(versoes);
 
   //Preenche o combobox de versões
-  qtd=versoes.size();
-  for(i=0; i < qtd; i++)
-   versoes_cmb->addItem(versoes[i]);
+  versoes_cmb->addItems(QStringList(QList<QString>::fromVector(QVector<QString>::fromStdVector(versoes))));
 
   //Define os atributos do formulários e da janela pai
   janela_pai->setWindowTitle(trUtf8("Visualização de Código-Fonte"));

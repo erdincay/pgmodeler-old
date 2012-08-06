@@ -29,6 +29,8 @@
 #include "tabelawidget.h"
 #include "progressotarefa.h"
 #include "listaobjetoswidget.h"
+#include "formconfiguracao.h"
+#include "formexportacao.h"
 
 /* Formulários globais. Como são formulários os mesmos podem ser
    compartilhados e usados em outros arquivos não havendo a necessidade
@@ -67,6 +69,7 @@ TabelaWidget *tabela_wgt=NULL;
 ProgressoTarefa *prog_tarefa=NULL;
 ListaObjetosWidget *deps_refs_wgt=NULL;
 FormConfiguracao *fconfiguracao=NULL;
+FormExportacao *fexportacao=NULL;
 //----------------------------------------------------------
 FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
 {
@@ -96,6 +99,7 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
  fsobre=new FormSobre;
  caixa_msg=new CaixaMensagem(this, (Qt::WindowTitleHint | Qt::WindowSystemMenuHint));
  fconfiguracao=new FormConfiguracao(this);
+ fexportacao=new FormExportacao(this);
 
  lista_oper=new ListaOperacoesWidget;
  visao_objs=new VisaoObjetosWidget;
@@ -229,6 +233,8 @@ FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
 
  connect(fconfiguracao, SIGNAL(finished(int)), this, SLOT(atualizarModelos(void)));
  connect(&tm_salvamento, SIGNAL(timeout(void)), this, SLOT(salvarTodosModelos(void)));
+
+ connect(action_exportar, SIGNAL(triggered(bool)), this, SLOT(exportarModelo(void)));
 
  modelo_atual=NULL;
 
@@ -740,6 +746,12 @@ void FormPrincipal::salvarModelo(ModeloWidget *modelo)
  {
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
+}
+//----------------------------------------------------------
+void FormPrincipal::exportarModelo(void)
+{
+ if(modelo_atual)
+  fexportacao->show(modelo_atual->modelo);
 }
 //----------------------------------------------------------
 void FormPrincipal::imprimirModelo(void)
