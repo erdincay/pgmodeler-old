@@ -1024,6 +1024,17 @@ void ModeloWidget::exibirFormObjeto(TipoObjetoBase tipo_obj, ObjetoBase *objeto,
   if(objeto && dynamic_cast<ObjetoGraficoBase *>(objeto))
    pos=dynamic_cast<ObjetoGraficoBase *>(objeto)->obterPosicaoObjeto();
 
+  /* O esquema 'public' e as linguagens C e SQL não pode ser manipuladas
+     por serem do sistema, caso o usuário tente esta operação um erro será disparado */
+  if(objeto &&
+     ((tipo_obj==OBJETO_LINGUAGEM &&
+       (objeto->obterNome()==~TipoLinguagem("c") ||
+        objeto->obterNome()==~TipoLinguagem("sql") ||
+        objeto->obterNome()==~TipoLinguagem("plpgsql"))) ||
+      (tipo_obj==OBJETO_ESQUEMA &&
+       objeto->obterNome()=="public")))
+    throw Excecao(ERR_PGMODELERUI_OPROBJRESERVADO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
+
   switch(tipo_obj)
   {
    case OBJETO_ESQUEMA:
@@ -1042,13 +1053,6 @@ void ModeloWidget::exibirFormObjeto(TipoObjetoBase tipo_obj, ObjetoBase *objeto,
    break;
 
    case OBJETO_LINGUAGEM:
-    /* Linguagens C e SQL não pode ser editadas por serem do sistema,
-       caso o usuário tente esta operação um erro será disparado */
-    if(objeto &&
-       (objeto->obterNome()==~TipoLinguagem("c") ||
-        objeto->obterNome()==~TipoLinguagem("sql")))
-      throw Excecao(ERR_PGMODELERUI_OPRLINGRESERVADA,__PRETTY_FUNCTION__,__FILE__,__LINE__);
-
     linguagem_wgt->definirAtributos(modelo, lista_op, dynamic_cast<Linguagem *>(objeto));
     linguagem_wgt->show();
    break;
@@ -1248,23 +1252,24 @@ void ModeloWidget::cancelarAdicaoObjeto(void)
 void ModeloWidget::editarObjeto(void)
 {
  QObject *obj_sender=dynamic_cast<QAction *>(sender());
+ ObjetoTabela *obj_tab=NULL;
+ ObjetoBase *objeto=NULL;
 
- if(obj_sender)
- {
-  ObjetoTabela *obj_tab=NULL;
-  ObjetoBase *objeto=NULL;
+ /* Workaround: Para possibilitar a edição de objetos com duplo clique na visão de objetos
+    o sender é configurado como sendo a ação de editar quando este não está definido */
+ if(!obj_sender)
+  obj_sender=action_editar;
 
-  //Obtém o objeto do modelo contido na ação
-  objeto=reinterpret_cast<ObjetoBase *>(dynamic_cast<QAction *>(obj_sender)->data().value<void *>());
-  /* Tenta convertê-lo para objeto de tabela. Caso este seja convertido com sucesso
-     envia para o formulário a tabela possuidora deste objeto */
-  obj_tab=dynamic_cast<ObjetoTabela *>(objeto);
+ //Obtém o objeto do modelo contido na ação
+ objeto=reinterpret_cast<ObjetoBase *>(dynamic_cast<QAction *>(obj_sender)->data().value<void *>());
+ /* Tenta convertê-lo para objeto de tabela. Caso este seja convertido com sucesso
+    envia para o formulário a tabela possuidora deste objeto */
+ obj_tab=dynamic_cast<ObjetoTabela *>(objeto);
 
-  //Exibe o formulário pra o objeto
-  if(objeto)
-   exibirFormObjeto(objeto->obterTipoObjeto(), objeto,
-                   (obj_tab ? obj_tab->obterTabelaPai() : NULL));
- }
+ //Exibe o formulário pra o objeto
+ if(objeto)
+  exibirFormObjeto(objeto->obterTipoObjeto(), objeto,
+                  (obj_tab ? obj_tab->obterTabelaPai() : NULL));
 }
 //----------------------------------------------------------
 void ModeloWidget::protegerObjeto(void)
@@ -1306,16 +1311,27 @@ void ModeloWidget::protegerObjeto(void)
     dynamic_cast<Tabela *>(obj_tab->obterTabelaPai())->definirModificado(true);
    }
    else
+   {
+    /* O esquema 'public' e as linguagens C e SQL não pode ser manipuladas
+       por serem do sistema, caso o usuário tente esta operação um erro será disparado */
+    if(this->objs_selecionados[0] &&
+       ((this->objs_selecionados[0]->obterTipoObjeto()==OBJETO_LINGUAGEM &&
+         (this->objs_selecionados[0]->obterNome()==~TipoLinguagem("c") ||
+          this->objs_selecionados[0]->obterNome()==~TipoLinguagem("sql") ||
+          this->objs_selecionados[0]->obterNome()==~TipoLinguagem("plpgsql"))) ||
+        (this->objs_selecionados[0]->obterTipoObjeto()==OBJETO_ESQUEMA &&
+         this->objs_selecionados[0]->obterNome()=="public")))
+      throw Excecao(ERR_PGMODELERUI_OPROBJRESERVADO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
+
     //Caso não seja um objeto gráfico usa o método de proteção/desproteção padrão da classe ObjetoBase
     this->objs_selecionados[0]->definirProtegido(!this->objs_selecionados[0]->objetoProtegido());
+   }
   }
   //Caso não haja objetos selecionados faz a proteção/desproteção do modelo
   else if(this->objs_selecionados.empty())
   {
    if(obj_sender==action_proteger || obj_sender==action_desproteger)
     modelo->definirProtegido(!modelo->objetoProtegido());
-
-   modelo_protegido_frm->setVisible(modelo->objetoProtegido());
   }
   //Caso haja mais de um objeto selecionado, faz a proteção em lote
   else
@@ -1335,11 +1351,16 @@ void ModeloWidget::protegerObjeto(void)
       ser manipulados diretamente pelo usuário */
     tipo_obj=objeto->obterTipoObjeto();
 
-    //Dispara uma exceção caso o usuário tente desbloquear uma linguagem do reservada (C ou SQL)
-    if(tipo_obj==OBJETO_LINGUAGEM &&
-       (objeto->obterNome()==~TipoLinguagem("c") ||
-        objeto->obterNome()==~TipoLinguagem("sql")))
-     throw Excecao(ERR_PGMODELERUI_OPRLINGRESERVADA,__PRETTY_FUNCTION__,__FILE__,__LINE__);
+    /* O esquema 'public' e as linguagens C e SQL não pode ser manipuladas
+       por serem do sistema, caso o usuário tente esta operação um erro será disparado */
+    if(objeto &&
+       ((tipo_obj==OBJETO_LINGUAGEM &&
+         (objeto->obterNome()==~TipoLinguagem("c") ||
+          objeto->obterNome()==~TipoLinguagem("sql") ||
+          objeto->obterNome()==~TipoLinguagem("plpgsql") )) ||
+        (tipo_obj==OBJETO_ESQUEMA &&
+         objeto->obterNome()=="public")))
+      throw Excecao(ERR_PGMODELERUI_OPROBJRESERVADO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
     else if(tipo_obj==OBJETO_COLUNA || tipo_obj==OBJETO_RESTRICAO)
     {
      obj_tab=dynamic_cast<ObjetoTabela *>(objeto);
@@ -1360,6 +1381,8 @@ void ModeloWidget::protegerObjeto(void)
      objeto->definirProtegido(proteger);
    }
   }
+
+  modelo_protegido_frm->setVisible(modelo->objetoProtegido());
   cena->blockSignals(false);
   cena->clearSelection();
 
@@ -1844,20 +1867,23 @@ void ModeloWidget::excluirObjetos(void)
      tipo_obj=objeto->obterTipoObjeto();
 
      //Caso o objeto esteja protegido a exclusão será negada
-     if(objeto->objetoProtegido())
+     /* O esquema 'public' e as linguagens C e SQL não pode ser manipuladas
+        por serem do sistema, caso o usuário tente esta operação um erro será disparado */
+     if(objeto &&
+        ((tipo_obj==OBJETO_LINGUAGEM &&
+          (objeto->obterNome()==~TipoLinguagem("c") ||
+           objeto->obterNome()==~TipoLinguagem("sql") ||
+           objeto->obterNome()==~TipoLinguagem("plpgsql") )) ||
+         (tipo_obj==OBJETO_ESQUEMA &&
+          objeto->obterNome()=="public")))
+       throw Excecao(ERR_PGMODELERUI_OPROBJRESERVADO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
+     else if(objeto->objetoProtegido())
      {
-      if(tipo_obj==OBJETO_LINGUAGEM &&
-         (objeto->obterNome()==~TipoLinguagem("c") ||
-          objeto->obterNome()==~TipoLinguagem("sql")))
-       throw Excecao(ERR_PGMODELERUI_OPRLINGRESERVADA,__PRETTY_FUNCTION__,__FILE__,__LINE__);
-      else
-      {
-       //Monta a mensagem de que o objeto não pode ser removido por estar protegido
-       throw Excecao(QString(Excecao::obterMensagemErro(ERR_PGMODELERUI_REMOBJPROTEGIDO))
-                     .arg(objeto->obterNome(true))
-                     .arg(objeto->obterNomeTipoObjeto()),
-                     ERR_PGMODELERUI_REMOBJPROTEGIDO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
-      }
+      //Monta a mensagem de que o objeto não pode ser removido por estar protegido
+      throw Excecao(QString(Excecao::obterMensagemErro(ERR_PGMODELERUI_REMOBJPROTEGIDO))
+                    .arg(objeto->obterNome(true))
+                    .arg(objeto->obterNomeTipoObjeto()),
+                    ERR_PGMODELERUI_REMOBJPROTEGIDO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
      }
      else if(tipo_obj!=OBJETO_RELACAO_BASE)
      {
@@ -2019,7 +2045,8 @@ void ModeloWidget::configurarMenuPopup(vector<ObjetoBase *> objs_sel)
  if(objs_sel.size() <= 1)
  {
   //Caso não haja objetos selecionados
-  if(objs_sel.empty())
+  if(objs_sel.empty() ||
+     (objs_sel.size()==1 && objs_sel[0]==modelo))
   {
    TipoObjetoBase tipos[]={ OBJETO_TABELA, OBJETO_VISAO, OBJETO_RELACAO, OBJETO_CAIXA_TEXTO, OBJETO_CONV_TIPO, OBJETO_CONV_CODIFICACAO, OBJETO_DOMINIO,
                             OBJETO_FUNCAO, OBJETO_FUNC_AGREGACAO, OBJETO_LINGUAGEM, OBJETO_CLASSE_OPER, OBJETO_OPERADOR,
@@ -2118,7 +2145,8 @@ void ModeloWidget::configurarMenuPopup(vector<ObjetoBase *> objs_sel)
  }
 
  //Adiciona a ação de copiar e recortar quando há objetos selecionados
- if(!objs_sel.empty() && !obj_tab)
+ if(!(objs_sel.size()==1 && objs_sel[0]==modelo) &&
+    !objs_sel.empty() && !obj_tab)
  {
   menu_popup.addAction(action_copiar);
 
@@ -2135,7 +2163,7 @@ void ModeloWidget::configurarMenuPopup(vector<ObjetoBase *> objs_sel)
    menu_popup.addAction(action_colar);
 
  //Caso haja objeto selecionado adiciona a ação de excluir
- if(!objs_sel.empty() || obj_tab)
+ if((!(objs_sel.size()==1 && objs_sel[0]==modelo) && !objs_sel.empty()) || obj_tab)
   menu_popup.addAction(action_excluir);
 
  /* Caso o objeto seja uma coluna (objeto de tabela) cria um menu

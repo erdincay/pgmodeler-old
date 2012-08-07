@@ -32,7 +32,7 @@
 //***********************************************************
 namespace AtributosGlobais {
 static const QString
-   VERSAO_PGMODELER="0.1.0-alfa",
+   VERSAO_PGMODELER="0.1.0",
 
    DIR_RAIZ_ESQUEMAS=getenv("PGMODELER_SCHEMAS_DIR"),
    DIR_CONFIGURACOES=getenv("PGMODELER_CONFIGS_DIR"),

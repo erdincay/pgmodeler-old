@@ -7,7 +7,6 @@ CodigoFonteWidget::CodigoFonteWidget(QWidget *parent): ObjetoBaseWidget(parent)
  try
  {
   vector<QString> versoes;
-  int qtd, i;
   QFont fonte;
 
   Ui_CodigoFonteWidget::setupUi(this);

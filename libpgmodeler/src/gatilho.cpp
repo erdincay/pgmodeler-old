@@ -342,7 +342,10 @@ QString Gatilho::obterDefinicaoObjeto(unsigned tipo_def)
   atributos[AtributosParsers::TABELA]=this->tabela_pai->obterNome(true);
 
  atributos[AtributosParsers::TIPO_DISPARO]=(~tipo_disparo);
- atributos[AtributosParsers::POR_LINHA]=(por_linha ? "1" : "");
+
+ //** Gatilhos Restrições SEMPRE devem executar por linha (FOR EACH ROW) **
+ atributos[AtributosParsers::POR_LINHA]=((por_linha && !tabela_ref) || tabela_ref ? "1" : "");
+
  atributos[AtributosParsers::CONDICAO]=condicao;
 
  if(tabela_ref)

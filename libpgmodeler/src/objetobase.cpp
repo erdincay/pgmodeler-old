@@ -509,10 +509,16 @@ QString ObjetoBase::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)
   if(comentario!="")
   {
    atributos[AtributosParsers::COMENTARIO]=comentario;
-   ParserEsquema::ignorarAtributosDesc(true);
-   atributos[AtributosParsers::COMENTARIO]=
-   ParserEsquema::obterDefinicaoObjeto(AtributosParsers::COMENTARIO,
-                                       atributos, tipo_def);
+
+   if((tipo_def==ParserEsquema::DEFINICAO_SQL &&
+       tipo_objeto!=OBJETO_ESPACO_TABELA &&
+       tipo_objeto!=OBJETO_BANCO_DADOS) ||
+      tipo_def==ParserEsquema::DEFINICAO_XML)
+   {
+    ParserEsquema::ignorarAtributosDesc(true);
+    atributos[AtributosParsers::COMENTARIO]=
+    ParserEsquema::obterDefinicaoObjeto(AtributosParsers::COMENTARIO, atributos, tipo_def);
+   }
   }
 
   if(espacotabela)
@@ -523,16 +529,24 @@ QString ObjetoBase::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)
     atributos[AtributosParsers::ESPACOTABELA]=espacotabela->obterDefinicaoObjeto(tipo_def, true);
   }
 
-
   if(dono)
   {
    if(tipo_def==ParserEsquema::DEFINICAO_SQL)
    {
     atributos[AtributosParsers::DONO]=dono->obterNome(formatar);
-    ParserEsquema::ignorarAtributosDesc(true);
-    atributos[AtributosParsers::DONO]=
-    ParserEsquema::obterDefinicaoObjeto(AtributosParsers::DONO,
-                                        atributos, tipo_def);
+
+    /** Apenas espaços de tabelas e banco de dados não têm um comando ALTER SET OWNER
+        pois por regra do PostgreSQL, espaços de tabelas e banco de dados devem ser criados
+        com apenas por linha de comando isolada das demais **/
+    if((tipo_def==ParserEsquema::DEFINICAO_SQL &&
+        tipo_objeto!=OBJETO_ESPACO_TABELA &&
+        tipo_objeto!=OBJETO_BANCO_DADOS) ||
+       tipo_def==ParserEsquema::DEFINICAO_XML)
+    {
+     ParserEsquema::ignorarAtributosDesc(true);
+     atributos[AtributosParsers::DONO]=
+     ParserEsquema::obterDefinicaoObjeto(AtributosParsers::DONO, atributos, tipo_def);
+    }
    }
    else
     atributos[AtributosParsers::DONO]=dono->obterDefinicaoObjeto(tipo_def, true);

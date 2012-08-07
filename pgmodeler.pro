@@ -1,5 +1,10 @@
 CONFIG = qt debugwarn_on uitools ordered
 
+TRANSLATIONS = lang/pgmodeler.en_US.ts
+
+CODECFORTR = UTF-8
+
+
 TEMPLATE = subdirs
 
 SUBDIRS = libutil \
@@ -19,10 +24,6 @@ INCLUDEPATH += . \
                libobjrenderer/src \
                pgmodeler_ui/src \
                /usr/include
-
-TRANSLATIONS += i18n/pgsqldbm-en_US.ts
-
-CODECFORTR = UTF-8
 
 sources.files = models schemas lang conf
 sources.path = .

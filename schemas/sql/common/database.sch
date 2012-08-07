@@ -12,6 +12,8 @@
 
 [-- object: ] @{name} [ | type: ] @{sql-object} [ -- ] $br
 
+%if @{comment} %then [-- ] @{comment} [ --] $br %end
+
 [CREATE DATABASE ] @{name} $br
 
 %if @{template} %then
@@ -26,11 +28,12 @@
   $tb [TABLESPACE = ] @{tablespace} $br
 %end
 
+%if @{owner} %then
+  $tb [OWNER = ] @{owner} $br
+%end
+
 %if @{connlimit} %then
   $tb [CONNECTION LIMIT = ] @{connlimit} $br
 %end
-; $br
 
-%if @{owner} %then @{owner} %end
-%if @{comment} %then @{comment} %end
-# $br [\connect ] @{name}; $br
+; $br

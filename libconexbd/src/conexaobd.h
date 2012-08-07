@@ -89,12 +89,19 @@ class ConexaoBD {
   //Retorna a string de conexão usada para se conectar ao banco
   QString obterStringConexao(void);
 
+  //Retorna a versão do SGBD no formato XX.YY.ZZ
+  QString obterVersaoSGBD(void);
+
   //Retorna se a conexão está estabelecida
   bool conexaoEstabelecida(void);
 
-  /* Executa um comando DDL ou DML no servidor usando a conexão aberta
+  /* Executa um comando DML no servidor usando a conexão aberta
      retornando um objeto de resutlado da consulta */
-  void executarComandoSQL(const QString &sql, Resultado &resultado);
+  void executarComandoDML(const QString &sql, Resultado &resultado);
+
+  /* Executa um comando DDL no servidor usando a conexão aberta
+     sem retorno de objetos de resultado */
+  void executarComandoDDL(const QString &sql);
 
   //Atribui uma conexão a outra
   void operator = (ConexaoBD conex);

@@ -423,6 +423,8 @@ void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
 {
  ModeloWidget *tab_modelo;
  QString nome_obj, nome_tab, str_aux;
+ Esquema *esq_publico=NULL;
+ Linguagem *ling=NULL;
 
  //Converte a quantidade de abas para QString
  str_aux=QString("%1").arg(modelos_tab->count());
@@ -440,6 +442,26 @@ void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
  modelos_tab->addTab(tab_modelo, QString::fromUtf8(nome_obj));
  modelos_tab->setCurrentIndex(modelos_tab->count()-1);
 
+ esq_publico=new Esquema;
+ esq_publico->definirNome("public");
+ tab_modelo->modelo->adicionarObjeto(esq_publico);
+ esq_publico->definirProtegido(true);
+
+ ling=new Linguagem;
+ ling->ObjetoBase::definirNome(~TipoLinguagem(TipoLinguagem::c));
+ tab_modelo->modelo->adicionarObjeto(ling);
+ ling->definirProtegido(true);
+
+ ling=new Linguagem;
+ ling->ObjetoBase::definirNome(~TipoLinguagem(TipoLinguagem::sql));
+ tab_modelo->modelo->adicionarObjeto(ling);
+ ling->definirProtegido(true);
+
+ ling=new Linguagem;
+ ling->ObjetoBase::definirNome(~TipoLinguagem(TipoLinguagem::plpgsql));
+ tab_modelo->modelo->adicionarObjeto(ling);
+ ling->definirProtegido(true);
+
  if(!nome_arq.isEmpty())
  {
   try
@@ -453,25 +475,7 @@ void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
    throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
   }
  }
- else
- {
-  Esquema *esq_publico=NULL;
-  Linguagem *ling=NULL;
 
-  esq_publico=new Esquema;
-  esq_publico->definirNome("public");
-  tab_modelo->modelo->adicionarObjeto(esq_publico);
-
-  ling=new Linguagem;
-  ling->ObjetoBase::definirNome(~TipoLinguagem(TipoLinguagem::c));
-  tab_modelo->modelo->adicionarObjeto(ling);
-  ling->definirProtegido(true);
-
-  ling=new Linguagem;
-  ling->ObjetoBase::definirNome(~TipoLinguagem(TipoLinguagem::sql));
-  tab_modelo->modelo->adicionarObjeto(ling);
-  ling->definirProtegido(true);
- }
 
  definirModeloAtual();
 }

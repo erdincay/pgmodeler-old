@@ -43,6 +43,7 @@ class FormExportacao: public QDialog, public Ui::FormExportacao {
   void habilitarTipoExportacao(void);
   void exportarModelo(void);
   void selecionarArquivoDestino(void);
+  void ocultarProgressoExportacao(void);
 };
 //***********************************************************
 #endif

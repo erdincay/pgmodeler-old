@@ -78,6 +78,7 @@ static const QString
   ESQUEMA="schema",
   EVENTOS="events",
   EXPRESSAO="expression",
+  EXPORTAR_ARQ="export-to-file",
   FALSO="false",
   FAMILIA="family",
   FATOR="factor",

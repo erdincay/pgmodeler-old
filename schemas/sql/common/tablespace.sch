@@ -12,8 +12,14 @@
 
 [-- object: ] @{name} [ | type: ] @{sql-object} [ -- ] $br
 
-[CREATE TABLESPACE ] @{name} $br
-$tb [LOCATION ] @{directory}; $br
+%if @{comment} %then 
+ -- @{comment} -- $br
+%end
 
-%if @{owner} %then @{owner} %end
-%if @{comment} %then @{comment} %end
+[CREATE TABLESPACE ] @{name} $br
+
+%if @{owner} %then
+$tb [OWNER] @{owner} $br
+%end
+
+$tb [LOCATION ] @{directory}; $br

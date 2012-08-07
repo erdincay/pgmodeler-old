@@ -57,6 +57,7 @@ class GatilhoWidget: public ObjetoBaseWidget, public Ui::GatilhoWidget {
   void manipularArgumento(int idx_lin);
   void editarArgumento(int idx_lin);
   void atualizarComboColunas(void);
+  void definirGratilhoRestricao(bool valor);
 
  public slots:
    void aplicarConfiguracao(void);

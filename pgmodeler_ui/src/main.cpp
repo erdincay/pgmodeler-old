@@ -11,7 +11,8 @@ int main(int argc, char **argv)
   QTranslator tradutor;
 
   //Carrega o arquivo de tradução da interface de acordo com o locale do sistema
-  tradutor.load(AtributosGlobais::DIR_LINGUAS + QString("/pgmodeler-") + local);
+  tradutor.load(QString("pgmodeler.") + local, AtributosGlobais::DIR_LINGUAS);
+
   //Instala o tradutor na aplicação
   app.installTranslator(&tradutor);
 

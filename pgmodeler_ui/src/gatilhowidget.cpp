@@ -28,8 +28,8 @@ GatilhoWidget::GatilhoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_G
   //Alocando seletor de tabela referenciada
   sel_tabela_ref=new SeletorObjetoWidget(OBJETO_TABELA, true);
   sel_funcao=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
-  gatilho_grid->addWidget(sel_funcao, 3, 1, 1, 1);
-  gatilho_grid->addWidget(sel_tabela_ref, 4, 1, 1, 1);
+  gatilho_grid->addWidget(sel_funcao, 5, 1, 1, 2);
+  gatilho_grid->addWidget(sel_tabela_ref, 6, 1, 1, 2);
 
   //Configurando as tabelas com 2 colunas (nome da coluna e tipo)
   tab_colunas->definirNumColunas(2);
@@ -73,6 +73,7 @@ GatilhoWidget::GatilhoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_G
   connect(tab_argumentos, SIGNAL(s_linhaAdicionada(int)), this, SLOT(manipularArgumento(int)));
   connect(tab_argumentos, SIGNAL(s_linhaAtualizada(int)), this, SLOT(manipularArgumento(int)));
   connect(tab_argumentos, SIGNAL(s_linhaEditada(int)), this, SLOT(editarArgumento(int)));
+  connect(gat_rest_chk, SIGNAL(toggled(bool)), this, SLOT(definirGratilhoRestricao(bool)));
  }
  catch(Excecao &e)
  {
@@ -88,7 +89,15 @@ GatilhoWidget::~GatilhoWidget(void)
  if(tab_argumentos) delete(tab_argumentos);
  if(sel_tabela_ref) delete(sel_tabela_ref);
  if(sel_funcao) delete(sel_funcao);
-
+}
+//----------------------------------------------------------
+void GatilhoWidget::definirGratilhoRestricao(bool valor)
+{
+ exec_por_linha_chk->setEnabled(!valor);
+ exec_por_linha_chk->setChecked(valor);
+ sel_tabela_ref->setEnabled(valor);
+ if(!valor)
+  sel_tabela_ref->removerObjetoSelecionado();
 }
 //----------------------------------------------------------
 void GatilhoWidget::adicionarColuna(int idx_lin)
@@ -226,6 +235,7 @@ void GatilhoWidget::definirAtributos(ModeloBD *modelo, Tabela *tabela_pai, Lista
  if(gatilho)
  {
   //Preenche os demais campos do formulário com os valores presentes na instância da restrição
+  gat_rest_chk->setChecked(gatilho->obterTabReferenciada());
   exp_condicional_txt->setPlainText(QString::fromUtf8(gatilho->obterCondicao()));
   postergavel_chk->setChecked(gatilho->gatilhoPostergavel());
   tipo_postergacao_cmb->setCurrentIndex(tipo_postergacao_cmb->findText(~gatilho->obterTipoPostergacao()));

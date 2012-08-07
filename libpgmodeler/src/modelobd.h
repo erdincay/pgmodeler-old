@@ -253,8 +253,18 @@ class ModeloBD:  public QObject, public ObjetoBase {
   //Salva o modelo em formato SQL ou XML no arquivo
   void salvarModelo(const QString &nome_arq, unsigned tipo_def);
 
-  //Retorna a definição SQL ou XML do objeto
-  QString obterDefinicaoObjeto(unsigned tipo_def);
+  /* Retorna a definição SQL ou XML do modelo completo.
+     O parâmetro 'exportar_arq' por padrão é marcado como TRUE significando
+     que o código gerado será um que pode ser gravado em arquivo para
+     execução posterior. Quando este parâmetro é falso alguns detalhes
+     no código são modificados como a criação de roles e tablespaces não são feitas
+     pelo arquivo e sim diretamente pelo formulário de exportação do modelo.
+     (Vide pgmodeler_ui/FormExportacao). Adicionalmente, este parâmetro só é considerado
+     em geração de código SQL. */
+  QString obterDefinicaoObjeto(unsigned tipo_def, bool exportar_arq=true);
+
+  //Retorna a definição SOMENTE do banco de dados definido pelo modelo.
+  QString __obterDefinicaoObjeto(unsigned tipo_def);
 
   //Métodos de manipulação de relacionamentos
   void adicionarRelacionamento(RelacionamentoBase *relacao, int idx_obj=-1);

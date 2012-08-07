@@ -146,7 +146,7 @@ QString Excecao::mensagens[QTD_ERROS][2]={
 {"ERR_PGMODELERUI_GRUPODECLNAODEF", QObject::tr("O grupo '%1' foi declarado porém não construído!")},
 {"ERR_PGMODELERUI_REFCOLTABOBJIDXINV", QObject::tr("Referência a uma coluna da tabela de objetos com índice inválido!")},
 {"ERR_PGMODELERUI_REFLINTABOBJIDXINV", QObject::tr("Referência a uma linha da tabela de objetos com índice inválido!")},
-{"ERR_PGMODELERUI_OPRLINGRESERVADA", QObject::tr("As linguagens C e SQL não podem ser manipuladas por serem reservadas ao PostgreSQL! As mesmas estão presentes no modelo de banco de dados apenas como referência!")},
+{"ERR_PGMODELERUI_OPROBJRESERVADO", QObject::tr("O esquema 'public' e as linguagens 'plpgsql', 'c' e 'sql' não podem ser manipuladas por serem reservados ao PostgreSQL! Os mesmos estão presentes no modelo de banco de dados apenas como referência!")},
 {"ERR_PGMODELERUI_CONFFUNCINVALIDAOBJ", QObject::tr("A nova configuração da função invalida o objeto '%1' (%2) o qual a referencia! Neste caso é necessário desfazer a relação entre o objeto afetado e a função para que a nova configuração desta última seja efetivada!")},
 {"ERR_PGMODELERUI_TIPOSQLINDEFREFVISAO", QObject::tr("Uma referência de visão deve possuir pelo menos uma aplicação SQL: SELECT-FROM, FROM-WHERE ou Após WHERE!")},
 {"ERR_PGMODELERUI_RESTPKFKSEMCOLUNAS", QObject::tr("Restrições do tipo chave-primária, chave-estrangeira ou única devem possuir pelo menos uma coluna relacionada às mesmas! Para chaves-estrangeira devem ser selecionadas, adicionalmente, as colunas referenciadas!")},

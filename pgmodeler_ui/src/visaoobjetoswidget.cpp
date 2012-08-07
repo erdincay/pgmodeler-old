@@ -121,6 +121,8 @@ VisaoObjetosWidget::VisaoObjetosWidget(bool visao_simplificada, QWidget *parent,
   connect(objetosvisiveis_lst,SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(definirObjetoVisivel(QListWidgetItem*)));
   connect(marcar_tb,SIGNAL(clicked(bool)), this, SLOT(definirTodosObjetosVisiveis(bool)));
   connect(desmarcar_tb,SIGNAL(clicked(bool)), this, SLOT(definirTodosObjetosVisiveis(bool)));
+  connect(arvoreobjetos_tw,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this, SLOT(editarObjeto(void)));
+  connect(listaobjetos_tbw,SIGNAL(itemDoubleClicked(QTableWidgetItem*)),this, SLOT(editarObjeto(void)));
  }
  else
  {
@@ -149,6 +151,18 @@ void VisaoObjetosWidget::exibirMenuObjeto(void)
   modelo_wgt->cena->clearSelection();
   modelo_wgt->configurarMenuPopup(vet);
   modelo_wgt->menu_popup.exec(QCursor::pos());
+ }
+}
+//----------------------------------------------------------
+void VisaoObjetosWidget::editarObjeto(void)
+{
+ if(objeto_selecao && modelo_wgt && !visao_simplificada)
+ {
+  vector<ObjetoBase *> vet;
+  vet.push_back(objeto_selecao);
+  modelo_wgt->cena->clearSelection();
+  modelo_wgt->configurarMenuPopup(vet);
+  modelo_wgt->editarObjeto();
  }
 }
 //----------------------------------------------------------

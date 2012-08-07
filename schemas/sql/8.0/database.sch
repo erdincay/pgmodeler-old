@@ -10,7 +10,9 @@
 # CAUTION: Do not modify this file unless that you know what
 #          you are doing.
 
- [-- object: ] @{name} [ | type: ] @{sql-object} [ -- ] $br
+[-- object: ] @{name} [ | type: ] @{sql-object} [ -- ] $br
+
+%if @{comment} %then [-- ] @{comment} [ --] $br %end
 
 [CREATE DATABASE ] @{name} $br
 
@@ -26,7 +28,8 @@
   $tb [TABLESPACE = ] @{tablespace} $br
 %end
 
-; $br
+%if @{owner} %then
+  $tb [OWNER = ] @{owner} $br
+%end
 
-%if @{owner} %then @{owner} %end
-%if @{comment} %then @{comment} %end
+; $br

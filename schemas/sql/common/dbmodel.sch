@@ -36,9 +36,28 @@ $br $br
 $br [*/] $br $br
 
 
-%if @{role} %then @{role} %end
-%if @{tablespace} %then @{tablespace} %end
-%if @{database} %then @{database} %end
+%if @{export-to-file} %then
+
+ %if @{role} %then @{role} %end
+ %if @{tablespace} %then 
+   $br [/* pt_BR: A criação de tablespaces deve ser separadamente de um arquivo multicomandos.] $br
+   [          Os comandos foram colocados neste arquivo apenas por conveniência. ] $br
+   $br
+   [   en_US: Tablespaces criation must be done outside an multicommand file.] $br
+   [          These commands were put in this file only for convenience.] $br $br
+    @{tablespace} $br
+    */ $br $br
+ %end
+
+$br [/* pt_BR: A criação do banco de dados deve ser separadamente de um arquivo multicomandos.] $br
+    [          Os comandos foram colocados neste arquivo apenas por conveniência. ] $br
+$br
+    [   en_US: Database criation must be done outside an multicommand file.] $br
+    [          These commands were put in this file only for convenience.] $br $br
+   @{database} $br
+*/ $br $br
+%end
+
 %if @{schema} %then @{schema} %end
 %if @{shell-types} %then @{shell-types} %end
 %if @{objects} %then @{objects} %end

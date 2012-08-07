@@ -140,7 +140,22 @@ bool ConexaoBD::conexaoEstabelecida(void)
  return(conexao!=NULL);
 }
 //-----------------------------------------------------------
-void ConexaoBD::executarComandoSQL(const QString &sql, Resultado &resultado)
+QString  ConexaoBD::obterVersaoSGBD(void)
+{
+ QString versao;
+
+ if(!conexao)
+  throw Excecao(ERR_CONEXBD_OPRCONEXNAOALOC, __PRETTY_FUNCTION__, __FILE__, __LINE__);
+
+ versao=QString("%1").arg(PQserverVersion(conexao));
+
+ return(QString("%1.%2.%3")
+        .arg(versao.mid(0,2).toInt()/10)
+        .arg(versao.mid(2,2).toInt()/10)
+        .arg(versao.mid(4,1).toInt()));
+}
+//-----------------------------------------------------------
+void ConexaoBD::executarComandoDML(const QString &sql, Resultado &resultado)
 {
  Resultado *novo_res=NULL;
  PGresult *res_sql=NULL;
@@ -152,7 +167,7 @@ void ConexaoBD::executarComandoSQL(const QString &sql, Resultado &resultado)
 
  //Aloca um novo resultado para receber o result-set vindo da execução do comando sql
  res_sql=PQexec(conexao, sql.toStdString().c_str());
- if(!res_sql)
+ if(strlen(PQerrorMessage(conexao))>0)
  {
   str_aux=QString(Excecao::obterMensagemErro(ERR_CONEXBD_CMDSQLNAOEXECUTADO))
           .arg(PQerrorMessage(conexao));
@@ -164,6 +179,24 @@ void ConexaoBD::executarComandoSQL(const QString &sql, Resultado &resultado)
  resultado=*(novo_res);
  //Desaloca o resultado criado
  delete(novo_res);
+}
+//-----------------------------------------------------------
+void ConexaoBD::executarComandoDDL(const QString &sql)
+{
+ QString str_aux;
+
+ //Dispara um erro caso o usuário tente reiniciar uma conexão não iniciada
+ if(!conexao)
+  throw Excecao(ERR_CONEXBD_OPRCONEXNAOALOC, __PRETTY_FUNCTION__, __FILE__, __LINE__);
+
+ PQexec(conexao, sql.toStdString().c_str());
+
+ if(strlen(PQerrorMessage(conexao)) > 0)
+ {
+  str_aux=QString(Excecao::obterMensagemErro(ERR_CONEXBD_CMDSQLNAOEXECUTADO))
+          .arg(PQerrorMessage(conexao));
+  throw Excecao(str_aux,ERR_CONEXBD_CMDSQLNAOEXECUTADO, __PRETTY_FUNCTION__, __FILE__, __LINE__);
+ }
 }
 //-----------------------------------------------------------
 void ConexaoBD::operator = (ConexaoBD conex)

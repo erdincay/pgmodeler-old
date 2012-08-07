@@ -426,7 +426,7 @@ QString OGSubItemObjeto::obterStringRestricoes(Coluna *coluna)
   Tabela *tabela=dynamic_cast<Tabela *>(coluna->obterTabelaPai());
   QString str_rest;
   Restricao *restricao=NULL;
-  vector<Restricao *>::iterator itr;
+  vector<Restricao *>::iterator itr,itr_end;
   vector<Restricao *> restricoes;
   TipoRestricao tipo_rest;
   unsigned i, qtd;
@@ -437,8 +437,9 @@ QString OGSubItemObjeto::obterStringRestricoes(Coluna *coluna)
 
   //Obtém as referências ao primeiro e último elemento da lita de constraints
   itr=restricoes.begin();
+  itr_end=restricoes.end();
 
-  while(itr!=restricoes.end())
+  while(itr!=itr_end)
   {
    restricao=(*itr); //Obtém uma constraint
    itr++; //Passa para a próxima da lista

@@ -75,9 +75,9 @@ QString ElementoIndice::obterDefinicaoObjeto(unsigned tipo_def)
  
  if(coluna)
  {
-  if(tipo_def==ParserEsquema::DEFINICAO_SQL)
+  /*if(tipo_def==ParserEsquema::DEFINICAO_SQL)
    atributos[AtributosParsers::COLUNA]=coluna->obterTabelaPai()->obterNome(true) + "." + coluna->obterNome(true);
-  else
+  else */
    atributos[AtributosParsers::COLUNA]=coluna->obterNome(true);
  }
  else

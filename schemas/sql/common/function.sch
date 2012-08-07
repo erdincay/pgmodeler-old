@@ -50,7 +50,9 @@ $tb [AS ]
  %end
 
 %else
+[$$]
  @{definition}
+[$$]
 %end
 
 ; $br

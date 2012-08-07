@@ -26,7 +26,7 @@
    <property name="spacing">
     <number>4</number>
    </property>
-   <item row="0" column="0">
+   <item row="1" column="0">
     <widget class="QLabel" name="tipo_disparo_lbl">
      <property name="enabled">
       <bool>true</bool>
@@ -54,7 +54,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
+   <item row="1" column="2">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QComboBox" name="tipo_disparo_cmb">
@@ -129,7 +129,7 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="0">
+   <item row="2" column="0">
     <widget class="QLabel" name="evento_lbl">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -154,7 +154,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
+   <item row="2" column="2">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <property name="sizeConstraint">
       <enum>QLayout::SetDefaultConstraint</enum>
@@ -261,7 +261,7 @@
      </item>
     </layout>
    </item>
-   <item row="2" column="0">
+   <item row="3" column="0">
     <widget class="QLabel" name="postergavel_lbl">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -286,7 +286,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="3" column="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QCheckBox" name="postergavel_chk">
@@ -368,35 +368,7 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="funcao_lbl">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>110</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>110</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Função:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0">
+   <item row="6" column="0">
     <widget class="QLabel" name="tab_referenciada_lbl">
      <property name="enabled">
       <bool>true</bool>
@@ -424,7 +396,7 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
+   <item row="7" column="0">
     <widget class="QLabel" name="exp_condicional_lbl">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -449,7 +421,7 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="1">
+   <item row="7" column="2">
     <widget class="QTextEdit" name="exp_condicional_txt">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -495,7 +467,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="0" colspan="2">
+   <item row="8" column="0" colspan="3">
     <widget class="QTabWidget" name="arg_cols_tbw">
      <property name="currentIndex">
       <number>0</number>
@@ -578,6 +550,48 @@
        </item>
       </layout>
      </widget>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="funcao_lbl">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>110</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>110</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Função:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="gat_rest_lbl">
+     <property name="text">
+      <string>Gatilho Restrição</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QCheckBox" name="gat_rest_chk">
+     <property name="text">
+      <string/>
+     </property>
     </widget>
    </item>
   </layout>

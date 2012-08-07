@@ -113,6 +113,7 @@ class VisaoObjetosWidget: public QDockWidget, public Ui::VisaoObjetosWidget {
    void definirTodosObjetosVisiveis(bool);
    void selecionarObjeto(void);
    void exibirMenuObjeto(void);
+   void editarObjeto(void);
 
   signals:
   /* Sinais personalizados usados para sinalizarem

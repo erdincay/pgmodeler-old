@@ -18,7 +18,7 @@
 
 $tb @{firing-type} $sp @{events}
 %if @{columns} %then 
-[ OF ] (@{columns})
+[ OF ] @{columns}
 %end $br
 
 

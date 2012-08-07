@@ -6044,7 +6044,33 @@ void ModeloBD::validarRelacObjetoTabela(ObjetoTabela *objeto, Tabela *tabela_pai
  }
 }
 //-----------------------------------------------------------
-QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def)
+QString ModeloBD::__obterDefinicaoObjeto(unsigned tipo_def)
+{
+ if(lim_conexao >= 0)
+  atributos[AtributosParsers::LIMITE_CONEXAO]=QString("%1").arg(lim_conexao);
+
+ if(tipo_def==ParserEsquema::DEFINICAO_SQL)
+ {
+  atributos[AtributosParsers::CODIFICACAO]="'" + (~tipo_codif) + "'";
+
+  if(!localizacoes[1].isEmpty())
+   atributos[AtributosParsers::LC_COLLATE_BD]="'" + localizacoes[1] + "'";
+
+  if(!localizacoes[0].isEmpty())
+   atributos[AtributosParsers::LC_CTYPE_BD]="'" + localizacoes[0]  + "'";
+ }
+ else
+ {
+  atributos[AtributosParsers::CODIFICACAO]=(~tipo_codif);
+  atributos[AtributosParsers::LC_COLLATE_BD]=localizacoes[1];
+  atributos[AtributosParsers::LC_CTYPE_BD]=localizacoes[0];
+ }
+
+ atributos[AtributosParsers::BD_MODELO]=bd_modelo;
+ return(this->ObjetoBase::obterDefinicaoObjeto(tipo_def));
+}
+//-----------------------------------------------------------
+QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def, bool exportar_arq)
 {
  map<QString, QString> atribs_aux;
  unsigned qtd1, i, qtd;
@@ -6100,20 +6126,24 @@ QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def)
    {
     //Obtém o objeto atual
     objeto=(*itr);
-    //Gera o codigo e o concatena com os demais já gerados
-    atribs_aux[atrib]+=validarDefinicaoObjeto(objeto, tipo_def);
 
-    //Dispara um sinal para sinalizar o progresso da geração do códgio
-    qtd_defs_geradas++;
-    if(!signalsBlocked())
+    if(objeto->obterTipoObjeto()!=OBJETO_ESQUEMA ||
+       (objeto->obterTipoObjeto()==OBJETO_ESQUEMA &&
+        objeto->obterNome()!="public"))
     {
-     emit s_objetoCarregado((qtd_defs_geradas/qtd_geral_obj) * 100,
-                            msg.arg(tipo_def_str)
+     //Gera o codigo e o concatena com os demais já gerados
+     atribs_aux[atrib]+=validarDefinicaoObjeto(objeto, tipo_def);
+     //Dispara um sinal para sinalizar o progresso da geração do códgio
+     qtd_defs_geradas++;
+     if(!signalsBlocked())
+     {
+      emit s_objetoCarregado((qtd_defs_geradas/qtd_geral_obj) * 100,
+                             msg.arg(tipo_def_str)
                                .arg(QString::fromUtf8(objeto->obterNome()))
                                .arg(objeto->obterNomeTipoObjeto()),
                             objeto->obterTipoObjeto());
+     }
     }
-
     itr++;
    }
   }
@@ -6340,40 +6370,20 @@ QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def)
    }
    else if(tipo_obj==OBJETO_BANCO_DADOS)
    {
-    //Obtendo a definição específica do banco de dados
-    if(lim_conexao >= 0)
-     atributos[AtributosParsers::LIMITE_CONEXAO]=QString("%1").arg(lim_conexao);
-
     if(tipo_def==ParserEsquema::DEFINICAO_SQL)
-    {
-     atributos[AtributosParsers::CODIFICACAO]="'" + (~tipo_codif) + "'";
-
-     if(!localizacoes[1].isEmpty())
-      atributos[AtributosParsers::LC_COLLATE_BD]="'" + localizacoes[1] + "'";
-
-     if(!localizacoes[0].isEmpty())
-      atributos[AtributosParsers::LC_CTYPE_BD]="'" + localizacoes[0]  + "'";
-    }
+     atribs_aux[this->obterNomeEsquemaObjeto()]+=this->__obterDefinicaoObjeto(tipo_def);
     else
-    {
-     atributos[AtributosParsers::CODIFICACAO]=(~tipo_codif);
-     atributos[AtributosParsers::LC_COLLATE_BD]=localizacoes[1];
-     atributos[AtributosParsers::LC_CTYPE_BD]=localizacoes[0];
-    }
-
-    atributos[AtributosParsers::BD_MODELO]=bd_modelo;
-
-    if(tipo_def==ParserEsquema::DEFINICAO_SQL)
-     atribs_aux[this->obterNomeEsquemaObjeto()]+=this->ObjetoBase::obterDefinicaoObjeto(tipo_def);
-    else
-     atribs_aux[atrib]+=this->ObjetoBase::obterDefinicaoObjeto(tipo_def);
+     atribs_aux[atrib]+=this->__obterDefinicaoObjeto(tipo_def);
    }
    else
    {
-    /* Desprezando a definição SQL das linguagens c e sql pois as mesmas não precisam
-       ser declaradas explicitamente poir serem built-in */
-    if(tipo_def==ParserEsquema::DEFINICAO_SQL && tipo_obj==OBJETO_LINGUAGEM &&
-      (objeto->obterNome()==~TipoLinguagem("c") || objeto->obterNome()==~TipoLinguagem("sql")))
+    /* Desprezando as linguagens c e sql
+       pois as mesmas não precisam ser declaradas explicitamente poir serem built-in */
+    if(//tipo_def==ParserEsquema::DEFINICAO_SQL &&
+       (tipo_obj==OBJETO_LINGUAGEM &&
+        (objeto->obterNome()==~TipoLinguagem("c") ||
+         objeto->obterNome()==~TipoLinguagem("sql") ||
+         objeto->obterNome()==~TipoLinguagem("plpgsql"))))
      atribs_aux[atrib]+="";
     else
      atribs_aux[atrib]+=validarDefinicaoObjeto(objeto, tipo_def);
@@ -6433,7 +6443,6 @@ QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def)
      tipo_usr->converterParametrosFuncoes(true);
    }
   }
-
  }
  catch(Excecao &e)
  {
@@ -6451,6 +6460,9 @@ QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def)
   }
   throw Excecao(e.obterMensagemErro(), e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
+
+ //Armazena o atributo que indica se a exportação é para arquivo ou não
+ atribs_aux[AtributosParsers::EXPORTAR_ARQ]=(exportar_arq ? "1" : "");
 
  //Retorna a definição do modelo completa
  return(ParserEsquema::obterDefinicaoObjeto(AtributosParsers::MODELO_BD, atribs_aux, tipo_def));
