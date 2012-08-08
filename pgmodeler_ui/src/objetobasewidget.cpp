@@ -445,8 +445,8 @@ QFrame *ObjetoBaseWidget::gerarFrameAlertaVersao(map<QString, vector<QWidget *> 
    fonte.setBold(true);
    fonte.setItalic(true);
    wgt->setFont(fonte);
-   wgt->setToolTip(QString::fromUtf8("<em style='font-size: 8pt'>Versão ") +
-                   itr->first + QString::fromUtf8("%1</em>").arg(nome_cmp));
+   wgt->setToolTip(QString::fromUtf8("<em style='font-size: 8pt'>") + trUtf8("Versão") +
+                   itr->first + QString::fromUtf8(" %1</em>").arg(nome_cmp));
   }
   itr++;
  }

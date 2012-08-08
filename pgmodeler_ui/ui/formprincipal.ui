@@ -456,7 +456,7 @@
      <normaloff>:/icones/icones/pgsqlModeler48x48.png</normaloff>:/icones/icones/pgsqlModeler48x48.png</iconset>
    </property>
    <property name="text">
-    <string>Sobre o pgsqlDBM</string>
+    <string>Sobre o pgModeler</string>
    </property>
    <property name="shortcut">
     <string>F2</string>

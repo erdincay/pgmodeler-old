@@ -23,9 +23,9 @@ QString ObjetoBase::nome_tipo_objetos[QTD_TIPOS_OBJETO]={
   QObject::tr("Conversão de Tipo"),
   QObject::tr("Linguagem"), QObject::tr("Tipo"), QObject::tr("Espaço de Tabela"),
   QObject::tr("Família de Operadores"), QObject::tr("Classe de Operadores"),
-  QObject::tr("Banco de Dados"), QObject::tr("Relac. Tabela-Tabela"),
+  QObject::tr("Banco de Dados"), QObject::tr("Relacionamento Tabela-Tabela"),
   QObject::tr("Caixa de Texto"), QObject::tr("Permissão"), QObject::tr("Parâmetro"),
-  QObject::tr("Relac. Tabela-Visão")
+  QObject::tr("Relacionamento Tabela-Visão")
 
 };
 

@@ -1324,7 +1324,10 @@ void ModeloWidget::protegerObjeto(void)
       throw Excecao(ERR_PGMODELERUI_OPROBJRESERVADO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
 
     //Caso não seja um objeto gráfico usa o método de proteção/desproteção padrão da classe ObjetoBase
-    this->objs_selecionados[0]->definirProtegido(!this->objs_selecionados[0]->objetoProtegido());
+    if(this->objs_selecionados[0]==modelo)
+     modelo->definirProtegido(!modelo->objetoProtegido());
+    else
+     this->objs_selecionados[0]->definirProtegido(!this->objs_selecionados[0]->objetoProtegido());
    }
   }
   //Caso não haja objetos selecionados faz a proteção/desproteção do modelo
