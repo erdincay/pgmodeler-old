@@ -407,7 +407,7 @@ void RelacionamentoWidget::listarObjetos(TipoObjetoBase tipo_obj)
 //----------------------------------------------------------
 void RelacionamentoWidget::adicionarObjeto(void)
 {
- TipoObjetoBase tipo_obj;
+ TipoObjetoBase tipo_obj=OBJETO_BASE;
 
  try
  {
@@ -511,8 +511,8 @@ void RelacionamentoWidget::exibirDadosObjeto(ObjetoTabela *objeto, int idx_lin)
 void RelacionamentoWidget::removerObjetos(void)
 {
  Relacionamento *relacao=NULL;
- TipoObjetoBase tipo_obj;
- unsigned qtd, qtd_op, i;
+ TipoObjetoBase tipo_obj=OBJETO_BASE;
+ unsigned qtd, qtd_op=0, i;
  ObjetoTabela *objeto=NULL;
 
  try

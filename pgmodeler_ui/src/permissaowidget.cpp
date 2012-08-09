@@ -296,7 +296,7 @@ void PermissaoWidget::exibirDadosPapelSelecionado(void)
  //Se o objeto da seleção não existir na tabela exibe seus dados
  if(papel && idx_lin < 0)
  {
-  tab_papeis->definirTextoCelula(papel->obterNome(), lin, 0);
+  tab_papeis->definirTextoCelula(QString::fromUtf8(papel->obterNome()), lin, 0);
   tab_papeis->definirDadoLinha(QVariant::fromValue<void *>(dynamic_cast<void *>(papel)), lin);
  }
  else

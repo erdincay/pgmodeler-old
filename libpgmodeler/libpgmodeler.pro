@@ -1,9 +1,16 @@
-CONFIG = qt debug warn_on uitools dll
+include(../pgmodeler.pro)
+
+CONFIG += qt warn_on
+QT = core gui qt3support
+
 VERSION = 1
 TEMPLATE = lib
 TARGET = pgmodeler
 DESTDIR = ../build/lib/
+
 DEPENDPATH += ". src moc obj"
+OBJECTS_DIR = obj
+MOC_DIR = moc
 
 HEADERS += src/caixatexto.h \
 	   src/conversaotipo.h \
@@ -77,16 +84,5 @@ SOURCES +=  src/caixatexto.cpp \
             src/referencia.cpp \
             src/permissao.cpp
 
-OBJECTS_DIR = obj
-MOC_DIR = moc
-
-QT += core gui qt3support
-
-INCLUDEPATH += /usr/include/libxml2 \
-               ../libutil/src \
-               ../libparsers/src \
-               ../libpgmodeler/src
-
 LIBS += ../build/lib/libutil.so.1 \
         ../build/lib/libparsers.so.1
-

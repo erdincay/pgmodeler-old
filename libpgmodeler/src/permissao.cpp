@@ -227,6 +227,7 @@ void Permissao::gerarIdPermissao(void)
  QString str_aux;
  QString endereco;
  unsigned i, qtd;
+ QTextStream stream(&endereco);
 
  //Caso haja algum papel associado à permissão
  if(papeis.size() > 0)
@@ -240,9 +241,10 @@ void Permissao::gerarIdPermissao(void)
   {
    papel=(*itr);
    //Converte o endereço
-   endereco.sprintf("%x",reinterpret_cast<unsigned *>(papel));
+   //endereco.sprintf("%x",reinterpret_cast<unsigned *>(papel));
+   stream << reinterpret_cast<unsigned *>(papel);
    //Armazena-o em um vetor
-   vet_end.push_back(endereco);
+   vet_end.push_back(endereco.mid(2));
    itr++;
   }
 
@@ -268,7 +270,7 @@ void Permissao::gerarIdPermissao(void)
     grant_[ID_OBJETO]_([END_PAPEL1].[END_PAPELN])
 
     Com esse formato de nome é possivel criar um identificador
-    interno para a permissão (não visível ao usuário) e assim
+    interno para a permissão e assim
     podendo gerar erros quando o usuário tenta criar uma permissão
     com o mesmo conjunto de papéis relacionados ao objeto */
  this->nome=QString(AtributosParsers::PERMISSAO + "_%1.%2")

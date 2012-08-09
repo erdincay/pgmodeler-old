@@ -1501,7 +1501,7 @@ void ModeloWidget::colarObjetos(void)
  ObjetoBase *objeto=NULL, *objeto_aux=NULL;
  ObjetoTabela *obj_tab=NULL;
  Funcao *func=NULL;
- Tipo *tipo=NULL;
+ //Tipo *tipo=NULL;
  Operador *oper=NULL;
  QString nome_aux, nome_obj_copia;
  TipoObjetoBase tipo_obj;
@@ -1566,7 +1566,7 @@ void ModeloWidget::colarObjetos(void)
     //Resolvendo conflitos de nomes
     if(tipo_obj!=OBJETO_CONV_TIPO)
     {
-     func=NULL; tipo=NULL; oper=NULL;
+     func=NULL; oper=NULL;  //tipo=NULL;
      //Armazena o nome original do objeto em um mapa
      nome_orig_objs[objeto]=objeto->obterNome();
 
@@ -2021,7 +2021,7 @@ void ModeloWidget::configurarMenuPopup(vector<ObjetoBase *> objs_sel)
  QAction *acao=NULL;
  ObjetoTabela *obj_tab=NULL;
  QString str_aux;
- bool obj_protegido;
+ bool obj_protegido=false;
 
  //Limpa os menus padrão do modelo
  menu_novo_obj.clear();

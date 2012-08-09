@@ -2907,10 +2907,10 @@ ObjetoBase *ModeloBD::criarObjeto(TipoObjetoBase tipo_obj)
 void ModeloBD::definirAtributosBasicos(ObjetoBase *objeto)
 {
  map<QString, QString> atributos, atribs_aux;
- QString nome_elem, str_aux;
+ QString nome_elem;//, str_aux;
  ObjetoBase *esp_tabela=NULL, *dono=NULL;
  Esquema *esquema=NULL;
- TipoObjetoBase tipo_obj, tipo_obj_aux;
+ TipoObjetoBase tipo_obj=OBJETO_BASE, tipo_obj_aux;
  bool erro=false, protegido=false;
 
  //Caso o objeto não esteja alocado uma exceção é disparada
@@ -5714,7 +5714,7 @@ Permissao *ModeloBD::criarPermissao(void)
  TipoObjetoBase tipo_obj;
  QString obj_pai, nome_obj;
  QStringList lista;
- unsigned i, tam, tipo_priv;
+ unsigned i, tam, tipo_priv=Permissao::PRIV_SELECT;
  bool valor_priv, op_concessao;
 
  try

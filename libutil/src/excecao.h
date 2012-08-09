@@ -2,7 +2,7 @@
 # Projeto: Modelador de Banco de Dados PostgreSQL (pgsqlDBM)
 # Sub-projeto: Biblioteca libutil
 # Classe: Excecao
-# Data de CriaÃ§Ã£o: 10/07/2006
+# Data de Criação: 10/07/2006
 #
 # Copyright (C) 2006-2012 - Raphael Araujo e Silva <rkhaotix@gmail.com>
 #
@@ -26,7 +26,7 @@
 #include <QObject>
 #include <exception>
 #include <QString>
-#include <execinfo.h>
+//#include <execinfo.h>
 #include <signal.h>
 #include <iostream>
 #include <vector>

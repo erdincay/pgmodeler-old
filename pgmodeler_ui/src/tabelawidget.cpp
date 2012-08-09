@@ -469,7 +469,7 @@ void TabelaWidget::exibirDadosObjeto(ObjetoTabela *objeto, int idx_lin)
 void TabelaWidget::removerObjetos(void)
 {
  Tabela *tabela=NULL;
- unsigned qtd, qtd_op, i;
+ unsigned qtd, qtd_op=0, i;
  ObjetoBase *objeto=NULL;
  TipoObjetoBase tipo_obj;
 

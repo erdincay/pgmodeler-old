@@ -1,34 +1,17 @@
-CONFIG += qt debug warn_on  uic4
+include(../pgmodeler.pro)
+
+CONFIG += qt warn_on uitools uic4
+QT = core gui qt3support
 TEMPLATE = app
 TARGET = pgmodeler
-DEPENDPATH += ". res src ui moc obj"
+
+DEPENDPATH = ". res src ui moc obj"
 MOC_DIR = moc
 OBJECTS_DIR = obj
 UI_DIR = src
-QT += core gui qt3support
 DESTDIR = ../build
-
-INCLUDEPATH += . \
-src \
-../libutil/src \
-../libobjrenderer/src \
-../libpgmodeler/src \
-../libparsers/src \
-../libconexbd/src
-
-unix {
-
-INCLUDEPATH += /usr/include/libxml2 \
-               /usr/local/pgsql/include \
-               /usr/include
-}
-
-windows {
-
-INCLUDEPATH += /usr/include/libxml2 \
-               /usr/local/pgsql/include \
-               /usr/include
-}
+TRANSLATIONS = lang/pgmodeler.en_US.ts
+CODECFORTR = UTF-8
 
 SOURCES += src/main.cpp \
            src/formprincipal.cpp \
@@ -179,5 +162,4 @@ LIBS += ../build/lib/libutil.so.1 \
         ../build/lib/libobjrenderer.so.1 \
         ../build/lib/libpgmodeler.so.1 \
         ../build/lib/libparsers.so.1 \
-        ../build/lib/libconexbd.so.1 \
-        -lxml2
+        ../build/lib/libconexbd.so.1

@@ -1723,7 +1723,7 @@ void Relacionamento::desconectarRelacionamento(bool rem_objs_tab)
    vector<ObjetoTabela *> *lista_atrib=NULL;
    vector<ObjetoTabela *>::iterator itr_atrib, itr_atrib_end;
    ObjetoTabela *obj_tab=NULL;
-   TipoObjetoBase tipo_obj;
+   //TipoObjetoBase tipo_obj;
 
    if(tipo_relac==RELACIONAMENTO_GEN ||
       tipo_relac==RELACIONAMENTO_DEP)
@@ -1836,7 +1836,7 @@ void Relacionamento::desconectarRelacionamento(bool rem_objs_tab)
     {
      //Obtém o atributo
      obj_tab=(*itr_atrib);
-     tipo_obj=obj_tab->obterTipoObjeto();
+     //tipo_obj=obj_tab->obterTipoObjeto();
 
      /* É necessário verificar se o objeto pertence ao relacionamento
         a fim de evitar que atributos adicionados por outros relacionamentos

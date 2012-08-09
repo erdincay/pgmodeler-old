@@ -158,7 +158,7 @@ void ObjetoBaseWidget::hideEvent(QHideEvent *)
 //----------------------------------------------------------
 void ObjetoBaseWidget::definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, ObjetoBase *objeto, ObjetoBase *objeto_pai, float px_objeto, float py_objeto)
 {
- TipoObjetoBase tipo_obj, tipo_obj_pai;
+ TipoObjetoBase tipo_obj, tipo_obj_pai=OBJETO_BASE;
 
  if(!modelo)
   throw Excecao(ERR_PGMODELER_ATROBJNAOALOC,__PRETTY_FUNCTION__,__FILE__,__LINE__);
@@ -516,7 +516,7 @@ void ObjetoBaseWidget::aplicarConfiguracao(void)
   try
   {
    ObjetoBase *obj_aux=NULL, *obj_aux1=NULL, *obj_pai=NULL;
-   ObjetoGraficoBase *obj_graf=dynamic_cast<ObjetoGraficoBase *>(objeto);
+   //ObjetoGraficoBase *obj_graf=dynamic_cast<ObjetoGraficoBase *>(objeto);
    bool novo_obj;
    TipoObjetoBase tipo_obj;
    QString nome_obj;
@@ -545,7 +545,7 @@ void ObjetoBaseWidget::aplicarConfiguracao(void)
      obj_aux=tabela->obterObjeto(nome_obj,tipo_obj);
      obj_aux1=tabela->obterObjeto(objeto->obterNome(),tipo_obj);
      novo_obj=(!obj_aux && !obj_aux1);
-     obj_graf=tabela;
+     //obj_graf=tabela;
     }
     else if(relacionamento)
     {
@@ -554,7 +554,7 @@ void ObjetoBaseWidget::aplicarConfiguracao(void)
      obj_aux=relacionamento->obterObjeto(nome_obj,tipo_obj);
      obj_aux1=relacionamento->obterObjeto(objeto->obterNome(),tipo_obj);
      novo_obj=(!obj_aux && !obj_aux1);
-     obj_graf=relacionamento;
+     //obj_graf=relacionamento;
     }
     //Valida o nome do objeto em relação aos objetos presentes no modelo
     else

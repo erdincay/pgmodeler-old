@@ -1,27 +1,38 @@
-CONFIG = qt debugwarn_on uitools ordered
+unix {
+ GLOBAL_INCLUDES = .\
+                   /usr/local/pgsql/include \
+                   /usr/include \
+                   /usr/include/libxml2
 
-TRANSLATIONS = lang/pgmodeler.en_US.ts
 
-CODECFORTR = UTF-8
+ GLOBAL_LIBS =  /usr/local/pgsql/lib/libpq.so \
+                -lxml2
+}
+
+windows {
+ GLOBAL_INCLUDES = .\
+                   "C:/Program Files (x86)/PostgreSQL/9.1/include/"
+ GLOBAL_LIBS = "C:/Program Files (x86)/PostgreSQL/9.1/lib/libpq.dll"
+}
+
+INCLUDEPATH = $${GLOBAL_INCLUDES} \
+              $$PWD/libutil/src \
+              $$PWD/libconexbd/src \
+              $$PWD/libpgmodeler/src \
+              $$PWD/libparsers/src \
+              $$PWD/libobjrenderer/src \
+              $$PWD/pgmodeler_ui/src
+
+LIBS = $${GLOBAL_LIBS}
+
 
 TEMPLATE = subdirs
-
 SUBDIRS = libutil \
           libconexbd \
           libparsers \
           libpgmodeler \
           libobjrenderer \
           pgmodeler_ui
-
-QT += core gui qt3support
-
-INCLUDEPATH += . \
-               libutil/src \
-               libconexbd/src \
-               libpgmodeler/src \
-               libparsers/src \
-               libobjrenderer/src \
-               pgmodeler_ui/src
 
 sources.files = models schemas lang conf
 sources.path = .

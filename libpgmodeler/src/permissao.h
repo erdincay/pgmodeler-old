@@ -31,6 +31,7 @@
 #include "funcao.h"
 #include "papel.h"
 #include <algorithm>
+ #include <QTextStream>
 //***********************************************************
 class Permissao: public ObjetoBase {
  /* Permissões no PostgreSQL se aplicam somente aos objetos

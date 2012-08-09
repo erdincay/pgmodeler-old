@@ -393,7 +393,7 @@ void OGRelacionamento::configurarLinha(void)
   QPen pen;
   QGraphicsPolygonItem *pol=NULL;
   QPolygonF pol_aux;
-  int i, i1, qtd, idx_lin_desc;
+  int i, i1, qtd, idx_lin_desc=0;
 
   configurando_linha=true;
 

@@ -375,7 +375,7 @@ void DestaqueSintaxe::highlightBlock(const QString &txt)
  if(!txt.isEmpty())
  {
   QString palavra, grupo, texto;
-  unsigned i=0, tam, idx, i1;
+  unsigned i=0, tam, idx=0, i1;
   int idx_comb, comp_comb, tam_aux, col_ini;
   QChar chr_delim, chr_lookup;
 

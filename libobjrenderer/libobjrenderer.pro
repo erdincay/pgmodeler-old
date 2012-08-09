@@ -1,4 +1,8 @@
-CONFIG = qt debug warn_on uitools dll
+include(../pgmodeler.pro)
+
+CONFIG = qt warn_on uitools
+QT = core gui qt3support
+
 VERSION = 1
 TEMPLATE = lib
 TARGET = objrenderer
@@ -6,19 +10,6 @@ DESTDIR = ../build/lib/
 DEPENDPATH += ". src moc obj"
 OBJECTS_DIR = obj
 MOC_DIR = moc
-
-QT += core gui svg qt3support
-
-INCLUDEPATH += . \
-               /usr/include/libxml2 \
-               ../libutil/src \
-               ../libparsers/src \
-               ../libpgmodeler/src \
-               /usr/include
-
-LIBS += ../build/lib/libutil.so.1 \
-        ../build/lib/libparsers.so.1 \
-        ../build/lib/libpgmodeler.so.1
 
 HEADERS +=  src/objetografico.h \
             src/ogcaixatexto.h \
@@ -39,3 +30,7 @@ SOURCES +=  src/objetografico.cpp \
             src/ogsubitemobjeto.cpp \
             src/ogtabelabase.cpp \
             src/cenaobjetos.cpp
+
+LIBS += ../build/lib/libutil.so.1 \
+        ../build/lib/libparsers.so.1 \
+        ../build/lib/libpgmodeler.so.1
