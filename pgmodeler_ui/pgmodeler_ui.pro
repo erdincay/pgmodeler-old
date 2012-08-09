@@ -14,11 +14,21 @@ src \
 ../libobjrenderer/src \
 ../libpgmodeler/src \
 ../libparsers/src \
-../libconexbd/src \
-/usr/include/libxml2 \
-/usr/local/pgsql/include \
-/usr/include
+../libconexbd/src
 
+unix {
+
+INCLUDEPATH += /usr/include/libxml2 \
+               /usr/local/pgsql/include \
+               /usr/include
+}
+
+windows {
+
+INCLUDEPATH += /usr/include/libxml2 \
+               /usr/local/pgsql/include \
+               /usr/include
+}
 
 SOURCES += src/main.cpp \
            src/formprincipal.cpp \

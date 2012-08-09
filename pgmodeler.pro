@@ -4,7 +4,6 @@ TRANSLATIONS = lang/pgmodeler.en_US.ts
 
 CODECFORTR = UTF-8
 
-
 TEMPLATE = subdirs
 
 SUBDIRS = libutil \
@@ -22,8 +21,7 @@ INCLUDEPATH += . \
                libpgmodeler/src \
                libparsers/src \
                libobjrenderer/src \
-               pgmodeler_ui/src \
-               /usr/include
+               pgmodeler_ui/src
 
 sources.files = models schemas lang conf
 sources.path = .
