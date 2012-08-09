@@ -61,7 +61,7 @@ void Tipo::definirNome(const QString &nome)
  TipoPgSQL::renomearTipoUsuario(nome_ant, this, novo_nome);
 }
 //-----------------------------------------------------------
-void Tipo::definirEsquema(Esquema *esquema)
+void Tipo::definirEsquema(ObjetoBase *esquema)
 {
  QString nome_ant, nome;
 
@@ -543,6 +543,11 @@ bool Tipo::tipoPreferido(void)
 TipoPgSQL Tipo::obterTipoCopia(void)
 {
  return(tipo_copia);
+}
+//-----------------------------------------------------------
+QString Tipo::obterDefinicaoObjeto(unsigned tipo_def)
+{
+ return(this->obterDefinicaoObjeto(tipo_def, false));
 }
 //-----------------------------------------------------------
 QString Tipo::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)

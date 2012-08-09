@@ -31,8 +31,6 @@ class TabelaBase: public ObjetoGraficoBase {
  protected:
  public:
   TabelaBase(void);
-  ~TabelaBase(void);
-
   friend class RelacionamentoBase;
   friend class ModeloBD;
 };

@@ -261,7 +261,8 @@ class ModeloBD:  public QObject, public ObjetoBase {
      pelo arquivo e sim diretamente pelo formulário de exportação do modelo.
      (Vide pgmodeler_ui/FormExportacao). Adicionalmente, este parâmetro só é considerado
      em geração de código SQL. */
-  QString obterDefinicaoObjeto(unsigned tipo_def, bool exportar_arq=true);
+  QString obterDefinicaoObjeto(unsigned tipo_def, bool exportar_arq);
+  QString obterDefinicaoObjeto(unsigned tipo_def);
 
   //Retorna a definição SOMENTE do banco de dados definido pelo modelo.
   QString __obterDefinicaoObjeto(unsigned tipo_def);

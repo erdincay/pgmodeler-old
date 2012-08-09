@@ -38,7 +38,7 @@ class Parametro: public Coluna {
 
  public:
   Parametro(void);
-  ~Parametro(void){};
+  ~Parametro(void){}
 
   void definirTipo(TipoPgSQL tipo);
 
@@ -118,7 +118,7 @@ class Funcao: public ObjetoBase {
   void definirNome(const QString &nome);
 
   //Define o esquema ao qual a função faz parte
-  void definirEsquema(Esquema *esquema);
+  void definirEsquema(ObjetoBase *esquema);
 
   //Adiciona um parâmetro à função (com nome e tipo especificados)
   void adicionarParametro(Parametro param);
@@ -237,7 +237,8 @@ class Funcao: public ObjetoBase {
   void criarAssinatura(bool formatar=true);
 
   //Retorna a definição SQL ou XML do objeto
-  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida=false);
+  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida);
+  QString obterDefinicaoObjeto(unsigned tipo_def);
 };
 //***********************************************************
 #endif

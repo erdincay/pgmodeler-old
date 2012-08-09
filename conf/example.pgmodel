@@ -15,7 +15,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<comment>Example Database Model</comment>
 </database>
 
-	<language name="sql" protected="true"/>
+	<language name="testlang" protected="true"/>
 <function name="trigger_func"
 		window-func="false"
 		returns-setof="false"
@@ -25,7 +25,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		execution-cost="20"
 		row-amount="2500">
 	<schema name="public"/>
-	<language name="sql" protected="true"/>
+	<language name="testlang"/>
 	<return-type>
 	<type name="trigger"/>
 	</return-type>

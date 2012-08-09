@@ -119,7 +119,7 @@ class Tipo: public ObjetoBase {
   void definirNome(const QString &nome);
 
   //Atribui um esquema ao tipo
-  void definirEsquema(Esquema *esquema);
+  void definirEsquema(ObjetoBase *esquema);
 
   //Define a configuração do tipo
   void definirConfiguracao(unsigned conf);
@@ -165,12 +165,12 @@ class Tipo: public ObjetoBase {
   TipoPgSQL obterAlinhamento(void);
   TipoArmazenamento obterArmazenamento(void);
   QString obterValorPadrao(void);
-  //QString obterElemento(void);
   TipoPgSQL obterElemento(void);
   char obterDelimitador(void);
 
   //Retorna a definição SQL ou XML do objeto
-  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida=false);
+  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida);
+  QString obterDefinicaoObjeto(unsigned tipo_def);
 
   void operator = (Tipo &tipo);
 

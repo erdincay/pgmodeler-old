@@ -122,58 +122,12 @@ QString ModeloBD::validarDefinicaoObjeto(ObjetoBase *objeto, unsigned tipo_def)
   {
    tipo_obj=objeto->obterTipoObjeto();
 
-   if(tipo_obj==OBJETO_BANCO_DADOS)
-    def_obj=dynamic_cast<ModeloBD *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_TABELA)
-    def_obj=dynamic_cast<Tabela *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_FUNCAO)
-    def_obj=dynamic_cast<Funcao *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_FUNC_AGREGACAO)
-    def_obj=dynamic_cast<FuncaoAgregacao *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_ESQUEMA)
-    def_obj=dynamic_cast<Esquema *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_VISAO)
-    def_obj=dynamic_cast<Visao *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_TIPO)
-    def_obj=dynamic_cast<Tipo *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_PAPEL)
-    def_obj=dynamic_cast<Papel *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_ESPACO_TABELA)
-    def_obj=dynamic_cast<EspacoTabela *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_LINGUAGEM)
-    def_obj=dynamic_cast<Linguagem *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_CONV_TIPO)
-    def_obj=dynamic_cast<ConversaoTipo *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_CONV_CODIFICACAO)
-    def_obj=dynamic_cast<ConversaoCodificacao *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_OPERADOR)
-    def_obj=dynamic_cast<Operador *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_CLASSE_OPER)
-    def_obj=dynamic_cast<ClasseOperadores *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_FAMILIA_OPER)
-    def_obj=dynamic_cast<FamiliaOperadores *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_DOMINIO)
-    def_obj=dynamic_cast<Dominio *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_SEQUENCIA)
-    def_obj=dynamic_cast<Sequencia *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_COLUNA)
-    def_obj=dynamic_cast<Coluna *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_RESTRICAO)
-    def_obj=dynamic_cast<Restricao *>(objeto)->obterDefinicaoObjeto(tipo_def, true);
-   else if(tipo_obj==OBJETO_REGRA)
-    def_obj=dynamic_cast<Regra *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_INDICE)
-    def_obj=dynamic_cast<Indice *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_GATILHO)
-    def_obj=dynamic_cast<Gatilho *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_RELACAO)
-    def_obj=dynamic_cast<Relacionamento *>(objeto)->obterDefinicaoObjeto(tipo_def);
-   else if(tipo_obj==OBJETO_RELACAO_BASE && tipo_def==ParserEsquema::DEFINICAO_XML)
+   if(tipo_obj==OBJETO_RELACAO_BASE && tipo_def==ParserEsquema::DEFINICAO_XML)
     def_obj=dynamic_cast<RelacionamentoBase *>(objeto)->obterDefinicaoObjeto();
    else if(tipo_obj==OBJETO_CAIXA_TEXTO && tipo_def==ParserEsquema::DEFINICAO_XML)
     def_obj=dynamic_cast<CaixaTexto *>(objeto)->obterDefinicaoObjeto();
-   else if(tipo_obj==OBJETO_PERMISSAO)
-    def_obj=dynamic_cast<Permissao *>(objeto)->obterDefinicaoObjeto(tipo_def);
+   else
+    def_obj=objeto->obterDefinicaoObjeto(tipo_def);
   }
   catch(Excecao &e)
   {
@@ -714,12 +668,7 @@ void ModeloBD::definirProtegido(bool protegido)
   while(itr!=itr_end)
   {
    objeto=(*itr);
-   if(tipos[i]==OBJETO_TABELA)
-    dynamic_cast<Tabela *>(objeto)->definirProtegido(protegido);
-   else if(dynamic_cast<ObjetoGraficoBase *>(objeto))
-    dynamic_cast<ObjetoGraficoBase *>(objeto)->definirProtegido(protegido);
-   else
-    objeto->definirProtegido(protegido);
+   objeto->definirProtegido(protegido);
    itr++;
   }
  }
@@ -2971,24 +2920,8 @@ void ModeloBD::definirAtributosBasicos(ObjetoBase *objeto)
  //Obtém os atributos do elemento
  ParserXML::obterAtributosElemento(atributos);
 
- /* Chamando o método de definição do nome fazendo um cast para o tipo de classe
-    correto para que o código de definição especifico da classe seja executado */
  tipo_obj_aux=objeto->obterTipoObjeto();
- if(tipo_obj_aux==OBJETO_FUNCAO)
-  dynamic_cast<Funcao *>(objeto)->definirNome(atributos[AtributosParsers::NOME]);
- else if(tipo_obj_aux==OBJETO_ESPACO_TABELA)
-  dynamic_cast<EspacoTabela *>(objeto)->definirNome(atributos[AtributosParsers::NOME]);
- else if(tipo_obj_aux==OBJETO_ESQUEMA)
-  dynamic_cast<Esquema *>(objeto)->definirNome(atributos[AtributosParsers::NOME]);
- else if(tipo_obj_aux==OBJETO_OPERADOR)
-  dynamic_cast<Operador *>(objeto)->definirNome(atributos[AtributosParsers::NOME]);
- else if(tipo_obj_aux==OBJETO_TIPO)
-  dynamic_cast<Tipo *>(objeto)->definirNome(atributos[AtributosParsers::NOME]);
- else if(tipo_obj_aux==OBJETO_DOMINIO)
-  dynamic_cast<Dominio *>(objeto)->definirNome(atributos[AtributosParsers::NOME]);
- else if(tipo_obj_aux==OBJETO_LINGUAGEM)
-  dynamic_cast<Linguagem *>(objeto)->definirNome(atributos[AtributosParsers::NOME]);
- else if(tipo_obj_aux!=OBJETO_CONV_TIPO)
+ if(tipo_obj_aux!=OBJETO_CONV_TIPO)
   objeto->definirNome(atributos[AtributosParsers::NOME]);
 
  //Definindo se o objeto está protegido ou não
@@ -3028,18 +2961,7 @@ void ModeloBD::definirAtributosBasicos(ObjetoBase *objeto)
      tipo_obj=OBJETO_ESQUEMA;
      ParserXML::obterAtributosElemento(atribs_aux);
      esquema=dynamic_cast<Esquema *>(obterObjeto(atribs_aux[AtributosParsers::NOME], tipo_obj));
-
-     if(tipo_obj_aux==OBJETO_FUNCAO)
-      dynamic_cast<Funcao *>(objeto)->definirEsquema(esquema);
-     else if(tipo_obj_aux==OBJETO_SEQUENCIA)
-      dynamic_cast<Sequencia *>(objeto)->definirEsquema(esquema);
-     else if(tipo_obj_aux==OBJETO_TIPO)
-      dynamic_cast<Tipo *>(objeto)->definirEsquema(esquema);
-     else if(tipo_obj_aux==OBJETO_DOMINIO)
-       dynamic_cast<Dominio *>(objeto)->definirEsquema(esquema);
-     else
-      objeto->definirEsquema(esquema);
-
+     objeto->definirEsquema(esquema);
      erro=(!esquema && !atribs_aux[AtributosParsers::NOME].isEmpty());
     }
 
@@ -3049,12 +2971,7 @@ void ModeloBD::definirAtributosBasicos(ObjetoBase *objeto)
      tipo_obj=OBJETO_ESPACO_TABELA;
      ParserXML::obterAtributosElemento(atribs_aux);
      esp_tabela=obterObjeto(atribs_aux[AtributosParsers::NOME], tipo_obj);
-
-     if(tipo_obj_aux==OBJETO_RESTRICAO)
-      dynamic_cast<Restricao *>(objeto)->definirEspacoTabela(dynamic_cast<EspacoTabela *>(esp_tabela));
-     else
-      objeto->definirEspacoTabela(esp_tabela);
-
+     objeto->definirEspacoTabela(esp_tabela);
      erro=(!esp_tabela && !atribs_aux[AtributosParsers::NOME].isEmpty());
     }
 
@@ -3332,25 +3249,12 @@ Linguagem *ModeloBD::criarLinguagem(void)
  try
  {
   linguagem=new Linguagem;
+
   //Obtém os atributos do elemento
   ParserXML::obterAtributosElemento(atributos);
+  definirAtributosBasicos(linguagem);
 
-  //Caso a linguagem a ser criar seja C ou SQL
-  if(atributos[AtributosParsers::NOME].toLower()==~TipoLinguagem("c") ||
-     atributos[AtributosParsers::NOME].toLower()==~TipoLinguagem("sql"))
-  {
-   //Cria a linguagem desprezando as demais configurações, apenas atribuindo o nome da linguagem
-   linguagem->ObjetoBase::definirNome(atributos[AtributosParsers::NOME].toLower());
-   //Protege a linguagem indicando que a mesma é reservada e não pode ser removida
-   linguagem->definirProtegido(true);
-  }
-  else
-  {
-   definirAtributosBasicos(linguagem);
-
-   //Obtém os atributos do elemento
-   //ParserXML::obterAtributosElemento(atributos);
-   linguagem->definirConfiavel(atributos[AtributosParsers::CONFIAVEL]==
+  linguagem->definirConfiavel(atributos[AtributosParsers::CONFIAVEL]==
                                AtributosParsers::VERDADEIRO);
 
    if(ParserXML::acessarElemento(ParserXML::ELEMENTO_FILHO))
@@ -3407,7 +3311,7 @@ Linguagem *ModeloBD::criarLinguagem(void)
     }
     while(ParserXML::acessarElemento(ParserXML::ELEMENTO_POSTERIOR));
    }
-  }
+
  }
  catch(Excecao &e)
  {
@@ -6068,6 +5972,11 @@ QString ModeloBD::__obterDefinicaoObjeto(unsigned tipo_def)
 
  atributos[AtributosParsers::BD_MODELO]=bd_modelo;
  return(this->ObjetoBase::obterDefinicaoObjeto(tipo_def));
+}
+//-----------------------------------------------------------
+QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def)
+{
+ return(this->obterDefinicaoObjeto(tipo_def, true));
 }
 //-----------------------------------------------------------
 QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def, bool exportar_arq)

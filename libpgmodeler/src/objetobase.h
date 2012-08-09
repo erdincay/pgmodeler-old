@@ -125,11 +125,7 @@ class ObjetoBase {
   //Comentário do objeto
   QString comentario,
          //Nome do objeto
-         nome,
-         //Definição SQL do objeto
-         def_sql,
-         //Definição XML do objeto
-         def_xml;
+         nome;
 
   /*Tipo do objeto, pode ter um dos valores das contantes OBJETO_*
     Foi usado um tipo numérico para evitar o uso do RTTI.*/
@@ -172,25 +168,22 @@ class ObjetoBase {
   static unsigned obterIdGlobal(void);
 
   //Define o comentário do objeto que será anexado a definição SQL do mesmo
-  void definirComentario(const QString &comentario);
+  virtual void definirComentario(const QString &comentario);
 
   //Define o nome do objeto
-  void definirNome(const QString &nome);
+  virtual void definirNome(const QString &nome);
 
   //Define o esquema ao qual o objeto pertence
-  void definirEsquema(ObjetoBase *esquema);
+  virtual void definirEsquema(ObjetoBase *esquema);
 
   //Define o dono do objeto em banco de dados
-  void definirDono(ObjetoBase *dono);
+  virtual void definirDono(ObjetoBase *dono);
 
   //Define o espaço de tabelas ao qual o objeto pertence
-  void definirEspacoTabela(ObjetoBase *espacotabela);
-
-  //Define a versão do banco de dados para geQ_DISABLE_COPYração dos sql
-  static void definirVersaoPgSQL(const QString &versao_pgsql);
+  virtual void definirEspacoTabela(ObjetoBase *espacotabela);
 
   //Define se o objeto está protegido ou não
-  void definirProtegido(bool valor);
+  virtual void definirProtegido(bool valor);
 
   /* Retorna o nome do objeto. O parâmetro 'formatar'
      é usado para obter o nome do objeto com o nome do esquema
@@ -200,12 +193,13 @@ class ObjetoBase {
   //Retorna o comentário do objeto
   QString obterComentario(void);
 
-  //Retorna a definição SQL ou XML do objeto
-  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida=false);
+  /* Retorna a definição SQL ou XML do objeto. O atributo 'forma_reduzida'
+     indica que a geração do código XML será uma representação mínima do
+     objeto. Vide arquivo de esquemas de função, esquemas, domínios, tipos. */
+  virtual QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida);
 
-  //Obtém as definições armazenadas do objeto
-  QString definicaoSQL(void);
-  QString definicaoXML(void);
+  //Método sobrecarregado que gera uma definição completa do objeto (forma_reduzida=false)
+  virtual QString obterDefinicaoObjeto(unsigned tipo_def);
 
   //Retorna o tipo do objeto
   TipoObjetoBase obterTipoObjeto(void);

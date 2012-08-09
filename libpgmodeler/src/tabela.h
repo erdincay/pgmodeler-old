@@ -202,7 +202,7 @@ class Tabela: public TabelaBase {
   void removerRegra(unsigned idx_reg);
 
   //Retorna a definição SQL ou XML do objeto
-  QString obterDefinicaoObjeto(unsigned tipo_def);
+  virtual QString obterDefinicaoObjeto(unsigned tipo_def);
 
   //Obtém o índice de um determinado objeto através de seu nome
   int obterIndiceObjeto(const QString &nome, TipoObjetoBase tipo_obj);

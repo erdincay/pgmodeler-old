@@ -1297,11 +1297,7 @@ void ModeloWidget::protegerObjeto(void)
    if(obj_graf)
    {
     //Caso seja uma tabela, usa o método de proteção/desproteção da tabela
-    if(obj_graf->obterTipoObjeto()==OBJETO_TABELA)
-     dynamic_cast<Tabela *>(obj_graf)->definirProtegido(!obj_graf->objetoProtegido());
-    //Para os demais objetos gráficos usa o método padrão de proteção/desproteção
-    else
-     obj_graf->definirProtegido(!obj_graf->objetoProtegido());
+    obj_graf->definirProtegido(!obj_graf->objetoProtegido());
    }
    else if(obj_tab)
    {
@@ -1323,11 +1319,7 @@ void ModeloWidget::protegerObjeto(void)
          this->objs_selecionados[0]->obterNome()=="public")))
       throw Excecao(ERR_PGMODELERUI_OPROBJRESERVADO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
 
-    //Caso não seja um objeto gráfico usa o método de proteção/desproteção padrão da classe ObjetoBase
-    if(this->objs_selecionados[0]==modelo)
-     modelo->definirProtegido(!modelo->objetoProtegido());
-    else
-     this->objs_selecionados[0]->definirProtegido(!this->objs_selecionados[0]->objetoProtegido());
+    this->objs_selecionados[0]->definirProtegido(!this->objs_selecionados[0]->objetoProtegido());
    }
   }
   //Caso não haja objetos selecionados faz a proteção/desproteção do modelo
@@ -1376,12 +1368,7 @@ void ModeloWidget::protegerObjeto(void)
      }
     }
 
-    if(tipo_obj==OBJETO_TABELA)
-     dynamic_cast<Tabela *>(obj_graf)->definirProtegido(proteger);
-    else if(obj_graf)
-     obj_graf->definirProtegido(proteger);
-    else
-     objeto->definirProtegido(proteger);
+    objeto->definirProtegido(proteger);
    }
   }
 
@@ -1606,13 +1593,13 @@ void ModeloWidget::colarObjetos(void)
        nome_obj_copia=oper->obterAssinatura();
        oper->definirNome(nome_orig_objs[objeto]);
       }
-      else if(tipo_obj==OBJETO_TIPO)
+      /*else if(tipo_obj==OBJETO_TIPO)
       {
        tipo=dynamic_cast<Tipo *>(objeto);
        tipo->definirNome(nome_orig_objs[objeto] + nome_aux);
        nome_obj_copia=tipo->obterNome(true);
        tipo->definirNome(nome_orig_objs[objeto]);
-      }
+      } */
       else
       {
        objeto->definirNome(nome_orig_objs[objeto] + nome_aux);
@@ -1623,13 +1610,13 @@ void ModeloWidget::colarObjetos(void)
      while(modelo->obterObjeto(nome_obj_copia, tipo_obj));
 
      //Define o novo nome do objeto concatenando o nome original ao sufixo configurado.
-     if(func)
+     /*if(func)
       func->definirNome(nome_orig_objs[objeto] + nome_aux);
      else if(tipo)
       tipo->definirNome(nome_orig_objs[objeto] + nome_aux);
      else if(oper)
       oper->definirNome(nome_orig_objs[objeto] + nome_aux);
-     else
+     else */
       objeto->definirNome(nome_orig_objs[objeto] + nome_aux);
 
      nome_aux.clear();
@@ -1674,13 +1661,14 @@ void ModeloWidget::colarObjetos(void)
 
   if(nome_orig_objs[objeto].count())
   {
-   if(tipo_obj==OBJETO_FUNCAO)
+   /*if(tipo_obj==OBJETO_FUNCAO)
     dynamic_cast<Funcao *>(objeto)->definirNome(nome_orig_objs[objeto]);
    else if(tipo_obj==OBJETO_OPERADOR)
     dynamic_cast<Operador *>(objeto)->definirNome(nome_orig_objs[objeto]);
    else if(tipo_obj==OBJETO_TIPO)
     dynamic_cast<Tipo *>(objeto)->definirNome(nome_orig_objs[objeto]);
-   else if(tipo_obj!=OBJETO_CONV_TIPO)
+   else*/
+   if(tipo_obj!=OBJETO_CONV_TIPO)
     objeto->definirNome(nome_orig_objs[objeto]);
   }
  }

@@ -29,7 +29,7 @@ void Dominio::definirNome(const QString &nome)
  TipoPgSQL::renomearTipoUsuario(nome_ant, this, novo_nome);
 }
 //-----------------------------------------------------------
-void Dominio::definirEsquema(Esquema *esquema)
+void Dominio::definirEsquema(ObjetoBase *esquema)
 {
  QString nome_ant, nome;
 

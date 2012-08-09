@@ -104,7 +104,7 @@ class ConexaoBD {
   void executarComandoDDL(const QString &sql);
 
   //Atribui uma conexão a outra
-  void operator = (ConexaoBD conex);
+  void operator = (ConexaoBD &conex);
 };
 //***********************************************************
 #endif

@@ -585,22 +585,7 @@ void ObjetoBaseWidget::aplicarConfiguracao(void)
 
    /* Executa a nomeção do objeto chamando o método
       de acordo com a classe referente ao tipo de objeto */
-   if(tipo_obj==OBJETO_ESQUEMA)
-    dynamic_cast<Esquema *>(objeto)->definirNome(nome_edt->text().toUtf8());
-   else if(tipo_obj==OBJETO_COLUNA)
-    dynamic_cast<Coluna *>(objeto)->definirNome(nome_edt->text().toUtf8());
-   else if(tipo_obj==OBJETO_TIPO)
-    dynamic_cast<Tipo *>(objeto)->definirNome(nome_edt->text().toUtf8());
-   else if(tipo_obj==OBJETO_FUNCAO)
-    dynamic_cast<Funcao *>(objeto)->definirNome(nome_edt->text().toUtf8());
-   else if(tipo_obj==OBJETO_OPERADOR)
-    dynamic_cast<Operador *>(objeto)->definirNome(nome_edt->text().toUtf8());
-   else if(tipo_obj==OBJETO_ESPACO_TABELA)
-    dynamic_cast<EspacoTabela *>(objeto)->definirNome(nome_edt->text().toUtf8());
-   else if(tipo_obj==OBJETO_RELACAO_BASE ||
-           tipo_obj==OBJETO_RELACAO)
-    dynamic_cast<RelacionamentoBase *>(objeto)->definirNome(nome_edt->text().toUtf8());
-   else if(tipo_obj!=OBJETO_CONV_TIPO)
+   if(tipo_obj!=OBJETO_CONV_TIPO)
     /* Caso o objeto ser renomeado não seja de nenhum dos tipos acima
        e não seja conversão de tipo (o unico objeto que não recebe um nome explicitamente)
        utiliza o método de nomeação geral da classe ObjetoBase */
@@ -632,19 +617,7 @@ void ObjetoBaseWidget::aplicarConfiguracao(void)
    if(sel_esquema->isVisible())
    {
     Esquema *esquema=dynamic_cast<Esquema *>(sel_esquema->obterObjeto());
-
-    /* Executa a nomeção do objeto chamando o método
-      de acordo com a classe referente ao tipo de objeto */
-    if(tipo_obj==OBJETO_DOMINIO)
-     dynamic_cast<Dominio *>(objeto)->definirEsquema(esquema);
-    else if(tipo_obj==OBJETO_FUNCAO)
-     dynamic_cast<Funcao *>(objeto)->definirEsquema(esquema);
-    else if(tipo_obj==OBJETO_TIPO)
-     dynamic_cast<Tipo *>(objeto)->definirEsquema(esquema);
-    else if(tipo_obj==OBJETO_SEQUENCIA)
-     dynamic_cast<Sequencia *>(objeto)->definirEsquema(esquema);
-    else
-     objeto->definirEsquema(esquema);
+    objeto->definirEsquema(esquema);
    }
   }
   catch(Excecao &e)

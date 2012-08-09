@@ -95,7 +95,7 @@ void Funcao::definirNome(const QString &nome)
  criarAssinatura();
 }
 //-----------------------------------------------------------
-void Funcao::definirEsquema(Esquema *esquema)
+void Funcao::definirEsquema(ObjetoBase *esquema)
 {
  ObjetoBase::definirEsquema(esquema);
  criarAssinatura();
@@ -480,7 +480,12 @@ void Funcao::criarAssinatura(bool formatar)
  }
 
  //Formato da assinatura NOME(TIPO_PARAM1,TIPO_PARAM2,...,TIPO_PARAMn)
- assinatura=this->obterNome(formatar) + "(" + str_param + ")";
+ assinatura=this->obterNome(formatar) + QString("(") + str_param + QString(")");
+}
+//-----------------------------------------------------------
+QString Funcao::obterDefinicaoObjeto(unsigned tipo_def)
+{
+ return(this->obterDefinicaoObjeto(tipo_def, false));
 }
 //-----------------------------------------------------------
 QString Funcao::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)

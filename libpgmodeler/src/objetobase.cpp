@@ -452,6 +452,11 @@ bool ObjetoBase::operator != (const QString &nome)
  return(this->nome!=nome);
 }
 //-----------------------------------------------------------
+QString ObjetoBase::obterDefinicaoObjeto(unsigned tipo_def)
+{
+ return(ObjetoBase::obterDefinicaoObjeto(tipo_def, false));
+}
+//-----------------------------------------------------------
 QString ObjetoBase::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)
 {
  QString def;
@@ -616,36 +621,16 @@ QString ObjetoBase::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)
    }
 
    limparAtributos();
-
-   /* Armazena a definição do objeto após gerada.
-      As definições podem ser acessadas pelos métodos definicaoXML() e definicaoSQL() */
-   if(tipo_def==ParserEsquema::DEFINICAO_SQL)
-    def_sql=def;
-   //A definição XML só é armazenada quando não for em forma reduzida
-   else if(tipo_def==ParserEsquema::DEFINICAO_XML && !forma_reduzida)
-    def_xml=def;
   }
   catch(Excecao &e)
   {
    ParserEsquema::reiniciarParser();
    limparAtributos();
-   def_sql.clear();
-   def_xml.clear();
    throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__,&e);
   }
  }
 
  return(def);
-}
-//-----------------------------------------------------------
-QString ObjetoBase::definicaoSQL(void)
-{
- return(def_sql);
-}
-//-----------------------------------------------------------
-QString ObjetoBase::definicaoXML(void)
-{
- return(def_xml);
 }
 //-----------------------------------------------------------
 void ObjetoBase::definirAtributoEsquema(const QString &atrib, const QString &valor)

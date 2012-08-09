@@ -65,6 +65,14 @@ void FormExportacao::hideEvent(QHideEvent *)
 //-----------------------------------------------------------
 void FormExportacao::exportarModelo(void)
 {
+ int idx_esptab=-1, idx_papel=-1;
+ QString  versao;
+ ConexaoBD *conexao=NULL, conex_novo_bd;
+ EspacoTabela *esp_tab=NULL;
+ Papel *papel=NULL;
+ unsigned i, qtd;
+ bool bd_criado=false;
+
  try
  {
   //Redimensiona a janela para exibição dos widgets de progresso
@@ -101,12 +109,6 @@ void FormExportacao::exportarModelo(void)
   //Caso seja exportação direto para o SGBD
   else
   {
-   QString  versao;
-   ConexaoBD *conexao=NULL;
-   EspacoTabela *esp_tab=NULL;
-   Papel *papel=NULL;
-   unsigned i, qtd;
-
    //Obtém a conexão selecionada no combo
    conexao=reinterpret_cast<ConexaoBD *>(conexoes_cmb->itemData(conexoes_cmb->currentIndex()).value<void *>());
    //Tenta se conectar
@@ -130,6 +132,7 @@ void FormExportacao::exportarModelo(void)
     rot_prog_lbl->repaint();
     conexao->executarComandoDDL(papel->obterDefinicaoObjeto(ParserEsquema::DEFINICAO_SQL));
     prog_pb->setValue(10);
+    idx_papel++;
    }
 
    //Cria os espaços de tabela separadamente no servidor
@@ -141,6 +144,7 @@ void FormExportacao::exportarModelo(void)
     rot_prog_lbl->repaint();
     conexao->executarComandoDDL(esp_tab->obterDefinicaoObjeto(ParserEsquema::DEFINICAO_SQL));
     prog_pb->setValue(20);
+    idx_esptab++;
    }
 
    //Cria o banco de dados no servidor
@@ -148,20 +152,19 @@ void FormExportacao::exportarModelo(void)
    rot_prog_lbl->repaint();
    conexao->executarComandoDDL(modelo->__obterDefinicaoObjeto(ParserEsquema::DEFINICAO_SQL));
    prog_pb->setValue(30);
+   bd_criado=true;
 
-   /* Após a criação do banco de dados, é necessário fechar a conexão e reconectar agora
-      no banco recém criado para criar os demais objetos */
-   conexao->fechar();
-   conexao->definirParamConexao(ConexaoBD::PARAM_NOME_BD, modelo->obterNome());
+   conex_novo_bd=(*conexao);
+   conex_novo_bd.definirParamConexao(ConexaoBD::PARAM_NOME_BD, modelo->obterNome());
    rot_prog_lbl->setText(trUtf8("Conectando ao banco de dados '%1'...").arg(QString::fromUtf8(modelo->obterNome())));
    rot_prog_lbl->repaint();
-   conexao->conectar();
+   conex_novo_bd.conectar();
    prog_pb->setValue(50);
 
    //Cria os demais objetos no novo banco
    rot_prog_lbl->setText(trUtf8("Criando objetos No banco de dados '%1'...").arg(QString::fromUtf8(modelo->obterNome())));
    rot_prog_lbl->repaint();
-   conexao->executarComandoDDL(modelo->obterDefinicaoObjeto(ParserEsquema::DEFINICAO_SQL, false));
+   conex_novo_bd.executarComandoDDL(modelo->obterDefinicaoObjeto(ParserEsquema::DEFINICAO_SQL, false));
   }
 
   //Finaliza o progresso da exportação
@@ -178,14 +181,51 @@ void FormExportacao::exportarModelo(void)
  }
  catch(Excecao &e)
  {
+  QString drop_cmd=QString("DROP %1 %2;");
+
+  prog_tarefa->close();
+  disconnect(this->modelo, NULL, prog_tarefa, NULL);
+
+  /* Caso os algum objeto tenha sido criado é preciso excluí-los do banco.
+     Para isso, os mesmos são removidos na ordem contrária de criação:
+     banco de dados, espaço de tabelas e papéis */
+  if(bd_criado || idx_esptab >= 0 || idx_papel >= 0)
+  {
+   if(conex_novo_bd.conexaoEstabelecida())
+    conex_novo_bd.fechar();
+
+   //Caso o banco de dados foi criado, exclui o mesmo
+   if(bd_criado)
+    conexao->executarComandoDDL(drop_cmd
+                               .arg(modelo->obterNomeSQLObjeto())
+                               .arg(modelo->obterNome(true)));
+
+   //Removendo os espaços de tabela
+   while(idx_esptab >= 0)
+   {
+    esp_tab=modelo->obterEspacoTabela(idx_esptab);
+    conexao->executarComandoDDL(drop_cmd
+                                .arg(esp_tab->obterNomeSQLObjeto())
+                                .arg(esp_tab->obterNome(true)));
+    idx_esptab--;
+   }
+
+   //Removendo os papéis
+   while(idx_papel >= 0)
+   {
+    papel=modelo->obterPapel(idx_papel);
+    conexao->executarComandoDDL(drop_cmd
+                                .arg(papel->obterNomeSQLObjeto())
+                                .arg(papel->obterNome(true)));
+    idx_papel--;
+   }
+  }
+
   //Exibe no progresso a mensagem de falha
   rot_prog_lbl->setText(trUtf8("Falha na exportação!"));
   rot_prog_lbl->repaint();
   ico_lbl->setPixmap(QPixmap(QString(":/icones/icones/msgbox_erro.png")));
   ico_lbl->setVisible(true);
-
-  prog_tarefa->close();
-  disconnect(this->modelo, NULL, prog_tarefa, NULL);
 
   //Oculta os widgets de progresso após 10 segundos
   QTimer::singleShot(10000, this, SLOT(ocultarProgressoExportacao(void)));

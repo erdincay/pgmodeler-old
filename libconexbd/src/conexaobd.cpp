@@ -199,8 +199,11 @@ void ConexaoBD::executarComandoDDL(const QString &sql)
  }
 }
 //-----------------------------------------------------------
-void ConexaoBD::operator = (ConexaoBD conex)
+void ConexaoBD::operator = (ConexaoBD &conex)
 {
+ if(this->conexaoEstabelecida())
+  this->fechar();
+
  this->params_conexao=conex.params_conexao;
  this->str_conexao=conex.str_conexao;
  conectar();

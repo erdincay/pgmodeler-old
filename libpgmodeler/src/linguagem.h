@@ -1,4 +1,4 @@
-﻿/*
+/*
 # Projeto: Modelador de Banco de Dados PostgreSQL (pgsqlDBM)
 # Sub-projeto: Biblioteca núcleo libpgsqldbm
 # Descrição:  Definição da classe Linguagem que é usado para
@@ -59,7 +59,8 @@ class Linguagem: public ObjetoBase{
   bool linguagemConfiavel(void);
   Funcao *obterFuncao(unsigned tipo_func);
 
-  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida=false);
+  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida);
+  QString obterDefinicaoObjeto(unsigned tipo_def);
 };
 //***********************************************************
 #endif

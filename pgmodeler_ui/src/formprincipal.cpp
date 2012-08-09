@@ -445,22 +445,18 @@ void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
  esq_publico=new Esquema;
  esq_publico->definirNome("public");
  tab_modelo->modelo->adicionarObjeto(esq_publico);
- esq_publico->definirProtegido(true);
 
  ling=new Linguagem;
  ling->ObjetoBase::definirNome(~TipoLinguagem(TipoLinguagem::c));
  tab_modelo->modelo->adicionarObjeto(ling);
- ling->definirProtegido(true);
 
  ling=new Linguagem;
  ling->ObjetoBase::definirNome(~TipoLinguagem(TipoLinguagem::sql));
  tab_modelo->modelo->adicionarObjeto(ling);
- ling->definirProtegido(true);
 
  ling=new Linguagem;
  ling->ObjetoBase::definirNome(~TipoLinguagem(TipoLinguagem::plpgsql));
  tab_modelo->modelo->adicionarObjeto(ling);
- ling->definirProtegido(true);
 
  if(!nome_arq.isEmpty())
  {

@@ -4,9 +4,4 @@ TabelaBase::TabelaBase(void)
 {
  tipo_objeto=OBJETO_TABELA_BASE;
 }
-//-----------------------------------------------------------
-TabelaBase::~TabelaBase(void)
-{
-
-}
 //***********************************************************

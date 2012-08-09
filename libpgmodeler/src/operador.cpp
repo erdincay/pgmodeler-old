@@ -261,6 +261,11 @@ QString Operador::obterAssinatura(bool formatar_nome)
  return(assinatura);
 }
 //-----------------------------------------------------------
+QString Operador::obterDefinicaoObjeto(unsigned tipo_def)
+{
+ return(this->obterDefinicaoObjeto(tipo_def, false));
+}
+//-----------------------------------------------------------
 QString Operador::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)
 {
  unsigned i;

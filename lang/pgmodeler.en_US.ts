@@ -1372,62 +1372,62 @@
         <translation>&amp;Close</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="82"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="90"/>
         <source>Gerando código-fonte...</source>
         <translation>Generating source code...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="86"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="94"/>
         <source>Iniciando exportação do modelo...</source>
         <translation>Initializing model export...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="95"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="103"/>
         <source>Salvando arquivo &apos;%1&apos;</source>
         <translation>Saving file &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="129"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="131"/>
         <source>Criando papel &apos;%1&apos;...</source>
         <translation>Creating role &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="140"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="143"/>
         <source>Criando espaço de tabela &apos;%1&apos;...</source>
         <translation>Creating tablespace &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="147"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="151"/>
         <source>Criando banco de dados &apos;%1&apos;...</source>
         <translation>Creating database &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="156"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="159"/>
         <source>Conectando ao banco de dados &apos;%1&apos;...</source>
         <translation>Connecting to database &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="162"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="165"/>
         <source>Criando objetos No banco de dados &apos;%1&apos;...</source>
         <translation>Creating objects on database &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="169"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="172"/>
         <source>Exportação finalizada com sucesso!</source>
         <translation>Exporting process sucessfuly ended!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="182"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="225"/>
         <source>Falha na exportação!</source>
         <translation>Error on export!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="235"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="275"/>
         <source>Exportar modelo como...</source>
         <translation>Export model as...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="236"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="276"/>
         <source>Código SQL (*.sql);;Todos os Arquivos (*.*)</source>
         <translation>SQL code (*.sql);;All files (*.*)</translation>
     </message>
@@ -1731,48 +1731,48 @@
         <translation>Save All</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="733"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="729"/>
         <source>Salvar &apos;%1&apos; como...</source>
         <translation>Save &apos;%1&apos; as...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="734"/>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="854"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="730"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="850"/>
         <source>Modelo de Banco de Dados (*.pgmodel);;Todos os Arquivos (*.*)</source>
         <translation>Database Model (*.pgmodel);;All Files (*.*)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="778"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="774"/>
         <source>Imprimir grade</source>
         <translation>Print grid</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="782"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="778"/>
         <source>Imprimir número de páginas</source>
         <translation>Print page numbers</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="789"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="785"/>
         <source>Opções do modelo</source>
         <translation>Model Options</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="806"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="802"/>
         <source>Impressão de modelo de banco de dados</source>
         <translation>Database Model Printing</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="826"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="822"/>
         <source>Confirmação</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="827"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="823"/>
         <source>Foram detectadas modificações nas definições de papel/margem do modelo o que pode provocar a impressão incorreta dos objetos. Deseja prosseguir com a impressão usando as novas configurações? Para usar as configurações padrão clique &apos;Não&apos; ou em &apos;Cancelar&apos; para abortar a impressão.</source>
         <translation>Were detected changes in the definitions of paper/margin of the model which may cause the incorrect print of the objects. Do you want to continue printing using the new settings? To use the default settings click &apos;No&apos; or &apos;Cancel&apos; to abort printing.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="856"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="852"/>
         <source>Carregar modelo</source>
         <translation>Load model</translation>
     </message>
@@ -2454,12 +2454,12 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 <context>
     <name>ModeloBD</name>
     <message>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="2786"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="2735"/>
         <source>Carregando objeto: %1 (%2)</source>
         <translation>Loading object: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="6082"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5991"/>
         <source>Gerando %1 do objeto: %2 (%3)</source>
         <translation>Generating %1 of object: %2 (%3)</translation>
     </message>
@@ -2483,7 +2483,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
     </message>
     <message>
         <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="150"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2212"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2203"/>
         <source>Código-fonte</source>
         <translation>Source code</translation>
     </message>
@@ -2494,7 +2494,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
     </message>
     <message>
         <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="154"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2205"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2196"/>
         <source>Propriedades</source>
         <translation>Properties</translation>
     </message>
@@ -2505,13 +2505,13 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
     </message>
     <message>
         <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="158"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2234"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2225"/>
         <source>Proteger</source>
         <translation>Protect</translation>
     </message>
     <message>
         <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="159"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2229"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2220"/>
         <source>Desproteger</source>
         <translation>Unprotect</translation>
     </message>
@@ -2527,7 +2527,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
     </message>
     <message>
         <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="163"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2241"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2232"/>
         <source>Excluir</source>
         <translation>Delete</translation>
     </message>
@@ -2622,54 +2622,54 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Saving database model</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1426"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1810"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1816"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1416"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1801"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1807"/>
         <source>Confirmação</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1427"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1417"/>
         <source>Deseja copiar também todas dependências dos objetos selecionados? Isso minimiza a quebra de referências quando os objetos copiados forem colados em outro modelo.</source>
         <translation>Also copy all dependencies of selected objects? This minimizes the breakdown of references when copied objects are pasted into another model.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1522"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1512"/>
         <source>Colando objetos...</source>
         <translation>Pasting objects...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1538"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1528"/>
         <source>Validando objeto: %1 (%2)</source>
         <translation>Validating object: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1653"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1643"/>
         <source>Gerando código XML do objeto: %1 (%2)</source>
         <translation>Generating XML code of the object: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1709"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1700"/>
         <source>Colando o objeto: %1 (%2)</source>
         <translation>Pasting object: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1746"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1737"/>
         <source>Nem todos objetos foram colados ao modelo devido a erros retornados durante o processo! Consulte a pilha de erros para mais detalhes!</source>
         <translation>Not all objects were pasted to the model due to errors returned during the process! Refer to error stack for more details!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1811"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1802"/>
         <source>ATENÇÃO: Remover vários objetos de uma só vez pode provocar invalidações irreversíveis de outros objetos no modelo. Tem certeza de que deseja excluir TODOS os objetos selecionados?</source>
         <translation>CAUTION: Remove multiple objects at once can cause irreversible invalidations from other objects in the model. Do you really want to delete ALL selected objects?</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1817"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1808"/>
         <source>Tem certeza de que deseja excluir o objeto selecionado?</source>
         <translation>Do you really want to delete the selected object?</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2255"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2246"/>
         <source>Restrições</source>
         <translation>Constraints</translation>
     </message>
@@ -3367,493 +3367,498 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
     <message>
         <location filename="../libutil/src/excecao.cpp" line="67"/>
         <source>Referência a um rótulo com índice fora da capacidade da lista de rótulos!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to a label which index is out of labels list capacity!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="68"/>
         <source>Alocação de objeto com tipo inválido!</source>
-        <translation type="unfinished"></translation>
+        <translation>Allocation of object with invalid type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="70"/>
         <source>Atribuição de função com tipo de retorno inválido ao objeto &apos;%1&apos; (%2)!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of a function with invalid return type to object &apos;%1&apos; (%2)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="71"/>
         <source>Atribuição de função com tipo de parâmetro(s) inválido(s) ao objeto &apos;%1&apos; (%2)!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of a function with invalid parameter(s) type(s) to object &apos;%1&apos; (%2)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="72"/>
         <source>Atribuição de linguagem não alocada!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of not allocated language!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="73"/>
         <source>Atribuição de linguagem com tipo inválido!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of language object which type is invalid!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="74"/>
         <source>Referência a tipo de dado com índice fora da capacidade da lista de tipos de dados!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to data type with an index outside the capacity of data types list!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="75"/>
         <source>Atribuição de tipo nulo ao objeto &apos;%1&apos; (%2)!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of a null type to to object &apos;%1&apos; (%2)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="76"/>
         <source>Atribuição de tipo inválido ao objeto!</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="77"/>
         <source>Atribuição de diretório vazio ao objeto &apos;%1&apos; (%2)!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of an invalid type to object &apos;%1&apos; (%2)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="78"/>
         <source>Obtenção de tipos com quantidade inválida!</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtaining types with invalid quantity!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="79"/>
         <source>Inserção de item já existente na lista de atibutos do tipo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertion of item which already exists in the attributes list of the type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="80"/>
         <source>Inserção de item inválido na lista de atibutos do tipo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertion of invalid item in the attributes list of the type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="81"/>
         <source>Inserção de item já existente na lista de enumerações do tipo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertion of item which already exists in the enumarations list of the type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="82"/>
         <source>Inserção de item inválido na lista de emumerações do tipo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertion of invalid item in the enumerations list of the type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="83"/>
         <source>Referência a um atributo com índice fora da capacidade da lista de atributos!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to an attribute which index is out of the attributes list capacity!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="84"/>
         <source>Referência a uma enumeração com índice fora da capacidade da lista de enumerações!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to an enumeration which index is out of the enumerations list capacity!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="85"/>
         <source>Atribuição de configuração inválida ao tipo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of invalid configuration to the type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="86"/>
-        <source>O tipo de dado &apos;%1&apos; não pode ser atribuído pois o mesmo já existente na lista de tipos da função de agragação &apos;%2&apos;!</source>
-        <translation type="unfinished"></translation>
+        <source>O tipo de dado &apos;%1&apos; não pode ser atribuído pois o mesmo já existente na lista de tipos da função de agregação &apos;%2&apos;!</source>
+        <translation>The data type &apos;%1&apos; can not be assigned because it already exists in the types list of the aggregate function &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="87"/>
         <source>Atribuição de operador a uma função de agregação com quantidade de tipos de entrada inválida!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of an operator which input  type count is invalid to aggregate function!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="88"/>
         <source>Atribuição de operador com argumentos de tipos inválidos!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assigment of an operator which types of arguments is invalid!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="89"/>
         <source>Atribuição de nome reservado pelo sistema ao objeto &apos;%1&apos; (%2)!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of system reserved name to the object &apos;%1&apos; (%2)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="90"/>
         <source>Uma função de configuração inválida está sendo usada pelo objeto &apos;%1&apos; (%2)!</source>
-        <translation type="unfinished"></translation>
+        <translation>One function with invalid configuration is been used by the object &apos;%1&apos; (%2)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="91"/>
         <source>Atribuição de id de usuário inválido!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of invalid id to the user!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="92"/>
         <source>Atribuição de valor inválido ao número de estratégia/suporte do elemento de classe de operadores!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of an invalid strategy/support number to an operator class element!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="93"/>
         <source>Inserção de elemento já existente na lista de elementos!</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertion of element which already exists in the element list!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="94"/>
         <source>Referência a um elemento com índice fora da capacidade da lista de elementos!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to an element which index is out of element list capacity!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="95"/>
         <source>Referência a um objeto com índice fora da capacidade da lista de objetos!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to an object which index is out of object list capacity!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="96"/>
         <source>Remoção de objeto não alocado!</source>
-        <translation type="unfinished"></translation>
+        <translation>Removal of an object not allocated!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="97"/>
         <source>O objeto &apos;%1&apos; (%2) não pode ser removido pois está sendo referenciado pelo objeto &apos;%3&apos; (%4)!</source>
-        <translation type="unfinished"></translation>
+        <translation>The object &apos;%1&apos; (%2) can not be removed because it is being referenced by object &apos;%3&apos; (%4)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="98"/>
         <source>O objeto &apos;%1&apos; (%2) não pode ser removido pois está sendo referenciado pelo objeto &apos;%3&apos; (%4) pertecente à &apos;%5&apos; (%6)!</source>
-        <translation type="unfinished"></translation>
+        <translation>The object &apos;%1&apos; (%2) can not be removed because it is being referenced by object &apos;%3&apos; (%4) that belongs to &apos;%5&apos; (%6)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="99"/>
         <source>Operação com objeto(s) de tipo(s) inválido(s)!</source>
-        <translation type="unfinished"></translation>
+        <translation>Operation with object(s) which type(s) is invalid!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="100"/>
         <source>Referência a um objeto com tipo inválido!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to object with invalid type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="101"/>
         <source>Operação com objeto não alocado!</source>
-        <translation type="unfinished"></translation>
+        <translation>Operation with object not allocated!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="102"/>
         <source>A criação do relacionamento &apos;%1&apos; entre as tabela &apos;%2&apos; e &apos;%3&apos; não pode ser feito pois uma delas não possui uma chave primária. Caso o relacionamento seja do tipo n-n ambas as tabelas devem possuir chaves primárias!</source>
-        <translation type="unfinished"></translation>
+        <translation>The creation of the relationship &apos;%1&apos; between the table &apos;%2&apos; and &apos;%3&apos; can not be done because one does not have a primary key. If the relationship is of the type n-n both tables must have primary keys!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="103"/>
         <source>O relacionamento do tipo 1-1 onde ambas as tabelas são de participação obrigatória não é implementado por necessitar de fusão entre tabelas o que quebra a modelagem feita pelo usuário!</source>
-        <translation type="unfinished"></translation>
+        <translation>The relationship of the type 1-1 where both tables are mandatory participation is not implemented because it requires fusion between the tables that breaks the modeling done by the user!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="104"/>
         <source>Atribuição de expressão inválida ao objeto!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of an invalid expression to the object!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="106"/>
         <source>Atribuição de chave primária à uma tabela a qual já possui uma!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of a primary key to a table which already has one!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="107"/>
         <source>Relacionamento identificador não pode ser criado para um autorelacionamentos, relacionamentos do tipo n-n, dependência ou generalização!</source>
-        <translation type="unfinished"></translation>
+        <translation>Identifier relationship can not be created for a self relationship, relationships of the type n-n, dependency or generalization!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="108"/>
         <source>Impossível criar o relacionamento de dependência pois a coluna &apos;%1&apos; da tabela &apos;%2&apos; já existe na tabela &apos;%3&apos;!</source>
-        <translation type="unfinished"></translation>
+        <translation>Unable to create a dependency relationship because the column &apos;%1&apos; in table &apos;%2&apos; already exists in table &apos;%3&apos;!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="109"/>
         <source>Impossível criar o relacionamento de generalização pois a coluna &apos;%1&apos; da tabela &apos;%2&apos; não pode ser fundida com a coluna &apos;%3&apos; da tabela &apos;%4&apos; por serem de tipos incompatíveis!</source>
-        <translation type="unfinished"></translation>
+        <translation>Unable to create the generalization relationship because the column &apos;%1&apos; in table &apos;%2&apos; can not be merged with the column &apos;%3&apos; of table &apos;%4&apos; because they have incompatible types!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="110"/>
-        <source>Um atributo não pode ser adicionado a um relacionamento personalizado, de generalização ou de dependência!</source>
-        <translation type="unfinished"></translation>
+        <source>Um atributo não pode ser adicionado a um relacionamento de generalização ou dependência!</source>
+        <translation>An attribute can not be added to a dependence or generalization relationship!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="111"/>
         <source>Uma chave estrangeira não pode ser adicionado a um relacionamento pois esta é criada automaticamente no momento da ligação do mesmo!</source>
-        <translation type="unfinished"></translation>
+        <translation>A foreign key can not be added to a relationship because is created automatically when this is connected!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="112"/>
         <source>O objeto &apos;%1&apos; (%2) está referenciando o objeto &apos;%3&apos; (%4) o qual não foi encontrado na lista de objetos de mesmo tipo no modelo!</source>
-        <translation type="unfinished"></translation>
+        <translation>The object &apos;%1&apos; (%2) is referencing the object &apos;%3&apos; (%4) which was not found in the list of objects of the same type in the model!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="113"/>
         <source>Referência a tipo de dado definido pelo usuário o qual não existe no modelo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to an user-defined data type that not exists in the model!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="114"/>
         <source>Atribuição de tamanho máximo inválido à lista de operações!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of invalid maximum size to operation list!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="115"/>
         <source>Não foi possível gravar o modelo no arquivo %1! Verifique se o diretório existe, ou se o usuário possui permissões de acesso sobre o mesmo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Unable to write the model in the file %1! Make sure the directory exists, or if the user has access permissions on it!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="117"/>
         <source>Não foi possível gravar o modelo no arquivo %1 devido a um ou mais erros na geração da definição do mesmo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Unable to write the model in the file%1 due to one or more errors in the definition generation process!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="118"/>
         <source>Já existe um relacionamento entre a %1 %2 e a %3 %4 no modelo!</source>
-        <translation type="unfinished"></translation>
+        <translation>There is already a relationship between %1 %2 and %3 %4 in the model!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="119"/>
         <source>A configuração do relacionamento &apos;%1&apos; gera uma redundância entre os relacionamentos &apos;%2&apos;. Redundância de relacionamentos identificadores ou de generalização/dependência não são aceitos pois resultam em propagação incorreta de colunas tornando o modelo inconsiste!</source>
-        <translation type="unfinished"></translation>
+        <translation>The configuration of the relationship &apos;%1&apos; generates a redundancy between the relationships &apos;%2&apos;. Redundancy on identifier or generalization/dependency relationships are not accepted since they result in  incorrect column spreading making the model inconsistent!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="120"/>
         <source>Um ou mais objetos foram invalidados e automaticamente removidos pois os mesmos referenciavam colunas de tabelas as quais foram incluídas através de relacionamentos e que deixaram de existir devido a desconexão ou exclusão dos relacionamentos geradores de tais colunas!</source>
-        <translation type="unfinished"></translation>
+        <translation>One or more objects were invalidated and automatically removed because they were referencing table columns which were included through relationships and which no longer exists due to disconnection of relationships or exclusion of such generated columns!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="121"/>
         <source>A chave-primária &apos;%1&apos; só pode ser alocada caso a mesma esteja declarada dentro de um bloco de código que define uma tabela ou relacionamento!</source>
-        <translation type="unfinished"></translation>
+        <translation>The primary key &apos;%1&apos; can only be allocated if declared within a block of code that defines a table or relationship!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="122"/>
         <source>Referência a um tipo de privilégio inválido!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to an invalid privilege type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="123"/>
         <source>Inserção de um papel já existente na lista de papéis da permissão!</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertion of an role which already exists in the role list of the permission!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="124"/>
         <source>Atribuição de privilégio incompatível com o tipo do objeto referenciado pela permissão!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of privilege incompatible with the type of object referenced by permission!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="125"/>
-        <source>Já existe uma permissão sobre o objeto &apos;%2&apos; (%3) a qual possui um ou mais papéis iguais aos presentes na permissão a ser atribuída ao objeto!</source>
-        <translation type="unfinished"></translation>
+        <source>Já existe uma permissão sobre o objeto &apos;%1&apos; (%2) a qual possui um ou mais papéis iguais aos presentes na permissão a ser atribuída ao objeto!</source>
+        <translation>There is already a permission on object &apos;%1&apos; (%2) which has one or more equal roles from those present on permission to be assigned to the object!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="126"/>
         <source>Uma permissão está referenciando o objeto &apos;%1&apos; (%2) o qual não foi encontrado no modelo!</source>
-        <translation type="unfinished"></translation>
+        <translation>A permission is referencing the object &apos;%1&apos; (%2) which was not found in the model!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="127"/>
         <source>O objeto &apos;%1&apos; (%2) não pode ser criado por não estar atribuído a nenhum esquema!</source>
-        <translation type="unfinished"></translation>
+        <translation>The object &apos;%1&apos; (%2) can not be created by not being assigned to any schema!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="128"/>
         <source>O espaço de tabela &apos;%1&apos; não pode ser inserido no modelo pois o mesmo aponta para o mesmo diretório que o espaço de tabela &apos;%2&apos;!</source>
-        <translation type="unfinished"></translation>
+        <translation>The tablespace &apos;%1&apos; can not be inserted into the model because it points to the same directory as the tablespace &apos;%2&apos;!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="129"/>
         <source>Não é possível criar arrays de domínios (dimensão &gt;= 1)! O PostgreSQL ainda não implementa esta funcionalidade!</source>
-        <translation type="unfinished"></translation>
+        <translation>Can not create arrays of domains (dimension &gt;= 1)! PostgreSQL does not yet implement this feature!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="130"/>
         <source>A função &apos;%1&apos; não pode receber um código-fonte como definição pois sua linguagem está definida como C. Os atributos símbolo e biblioteca dinâmica é que devem ser utilizados!</source>
-        <translation type="unfinished"></translation>
+        <translation>The function &apos;%1&apos; can not get a source code as a definition because its language is set to C. Use the attributes symbol and dynamic library instead!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="131"/>
         <source>A função &apos;%1&apos; só pode ter os atributos de símbolo e biblioteca configurados caso sua linguagem esteja definida como C. Para os demais casos é necessário especificar um código-fonte que a define o SGBD!</source>
-        <translation type="unfinished"></translation>
+        <translation>The function &apos;%1&apos; can have the attributes symbol and dynamic library configured only if the language is set to C. For all other cases you must specify a source code that defines it in the DBMS!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="132"/>
         <source>O operador &apos;%1&apos; não pode ser atribuído como comutador do operador &apos;%2&apos; pois possui configuração incompatível!</source>
-        <translation type="unfinished"></translation>
+        <translation>The operator &apos;%1&apos; can not be assigned as a comutator of operator &apos;%2&apos; because it has incompatible settings!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="133"/>
         <source>O operador &apos;%1&apos; não pode ser atribuído como negador do operador &apos;%2&apos; pois possui configuração incompatível!</source>
-        <translation type="unfinished"></translation>
+        <translation>The operator &apos;%1&apos; can not be assigned as negator of operator &apos;%2&apos; because it has incompatible settings!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="134"/>
+        <source>O tipo &apos;%1&apos; não pode se referenciar nos atributos &apos;elemento&apos; ou &apos;tipo cópia&apos; ou ser usado como tipo de dado de um atributo na configuração de tipo composto!</source>
+        <translation>The type &apos;%1&apos; can not self refer in the attributes &apos;element&apos; or &apos;copy type&apos; or be used as a data type of an attribute in the configuration of a composite type!</translation>
+    </message>
+    <message>
+        <location filename="../libutil/src/excecao.cpp" line="160"/>
+        <source>Atribuição de buffer de código XML vazio ao parser!</source>
+        <translation>Assignment of empty XML buffer to parser!</translation>
+    </message>
+    <message>
         <source>O tipo &apos;%1&apos; não pode se auto-referenciar nos atributos &apos;elemento&apos; ou &apos;tipo cópia&apos; ou ser usado como tipo de dado de um atributo na configuração de tipo composto!</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">The type &apos;%1&apos; can not self-refer to the attributes &apos;element&apos; or &apos;type print&apos; or be used as a data type of an attribute in the configuration of a composite type!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="135"/>
         <source>Atribuição de elemento inválido ao tipo &apos;%1&apos;!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of invalid element to type &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="136"/>
         <source>Atribuição de alinhamento inválido ao tipo &apos;%1&apos;!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of invalid alignment to type &apos;%1&apos;!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="137"/>
         <source>Atribuição de nome inválido à tabela gerada por relacionamento N-N!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of invalid name to the table generated from N-N relationship!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="138"/>
         <source>O relacionamento &apos;%1&apos; não pode fazer uso da chave-primária especial. Apenas relacionamentos de generalização/dependência têm acesso a este recurso!</source>
-        <translation type="unfinished"></translation>
+        <translation>The relationship &apos;%1&apos; can not make use of the special primary key. Only generalization/dependency relationships have access to this resource!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="139"/>
         <source>O objeto &apos;%1&apos; (%2) não pode ser editado ou excluído por ter sido incluído automaticamente através de relacionamento! Para manipular o objeto é necessário fazê-lo a partir do formulário de edição do relacionamento que o detém.</source>
-        <translation type="unfinished"></translation>
+        <translation>The object &apos;%1&apos; (%2) can not be edited or deleted because it was automatically included through a relationship! To manipulate the object is necessary to make it from the edit form of the relationship that holds it.</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="140"/>
         <source>O objeto &apos;%1&apos; (%2) não pode ser excluído por estar protegido!</source>
-        <translation type="unfinished"></translation>
+        <translation>The object &apos;%1&apos; (%2) can not be deleted because it is protected!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="141"/>
         <source>O grupo &apos;%1&apos; já foi declarado anteriormente!</source>
-        <translation type="unfinished"></translation>
+        <translation>The group &apos;%1&apos; has already been declared earlier!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="142"/>
         <source>O grupo &apos;%1&apos; não pode ser construído no bloco de declaração de grupos (&apos;%2&apos;)!</source>
-        <translation type="unfinished"></translation>
+        <translation>The group &apos;%1&apos; can not be built in the groups declaration block (&apos;%2&apos;)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="143"/>
         <source>O grupo &apos;%1&apos; foi construído porém não declarado no bloco de declaração de grupos (&apos;%2&apos;)!</source>
-        <translation type="unfinished"></translation>
+        <translation>The group &apos;%1&apos; was built but not declared in the groups declaration block (&apos;%2&apos;)!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="144"/>
         <source>O grupo &apos;%1&apos; não pode ser construído sem possuir elementos filhos!</source>
-        <translation type="unfinished"></translation>
+        <translation>The group &apos;%1&apos; can not be built without possessing child elements!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="145"/>
         <source>O grupo &apos;%1&apos; não pode ser construído novamente pois já foi construído em blocos anteriores!</source>
-        <translation type="unfinished"></translation>
+        <translation>The group &apos;%1&apos; can not be built once more because this was done in previous blocks!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="146"/>
         <source>O grupo &apos;%1&apos; foi declarado porém não construído!</source>
-        <translation type="unfinished"></translation>
+        <translation>The group &apos;%1&apos; has been declared but not built!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="147"/>
         <source>Referência a uma coluna da tabela de objetos com índice inválido!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to a column of objects table with invalid index!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="148"/>
         <source>Referência a uma linha da tabela de objetos com índice inválido!</source>
-        <translation type="unfinished"></translation>
+        <translation>Reference to a row of objects table with invalid index!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="149"/>
         <source>O esquema &apos;public&apos; e as linguagens &apos;plpgsql&apos;, &apos;c&apos; e &apos;sql&apos; não podem ser manipuladas por serem reservados ao PostgreSQL! Os mesmos estão presentes no modelo de banco de dados apenas como referência!</source>
-        <translation type="unfinished"></translation>
+        <translation>The scheme &apos;public&apos; and the languages &apos;plpgsql&apos;, &apos;c&apos; and &apos;sql&apos; can not be manipulated because they are reserved to PostgreSQL! They are present in the model database only as a reference!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="150"/>
         <source>A nova configuração da função invalida o objeto &apos;%1&apos; (%2) o qual a referencia! Neste caso é necessário desfazer a relação entre o objeto afetado e a função para que a nova configuração desta última seja efetivada!</source>
-        <translation type="unfinished"></translation>
+        <translation>The new configuration function invalidates the object &apos;%1&apos; (%2)! In this case it is needed to undo the relationship between the affected object and function so that the new configuration of the latter to take effect!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="151"/>
         <source>Uma referência de visão deve possuir pelo menos uma aplicação SQL: SELECT-FROM, FROM-WHERE ou Após WHERE!</source>
-        <translation type="unfinished"></translation>
+        <translation>A vision reference must have at least one SQL application : SELECT, FROM, FROM-WHERE or After WHERE!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="152"/>
         <source>Restrições do tipo chave-primária, chave-estrangeira ou única devem possuir pelo menos uma coluna relacionada às mesmas! Para chaves-estrangeira devem ser selecionadas, adicionalmente, as colunas referenciadas!</source>
-        <translation type="unfinished"></translation>
+        <translation>Constraints like primary key, foreign key or unique must have at least one column related to them! For foreign keys must be selected, in addition, the referenced columns!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="153"/>
         <source>Não foi possível carregar um ou mais arquivos de configuração! Por favor, cheque se os arquivos existem na pasta de configurações e se o mesmos não estão corrompidos para que este erro não se repita na próxima inicialização!</source>
-        <translation type="unfinished"></translation>
+        <translation>Unable to load one or more configuration files! Please check if files exists in the configuration folder and if they are not corrupted to preventing this error to occur again on the next startup!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="154"/>
         <source>Não foi possível encontrar o arquivo de configurações padrão &apos;%1&apos;! Para restaurar as configurações padrão cheque a existência do referido arquivo e tente novamente!</source>
-        <translation type="unfinished"></translation>
+        <translation>Could not find the default settings file &apos;%1&apos;! To restore default settings check the existence of the file and try again!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="155"/>
         <source>Sintaxe inválida no arquivo %1, linha %2, coluna %3!</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid syntax in file %1, line %2, column %3!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="156"/>
         <source>Instrução condicional &apos;%1&apos; inválida no arquivo %2, linha %3, coluna %4!</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid conditional instruction &apos;%1&apos; on file %2, line %3, column %4!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="157"/>
         <source>Atributo &apos;%1&apos; desconhecido no arquivo %2, linha %3, coluna %4!</source>
-        <translation type="unfinished"></translation>
+        <translation>Unknown attribute &apos;%1&apos; in file %2, line %3, column %4!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="158"/>
         <source>Metacaractere &apos;%1&apos; inválido no arquivo %2, linha %3, coluna %4!</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid metacharacter &apos;%1&apos; in file %2, line %3, column %4!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="159"/>
         <source>Atributo &apos;%1&apos; com valor indefinido no arquivo %2, linha %3, coluna %4!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../libutil/src/excecao.cpp" line="160"/>
-        <source>Atributo de buffer de código XML vazio ao parser!</source>
-        <translation type="unfinished"></translation>
+        <translation>Attribute &apos;%1&apos; with an undefined value in file %2, line %3, column %4!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="161"/>
         <source>Não foi possível acessar o arquivo ou diretório %1! Verifique se ele existe ou se o usuário possui permissões de acesso sobre o mesmo!</source>
-        <translation type="unfinished"></translation>
+        <translation>Could not access the file or directory%1! Make sure that it exists or if the user has access permissions on it!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="162"/>
         <source>Atribuição de nome de arquivo DTD vazio!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of empty DTD file name!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="163"/>
         <source>Atribuição de nome vazio à declaração DTD!</source>
-        <translation type="unfinished"></translation>
+        <translation>Assignment of empty name to the DTD declaration!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="164"/>
         <source>Erro ao interpretar buffer XML na linha %1 coluna %2.
  Mensagem gerada pelo parser: &apos;%3&apos;. %4</source>
-        <translation type="unfinished"></translation>
+        <translation>Error while interpreting XML buffer at line %1 column %2.
+Message generated by the parser: &apos;%3&apos;. %4</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="165"/>
         <source>Operação sobre árvore de elementos não alocada! É necessário carregar o buffer XML do parser e interpretá-lo para que a árvore seja gerada!</source>
-        <translation type="unfinished"></translation>
+        <translation>Operation on unallocated element tree! It is necessary to load the XML parser buffer and interpret it so that the tree is generated!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="166"/>
         <source>Não foi possível carregar o arquivo %1. O mesmo parece estar inconsistente ou uma de suas dependências (arquivos DTD) possui erros ou está ausente!</source>
-        <translation type="unfinished"></translation>
+        <translation>Could not load file %1. The same appears to be inconsistent or one of its dependencies (DTD files) has errors or is missing!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="167"/>
         <source>Operação com elemento de árvore de elementos não alocado!</source>
-        <translation type="unfinished"></translation>
+        <translation>Operation with unallocated tree element!</translation>
     </message>
     <message>
         <location filename="../libutil/src/excecao.cpp" line="168"/>
@@ -3925,33 +3930,33 @@ Message returned by the DBMS: %1</translation>
         <translation>new_database</translation>
     </message>
     <message>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="2815"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="2872"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3248"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3282"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3311"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3415"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3586"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3656"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3892"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3978"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4071"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4147"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4283"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4399"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4430"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4517"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4584"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4635"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4890"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5048"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5122"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5297"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5390"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5538"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5576"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5775"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5964"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="2764"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="2821"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3165"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3199"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3228"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3319"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3490"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3560"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3796"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3882"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3975"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4051"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4187"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4303"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4334"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4421"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4488"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4539"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4794"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4952"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5026"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5201"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5294"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5442"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5480"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5679"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5868"/>
         <source>%1 (linha: %2)</source>
         <translation>%1 (line: %2)</translation>
     </message>

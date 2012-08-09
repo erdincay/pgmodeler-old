@@ -99,7 +99,8 @@ class Operador: public ObjetoBase {
   static bool nomeValido(const QString &nome);
 
   //Retorna a definição SQL ou XML do objeto
-  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida=false);
+  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida);
+  QString obterDefinicaoObjeto(unsigned tipo_def);
 
   //Obtém a assinatura do operador
   QString obterAssinatura(bool formatar_nome=true);

@@ -23,7 +23,7 @@
    <bool>true</bool>
   </property>
   <property name="windowTitle">
-   <string>pgModeler - PostgreSQL Database Modeller</string>
+   <string>pgModeler - PostgreSQL Database Modeler</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../res/resources.qrc">

@@ -141,6 +141,11 @@ bool ClasseOperadores::classePadrao(void)
  return(padrao);
 }
 //-----------------------------------------------------------
+QString ClasseOperadores::obterDefinicaoObjeto(unsigned tipo_def)
+{
+ return(this->obterDefinicaoObjeto(tipo_def, false));
+}
+//-----------------------------------------------------------
 QString ClasseOperadores::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)
 {
  definirAtributoElementos(tipo_def);

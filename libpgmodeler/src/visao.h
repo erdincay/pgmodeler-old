@@ -1,4 +1,4 @@
-﻿/*
+/*
 # Projeto: Modelador de Banco de Dados PostgreSQL (pgsqlDBM)
 # Sub-projeto: Biblioteca núcleo libpgsqldbm
 # Descrição:  Definição da classe Visao que é usada para

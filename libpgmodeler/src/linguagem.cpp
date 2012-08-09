@@ -90,6 +90,11 @@ bool Linguagem::linguagemConfiavel(void)
  return(confiavel);
 }
 //-----------------------------------------------------------
+QString Linguagem::obterDefinicaoObjeto(unsigned tipo_def)
+{
+ return(this->obterDefinicaoObjeto(tipo_def, false));
+}
+//-----------------------------------------------------------
 QString Linguagem::obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida)
 {
  unsigned i;

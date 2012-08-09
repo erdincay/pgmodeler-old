@@ -1,4 +1,4 @@
-﻿/*
+/*
 # Projeto: Modelador de Banco de Dados PostgreSQL (pgsqlDBM)
 # Sub-projeto: Biblioteca núcleo libpgsqldbm
 # Descrição:  Definição da classe FamiliaOperadores que é usada para
@@ -43,7 +43,8 @@ class FamiliaOperadores: public ObjetoBase {
   TipoIndexacao obterTipoIndexacao(void);
 
   //Retorna a definição SQL ou XML do objeto
-  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida=false);
+  QString obterDefinicaoObjeto(unsigned tipo_def, bool forma_reduzida);
+  QString obterDefinicaoObjeto(unsigned tipo_def);
 };
 //***********************************************************
 #endif
