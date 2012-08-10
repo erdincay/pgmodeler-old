@@ -7,3 +7,5 @@ moc/*
 Makefile
 build/*
 *.pro.user
+*.directory
+

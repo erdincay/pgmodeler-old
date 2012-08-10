@@ -1,3 +1,5 @@
+CONFIG += ordered
+
 unix {
  GLOBAL_INCLUDES = .\
                    /usr/local/pgsql/include \
@@ -8,7 +10,7 @@ unix {
  GLOBAL_LIBS =  /usr/local/pgsql/lib/libpq.so \
                 -lxml2
 
- LIB_SUFFIX = so.1.0.0
+ LIB_SUFFIX = so
 
 }
 
@@ -21,6 +23,8 @@ windows {
                "C:/libxml2/bin/libxml2.dll"
 
  LIB_SUFFIX = dll
+
+ QMAKE_LFLAGS=-Wl,-enable-auto-import
 }
 
 INCLUDEPATH = $${GLOBAL_INCLUDES} \

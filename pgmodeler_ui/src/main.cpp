@@ -10,6 +10,23 @@ int main(int argc, char **argv)
   QString local = QLocale::system().name();
   QTranslator tradutor;
 
+  //Obtém os valores das variáveis de ambiente
+  QString dir_conf=getenv("PGMODELER_CONF_DIR"),
+          dir_sch=getenv("PGMODELER_SCHEMAS_DIR"),
+          dir_lang=getenv("PGMODELER_LANG_DIR");
+
+  /* Caso alguma das variáveis de ambiente esteja setada
+     atribui a mesma a configuração global respectiva sobrescrevendo
+     a configuração padrão */
+  if(!dir_conf.isEmpty())
+   AtributosGlobais::DIR_CONFIGURACOES=dir_conf;
+
+  if(!dir_sch.isEmpty())
+   AtributosGlobais::DIR_RAIZ_ESQUEMAS=dir_sch;
+
+  if(!dir_lang.isEmpty())
+   AtributosGlobais::DIR_RAIZ_ESQUEMAS=dir_lang;
+
   //Carrega o arquivo de tradução da interface de acordo com o locale do sistema
   tradutor.load(QString("pgmodeler.") + local, AtributosGlobais::DIR_LINGUAS);
 

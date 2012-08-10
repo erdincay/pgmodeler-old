@@ -57,15 +57,16 @@ pertencentes ao sistema operacional.
 As variáveis específicas são:
 
    PGMODELER_SCHEMAS_DIR -> armazena o caminho completo para a pasta schemas/
-   PGMODELER_CONFIGS_DIR -> armazena o caminho completo para a pasta conf/
+   PGMODELER_CONF_DIR -> armazena o caminho completo para a pasta conf/
    PGMODELER_LANG_DIR -> armazena o caminho completo para a pasta lang/
 
 Adicionalmente, o pgModeler precisa saber onde encontrar suas bibliotecas, para 
-isso deve-se indicar o caminho completo de sua pasta lib/ na variável LD_LIBRARY_PATH.
+isso deve-se indicar o caminho completo de sua pasta lib/ na variável LD_LIBRARY_PATH (Unix)
+ou PATH (Windows).
 
 Por fim, para proporcionar a tradução da interface o pgModeler consulta a variável $LANG.
 
-Por conveniência, o script 'start-pgmodeler.sh' foi criado para auxiliar na inicialização 
+Por conveniência, o script 'start-pgmodeler.(sh|bat)' foi criado para auxiliar na inicialização 
 do pgModeler assim não é necessário chamar o pgModeler diretamente do seu executável
 ou mesmo atlerar as variáveis do ambiente.
 

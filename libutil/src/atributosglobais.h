@@ -31,12 +31,23 @@
 #include <QDir>
 //***********************************************************
 namespace AtributosGlobais {
+
+/* Variáveis usadas para referenciar os diretórios do
+   pgModeler. Por padrão, ele busca os diretórios
+   conf/, schemas/ e lang/ na pasta de execução atual.
+   Porém estes valores podem ser sobrescritos usandos as
+   variáveis de ambiente:
+     PGMODELER_SCHEMAS_DIR
+     PGMODELER_CONF_DIR
+     PGMODELER_LANG_DIR
+*/
+static QString
+  DIR_RAIZ_ESQUEMAS=QDir::currentPath() + QString("/schemas"),
+  DIR_CONFIGURACOES=QDir::currentPath() + QString("/conf"),
+  DIR_LINGUAS=QDir::currentPath() + QString("/lang");
+
 static const QString
    VERSAO_PGMODELER="0.1.0",
-
-   DIR_RAIZ_ESQUEMAS=getenv("PGMODELER_SCHEMAS_DIR"),
-   DIR_CONFIGURACOES=getenv("PGMODELER_CONFIGS_DIR"),
-   DIR_LINGUAS=getenv("PGMODELER_LANG_DIR"),
 
    //Caractere separador de diretórios (/ -> Linux, \\ -> M$ Window$)
    SEP_DIRETORIO=QDir::toNativeSeparators("/"),
