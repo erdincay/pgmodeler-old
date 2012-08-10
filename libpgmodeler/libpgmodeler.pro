@@ -1,11 +1,17 @@
 include(../pgmodeler.pro)
 
-CONFIG += qt warn_on
+CONFIG += qt warn_on shared
 QT = core gui qt3support
-
-VERSION = 1
 TEMPLATE = lib
-TARGET = pgmodeler
+
+unix {
+ TARGET = pgmodeler
+}
+
+windows {
+ TARGET = libpgmodeler
+}
+
 DESTDIR = ../build/lib/
 
 DEPENDPATH += ". src moc obj"
@@ -84,5 +90,5 @@ SOURCES +=  src/caixatexto.cpp \
             src/referencia.cpp \
             src/permissao.cpp
 
-LIBS += ../build/lib/libutil.so.1 \
-        ../build/lib/libparsers.so.1
+LIBS += ../build/lib/libutil.$${LIB_SUFFIX} \
+        ../build/lib/libparsers.$${LIB_SUFFIX}

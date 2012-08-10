@@ -1,11 +1,17 @@
 include(../pgmodeler.pro)
 
-CONFIG = qt warn_on uitools
+CONFIG = qt warn_on uitools shared
 QT = core gui qt3support
-
-VERSION = 1
 TEMPLATE = lib
-TARGET = objrenderer
+
+unix {
+ TARGET = objrenderer
+}
+
+windows {
+ TARGET = libobjrenderer
+}
+
 DESTDIR = ../build/lib/
 DEPENDPATH += ". src moc obj"
 OBJECTS_DIR = obj
@@ -31,6 +37,6 @@ SOURCES +=  src/objetografico.cpp \
             src/ogtabelabase.cpp \
             src/cenaobjetos.cpp
 
-LIBS += ../build/lib/libutil.so.1 \
-        ../build/lib/libparsers.so.1 \
-        ../build/lib/libpgmodeler.so.1
+LIBS += ../build/lib/libutil.$${LIB_SUFFIX} \
+        ../build/lib/libparsers.$${LIB_SUFFIX} \
+        ../build/lib/libpgmodeler.$${LIB_SUFFIX}

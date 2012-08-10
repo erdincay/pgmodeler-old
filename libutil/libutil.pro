@@ -1,11 +1,17 @@
 include(../pgmodeler.pro)
 
-CONFIG = qt warn_on
+CONFIG = qt warn_on shared
 QT = core gui qt3support
-
-VERSION = 1
 TEMPLATE = lib
-TARGET = util
+
+unix {
+ TARGET = util
+}
+
+windows {
+ TARGET = libutil
+}
+
 DESTDIR = ../build/lib/
 DEPENDPATH += ". src moc obj"
 OBJECTS_DIR = obj

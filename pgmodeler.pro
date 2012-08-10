@@ -7,19 +7,27 @@ unix {
 
  GLOBAL_LIBS =  /usr/local/pgsql/lib/libpq.so \
                 -lxml2
+
+ LIB_SUFFIX = so.1.0.0
+
 }
 
 windows {
  GLOBAL_INCLUDES = .\
-                   "C:/Program Files (x86)/PostgreSQL/9.1/include/"
- GLOBAL_LIBS = "C:/Program Files (x86)/PostgreSQL/9.1/lib/libpq.dll"
+                   "C:/Program Files (x86)/PostgreSQL/9.1/include/" \
+                   "C:/libxml2/include/"
+
+ GLOBAL_LIBS = "C:/Program Files (x86)/PostgreSQL/9.1/lib/libpq.dll" \
+               "C:/libxml2/bin/libxml2.dll"
+
+ LIB_SUFFIX = dll
 }
 
 INCLUDEPATH = $${GLOBAL_INCLUDES} \
               $$PWD/libutil/src \
               $$PWD/libconexbd/src \
-              $$PWD/libpgmodeler/src \
               $$PWD/libparsers/src \
+              $$PWD/libpgmodeler/src \
               $$PWD/libobjrenderer/src \
               $$PWD/pgmodeler_ui/src
 

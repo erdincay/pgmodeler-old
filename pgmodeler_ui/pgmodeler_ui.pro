@@ -158,8 +158,8 @@ FORMS += ui/formprincipal.ui \
 
 RESOURCES += res/resources.qrc
 
-LIBS += ../build/lib/libutil.so.1 \
-        ../build/lib/libobjrenderer.so.1 \
-        ../build/lib/libpgmodeler.so.1 \
-        ../build/lib/libparsers.so.1 \
-        ../build/lib/libconexbd.so.1
+LIBS += ../build/lib/libutil.$${LIB_SUFFIX} \
+        ../build/lib/libobjrenderer.$${LIB_SUFFIX} \
+        ../build/lib/libpgmodeler.$${LIB_SUFFIX} \
+        ../build/lib/libparsers.$${LIB_SUFFIX} \
+        ../build/lib/libconexbd.$${LIB_SUFFIX}
