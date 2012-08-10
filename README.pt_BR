@@ -1,0 +1,73 @@
+                 pgModeler - PostgreSQL Database Modeler
+
+                http://sourceforge.net/projects/pgmodeler
+
+       Desenvolvido por: Raphael Araújo e Silva (rkhaotix@gmail.com)
+
+
+Este documento descreve de forma simples como compilar e executar o pgModeler.
+Por favor, leia-o atentamente para que nenhuma etapa seja esquecida comprometendo
+todo o processo.
+
+-------------------
+**     AVISO     **
+-------------------
+
+Apesar de esta ser a primeira versão estável do pgModeler recomenda-se NÃO
+exportar os modelos criados diretamente para ambientes de produção. Nem todas
+as possibilidades de geração de código foram testadas, desta forma, é de sua
+conta e risco aplicar a exportação em ambientes que não sejam destinados a testes.
+
+------------------------
+Requisitos de Instalação
+------------------------
+
+* Ferramentas de desenvolvimento GCC
+* Biblioteca Qt 4.7.x ou superior (qt.nokia.com)
+* Biblioteca LibXML2 (www.xmlsoft.org)
+* Biblioteca libpq (www.postgresql.org)
+
+----------
+Compilando
+----------
+
+A partir da pasta do código-fonte do projeto (ex.: /root/pgmodeler) digite:
+
+$ qmake pgmodeler.pro
+$ make
+
+Se a compilação for bem sucedida os arquivos serão criados na pasta 'build/'
+da seguinte forma:
+
+build/
+     |
+     +-- conf/ (symlink -> ../conf)
+     +-- lang/ (symlink -> ../lang)
+     +-- lib/
+     +-- schemas/ (symlink -> ../schemas)
+     +-- pgmodeler
+
+---------------------
+Variáveis de Ambiente
+---------------------
+
+O pgModeler utiliza três variáveis de ambientes próprias mas também faz uso de outras
+pertencentes ao sistema operacional.
+
+As variáveis específicas são:
+
+   PGMODELER_SCHEMAS_DIR -> armazena o caminho completo para a pasta schemas/
+   PGMODELER_CONFIGS_DIR -> armazena o caminho completo para a pasta conf/
+   PGMODELER_LANG_DIR -> armazena o caminho completo para a pasta lang/
+
+Adicionalmente, o pgModeler precisa saber onde encontrar suas bibliotecas, para 
+isso deve-se indicar o caminho completo de sua pasta lib/ na variável LD_LIBRARY_PATH.
+
+Por fim, para proporcionar a tradução da interface o pgModeler consulta a variável $LANG.
+
+Por conveniência, o script 'start-pgmodeler.sh' foi criado para auxiliar na inicialização 
+do pgModeler assim não é necessário chamar o pgModeler diretamente do seu executável
+ou mesmo atlerar as variáveis do ambiente.
+
+Observação: Talvez seja necessário editar os parâmetros do script dependendo da configuração 
+de seu sistema operacional.
