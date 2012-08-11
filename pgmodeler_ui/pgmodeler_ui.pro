@@ -1,4 +1,9 @@
 include(../pgmodeler.pro)
+include(../libutil/libutil.pro)
+include(../libconexbd/libconexbd.pro)
+include(../libparsers/libparsers.pro)
+include(../libpgmodeler/libpgmodeler.pro)
+include(../libobjrenderer/libobjrenderer.pro)
 
 CONFIG += qt warn_on uitools uic4
 QT = core gui qt3support
@@ -12,6 +17,8 @@ UI_DIR = src
 DESTDIR = ../build
 TRANSLATIONS = lang/pgmodeler.en_US.ts
 CODECFORTR = UTF-8
+
+RESOURCES += res/resources.qrc
 
 SOURCES += src/main.cpp \
            src/formprincipal.cpp \
@@ -74,7 +81,6 @@ HEADERS += src/formprincipal.h \
            src/formbasico.h \
            src/codigofontewidget.h \
            src/destaquesintaxe.h \
-           #src/caixaferramentawidget.h \
            src/bancodadoswidget.h \
            src/esquemawidget.h \
            src/tabelaobjetoswidget.h \
@@ -155,11 +161,3 @@ FORMS += ui/formprincipal.ui \
          ui/confgeralwidget.ui \
          ui/confaparenciawidget.ui \
          ui/confconexoeswidget.ui
-
-RESOURCES += res/resources.qrc
-
-LIBS += ../build/lib/libutil.$${LIB_SUFFIX} \
-        ../build/lib/libobjrenderer.$${LIB_SUFFIX} \
-        ../build/lib/libpgmodeler.$${LIB_SUFFIX} \
-        ../build/lib/libparsers.$${LIB_SUFFIX} \
-        ../build/lib/libconexbd.$${LIB_SUFFIX}

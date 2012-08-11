@@ -53,7 +53,7 @@ class FormPrincipal: public QMainWindow, public Ui::FormPrincipal {
   void closeEvent(QCloseEvent *);
 
  public:
-   FormPrincipal(QWidget *parent = 0);
+   FormPrincipal(QWidget *parent = 0, Qt::WindowFlags flags = 0);
   ~FormPrincipal(void);
 
  private slots:

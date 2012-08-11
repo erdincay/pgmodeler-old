@@ -1,4 +1,4 @@
-CONFIG += ordered
+CONFIG += ordered debug
 
 unix {
  GLOBAL_INCLUDES = .\
@@ -9,20 +9,15 @@ unix {
 
  GLOBAL_LIBS =  /usr/local/pgsql/lib/libpq.so \
                 -lxml2
-
- LIB_SUFFIX = so
-
 }
 
 windows {
  GLOBAL_INCLUDES = .\
-                   "C:/Program Files (x86)/PostgreSQL/9.1/include/" \
-                   "C:/libxml2/include/"
+                   "C:/PostgreSQL/9.1/include/" \
+                   "C:/QtSDK/mingw/include"
 
- GLOBAL_LIBS = "C:/Program Files (x86)/PostgreSQL/9.1/lib/libpq.dll" \
-               "C:/libxml2/bin/libxml2.dll"
-
- LIB_SUFFIX = dll
+ GLOBAL_LIBS = "C:/PostgreSQL/9.1/lib/libpq.dll" \
+               "C:/QtSDK/mingw/bin/libxml2.dll"
 
  QMAKE_LFLAGS=-Wl,-enable-auto-import
 }
@@ -37,14 +32,16 @@ INCLUDEPATH = $${GLOBAL_INCLUDES} \
 
 LIBS = $${GLOBAL_LIBS}
 
-
 TEMPLATE = subdirs
-SUBDIRS = libutil \
+
+SUBDIRS = pgmodeler_ui\
+          libutil \
           libconexbd \
           libparsers \
           libpgmodeler \
-          libobjrenderer \
-          pgmodeler_ui
+          libobjrenderer
+
+SUBDIRS = pgmodeler_ui
 
 sources.files = models schemas lang conf
 sources.path = .

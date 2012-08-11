@@ -9,6 +9,10 @@ FormConfiguracao::FormConfiguracao(QWidget *parent, Qt::WindowFlags f) : QDialog
 
  setupUi(this);
 
+ conf_geral=NULL;
+ conf_aparencia=NULL;
+ conf_conexoes=NULL;
+
  conf_geral=new ConfGeralWidget(this);
  conf_aparencia=new ConfAparenciaWidget(this);
  conf_conexoes=new ConfConexoesWidget(this);

@@ -71,7 +71,7 @@ ListaObjetosWidget *deps_refs_wgt=NULL;
 FormConfiguracao *fconfiguracao=NULL;
 FormExportacao *fexportacao=NULL;
 //----------------------------------------------------------
-FormPrincipal::FormPrincipal(QWidget *parent) : QMainWindow(parent)
+FormPrincipal::FormPrincipal(QWidget *parent, Qt::WindowFlags flags) : QMainWindow(parent, flags)
 {
  map<QString, map<QString, QString> >confs;
  map<QString, map<QString, QString> >::iterator itr, itr_end;
@@ -324,6 +324,7 @@ FormPrincipal::~FormPrincipal(void)
  delete(nome_op);
  delete(lista_oper);
  delete(visao_objs);
+ delete(fsobre);
 }
 //----------------------------------------------------------
 void FormPrincipal::closeEvent(QCloseEvent *)

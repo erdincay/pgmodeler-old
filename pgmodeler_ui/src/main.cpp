@@ -39,19 +39,19 @@ int main(int argc, char **argv)
      a esta, desta forma, a alocação do formulário e feita dentro de um
      try-catch para possível captura de erros. A aplicação será abortada
      e o erro mostrado no console caso ocorra. */
-  FormPrincipal *fmain=new FormPrincipal;
+  FormPrincipal fmain;//=new FormPrincipal;
 
   //Atribui o formulário alocado à aplicação
-  app.setMainWidget(fmain);
+  app.setMainWidget(&fmain);
 
   //Exibe o formulário principal e prossegue com a execução da aplicação
-  fmain->showMaximized();
+  fmain.showMaximized();
 
   //Executa a aplicação
   app.exec();
 
   //Desloca a janela principal ao término do loop principal
-  delete(fmain);
+  //delete(fmain);
   return(0);
  }
  //Caso um erro seja capturado durante a inicialização da aplicação
