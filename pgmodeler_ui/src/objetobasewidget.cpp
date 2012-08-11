@@ -25,6 +25,10 @@ ObjetoBaseWidget::ObjetoBaseWidget(QWidget *parent, TipoObjetoBase tipo_obj): QD
   alt_min_jp=-1;
   alt_max_jp=-1;
   dest_nomepai_txt=NULL;
+  janela_pai=NULL;
+  sel_esquema=NULL;
+  sel_dono=NULL;
+  sel_esptabela=NULL;
 
   //Aloca um destacador de código fonte
   dest_nomepai_txt=new DestaqueSintaxe(objeto_pai_txt, false);
@@ -45,12 +49,9 @@ ObjetoBaseWidget::ObjetoBaseWidget(QWidget *parent, TipoObjetoBase tipo_obj): QD
   connect(janela_pai->cancelar_btn, SIGNAL(clicked(bool)), janela_pai, SLOT(close(void)));
   connect(janela_pai, SIGNAL(rejected()), this, SLOT(reject()));
 
-  sel_esquema=NULL;
-  sel_dono=NULL;
-  sel_esptabela=NULL;
-  sel_esquema=new SeletorObjetoWidget(OBJETO_ESQUEMA, true);
-  sel_dono=new SeletorObjetoWidget(OBJETO_PAPEL, true);
-  sel_esptabela=new SeletorObjetoWidget(OBJETO_ESPACO_TABELA, true);
+  sel_esquema=new SeletorObjetoWidget(OBJETO_ESQUEMA, true, this);
+  sel_dono=new SeletorObjetoWidget(OBJETO_PAPEL, true, this);
+  sel_esptabela=new SeletorObjetoWidget(OBJETO_ESPACO_TABELA, true, this);
 
   //Configura o layout do formulário padrão
   objetobase_grid = new QGridLayout;
@@ -87,11 +88,7 @@ ObjetoBaseWidget::ObjetoBaseWidget(QWidget *parent, TipoObjetoBase tipo_obj): QD
  }
  catch(Excecao &e)
  {
-  if(sel_dono) delete(sel_dono);
-  if(sel_esptabela) delete(sel_esptabela);
-  if(sel_esquema) delete(sel_esquema);
   if(janela_pai) delete(janela_pai);
-  if(dest_nomepai_txt) delete(dest_nomepai_txt);
 
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
@@ -100,10 +97,6 @@ ObjetoBaseWidget::ObjetoBaseWidget(QWidget *parent, TipoObjetoBase tipo_obj): QD
 //----------------------------------------------------------
 ObjetoBaseWidget::~ObjetoBaseWidget(void)
 {
- if(sel_dono) delete(sel_dono);
- if(sel_esptabela) delete(sel_esptabela);
- if(sel_esquema) delete(sel_esquema);
- if(dest_nomepai_txt) delete(dest_nomepai_txt);
  delete(janela_pai);
 }
 //----------------------------------------------------------

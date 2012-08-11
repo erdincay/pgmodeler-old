@@ -153,7 +153,6 @@ class DestaqueSintaxe: public QSyntaxHighlighter {
  public:
    DestaqueSintaxe(QTextDocument *parent, bool auto_redestaque);
    DestaqueSintaxe(QTextEdit *parent, bool auto_redestaque);
-  ~DestaqueSintaxe(void){};
 
   /* Faz o carregamento do arquivo XML o qual armazena todas as definições
      dos grupos de expressões responsáveis pelo destaque das palavras

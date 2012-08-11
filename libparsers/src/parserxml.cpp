@@ -145,10 +145,13 @@ void ParserXML::interpretarBuffer(void)
    buffer+=decl_dtd;
 
    //Configurando o parser para validar o documento com a DTD
-   parser_opt=(parser_opt | XML_PARSE_DTDLOAD | XML_PARSE_DTDVALID);
+   //parser_opt=(parser_opt | XML_PARSE_DTDLOAD | XML_PARSE_DTDVALID);
+   #warning "** Validação DTD desativada no Windows para checagem de memory leaks!"
+   #warning "** Reativar quando finalizar a checagem!"
   }
 
   buffer+=buffer_xml;
+
   //Lê o documento XML armazenado no buffer
   doc_xml=xmlReadMemory(buffer.toStdString().c_str(), buffer.size(),
                         NULL, NULL, parser_opt);

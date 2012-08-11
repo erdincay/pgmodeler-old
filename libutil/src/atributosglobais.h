@@ -42,15 +42,14 @@ namespace AtributosGlobais {
      PGMODELER_LANG_DIR
 */
 static QString
-  DIR_RAIZ_ESQUEMAS=QDir::currentPath() + QString("/schemas"),
-  DIR_CONFIGURACOES=QDir::currentPath() + QString("/conf"),
-  DIR_LINGUAS=QDir::currentPath() + QString("/lang");
+  DIR_RAIZ_ESQUEMAS=QDir::toNativeSeparators(QDir::currentPath() + QString("/schemas")),
+  DIR_CONFIGURACOES=QDir::toNativeSeparators(QDir::currentPath() + QString("/conf")),
+  DIR_LINGUAS=QDir::toNativeSeparators(QDir::currentPath() + QString("/lang")),
+  //Caractere separador de diretórios (/ -> Linux, \\ -> M$ Window$)
+  SEP_DIRETORIO=QDir::toNativeSeparators("/");
 
 static const QString
    VERSAO_PGMODELER="0.1.0",
-
-   //Caractere separador de diretórios (/ -> Linux, \\ -> M$ Window$)
-   SEP_DIRETORIO=QDir::toNativeSeparators("/"),
 
    DIR_CONF_PADRAO="defaults", //Nome do diretório o qual guarda as configurações padrão do pgModeler
    DIR_ESQUEMAS="schemas", //Nome padrão de diretórios de esquemas
