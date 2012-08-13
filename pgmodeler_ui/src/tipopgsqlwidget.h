@@ -44,8 +44,7 @@ class TipoPgSQLWidget: public QWidget, public Ui::TipoPgSQLWidget {
    DestaqueSintaxe *destaque_fmt;
 
  public:
-   TipoPgSQLWidget(const QString &rotulo="",QWidget * = 0);
-  ~TipoPgSQLWidget(void);
+   TipoPgSQLWidget(QWidget * parent = 0, const QString &rotulo="");
 
    /* Método utilitário disponibilizado para as demais classes o qual
       obtém a lista de tipos do modelo em questão dando a possiblidade

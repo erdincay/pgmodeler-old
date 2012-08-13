@@ -34,7 +34,6 @@ class BancoDadosWidget: public ObjetoBaseWidget, public Ui::BancoDadosWidget {
 
  public:
    BancoDadosWidget(QWidget * parent = 0);
-  ~BancoDadosWidget(void){};
    void definirAtributos(ModeloBD *modelo);
 
  private slots:

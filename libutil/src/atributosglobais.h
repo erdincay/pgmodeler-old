@@ -42,15 +42,20 @@ namespace AtributosGlobais {
      PGMODELER_LANG_DIR
 */
 static QString
-  DIR_RAIZ_ESQUEMAS=QDir::toNativeSeparators(QDir::currentPath() + QString("/schemas")),
-  DIR_CONFIGURACOES=QDir::toNativeSeparators(QDir::currentPath() + QString("/conf")),
-  DIR_LINGUAS=QDir::toNativeSeparators(QDir::currentPath() + QString("/lang")),
-  //Caractere separador de diretórios (/ -> Linux, \\ -> M$ Window$)
-  SEP_DIRETORIO=QDir::toNativeSeparators("/");
+  /** ticket#1 **/
+  /* De acordo com a documentação da libXml, os caminhos usados pelo parser são
+     em URI (ex.: file://a/b/c) logo, em Windows, os caminhos são em formato
+     C:\a\b\c, isso provocava o erro no parser que não conseguia localizar
+     as DTD's. A solução para esse problema é substituir as '\' do caminho por '/' */
+
+  DIR_RAIZ_ESQUEMAS=QString(QDir::currentPath() + QString("/schemas")).replace("\\","/"),
+  DIR_CONFIGURACOES=QString(QDir::currentPath() + QString("/conf")).replace("\\","/"),
+  DIR_LINGUAS=QString(QDir::currentPath() + QString("/lang")).replace("\\","/");
 
 static const QString
    VERSAO_PGMODELER="0.1.0",
 
+   SEP_DIRETORIO="/",
    DIR_CONF_PADRAO="defaults", //Nome do diretório o qual guarda as configurações padrão do pgModeler
    DIR_ESQUEMAS="schemas", //Nome padrão de diretórios de esquemas
    DIR_ESQUEMA_SQL="sql", //Nome padrão para diretório de esquemas sql

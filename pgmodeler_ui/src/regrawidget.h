@@ -41,7 +41,6 @@ class RegraWidget: public ObjetoBaseWidget, public Ui::RegraWidget {
 
  public:
    RegraWidget(QWidget * parent = 0);
-  ~RegraWidget(void);
    void definirAtributos(ModeloBD *modelo, Tabela *tabela_pai, ListaOperacoes *lista_op, Regra *regra);
 
  private slots:

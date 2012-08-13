@@ -40,7 +40,6 @@ class ParametroWidget: public ObjetoBaseWidget, public Ui::ParametroWidget {
 
  public:
    ParametroWidget(QWidget * parent = 0);
-  ~ParametroWidget(void);
    void definirAtributos(Parametro parametro, ModeloBD *modelo);
 
    /* Retorna a cópia do parâmetro configurado. Este método deve

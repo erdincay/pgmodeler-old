@@ -15,7 +15,7 @@ ColunaWidget::ColunaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_COL
                                       AtributosGlobais::EXT_CONFIGURACAO);
 
   tipo_col=NULL;
-  tipo_col=new TipoPgSQLWidget;
+  tipo_col=new TipoPgSQLWidget(this);
   coluna_grid->addWidget(tipo_col,3,0,1,0);
 
   configurarLayouFormulario(coluna_grid, OBJETO_COLUNA);
@@ -29,12 +29,6 @@ ColunaWidget::ColunaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_COL
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-ColunaWidget::~ColunaWidget(void)
-{
- if(dest_valor_padrao) delete(dest_valor_padrao);
- if(tipo_col) delete(tipo_col);
 }
 //----------------------------------------------------------
 void ColunaWidget::hideEvent(QHideEvent *evento)

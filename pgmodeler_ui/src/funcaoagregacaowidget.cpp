@@ -22,21 +22,21 @@ FuncaoAgregacaoWidget::FuncaoAgregacaoWidget(QWidget *parent): ObjetoBaseWidget(
   sel_func_transicao=NULL;
   sel_op_ordenacao=NULL;
 
-  sel_func_final=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
-  sel_func_transicao=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
-  sel_op_ordenacao=new SeletorObjetoWidget(OBJETO_OPERADOR, true);
+  sel_func_final=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
+  sel_func_transicao=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
+  sel_op_ordenacao=new SeletorObjetoWidget(OBJETO_OPERADOR, true, this);
 
   //Alocando os widgets de configuração de tipo pgsql
   tipo_entrada=NULL;
   tipo_estado=NULL;
 
-  tipo_entrada=new TipoPgSQLWidget(trUtf8("Tipo de Dados de Entrada"));
-  tipo_estado=new TipoPgSQLWidget(trUtf8("Tipo de Dado de Estado"));
+  tipo_entrada=new TipoPgSQLWidget(this, trUtf8("Tipo de Dados de Entrada"));
+  tipo_estado=new TipoPgSQLWidget(this, trUtf8("Tipo de Dado de Estado"));
 
   //Alocando a tabela de tipos de entrada da função de agregação.
   tab_tipos_entrada=NULL;
   tab_tipos_entrada=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
-                                            TabelaObjetosWidget::BTN_EDITAR_ITEM, true);
+                                            TabelaObjetosWidget::BTN_EDITAR_ITEM, true, this);
   tab_tipos_entrada->definirNumColunas(1);
 
   //Adicionando os objetos recém alocados no layout do formulário
@@ -79,16 +79,6 @@ FuncaoAgregacaoWidget::FuncaoAgregacaoWidget(QWidget *parent): ObjetoBaseWidget(
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-FuncaoAgregacaoWidget::~FuncaoAgregacaoWidget(void)
-{
- if(sel_func_final) delete(sel_func_final);
- if(sel_func_transicao) delete(sel_func_transicao);
- if(sel_op_ordenacao) delete(sel_op_ordenacao);
- if(tab_tipos_entrada) delete(tab_tipos_entrada);
- if(tipo_entrada) delete(tipo_entrada);
- if(tipo_estado) delete(tipo_estado);
 }
 //----------------------------------------------------------
 void FuncaoAgregacaoWidget::hideEvent(QHideEvent *evento)

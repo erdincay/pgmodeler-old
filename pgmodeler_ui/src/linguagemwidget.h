@@ -36,7 +36,6 @@ class LinguagemWidget: public ObjetoBaseWidget, public Ui::LinguagemWidget {
                        *sel_func_inline;
  public:
    LinguagemWidget(QWidget * parent = 0);
-  ~LinguagemWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, Linguagem *linguagem);
 
  private slots:

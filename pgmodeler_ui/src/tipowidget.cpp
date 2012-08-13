@@ -19,9 +19,9 @@ TipoWidget::TipoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_TIPO)
 
   //Aloca os widgets de configuração de tipos
   tipo_copia=NULL;
-  tipo_copia=new TipoPgSQLWidget(trUtf8("Tipo Cópia"));
+  tipo_copia=new TipoPgSQLWidget(this, trUtf8("Tipo Cópia"));
   tipo_elemento=NULL;
-  tipo_elemento=new TipoPgSQLWidget(trUtf8("Tipo Elemento"));
+  tipo_elemento=new TipoPgSQLWidget(this, trUtf8("Tipo Elemento"));
 
   //Cria um layout e insere os widgets de tipo
   grid=dynamic_cast<QGridLayout *>(atrib_base_twg->widget(0)->layout());
@@ -35,20 +35,20 @@ TipoWidget::TipoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_TIPO)
   for(i=Tipo::FUNCAO_INPUT; i <= Tipo::FUNCAO_ANALYZE; i++)
   {
    sel_funcoes[i]=NULL;
-   sel_funcoes[i]=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
+   sel_funcoes[i]=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
    grid->addWidget(sel_funcoes[i],i,1,1,1);
   }
 
   //Aloca a tabela de enumerações e a insere no layout do grupo de atributos de enumerações
   tab_enumeracoes=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
-                                         TabelaObjetosWidget::BTN_EDITAR_ITEM);
+                                         TabelaObjetosWidget::BTN_EDITAR_ITEM, false, this);
   grid=dynamic_cast<QGridLayout *>(enumeracoes_gb->layout());
   grid->addWidget(tab_enumeracoes,1,0,1,2);
   enumeracoes_gb->setVisible(false);
 
   //Aloca a tabela de atributos e a insere no layout do grupo de atributos de tipo composto
   tab_atributos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
-                                       TabelaObjetosWidget::BTN_ATUALIZAR_ITEM);
+                                       TabelaObjetosWidget::BTN_ATUALIZAR_ITEM, false, this);
   tab_atributos->definirNumColunas(2);
   tab_atributos->definirRotuloCabecalho(trUtf8("Nome"),0);
   tab_atributos->definirIconeCabecalho(QPixmap(":/icones/icones/uid.png"),0);
@@ -121,7 +121,7 @@ TipoWidget::TipoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_TIPO)
  }
 }
 //----------------------------------------------------------
-TipoWidget::~TipoWidget(void)
+/*TipoWidget::~TipoWidget(void)
 {
  for(unsigned i=Tipo::FUNCAO_INPUT; i <= Tipo::FUNCAO_ANALYZE; i++)
   if(sel_funcoes[i]) delete(sel_funcoes[i]);
@@ -130,7 +130,7 @@ TipoWidget::~TipoWidget(void)
  if(tab_atributos) delete(tab_atributos);
  if(tipo_copia) delete(tipo_copia);
  if(tipo_elemento) delete(tipo_elemento);
-}
+} */
 //----------------------------------------------------------
 void TipoWidget::hideEvent(QHideEvent *evento)
 {

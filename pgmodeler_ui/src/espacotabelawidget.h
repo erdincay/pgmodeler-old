@@ -34,7 +34,6 @@ class EspacoTabelaWidget: public ObjetoBaseWidget, public Ui::EspacoTabelaWidget
 
  public:
    EspacoTabelaWidget(QWidget * parent = 0);
-  ~EspacoTabelaWidget(void){}
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, EspacoTabela *espaco_tab);
 
  private slots:

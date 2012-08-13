@@ -42,8 +42,6 @@ class ListaObjetosWidget: public ObjetoBaseWidget, public Ui::ListaObjetosWidget
 
  public:
   ListaObjetosWidget(QWidget * parent = 0);
-  ~ListaObjetosWidget(void){}
-
   void definirAtributos(ModeloBD *modelo, ObjetoBase *objeto, ObjetoBase *objeto_pai=NULL);
 };
 //***********************************************************

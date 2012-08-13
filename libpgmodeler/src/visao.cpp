@@ -255,7 +255,7 @@ int Visao::obterIndiceReferencia(Referencia &ref, unsigned tipo_sql)
 
  while(itr!=itr_end && !enc)
  {
-  enc=((*itr)==idx_ref);
+  enc=(static_cast<int>(*itr)==idx_ref);
   if(!enc) itr++;
  }
 

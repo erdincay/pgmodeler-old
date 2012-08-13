@@ -21,13 +21,13 @@ GatilhoWidget::GatilhoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_G
   //Aloca as tabelas que recebem as colunas usadas na restrição
   tab_colunas=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
                                     (TabelaObjetosWidget::BTN_EDITAR_ITEM |
-                                     TabelaObjetosWidget::BTN_ATUALIZAR_ITEM), true);
+                                     TabelaObjetosWidget::BTN_ATUALIZAR_ITEM), true, this);
 
-  tab_argumentos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true);
+  tab_argumentos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true, this);
 
   //Alocando seletor de tabela referenciada
-  sel_tabela_ref=new SeletorObjetoWidget(OBJETO_TABELA, true);
-  sel_funcao=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
+  sel_tabela_ref=new SeletorObjetoWidget(OBJETO_TABELA, true, this);
+  sel_funcao=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
   gatilho_grid->addWidget(sel_funcao, 5, 1, 1, 2);
   gatilho_grid->addWidget(sel_tabela_ref, 6, 1, 1, 2);
 
@@ -80,15 +80,6 @@ GatilhoWidget::GatilhoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_G
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-GatilhoWidget::~GatilhoWidget(void)
-{
- if(dest_exp_condicional) delete(dest_exp_condicional);
- if(tab_colunas) delete(tab_colunas);
- if(tab_argumentos) delete(tab_argumentos);
- if(sel_tabela_ref) delete(sel_tabela_ref);
- if(sel_funcao) delete(sel_funcao);
 }
 //----------------------------------------------------------
 void GatilhoWidget::definirGratilhoRestricao(bool valor)

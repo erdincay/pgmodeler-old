@@ -52,7 +52,6 @@ class TabelaObjetosWidget: public QWidget, public Ui::TabelaObjetosWidget {
    TabelaObjetosWidget(unsigned conf_botoes=TODOS_BOTOES,/*BTN_INSERIR_ITEM | BTN_REMOVER_ITEM | BTN_MOVER_ITENS |
                                             BTN_EDITAR_ITEM  | BTN_LIMPAR_ITENS*/
                        bool conf_exclusoes=false, QWidget * parent = 0);
-  ~TabelaObjetosWidget(void){};
 
    //Define o número de colunas da tabela
    void definirNumColunas(unsigned num_colunas);

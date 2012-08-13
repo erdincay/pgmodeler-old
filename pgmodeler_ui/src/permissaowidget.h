@@ -39,7 +39,6 @@ class PermissaoWidget: public ObjetoBaseWidget, public Ui::PermissaoWidget {
 
  public:
    PermissaoWidget(QWidget * parent = 0);
-  ~PermissaoWidget(void){}
    void definirAtributos(ModeloBD *modelo, ObjetoBase *objeto_pai, ObjetoBase *objeto);
 
  private slots:

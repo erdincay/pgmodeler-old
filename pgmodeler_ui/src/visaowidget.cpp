@@ -24,11 +24,12 @@ VisaoWidget::VisaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_VISAO
 
   //Alocando os seletores de objetos (tabela e coluna) que são atribuídos às referências da visão
   sel_tabela=NULL;
-  sel_tabela=new SeletorObjetoWidget(OBJETO_TABELA, true);
-  sel_coluna=new SeletorObjetoWidget(OBJETO_COLUNA, true);
+  sel_tabela=new SeletorObjetoWidget(OBJETO_TABELA, true, this);
+  sel_coluna=NULL;
+  sel_coluna=new SeletorObjetoWidget(OBJETO_COLUNA, true, this);
 
   //Alocando a tabela que armazena todas as referências da visão
-  tab_referencias=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true);
+  tab_referencias=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true, this);
   tab_referencias->definirNumColunas(4);
   tab_referencias->definirRotuloCabecalho(trUtf8("Col./Expr."),0);
   tab_referencias->definirRotuloCabecalho(trUtf8("Alias"),1);
@@ -71,15 +72,6 @@ VisaoWidget::VisaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_VISAO
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-VisaoWidget::~VisaoWidget(void)
-{
- if(sel_coluna) delete(sel_coluna);
- if(sel_tabela) delete(sel_tabela);
- if(tab_referencias) delete(tab_referencias);
- if(destaque_codigo) delete(destaque_codigo);
- if(destaque_expr) delete(destaque_expr);
 }
 //----------------------------------------------------------
 void VisaoWidget::hideEvent(QHideEvent *evento)

@@ -44,7 +44,6 @@ class PapelWidget: public ObjetoBaseWidget, public Ui::PapelWidget {
 
  public:
    PapelWidget(QWidget * parent = 0);
-  ~PapelWidget(void){};
 
    void hideEvent(QHideEvent *);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, Papel *papel);

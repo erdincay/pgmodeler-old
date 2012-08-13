@@ -38,7 +38,6 @@ class OperadorWidget: public ObjetoBaseWidget, public Ui::OperadorWidget {
 
  public:
    OperadorWidget(QWidget * parent = 0);
-  ~OperadorWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, Operador *operador);
 
  private slots:

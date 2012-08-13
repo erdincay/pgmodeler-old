@@ -48,7 +48,6 @@ class GatilhoWidget: public ObjetoBaseWidget, public Ui::GatilhoWidget {
 
  public:
    GatilhoWidget(QWidget * parent = 0);
-  ~GatilhoWidget(void);
    void definirAtributos(ModeloBD *modelo, Tabela *tabela_pai, ListaOperacoes *lista_op, Gatilho *restricao);
 
  private slots:

@@ -56,7 +56,7 @@ class TipoWidget: public ObjetoBaseWidget, public Ui::TipoWidget {
 
  public:
    TipoWidget(QWidget * parent = 0);
-  ~TipoWidget(void);
+   //~TipoWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, Tipo *tipo);
 
  private slots:

@@ -34,7 +34,6 @@ class FamiliaOperadoresWidget: public ObjetoBaseWidget, public Ui::FamiliaOperad
 
  public:
    FamiliaOperadoresWidget(QWidget * parent = 0);
-  ~FamiliaOperadoresWidget(void){}
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, FamiliaOperadores *familia_op);
 
  private slots:

@@ -9,7 +9,7 @@ SequenciaWidget::SequenciaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
 
   Ui_SequenciaWidget::setupUi(this);
   sel_coluna=NULL;
-  sel_coluna=new SeletorObjetoWidget(OBJETO_COLUNA, true);
+  sel_coluna=new SeletorObjetoWidget(OBJETO_COLUNA, true, this);
 
   //Adicionando os objetos recém alocados no layout do formulário
   sequencia_grid->addWidget(sel_coluna,3,1,1,3);
@@ -36,11 +36,6 @@ SequenciaWidget::SequenciaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-SequenciaWidget::~SequenciaWidget(void)
-{
- if(sel_coluna) delete(sel_coluna);
 }
 //----------------------------------------------------------
 void SequenciaWidget::hideEvent(QHideEvent *evento)

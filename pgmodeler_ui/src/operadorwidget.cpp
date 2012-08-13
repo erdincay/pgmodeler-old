@@ -13,9 +13,9 @@ OperadorWidget::OperadorWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO
 
   //Alocando os widget de configuração de argumento do operador
   tipo_args[0]=NULL;
-  tipo_args[0]=new TipoPgSQLWidget(trUtf8("Tipo Argumento Direita"));
+  tipo_args[0]=new TipoPgSQLWidget(this, trUtf8("Tipo Argumento Direita"));
   tipo_args[1]=NULL;
-  tipo_args[1]=new TipoPgSQLWidget(trUtf8("Tipo Argumento Esquerda"));
+  tipo_args[1]=new TipoPgSQLWidget(this, trUtf8("Tipo Argumento Esquerda"));
 
   grid=new QGridLayout;
   grid->setContentsMargins(2,2,2,2);
@@ -34,7 +34,7 @@ OperadorWidget::OperadorWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO
   for(i=Operador::FUNC_OPERADOR; i <= Operador::FUNC_RESTRICAO; i++)
   {
    sel_funcoes[i]=NULL;
-   sel_funcoes[i]=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
+   sel_funcoes[i]=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
    grid->addWidget(sel_funcoes[i],i,1,1,1);
   }
 
@@ -43,7 +43,7 @@ OperadorWidget::OperadorWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO
   for(i=Operador::OPER_COMUTACAO; i <= Operador::OPER_MAIOR; i++)
   {
    sel_operadores[i]=NULL;
-   sel_operadores[i]=new SeletorObjetoWidget(OBJETO_OPERADOR, true);
+   sel_operadores[i]=new SeletorObjetoWidget(OBJETO_OPERADOR, true, this);
    grid->addWidget(sel_operadores[i],i,1,1,1);
   }
 
@@ -70,20 +70,6 @@ OperadorWidget::OperadorWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-OperadorWidget::~OperadorWidget(void)
-{
- unsigned i;
-
- for(i=Operador::ARG_ESQUERDA; i <= Operador::ARG_DIREITA; i++)
-  if(tipo_args[i]) delete(tipo_args[i]);
-
- for(i=Operador::FUNC_OPERADOR; i <= Operador::FUNC_RESTRICAO; i++)
-  if(sel_funcoes[i]) delete(sel_funcoes[i]);
-
- for(i=Operador::OPER_COMUTACAO; i <= Operador::OPER_MAIOR; i++)
-  if(sel_operadores[i]) delete(sel_operadores[i]);
 }
 //----------------------------------------------------------
 void OperadorWidget::hideEvent(QHideEvent *evento)

@@ -24,7 +24,7 @@ RegraWidget::RegraWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_REGRA
                                      AtributosGlobais::EXT_CONFIGURACAO);
 
   //Criando a tabela que armazena os comandos SQL da regra
-  tab_comandos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true);
+  tab_comandos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true, this);
   tab_comandos->definirRotuloCabecalho(trUtf8("Comando SQL"),0);
   tab_comandos->definirIconeCabecalho(QPixmap(":/icones/icones/codigosql.png"),0);
   dynamic_cast<QGridLayout *>(comandos_gb->layout())->addWidget(tab_comandos, 1, 0, 1, 2);
@@ -55,13 +55,6 @@ RegraWidget::RegraWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_REGRA
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-RegraWidget::~RegraWidget(void)
-{
- if(tab_comandos) delete(tab_comandos);
- if(dest_exp_condicional) delete(dest_exp_condicional);
- if(dest_comando) delete(dest_comando);
 }
 //----------------------------------------------------------
 void RegraWidget::hideEvent(QHideEvent *evento)

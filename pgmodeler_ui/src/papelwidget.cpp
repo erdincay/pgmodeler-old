@@ -19,7 +19,7 @@ PapelWidget::PapelWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_PAPEL
  {
   //Aloca uma tabela e armazena seu endereço no vetor
   tab_obj=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
-                                  TabelaObjetosWidget::BTN_ATUALIZAR_ITEM, true);
+                                  TabelaObjetosWidget::BTN_ATUALIZAR_ITEM, true, this);
   tab_membros[i]=tab_obj;
 
   /*

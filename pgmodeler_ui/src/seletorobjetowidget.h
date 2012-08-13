@@ -61,7 +61,6 @@ class SeletorObjetoWidget: public QWidget, public Ui::SeletorObjetoWidget {
    /* Um seletor deve sempre ser instanciado com um rótulo e o tipo de objeto
       que o seletor aceita */
    SeletorObjetoWidget(TipoObjetoBase tipo_obj_seletor, bool inst_destaque_txt, QWidget * parent = 0);
-  ~SeletorObjetoWidget(void);
 
   //Retorna o objeto selecionado pelo usuário
   ObjetoBase *obterObjeto(void);

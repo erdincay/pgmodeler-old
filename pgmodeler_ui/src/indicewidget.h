@@ -60,7 +60,6 @@ class IndiceWidget: public ObjetoBaseWidget, public Ui::IndiceWidget {
 
  public:
    IndiceWidget(QWidget * parent = 0);
-  ~IndiceWidget(void);
    void definirAtributos(ModeloBD *modelo, Tabela *tabela_pai, ListaOperacoes *lista_op, Indice *indice);
 
  private slots:

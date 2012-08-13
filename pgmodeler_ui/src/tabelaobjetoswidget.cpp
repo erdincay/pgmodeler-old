@@ -155,7 +155,7 @@ void TabelaObjetosWidget::definirFonteLinha(int idx_lin, const QFont &fonte, con
 
  /* Caso o índice da linha da célula a ser referenciada seja inválida
     dispara um erro indicando a situação */
- if(idx_lin >= static_cast<unsigned>(tabela_tbw->rowCount()))
+ if(idx_lin >= tabela_tbw->rowCount())
   throw Excecao(ERR_PGMODELERUI_REFLINTABOBJIDXINV,__PRETTY_FUNCTION__,__FILE__,__LINE__);
 
  qtd_col=tabela_tbw->columnCount();

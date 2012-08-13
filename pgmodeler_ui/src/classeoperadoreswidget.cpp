@@ -16,12 +16,12 @@ ClasseOperadoresWidget::ClasseOperadoresWidget(QWidget *parent): ObjetoBaseWidge
   tipo_armazenamento=NULL;
   tab_elementos=NULL;
 
-  sel_familiaop=new SeletorObjetoWidget(OBJETO_FAMILIA_OPER, false);
-  sel_operador=new SeletorObjetoWidget(OBJETO_OPERADOR, true);
-  sel_funcao=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
-  tipo_dado=new TipoPgSQLWidget;
-  tipo_armazenamento=new TipoPgSQLWidget(trUtf8("Tipo de Armazenamento"));
-  tab_elementos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true);
+  sel_familiaop=new SeletorObjetoWidget(OBJETO_FAMILIA_OPER, false, this);
+  sel_operador=new SeletorObjetoWidget(OBJETO_OPERADOR, true, this);
+  sel_funcao=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
+  tipo_dado=new TipoPgSQLWidget(this);
+  tipo_armazenamento=new TipoPgSQLWidget(this, trUtf8("Tipo de Armazenamento"));
+  tab_elementos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true, this);
 
   /* A tabela de elementos é constituída de 4 colunas:
      Nome do objeto, tipo, nº de suporte/estratégia e rechecagem. */
@@ -75,16 +75,6 @@ ClasseOperadoresWidget::ClasseOperadoresWidget(QWidget *parent): ObjetoBaseWidge
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-ClasseOperadoresWidget::~ClasseOperadoresWidget(void)
-{
- if(sel_familiaop) delete(sel_familiaop);
- if(sel_funcao) delete(sel_funcao);
- if(sel_operador) delete(sel_operador);
- if(tab_elementos) delete(tab_elementos);
- if(tipo_dado) delete(tipo_dado);
- if(tipo_armazenamento) delete(tipo_armazenamento);
 }
 //----------------------------------------------------------
 void ClasseOperadoresWidget::hideEvent(QHideEvent *evento)

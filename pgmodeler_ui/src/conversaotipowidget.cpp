@@ -14,10 +14,10 @@ ConversaoTipoWidget::ConversaoTipoWidget(QWidget *parent): ObjetoBaseWidget(pare
   tipo_dado_dest=NULL;
   sel_funcao_conv=NULL;
 
-  tipo_dado_orig=new TipoPgSQLWidget(tr("Tipo de Dado de Origem"));
-  tipo_dado_dest=new TipoPgSQLWidget(tr("Tipo de Dado de Destino"));
+  tipo_dado_orig=new TipoPgSQLWidget(this, tr("Tipo de Dado de Origem"));
+  tipo_dado_dest=new TipoPgSQLWidget(this, tr("Tipo de Dado de Destino"));
   //Alocando o widget seletor de função de conversão
-  sel_funcao_conv=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
+  sel_funcao_conv=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
 
   //Insere os widgets alocados no layout do formulário
   convtipo_grid->addWidget(sel_funcao_conv,1,1,1,3);
@@ -49,13 +49,6 @@ ConversaoTipoWidget::ConversaoTipoWidget(QWidget *parent): ObjetoBaseWidget(pare
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//---------------------------------------------------------
-ConversaoTipoWidget::~ConversaoTipoWidget(void)
-{
- if(tipo_dado_orig) delete(tipo_dado_orig);
- if(tipo_dado_dest) delete(tipo_dado_dest);
- if(sel_funcao_conv) delete(sel_funcao_conv);
 }
 //----------------------------------------------------------
 void ConversaoTipoWidget::hideEvent(QHideEvent *evento)

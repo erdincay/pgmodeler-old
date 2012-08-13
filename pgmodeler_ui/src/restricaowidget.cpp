@@ -22,15 +22,15 @@ RestricaoWidget::RestricaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
   //Aloca as tabelas que recebem as colunas usadas na restrição
   tab_colunas=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
                                      (TabelaObjetosWidget::BTN_EDITAR_ITEM |
-                                      TabelaObjetosWidget::BTN_ATUALIZAR_ITEM), true);
+                                      TabelaObjetosWidget::BTN_ATUALIZAR_ITEM), true, this);
 
   tab_colunas_ref=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
                                      (TabelaObjetosWidget::BTN_EDITAR_ITEM |
-                                      TabelaObjetosWidget::BTN_ATUALIZAR_ITEM), true);
+                                      TabelaObjetosWidget::BTN_ATUALIZAR_ITEM), true, this);
 
   //Alocando seletor de tabela referenciada
   sel_tabela_ref=NULL;
-  sel_tabela_ref=new SeletorObjetoWidget(OBJETO_TABELA, true);
+  sel_tabela_ref=new SeletorObjetoWidget(OBJETO_TABELA, true, this);
 
   //Configurando as tabelas com 2 colunas (nome da coluna e tipo)
   tab_colunas->definirNumColunas(2);
@@ -97,14 +97,6 @@ RestricaoWidget::RestricaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-RestricaoWidget::~RestricaoWidget(void)
-{
- if(dest_exp_checagem) delete(dest_exp_checagem);
- if(tab_colunas) delete(tab_colunas);
- if(tab_colunas_ref) delete(tab_colunas_ref);
- if(sel_tabela_ref) delete(sel_tabela_ref);
 }
 //----------------------------------------------------------
 void RestricaoWidget::adicionarColuna(int idx_lin)

@@ -19,13 +19,13 @@ int main(int argc, char **argv)
      atribui a mesma a configuração global respectiva sobrescrevendo
      a configuração padrão */
   if(!dir_conf.isEmpty())
-   AtributosGlobais::DIR_CONFIGURACOES=QDir::toNativeSeparators(dir_conf);
+   AtributosGlobais::DIR_CONFIGURACOES=dir_conf.replace("\\","/");
 
   if(!dir_sch.isEmpty())
-   AtributosGlobais::DIR_RAIZ_ESQUEMAS=QDir::toNativeSeparators(dir_sch);
+   AtributosGlobais::DIR_RAIZ_ESQUEMAS=dir_sch.replace("\\","/");
 
   if(!dir_lang.isEmpty())
-   AtributosGlobais::DIR_RAIZ_ESQUEMAS=QDir::toNativeSeparators(dir_lang);
+   AtributosGlobais::DIR_RAIZ_ESQUEMAS=dir_lang.replace("\\","/");
 
   //Carrega o arquivo de tradução da interface de acordo com o locale do sistema
   tradutor.load(QString("pgmodeler.") + local, AtributosGlobais::DIR_LINGUAS);

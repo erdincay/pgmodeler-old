@@ -58,7 +58,6 @@ class FuncaoWidget: public ObjetoBaseWidget, public Ui::FuncaoWidget  {
 
  public:
    FuncaoWidget(QWidget * parent = 0);
-  ~FuncaoWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, Funcao *funcao);
 
  private slots:

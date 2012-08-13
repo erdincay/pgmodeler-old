@@ -1,6 +1,6 @@
 #include "tipopgsqlwidget.h"
 //***********************************************************
-TipoPgSQLWidget::TipoPgSQLWidget(const QString &rotulo,QWidget *)
+TipoPgSQLWidget::TipoPgSQLWidget(QWidget *parent, const QString &rotulo) : QWidget(parent)
 {
  try
  {
@@ -41,11 +41,6 @@ TipoPgSQLWidget::TipoPgSQLWidget(const QString &rotulo,QWidget *)
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//-----------------------------------------------------------
-TipoPgSQLWidget::~TipoPgSQLWidget(void)
-{
- if(destaque_fmt) delete(destaque_fmt);
 }
 //-----------------------------------------------------------
 void TipoPgSQLWidget::atualizarFormatoTipo(void)

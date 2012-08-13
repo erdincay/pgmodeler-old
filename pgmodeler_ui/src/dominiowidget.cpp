@@ -15,7 +15,7 @@ DominioWidget::DominioWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_D
                                      AtributosGlobais::EXT_CONFIGURACAO);
 
   tipo_dominio=NULL;
-  tipo_dominio=new TipoPgSQLWidget;
+  tipo_dominio=new TipoPgSQLWidget(this);
   dominio_grid->addWidget(tipo_dominio,4,0,1,2);
 
   configurarLayouFormulario(dominio_grid, OBJETO_DOMINIO);
@@ -29,12 +29,6 @@ DominioWidget::DominioWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_D
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-DominioWidget::~DominioWidget(void)
-{
- if(destaque_expr) delete(destaque_expr);
- if(tipo_dominio) delete(tipo_dominio);
 }
 //----------------------------------------------------------
 void DominioWidget::hideEvent(QHideEvent *evento)

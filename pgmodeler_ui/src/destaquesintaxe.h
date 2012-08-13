@@ -65,7 +65,7 @@ class DestaqueSintaxe: public QSyntaxHighlighter {
        };
 
 
-       ~InfoMultiLinha(void) {};
+       ~InfoMultiLinha(void){}
    };
 
    /* Vetor o qual armazena as informações de multi linha para se saber

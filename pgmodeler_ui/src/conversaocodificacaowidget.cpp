@@ -11,7 +11,7 @@ ConversaoCodificacaoWidget::ConversaoCodificacaoWidget(QWidget *parent): ObjetoB
 
   //Alocando o widget seletor de função de conversão
   sel_funcao_conv=NULL;
-  sel_funcao_conv=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
+  sel_funcao_conv=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
   convcod_grid->addWidget(sel_funcao_conv,1,1,1,3);
 
   configurarLayouFormulario(convcod_grid, OBJETO_CONV_CODIFICACAO);
@@ -38,11 +38,6 @@ ConversaoCodificacaoWidget::ConversaoCodificacaoWidget(QWidget *parent): ObjetoB
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//---------------------------------------------------------
-ConversaoCodificacaoWidget::~ConversaoCodificacaoWidget(void)
-{
- if(sel_funcao_conv) delete(sel_funcao_conv);
 }
 //----------------------------------------------------------
 void ConversaoCodificacaoWidget::hideEvent(QHideEvent *evento)

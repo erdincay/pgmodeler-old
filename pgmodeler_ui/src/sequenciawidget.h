@@ -35,7 +35,6 @@ class SequenciaWidget: public ObjetoBaseWidget, public Ui::SequenciaWidget {
 
  public:
    SequenciaWidget(QWidget * parent = 0);
-  ~SequenciaWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, Sequencia *sequencia);
 
  private slots:

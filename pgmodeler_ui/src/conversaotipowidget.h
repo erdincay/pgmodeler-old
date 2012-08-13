@@ -41,7 +41,6 @@ class ConversaoTipoWidget: public ObjetoBaseWidget, public Ui::ConversaoTipoWidg
 
  public:
    ConversaoTipoWidget(QWidget * parent = 0);
-  ~ConversaoTipoWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, ConversaoTipo *conv_tipo);
 
  private slots:

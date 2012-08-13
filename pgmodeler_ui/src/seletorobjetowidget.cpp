@@ -42,13 +42,6 @@ SeletorObjetoWidget::SeletorObjetoWidget(TipoObjetoBase tipo_obj_seletor, bool i
  }
 }
 //-----------------------------------------------------------
-SeletorObjetoWidget::~SeletorObjetoWidget(void)
-{
- //Desaloca o destacador de código fonte caso esteja criado
- if(destaque_txt)
-  delete(destaque_txt);
-}
-//-----------------------------------------------------------
 ObjetoBase *SeletorObjetoWidget::obterObjeto(void)
 {
  return(objeto);

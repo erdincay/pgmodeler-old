@@ -53,12 +53,6 @@ CodigoFonteWidget::CodigoFonteWidget(QWidget *parent): ObjetoBaseWidget(parent)
  }
 }
 //----------------------------------------------------------
-CodigoFonteWidget::~CodigoFonteWidget(void)
-{
- if(destaque_sql) delete(destaque_sql);
- if(destaque_xml) delete(destaque_xml);
-}
-//----------------------------------------------------------
 void CodigoFonteWidget::hideEvent(QHideEvent *evento)
 {
  versoes_cmb->blockSignals(true);

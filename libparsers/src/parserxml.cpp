@@ -120,7 +120,7 @@ void ParserXML::definirArquivoDTD(const QString &arq_dtd, const QString &nome_dt
  if(nome_dtd.isEmpty())
   throw Excecao(ERR_PARSERS_ATRIBNOMEDTDVAZIO,__PRETTY_FUNCTION__,__FILE__,__LINE__);
 
- decl_dtd="<!DOCTYPE " + nome_dtd + " SYSTEM " + "\"" + arq_dtd + "\">\n";
+ decl_dtd="<!DOCTYPE " + nome_dtd + " SYSTEM " + "\"" +  arq_dtd + "\">\n";
 }
 //----------------------------------------------------------
 void ParserXML::interpretarBuffer(void)
@@ -145,9 +145,7 @@ void ParserXML::interpretarBuffer(void)
    buffer+=decl_dtd;
 
    //Configurando o parser para validar o documento com a DTD
-   //parser_opt=(parser_opt | XML_PARSE_DTDLOAD | XML_PARSE_DTDVALID);
-   #warning "** Validação DTD desativada no Windows para checagem de memory leaks!"
-   #warning "** Reativar quando finalizar a checagem!"
+   parser_opt=(parser_opt | XML_PARSE_DTDLOAD | XML_PARSE_DTDVALID);
   }
 
   buffer+=buffer_xml;
@@ -162,9 +160,6 @@ void ParserXML::interpretarBuffer(void)
   //Caso haja algum erro dispara uma exceção
   if(erro_xml)
   {
-   //Liberando a memória ocupada pelo documento
-   if(doc_xml) reiniciarParser();
-
    //Configurando a mensagem de erro
    msg=erro_xml->message;
    arquivo=erro_xml->file;
@@ -172,6 +167,10 @@ void ParserXML::interpretarBuffer(void)
 
    //Remove o \n final da mensagem original
    msg.replace("\n"," ");
+
+   //Liberando a memória ocupada pelo documento
+   if(doc_xml) reiniciarParser();
+
    throw Excecao(QString(Excecao::obterMensagemErro(ERR_PARSERS_LIBXMLERR))
                  .arg(erro_xml->line).arg(erro_xml->int2).arg(msg).arg(arquivo),
                  ERR_PARSERS_LIBXMLERR,__PRETTY_FUNCTION__,__FILE__,__LINE__);

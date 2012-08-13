@@ -15,7 +15,7 @@ extern CaixaMensagem *caixa_msg;
 //***********************************************************
 TabelaWidget::TabelaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_TABELA)
 {
- QStringList lista;
+ //QStringList lista;
  QGridLayout *grid=NULL;
  TabelaObjetosWidget *tab=NULL;
  TipoObjetoBase tipos[]={ OBJETO_COLUNA, OBJETO_RESTRICAO, OBJETO_GATILHO,
@@ -28,7 +28,7 @@ TabelaWidget::TabelaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_TAB
  {
   //Aloca a tabela do tipo atual
   tab=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
-                             (TabelaObjetosWidget::BTN_ATUALIZAR_ITEM), true);
+                             (TabelaObjetosWidget::BTN_ATUALIZAR_ITEM), true, this);
   /* Armazena sua referência no mapa para facilitar as operações onde
      se precisa obter a tabela de um tipo de objeto de tabela específico */
   mapa_tab_objetos[tipos[i]]=tab;
@@ -88,20 +88,6 @@ TabelaWidget::TabelaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_TAB
 
  connect(janela_pai->aplicar_ok_btn,SIGNAL(clicked(bool)), this, SLOT(aplicarConfiguracao(void)));
  connect(janela_pai->cancelar_btn,SIGNAL(clicked(bool)), this, SLOT(cancelarConfiguracao(void)));
-}
-//----------------------------------------------------------
-TabelaWidget::~TabelaWidget(void)
-{
- map<TipoObjetoBase, TabelaObjetosWidget *>::iterator itr;
-
- /* Desaloca todas as tabelas de objetos criadas
-    varrendo o mapa de tabelas */
- while(!mapa_tab_objetos.empty())
- {
-  itr=mapa_tab_objetos.begin();
-  delete(itr->second);
-  mapa_tab_objetos.erase(itr);
- }
 }
 //----------------------------------------------------------
 void TabelaWidget::hideEvent(QHideEvent *evento)

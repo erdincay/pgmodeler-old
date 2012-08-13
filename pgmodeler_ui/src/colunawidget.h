@@ -40,7 +40,6 @@ class ColunaWidget: public ObjetoBaseWidget, public Ui::ColunaWidget {
 
  public:
    ColunaWidget(QWidget * parent = 0);
-  ~ColunaWidget(void);
    void definirAtributos(ModeloBD *modelo, ObjetoBase *objeto_pai, ListaOperacoes *lista_op, Coluna *coluna);
 
  private slots:

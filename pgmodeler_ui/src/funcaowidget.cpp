@@ -20,12 +20,12 @@ FuncaoWidget::FuncaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_FUN
   destaque_codigo=new DestaqueSintaxe(codigofonte_txt, true);
 
   //Aloca o widget de configuração de tipo de retorno simples
-  tipo_ret=new TipoPgSQLWidget;
+  tipo_ret=new TipoPgSQLWidget(this);
 
   /* Aloca a tabela que armazena as colunas da tabela de retorno.
      Esta tabela possui 2 colunas que são o Nome da coluna e o tipo de dado */
   tab_retorno=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
-                                     TabelaObjetosWidget::BTN_ATUALIZAR_ITEM, true);
+                                     TabelaObjetosWidget::BTN_ATUALIZAR_ITEM, true, this);
   tab_retorno->definirNumColunas(2);
   tab_retorno->definirRotuloCabecalho(trUtf8("Coluna"), 0);
   tab_retorno->definirIconeCabecalho(QPixmap(":/icones/icones/column.png"),0);
@@ -37,7 +37,7 @@ FuncaoWidget::FuncaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_FUN
      Nome do parâmetro, tipo do parâmetro, comportamento do parâmetro (IN/OUT),
      valor padrâo do parâmetro */
   tab_parametros=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
-                                        TabelaObjetosWidget::BTN_ATUALIZAR_ITEM, true);
+                                        TabelaObjetosWidget::BTN_ATUALIZAR_ITEM, true, this);
   tab_parametros->definirNumColunas(4);
   tab_parametros->definirRotuloCabecalho(trUtf8("Nome"),0);
   tab_parametros->definirIconeCabecalho(QPixmap(":/icones/icones/parameter.png"),0);
@@ -99,14 +99,6 @@ FuncaoWidget::FuncaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_FUN
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-FuncaoWidget::~FuncaoWidget(void)
-{
- if(tipo_ret) delete(tipo_ret);
- if(tab_retorno) delete(tab_retorno);
- if(tab_parametros) delete(tab_parametros);
- if(destaque_codigo) delete(destaque_codigo);
 }
 //----------------------------------------------------------
 void FuncaoWidget::manipularParametro(int res)

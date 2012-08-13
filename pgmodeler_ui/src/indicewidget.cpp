@@ -25,8 +25,8 @@ IndiceWidget::IndiceWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_IND
                                      AtributosGlobais::CONF_DESTAQUE_SQL +
                                      AtributosGlobais::EXT_CONFIGURACAO);
 
-  tab_elementos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true);
-  sel_classe_op=new SeletorObjetoWidget(OBJETO_CLASSE_OPER, true);
+  tab_elementos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES, true, this);
+  sel_classe_op=new SeletorObjetoWidget(OBJETO_CLASSE_OPER, true, this);
 
   tab_elementos->definirNumColunas(5);
   tab_elementos->definirRotuloCabecalho(trUtf8("Elemento"), 0);
@@ -72,14 +72,6 @@ IndiceWidget::IndiceWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_IND
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-IndiceWidget::~IndiceWidget(void)
-{
- if(dest_exp_condicional) delete(dest_exp_condicional);
- if(dest_exp_elemento) delete(dest_exp_elemento);
- if(tab_elementos) delete(tab_elementos);
- if(sel_classe_op) delete(sel_classe_op);
 }
 //----------------------------------------------------------
 void IndiceWidget::hideEvent(QHideEvent *evento)

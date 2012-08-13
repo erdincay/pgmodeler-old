@@ -57,7 +57,6 @@ class RelacionamentoWidget: public ObjetoBaseWidget, public Ui::RelacionamentoWi
 
  public:
    RelacionamentoWidget(QWidget * parent = 0);
-  ~RelacionamentoWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, RelacionamentoBase *relacao);
 
  private slots:

@@ -49,7 +49,7 @@ PermissaoWidget::PermissaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
  //Cria a tabela de papéis com os botões de inserir, remover e editar item
  tab_papeis=new TabelaObjetosWidget(TabelaObjetosWidget::BTN_INSERIR_ITEM |
                                     TabelaObjetosWidget::BTN_REMOVER_ITEM |
-                                    TabelaObjetosWidget::BTN_EDITAR_ITEM);
+                                    TabelaObjetosWidget::BTN_EDITAR_ITEM, false, this);
  tab_papeis->definirNumColunas(1);
  tab_papeis->definirRotuloCabecalho(trUtf8("Papel"),0);
  tab_papeis->definirIconeCabecalho(QPixmap(":/icones/icones/role.png"),0);
@@ -64,7 +64,7 @@ PermissaoWidget::PermissaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
  //Cria a tabela de permissões com os botões de inserir, remover e editar item
  tab_permissoes=new TabelaObjetosWidget(TabelaObjetosWidget::BTN_REMOVER_ITEM |
                                         TabelaObjetosWidget::BTN_EDITAR_ITEM |
-                                        TabelaObjetosWidget::BTN_LIMPAR_ITENS, true);
+                                        TabelaObjetosWidget::BTN_LIMPAR_ITENS, true, this);
  tab_permissoes->definirNumColunas(3);
  tab_permissoes->definirRotuloCabecalho(trUtf8("Id"),0);
  tab_permissoes->definirIconeCabecalho(QPixmap(":/icones/icones/uid.png"),0);

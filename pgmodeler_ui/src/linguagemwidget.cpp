@@ -14,9 +14,9 @@ LinguagemWidget::LinguagemWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
   sel_func_validator=NULL;
   sel_func_inline=NULL;
 
-  sel_func_handler=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
-  sel_func_validator=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
-  sel_func_inline=new SeletorObjetoWidget(OBJETO_FUNCAO, true);
+  sel_func_handler=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
+  sel_func_validator=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
+  sel_func_inline=new SeletorObjetoWidget(OBJETO_FUNCAO, true, this);
 
   linguagem_grid->addWidget(sel_func_handler,1,1,1,2);
   linguagem_grid->addWidget(sel_func_validator,2,1,1,2);
@@ -50,13 +50,6 @@ LinguagemWidget::LinguagemWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-LinguagemWidget::~LinguagemWidget(void)
-{
- if(sel_func_handler) delete(sel_func_handler);
- if(sel_func_validator) delete(sel_func_validator);
- if(sel_func_inline) delete(sel_func_inline);
 }
 //----------------------------------------------------------
 void LinguagemWidget::hideEvent(QHideEvent *evento)

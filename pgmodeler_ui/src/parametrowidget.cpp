@@ -10,7 +10,7 @@ ParametroWidget::ParametroWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
   Ui_ParametroWidget::setupUi(this);
 
   tipo_pgsql=NULL;
-  tipo_pgsql=new TipoPgSQLWidget;
+  tipo_pgsql=new TipoPgSQLWidget(this);
   parametro_grid=new QGridLayout(this);
   hspacer=new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
   parametro_grid->setContentsMargins(0, 0, 0, 0);
@@ -34,11 +34,6 @@ ParametroWidget::ParametroWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-ParametroWidget::~ParametroWidget(void)
-{
- if(tipo_pgsql) delete(tipo_pgsql);
 }
 //----------------------------------------------------------
 void ParametroWidget::hideEvent(QHideEvent *evento)

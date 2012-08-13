@@ -34,11 +34,11 @@ RelacionamentoWidget::RelacionamentoWidget(QWidget *parent): ObjetoBaseWidget(pa
   //Alocando as tabela de atributos e restrições do relacionamento
   tab_atributos=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES ^
                                        (TabelaObjetosWidget::BTN_ATUALIZAR_ITEM |
-                                        TabelaObjetosWidget::BTN_MOVER_ITENS), true);
+                                        TabelaObjetosWidget::BTN_MOVER_ITENS), true, this);
 
   tab_restricoes=new TabelaObjetosWidget(TabelaObjetosWidget::TODOS_BOTOES  ^
                                         (TabelaObjetosWidget::BTN_ATUALIZAR_ITEM |
-                                        TabelaObjetosWidget::BTN_MOVER_ITENS), true);
+                                        TabelaObjetosWidget::BTN_MOVER_ITENS), true, this);
 
   //Configurando os rótulos e ícones das colunas das tabelas
   tab_atributos->definirNumColunas(2);
@@ -108,14 +108,6 @@ RelacionamentoWidget::RelacionamentoWidget(QWidget *parent): ObjetoBaseWidget(pa
   //Redireciona o erro
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
-}
-//----------------------------------------------------------
-RelacionamentoWidget::~RelacionamentoWidget(void)
-{
- if(dest_tab_orig) delete(dest_tab_orig);
- if(dest_tab_dest) delete(dest_tab_dest);
- if(tab_atributos) delete(tab_atributos);
- if(tab_restricoes) delete(tab_restricoes);
 }
 //----------------------------------------------------------
 void RelacionamentoWidget::hideEvent(QHideEvent *evento)

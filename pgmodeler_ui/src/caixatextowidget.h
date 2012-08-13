@@ -34,7 +34,6 @@ class CaixaTextoWidget: public ObjetoBaseWidget, public Ui::CaixaTextoWidget {
 
  public:
    CaixaTextoWidget(QWidget * parent = 0);
-  ~CaixaTextoWidget(void){};
    void hideEvent(QHideEvent *evento);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, CaixaTexto *caixa_texto=NULL, float px_objeto=NAN, float py_objeto=NAN);
 

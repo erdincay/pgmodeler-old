@@ -92,7 +92,6 @@ class VisaoObjetosWidget: public QDockWidget, public Ui::VisaoObjetosWidget {
 
  public:
    VisaoObjetosWidget(bool visao_simplificada=false, QWidget * parent = 0, Qt::WindowFlags f = 0);
-  ~VisaoObjetosWidget(void){}
   void closeEvent(QCloseEvent *);
   ObjetoBase *obterObjetoSelecao(void);
 

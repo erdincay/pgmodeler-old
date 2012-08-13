@@ -40,7 +40,6 @@ class ListaOperacoesWidget: public QDockWidget, public Ui::ListaOperacoesWidget 
 
  public:
    ListaOperacoesWidget(QWidget * parent = 0, Qt::WindowFlags f = 0);
-  ~ListaOperacoesWidget(void){}
 
  public slots:
    void atualizarListaOperacoes(void);

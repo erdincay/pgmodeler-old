@@ -37,7 +37,7 @@
  Essa declaração não afeta o comportamento das demais classes que de algum
  modo referenciam a classe Referencia.*/
 #include <QMetaType>
-Q_DECLARE_METATYPE(Referencia);
+Q_DECLARE_METATYPE(Referencia)
 //***********************************************************
 class VisaoWidget: public ObjetoBaseWidget, public Ui::VisaoWidget {
  Q_OBJECT
@@ -71,7 +71,6 @@ class VisaoWidget: public ObjetoBaseWidget, public Ui::VisaoWidget {
 
  public:
    VisaoWidget(QWidget * parent = 0);
-  ~VisaoWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, Visao *visao, float px, float py);
 
  private slots:

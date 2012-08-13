@@ -35,7 +35,7 @@
  do Qt e está sendo usada para facilitar o uso com o formulário de edição
  de classes de operadores.*/
 #include <QMetaType>
-Q_DECLARE_METATYPE(ElemClasseOperadores);
+Q_DECLARE_METATYPE(ElemClasseOperadores)
 //***********************************************************
 class ClasseOperadoresWidget: public ObjetoBaseWidget, public Ui::ClasseOperadoresWidget {
  Q_OBJECT
@@ -53,7 +53,6 @@ class ClasseOperadoresWidget: public ObjetoBaseWidget, public Ui::ClasseOperador
 
  public:
    ClasseOperadoresWidget(QWidget * parent = 0);
-  ~ClasseOperadoresWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, ClasseOperadores *classe_op);
 
  private slots:

@@ -36,7 +36,6 @@ class ConversaoCodificacaoWidget: public ObjetoBaseWidget, public Ui::ConversaoC
 
  public:
    ConversaoCodificacaoWidget(QWidget * parent = 0);
-  ~ConversaoCodificacaoWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, ConversaoCodificacao *conv_cod);
 
  private slots:

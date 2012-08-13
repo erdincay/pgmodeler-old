@@ -60,7 +60,6 @@ class TabelaWidget: public ObjetoBaseWidget, public Ui::TabelaWidget {
 
  public:
    TabelaWidget(QWidget * parent = 0);
-  ~TabelaWidget(void);
    void definirAtributos(ModeloBD *modelo, ListaOperacoes *lista_op, Tabela *tabela, float pos_x, float pos_y);
 
  private slots:
