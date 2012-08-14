@@ -14,10 +14,12 @@ entire process.
 **     WARNING     **
 ---------------------
 
-Although this is the first stable version of pgModeler is recommended NOT
-export models created directly to production environments. Not all of
-the possibilities of code generation were tested so its for your own
-risk export models to environments that are not intended for testing.
+Although this is a small fixes package of the first version of pgModeler
+it is recommended NOT EXPORT directly to production environments the models created.
+Not all possible code generation were tested in this way, is its your own risk export the
+models into environments that are not intended for testing.
+The project's author is not responsible for any possible loss of data due the inappropriate
+use of this tool.
 
 -------------------------
 Installation Requirements
@@ -32,41 +34,66 @@ Installation Requirements
 Compiling
 ----------
 
-From the folder of the project's source code (eg.: /root/pgmodeler) type:
+Before starting the compilation, check in the file 'pgmodeler.pro' if the variables
+GLOBAL_INCLUDES and GLOBAL_LIBS points to the correct paths relative to your system.
+Change the value of these variables only in the section for your operating system.
+
+To compile the pgModeler type (in the root folder of the source code):
 
 $ qmake pgmodeler.pro
 $ make
 
-If the build is successful the files are created in folder 'build/' as follows:
-
-build/
-     |
-     +-- conf/ (symlink -> ../conf)
-     +-- lang/ (symlink -> ../lang)
-     +-- lib/
-     +-- schemas/ (symlink -> ../schemas)
-     +-- pgmodeler
+If the build is successful the executable 'pgmodeler' will be created in the build/ directory.
+Copy it to the folder you want and do not forget to also copy the folders schemas/,
+conf/ and lang/ in the root directory of the project.
 
 ---------------------
 Environment Variables
 ---------------------
 
-The pgModeler uses three specific environment variables but also makes use of other
-belonging to the operating system.
-
-The specific variables are:
+By default pgModeler accesses the folders schemas/, conf/ and lang/ on the working directory,
+but you can change this settings. Three own environment variables are used for this purpose.
+If you want to configure directories cited in deferent paths use the following variables:
 
    PGMODELER_SCHEMAS_DIR -> stores the full path the directory schemas/
    PGMODELER_CONF_DIR -> stores the full path the directory conf/
    PGMODELER_LANG_DIR -> stores the full path the directory lang/
 
-Additionally, the pgModeler need to know where to find their libraries to do it
-set the full path of the lib/ directory in LD_LIBRARY_PATH (Unix) or PATH (Windows).
-Finally, to provide a translation of the interface pgModeler consult the LANG variable.
+Additionally, the pgModeler need to know where to find the libraries required for the
+execution (Qt Library, LibXML and libpq) for which you should enter the full path in the variable
+LD_LIBRARY_PATH (Unix) or PATH (Windows), if not already configured.
 
-For convenience, the script 'start-pgmodeler.(sh|bat)' was created to assist in startup of
-the pgModeler thus it is not necessary to call the executable directly or change environment
-variables.
+To provide the interface translation pgModeler checks the variable LANG (Unix). For use
+a specific translation, change the value of this variable. So far, the pgModeler only supports the languages
+Portuguese from Brazil (pt_BR) and U.S. English (en_US).
 
-Note: You may need to edit the parameters of the script depending on configuration of
-your operating system.
+Finally, as a form of convenience, the script 'start-pgmodeler.(sh | bat)' was created to assist
+the initialization of pgModeler so it is not necessary to call the executable directly or change the
+environment variables on your operating system.
+
+Note: You may need to edit the parameters of the script depending on configuration of your operating system.
+
+--------------
+Change History
+--------------
+
+[ v0.1.1 ]
+
+* Correction of the actions for inserting graphic objects (table, text box, vision and relationship)
+  in Windows environment (ticket#2)
+* Fix on the display of the maximize button in the window decoration in Windows environment (ticket#2)
+* Adjust on the position and spacing of widgets in editing forms (ticket#2)
+* The XML parser can now correctly read DTD files in Windows environment (ticket#1)
+* The compilation method is no longer in the form of shared libraries + executable and passed
+  to be as standalone executable only 
+
+--------------
+Reporting Bugs
+--------------
+
+You can contribute to the improvement of pgModeler submitting any bug at:
+
+https://sourceforge.net/p/pgmodeler/tickets/
+
+Do not forget to detail the bug and if possible attach a screenshot or model database
+which expressed the bug.

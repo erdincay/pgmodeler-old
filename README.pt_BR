@@ -6,17 +6,19 @@
 
 
 Este documento descreve de forma simples como compilar e executar o pgModeler.
-Por favor, leia-o atentamente para que nenhuma etapa seja esquecida comprometendo
-todo o processo.
+Por favor, leia-o atentamente para que nenhuma etapa seja esquecida e assim
+comprometendo todo o processo.
 
 -------------------
 **     AVISO     **
 -------------------
 
-Apesar de esta ser a primeira versão estável do pgModeler recomenda-se NÃO
-exportar os modelos criados diretamente para ambientes de produção. Nem todas
-as possibilidades de geração de código foram testadas, desta forma, é de sua
+Apesar de este ser um pacote de pequenas correções da primeira versão do pgModeler
+recomenda-se NÃO EXPORTAR, diretamente para ambientes de produção, os modelos criados.
+Nem todas as possibilidades de geração de código foram testadas, desta forma, é de sua
 conta e risco aplicar a exportação em ambientes que não sejam destinados a testes.
+O autor do projeto não se responsabilizará por qualquer eventual perda de dados provocada
+pelo uso indevido desta ferramenta.
 
 ------------------------
 Requisitos de Instalação
@@ -31,44 +33,68 @@ Requisitos de Instalação
 Compilando
 ----------
 
-A partir da pasta do código-fonte do projeto (ex.: /root/pgmodeler) digite:
+Antes de iniciar a compilação, cheque no arquivo 'pgmodeler.pro' se as variáveis 
+GLOBAL_INCLUDES e GLOBAL_LIBS apontam para os caminhos corretos em relação a seu sistema.
+Altere o valor dessas variáveis somente na seção referente a seu sistema operacional.
+
+Para compilar o pgModeler digite (na pasta raiz do código-fonte):
 
 $ qmake pgmodeler.pro
 $ make
 
-Se a compilação for bem sucedida os arquivos serão criados na pasta 'build/'
-da seguinte forma:
-
-build/
-     |
-     +-- conf/ (symlink -> ../conf)
-     +-- lang/ (symlink -> ../lang)
-     +-- lib/
-     +-- schemas/ (symlink -> ../schemas)
-     +-- pgmodeler
+Se a compilação for bem sucedida o executável 'pgmodeler' será criado na pasta build/.
+Copie-o para a pasta que desejar não esquecendo de copiar também as pastas schemas/,
+conf/ e lang/ no diretório raiz do projeto.
 
 ---------------------
 Variáveis de Ambiente
 ---------------------
 
-O pgModeler utiliza três variáveis de ambientes próprias mas também faz uso de outras
-pertencentes ao sistema operacional.
-
-As variáveis específicas são:
+Por padrão o pgModeler acessa as pastas schemas/, conf/ e lang/ no diretório de execução atual,
+porém é possível alterar essa configuração. Três variáveis de ambientes próprias são utilizadas 
+para este fim. Caso queira configurar diretórios citados em caminhos deferentes use as variáveis a seguir:
 
    PGMODELER_SCHEMAS_DIR -> armazena o caminho completo para a pasta schemas/
    PGMODELER_CONF_DIR -> armazena o caminho completo para a pasta conf/
    PGMODELER_LANG_DIR -> armazena o caminho completo para a pasta lang/
 
-Adicionalmente, o pgModeler precisa saber onde encontrar suas bibliotecas, para 
-isso deve-se indicar o caminho completo de sua pasta lib/ na variável LD_LIBRARY_PATH (Unix)
-ou PATH (Windows).
+Adicionalmente, o pgModeler precisa saber onde encontrar as bibliotecas necessários para sua
+execução (Bibliotecas do Qt, libXML e libpq), para isso deve-se indicar o caminho completo na variável 
+LD_LIBRARY_PATH (Unix) ou PATH (Windows), caso já não esteja configurado.
 
-Por fim, para proporcionar a tradução da interface o pgModeler consulta a variável $LANG.
+Para proporcionar a tradução da interface o pgModeler consulta a variável LANG (Unix). Para usar
+uma tradução específica, altere o valor dessa variável. Até o momento, o pgModeler suporta apenas as línguas
+Portugês do Brasil (pt_BR) e Inglês dos Estados Unidos (en_US).
 
-Por conveniência, o script 'start-pgmodeler.(sh|bat)' foi criado para auxiliar na inicialização 
-do pgModeler assim não é necessário chamar o pgModeler diretamente do seu executável
-ou mesmo atlerar as variáveis do ambiente.
+Por fim, como uma forma de conveniência, o script 'start-pgmodeler.(sh|bat)' foi criado para auxiliar 
+na inicialização do pgModeler assim não é necessário chamar o pgModeler diretamente do seu executável
+ou mesmo atlerar as variáveis do ambiente do seu sistema operacional.
 
 Observação: Talvez seja necessário editar os parâmetros do script dependendo da configuração 
 de seu sistema operacional.
+
+---------------------
+Histórico de Mudanças
+---------------------
+
+[ v0.1.1 ]
+
+* Correção das ações de inserção de objetos gráficos (tabela, caixa de texto, visão e relacionamentos)
+  em ambiente Windows. (ticket#2)
+* Correção na exibição do botão de maximizar na decoração da janela em ambiente Windows (ticket#2)
+* Ajuste na posição e espaçamento de widgets nos formulários de edição de objetos (ticket#2)
+* ParserXML agora consegue ler corretamente arquivos DTD em ambiente Windows (ticket#1)
+* Método de compilação do pgModeler deixou de ser em forma de bibliotecas compartilhadas + executável e passou
+  a ser somente em forma de executável standalone
+
+--------------
+Relatando Bugs
+--------------
+
+Você pode contribuir com a melhoria do pgModeler submetendo qualquer bug no endereço:
+
+https://sourceforge.net/p/pgmodeler/tickets/
+
+Não esqueça de detalhar o bug e se possível anexar um screenshot ou modelo de banco de dados
+o qual manifestou o bug.
+
