@@ -59,7 +59,7 @@ PapelWidget::PapelWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_PAPEL
   membros_twg->widget(i)->setLayout(grid);
  }
 
- janela_pai->setMinimumSize(480, 450);
+ janela_pai->setMinimumSize(500, 500);
 }
 //----------------------------------------------------------
 void PapelWidget::configurarSelecaoPapeis(void)

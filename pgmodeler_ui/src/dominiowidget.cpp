@@ -21,8 +21,8 @@ DominioWidget::DominioWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_D
   configurarLayouFormulario(dominio_grid, OBJETO_DOMINIO);
   connect(janela_pai->aplicar_ok_btn,SIGNAL(clicked(bool)), this, SLOT(aplicarConfiguracao(void)));
 
-  janela_pai->setMinimumSize(530, 430);
-  janela_pai->setMaximumSize(16777215, 430);
+  janela_pai->setMinimumSize(530, 450);
+  janela_pai->setMaximumHeight(450);
  }
  catch(Excecao &e)
  {

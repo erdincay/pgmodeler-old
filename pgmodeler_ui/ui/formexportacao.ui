@@ -157,6 +157,9 @@ border: 1px #ff00ff solid;</string>
       <property name="margin">
        <number>4</number>
       </property>
+      <property name="spacing">
+       <number>6</number>
+      </property>
       <item row="0" column="0">
        <widget class="QLabel" name="titulo_lbl">
         <property name="sizePolicy">
@@ -390,7 +393,8 @@ border: 1px #ff00ff solid;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>9</pointsize>
+            <family>DejaVu Sans</family>
+            <pointsize>8</pointsize>
             <italic>true</italic>
            </font>
           </property>
@@ -615,7 +619,8 @@ border: 1px #ff00ff solid;</string>
           </property>
           <property name="font">
            <font>
-            <pointsize>9</pointsize>
+            <family>DejaVu Sans</family>
+            <pointsize>8</pointsize>
             <italic>true</italic>
            </font>
           </property>
@@ -686,7 +691,8 @@ border: 1px #ff00ff solid;</string>
             <widget class="QLabel" name="alerta_lbl">
              <property name="font">
               <font>
-               <pointsize>9</pointsize>
+               <family>DejaVu Sans</family>
+               <pointsize>8</pointsize>
                <weight>50</weight>
                <italic>true</italic>
                <bold>false</bold>
@@ -799,6 +805,9 @@ border: 1px #ff00ff solid;</string>
     <layout class="QGridLayout" name="botoes_lt">
      <property name="leftMargin">
       <number>4</number>
+     </property>
+     <property name="bottomMargin">
+      <number>2</number>
      </property>
      <property name="spacing">
       <number>0</number>

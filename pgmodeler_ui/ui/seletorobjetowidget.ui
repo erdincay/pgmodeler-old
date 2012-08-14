@@ -27,7 +27,7 @@
   </property>
   <layout class="QGridLayout" name="seletor_grid">
    <property name="margin">
-    <number>0</number>
+    <number>2</number>
    </property>
    <property name="spacing">
     <number>4</number>

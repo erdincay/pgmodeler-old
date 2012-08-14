@@ -24,8 +24,9 @@ BancoDadosWidget::BancoDadosWidget(QWidget *parent): ObjetoBaseWidget(parent, OB
  frame->setParent(this);
 
  //Define as alturas mínimas e máxima do formulário
- janela_pai->setMinimumSize(530,400);
- janela_pai->setMaximumSize(16777215,400);
+ janela_pai->setMinimumWidth(530);
+ janela_pai->setMinimumHeight(400);
+ janela_pai->setMaximumHeight(400);
 
  //Obtém os nomes das codificações e as insere no combo de codificação
  TipoCodificacao::obterTipos(codificacoes);

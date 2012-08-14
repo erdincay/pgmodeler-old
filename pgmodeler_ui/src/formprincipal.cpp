@@ -426,6 +426,7 @@ void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
  QString nome_obj, nome_tab, str_aux;
  Esquema *esq_publico=NULL;
  Linguagem *ling=NULL;
+ QLayout *layout=NULL;
 
  //Converte a quantidade de abas para QString
  str_aux=QString("%1").arg(modelos_tab->count());
@@ -442,6 +443,8 @@ void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
  nome_obj=tab_modelo->modelo->obterNome();
  modelos_tab->addTab(tab_modelo, QString::fromUtf8(nome_obj));
  modelos_tab->setCurrentIndex(modelos_tab->count()-1);
+ layout=modelos_tab->currentWidget()->layout();
+ layout->setContentsMargins(4,4,4,4);
 
  esq_publico=new Esquema;
  esq_publico->definirNome("public");
@@ -472,7 +475,6 @@ void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
    throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
   }
  }
-
 
  definirModeloAtual();
 }
@@ -528,7 +530,7 @@ void FormPrincipal::definirModeloAtual(void)
   if(modelo_atual->obterNomeArquivo().isEmpty())
    this->setWindowTitle(titulo_janela);
   else
-   this->setWindowTitle(titulo_janela + " - " + modelo_atual->obterNomeArquivo());
+   this->setWindowTitle(titulo_janela + " - " + QDir::toNativeSeparators(modelo_atual->obterNomeArquivo()));
 
   connect(modelo_atual, SIGNAL(s_objetoModificado(void)),lista_oper, SLOT(atualizarListaOperacoes(void)));
   connect(modelo_atual, SIGNAL(s_objetoCriado(void)),lista_oper, SLOT(atualizarListaOperacoes(void)));
@@ -543,6 +545,8 @@ void FormPrincipal::definirModeloAtual(void)
   connect(action_exibir_grade, SIGNAL(triggered(bool)), this, SLOT(definirOpcoesGrade(void)));
   connect(action_exibir_lim_paginas, SIGNAL(triggered(bool)), this, SLOT(definirOpcoesGrade(void)));
  }
+ else
+  this->setWindowTitle(titulo_janela);
 
  menuEditar->addSeparator();
  menuEditar->addAction(action_configuracoes);
@@ -886,6 +890,7 @@ void FormPrincipal::atualizarEstadoFerramentas(bool modelo_fechado)
  action_imprimir->setEnabled(ativo);
  action_salvar_como->setEnabled(ativo);
  action_salvar_modelo->setEnabled(ativo);
+ action_salvar_tudo->setEnabled(ativo);
  action_exportar->setEnabled(ativo);
  action_fechar_modelo->setEnabled(ativo);
  action_exibir_grade->setEnabled(ativo);

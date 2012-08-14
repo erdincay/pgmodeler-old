@@ -288,7 +288,7 @@ void ModeloWidget::mousePressEvent(QMouseEvent *evento)
  if(evento->buttons()==Qt::RightButton)
  {
   menu_popup.exec(QCursor::pos());
-  cancelarAdicaoObjeto();
+  //cancelarAdicaoObjeto();
  }
  //Caso o usuário pressione o botão esquerdo
  else if(evento->buttons()==Qt::LeftButton)

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>473</width>
-    <height>243</height>
+    <height>255</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,10 +15,10 @@
   </property>
   <layout class="QGridLayout" name="tabela_grid">
    <property name="margin">
-    <number>0</number>
+    <number>2</number>
    </property>
    <property name="spacing">
-    <number>4</number>
+    <number>6</number>
    </property>
    <item row="0" column="0">
     <widget class="QLabel" name="aceita_oids_lbl">

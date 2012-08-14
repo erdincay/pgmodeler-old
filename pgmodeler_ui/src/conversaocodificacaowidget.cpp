@@ -30,8 +30,8 @@ ConversaoCodificacaoWidget::ConversaoCodificacaoWidget(QWidget *parent): ObjetoB
 
   connect(janela_pai->aplicar_ok_btn,SIGNAL(clicked(bool)), this, SLOT(aplicarConfiguracao(void)));
 
-  janela_pai->setMinimumSize(540, 360);
-  janela_pai->setMaximumSize(16777215, 360);
+  janela_pai->setMinimumSize(600, 370);
+  janela_pai->setMaximumHeight(370);
  }
  catch(Excecao &e)
  {

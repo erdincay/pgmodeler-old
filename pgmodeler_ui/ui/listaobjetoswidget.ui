@@ -44,10 +44,10 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
        <property name="margin">
-        <number>2</number>
+        <number>4</number>
        </property>
        <property name="spacing">
-        <number>2</number>
+        <number>6</number>
        </property>
        <item row="0" column="0">
         <widget class="QTableWidget" name="dependencias_tbw">
@@ -159,10 +159,10 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
        <property name="margin">
-        <number>2</number>
+        <number>4</number>
        </property>
        <property name="spacing">
-        <number>2</number>
+        <number>6</number>
        </property>
        <item row="0" column="0">
         <widget class="QTableWidget" name="referencias_tbw">

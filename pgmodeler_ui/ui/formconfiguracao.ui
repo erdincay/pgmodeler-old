@@ -133,7 +133,10 @@ border: 1px #ff00ff solid;</string>
    <item row="1" column="1">
     <layout class="QGridLayout" name="botoes_lt">
      <property name="leftMargin">
-      <number>0</number>
+      <number>2</number>
+     </property>
+     <property name="bottomMargin">
+      <number>2</number>
      </property>
      <property name="spacing">
       <number>0</number>

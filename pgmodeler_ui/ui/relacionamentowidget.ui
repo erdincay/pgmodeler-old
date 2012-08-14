@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>511</width>
-    <height>334</height>
+    <height>344</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,10 +27,10 @@
   </property>
   <layout class="QGridLayout" name="relacionamento_grid">
    <property name="margin">
-    <number>0</number>
+    <number>2</number>
    </property>
    <property name="spacing">
-    <number>0</number>
+    <number>6</number>
    </property>
    <item row="0" column="0">
     <widget class="QTabWidget" name="atributosrel_tbw">
@@ -52,7 +52,7 @@
         <number>2</number>
        </property>
        <property name="spacing">
-        <number>4</number>
+        <number>6</number>
        </property>
        <item row="0" column="0">
         <widget class="QLabel" name="tipo_rel_lbl">
@@ -575,6 +575,9 @@
           <property name="margin">
            <number>4</number>
           </property>
+          <property name="spacing">
+           <number>6</number>
+          </property>
           <item row="0" column="0">
            <widget class="QLabel" name="postergavel_lbl">
             <property name="sizePolicy">
@@ -718,7 +721,7 @@
         <number>2</number>
        </property>
        <property name="spacing">
-        <number>4</number>
+        <number>6</number>
        </property>
        <item row="0" column="0">
         <widget class="QListWidget" name="coluna_rel_lst">
