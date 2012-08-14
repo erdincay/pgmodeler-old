@@ -318,7 +318,7 @@ border: 1px #ff00ff solid;</string>
                <number>1</number>
               </property>
               <property name="textInteractionFlags">
-               <set>Qt::NoTextInteraction</set>
+               <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
               </property>
              </widget>
             </item>

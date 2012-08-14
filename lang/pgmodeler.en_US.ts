@@ -53,8 +53,8 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/bancodadoswidget.cpp" line="50"/>
         <location filename="../pgmodeler_ui/src/bancodadoswidget.cpp" line="51"/>
+        <location filename="../pgmodeler_ui/src/bancodadoswidget.cpp" line="52"/>
         <source>Padrão</source>
         <translation>Default</translation>
     </message>
@@ -179,48 +179,48 @@
         <translation>Elements</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="114"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="117"/>
         <source>Tipo de Elemento:</source>
         <translation>Elemente Type:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="128"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="131"/>
         <source>Operador</source>
         <translation>Operator</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="133"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="136"/>
         <source>Função</source>
         <translation>Function</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="138"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="141"/>
         <source>Armazenamento</source>
         <translation>Storage</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="159"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="162"/>
         <source>Função:</source>
         <translation>Function:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="166"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="169"/>
         <source>Operador:</source>
         <translation>Operator:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="173"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="176"/>
         <source>Suporte/Estratégia:</source>
         <translation>Support/Strategy:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="187"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="190"/>
         <location filename="../pgmodeler_ui/src/classeoperadoreswidget.cpp" line="36"/>
         <source>Rechecar</source>
         <translation>Recheck</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="209"/>
+        <location filename="../pgmodeler_ui/ui/classeoperadoreswidget.ui" line="212"/>
         <source>Família:</source>
         <translation>Family:</translation>
     </message>
@@ -245,12 +245,12 @@
         <translation>Support/Strategy</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/classeoperadoreswidget.cpp" line="186"/>
+        <location filename="../pgmodeler_ui/src/classeoperadoreswidget.cpp" line="176"/>
         <source>Sim</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/classeoperadoreswidget.cpp" line="188"/>
+        <location filename="../pgmodeler_ui/src/classeoperadoreswidget.cpp" line="178"/>
         <source>Não</source>
         <translation>No</translation>
     </message>
@@ -283,7 +283,7 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="169"/>
+        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="172"/>
         <source>XML</source>
         <translation></translation>
     </message>
@@ -298,12 +298,12 @@
         <translation>Source code visualization</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/codigofontewidget.cpp" line="125"/>
+        <location filename="../pgmodeler_ui/src/codigofontewidget.cpp" line="119"/>
         <source>Gerando código-fonte...</source>
         <translation>Generating source code...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/codigofontewidget.cpp" line="136"/>
+        <location filename="../pgmodeler_ui/src/codigofontewidget.cpp" line="130"/>
         <source>-- Código SQL não disponível para este tipo de objeto. --</source>
         <translation>-- SQL code unavailable for this type of object --</translation>
     </message>
@@ -1218,18 +1218,18 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formbasico.ui" line="163"/>
-        <location filename="../pgmodeler_ui/src/formbasico.cpp" line="12"/>
+        <location filename="../pgmodeler_ui/ui/formbasico.ui" line="166"/>
+        <location filename="../pgmodeler_ui/src/formbasico.cpp" line="24"/>
         <source>&amp;Aplicar</source>
         <translation>&amp;Apply</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formbasico.ui" line="189"/>
+        <location filename="../pgmodeler_ui/ui/formbasico.ui" line="192"/>
         <source>&amp;Cancelar</source>
         <translation>&amp;Cancel</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formbasico.cpp" line="17"/>
+        <location filename="../pgmodeler_ui/src/formbasico.cpp" line="29"/>
         <source>&amp;Ok</source>
         <translation></translation>
     </message>
@@ -1242,42 +1242,42 @@
         <translation>pgModeler Configuration</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="169"/>
+        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="172"/>
         <source>&amp;Aplicar</source>
         <translation>&amp;Apply</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="195"/>
+        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="198"/>
         <source>&amp;Cancelar</source>
         <translation>&amp;Cancel</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="221"/>
+        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="224"/>
         <source>Padrões</source>
         <translation>Defaults</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="357"/>
+        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="360"/>
         <source>Geral</source>
         <translation>General</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="372"/>
+        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="375"/>
         <source>Aparência</source>
         <translation>Style</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="387"/>
+        <location filename="../pgmodeler_ui/ui/formconfiguracao.ui" line="390"/>
         <source>Conexões</source>
         <translation>Connetions</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formconfiguracao.cpp" line="78"/>
+        <location filename="../pgmodeler_ui/src/formconfiguracao.cpp" line="82"/>
         <source>Confirmação</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formconfiguracao.cpp" line="79"/>
+        <location filename="../pgmodeler_ui/src/formconfiguracao.cpp" line="83"/>
         <source>Qualquer modificação feita até agora na seção atual será perdida! Deseja realmente restaurar as configurações padrão?</source>
         <translation>Any modification made until now in the current section will be lost! Do you really want to restore default settings?</translation>
     </message>
@@ -1290,84 +1290,84 @@
         <translation>Model Export</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="176"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="179"/>
         <source>Selecione o tipo de exportação do modelo:</source>
         <translation>Select the export type:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="241"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="244"/>
         <source>Arquivo:</source>
         <translation>File:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="264"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="267"/>
         <source>Selecionar arquivo de destino</source>
         <translation>Select target file</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="267"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="270"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="307"/>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="526"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="310"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="533"/>
         <source>PostgreSQL:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="329"/>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="554"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="332"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="561"/>
         <source>Versão do PostgreSQL no qual do código SQL deve ser gerado</source>
         <translation>PostgreSQL version in which the SQL code should be generated</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="398"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="402"/>
         <source>Certifique-se que o usuário do sistema possui permissão de gravação sobre a pasta de destino do arquivo SQL.</source>
         <translation>Check if the system user has write permission on target folder.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="411"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="415"/>
         <source>Exportação para arquivo:</source>
         <translation>Export to file:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="441"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="448"/>
         <source>Exportação para o SGBD:</source>
         <translation>Export to DBMS:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="494"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="501"/>
         <source>Conexão:</source>
         <translation>Connection:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="623"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="631"/>
         <source>Recomenda-se marcar esta opção somente quando a versão do SGBD, de alguma forma, não seja identificável ou se é necessário gerar uma versão específica de código SQL para testes. </source>
         <translation>It is recommended to select this option only when the version of the DBMS, somehow, is not identifiable or if you need to generate a specific version of SQL code for testing.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="699"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="708"/>
         <source>Por questões de segurança o pgModeler abortará a exportação do modelo caso qualquer objeto já exista no PostgreSQL!</source>
         <translation>For security reasons the pgModeler will abort the exporting process if any object already exists on PostgreSQL!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="751"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="760"/>
         <source>Rótulo progresso...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="783"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="792"/>
         <source>ico</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="834"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="846"/>
         <source>&amp;Exportar</source>
         <translation>&amp;Export</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="860"/>
+        <location filename="../pgmodeler_ui/ui/formexportacao.ui" line="872"/>
         <source>&amp;Fechar</source>
         <translation>&amp;Close</translation>
     </message>
@@ -1412,22 +1412,22 @@
         <translation>Creating objects on database &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="172"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="202"/>
         <source>Exportação finalizada com sucesso!</source>
         <translation>Exporting process sucessfuly ended!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="225"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="255"/>
         <source>Falha na exportação!</source>
         <translation>Error on export!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="275"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="305"/>
         <source>Exportar modelo como...</source>
         <translation>Export model as...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="276"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="306"/>
         <source>Código SQL (*.sql);;Todos os Arquivos (*.*)</source>
         <translation>SQL code (*.sql);;All files (*.*)</translation>
     </message>
@@ -1436,343 +1436,343 @@
     <name>FormPrincipal</name>
     <message>
         <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="26"/>
-        <source>pgModeler - PostgreSQL Database Modeller</source>
+        <source>pgModeler - PostgreSQL Database Modeler</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="99"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="169"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="566"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="725"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="102"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="172"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="569"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="728"/>
         <source>Arquivo</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="116"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="119"/>
         <source>Editar</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="126"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="423"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="610"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="129"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="426"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="613"/>
         <source>Ajuda</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="132"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="135"/>
         <source>Exibir</source>
         <translation>Show</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="136"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="139"/>
         <source>Ferramentas</source>
         <translation>Tools</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="208"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="211"/>
         <source>Visualização</source>
         <translation>Visualization</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="246"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="577"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="741"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="249"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="580"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="744"/>
         <source>Edição</source>
         <translation>Editing</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="288"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="749"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="291"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="752"/>
         <source>Modelo</source>
         <translation>Model</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="315"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="318"/>
         <source>Novo</source>
         <translation>New</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="318"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="321"/>
         <source>Ctrl+N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="330"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="333"/>
         <source>Salvar</source>
         <translation>Save</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="333"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="336"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="345"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="348"/>
         <source>Zoom +</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="348"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="351"/>
         <source>Ampliar zoom</source>
         <translation>Zoom +</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="351"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="354"/>
         <source>Ctrl+=</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="369"/>
         <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="372"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="375"/>
         <source>Zoom -</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="375"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="378"/>
         <source>Diminuir zoom</source>
         <translation>Zoom -</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="378"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="381"/>
         <source>Ctrl+-</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="387"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="390"/>
         <source>Carregar</source>
         <translation>Load</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="390"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="393"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="402"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="405"/>
         <source>Próximo</source>
         <translation>Next</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="414"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="417"/>
         <source>Anterior</source>
         <translation>Previous</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="426"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="429"/>
         <source>F1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="438"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="441"/>
         <source>Salvar Como</source>
         <translation>Save As</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="447"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="450"/>
         <source>Sair</source>
         <translation>Exit</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="459"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="462"/>
         <source>Sobre o pgModeler</source>
         <translation>About pgModeler</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="462"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="465"/>
         <source>F2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="474"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="477"/>
         <source>Imprimir</source>
         <translation>Print</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="477"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="480"/>
         <source>Ctrl+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="489"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="492"/>
         <source>Desfazer</source>
         <translation>Undo</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="492"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="495"/>
         <source>Ctrl+Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="504"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="507"/>
         <source>Refazer</source>
         <translation>Redo</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="507"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="510"/>
         <source>Ctrl+Y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="516"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="519"/>
         <source>Preferências</source>
         <translation>Preferences</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="519"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="522"/>
         <source>Ctrl+Shift+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="531"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="534"/>
         <source>Exportar</source>
         <translation>Export</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="549"/>
         <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="552"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="555"/>
         <source>Exibir grade</source>
         <translation>Show grid</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="555"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="558"/>
         <source>Ctrl+G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="588"/>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="733"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="591"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="736"/>
         <source>Exibição</source>
         <translation>View</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="599"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="602"/>
         <source>Configuração</source>
         <translation>Configuration</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="622"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="625"/>
         <source>Fechar Modelo</source>
         <translation>Close Model</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="634"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="637"/>
         <source>Zoom Normal</source>
         <translation>Normal Zoom</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="637"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="640"/>
         <source>Ctrl+0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="655"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="658"/>
         <source>Alinhar à grade</source>
         <translation>Align to grid</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="658"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="661"/>
         <source>Alinhar objetos à grade</source>
         <translation>Align objects to grid</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="673"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="676"/>
         <source>Tela cheia</source>
         <translation>Fullscreen</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="676"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="679"/>
         <source>Exibe o modelo em tela cheia</source>
         <translation>Show the model on fullscreen mode</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="679"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="682"/>
         <source>F11</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="697"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="700"/>
         <source>Exibir Limites</source>
         <translation>Show limits</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="700"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="703"/>
         <source>Exibe os limitadores de página</source>
         <translation>Show the page delimiters</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="703"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="706"/>
         <source>Ctrl+L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="712"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="715"/>
         <source>Configurações</source>
         <translation>Configurations</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="717"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="720"/>
         <source>Widgets</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="757"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="760"/>
         <source>Operações</source>
         <translation>Operations</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="765"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="768"/>
         <source>Visão de Objetos</source>
         <translation>Objects View</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="770"/>
+        <location filename="../pgmodeler_ui/ui/formprincipal.ui" line="773"/>
         <source>Salvar Tudo</source>
         <translation>Save All</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="729"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="734"/>
         <source>Salvar &apos;%1&apos; como...</source>
         <translation>Save &apos;%1&apos; as...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="730"/>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="850"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="735"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="855"/>
         <source>Modelo de Banco de Dados (*.pgmodel);;Todos os Arquivos (*.*)</source>
         <translation>Database Model (*.pgmodel);;All Files (*.*)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="774"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="779"/>
         <source>Imprimir grade</source>
         <translation>Print grid</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="778"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="783"/>
         <source>Imprimir número de páginas</source>
         <translation>Print page numbers</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="785"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="790"/>
         <source>Opções do modelo</source>
         <translation>Model Options</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="802"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="807"/>
         <source>Impressão de modelo de banco de dados</source>
         <translation>Database Model Printing</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="822"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="827"/>
         <source>Confirmação</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="823"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="828"/>
         <source>Foram detectadas modificações nas definições de papel/margem do modelo o que pode provocar a impressão incorreta dos objetos. Deseja prosseguir com a impressão usando as novas configurações? Para usar as configurações padrão clique &apos;Não&apos; ou em &apos;Cancelar&apos; para abortar a impressão.</source>
         <translation>Were detected changes in the definitions of paper/margin of the model which may cause the incorrect print of the objects. Do you want to continue printing using the new settings? To use the default settings click &apos;No&apos; or &apos;Cancel&apos; to abort printing.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="852"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="857"/>
         <source>Carregar modelo</source>
         <translation>Load model</translation>
     </message>
@@ -1932,92 +1932,92 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Attributes</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="69"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="72"/>
         <source>Linguagem:</source>
         <translation>Langague:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="95"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="98"/>
         <source>Tipo de Função:</source>
         <translation>Function Type:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="111"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="114"/>
         <source>Função Janela:</source>
         <translation>Window Function:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="137"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="140"/>
         <source>Custo de Execução:</source>
         <translation>Execution Cost:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="157"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="160"/>
         <source>Linhas Retornadas:</source>
         <translation>Rows Returned:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="177"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="180"/>
         <source>Comportamento:</source>
         <translation>Behavior:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="193"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="196"/>
         <source>Segurança:</source>
         <translation>Security:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="219"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="222"/>
         <source>Método de Retorno:</source>
         <translation>Return Method:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="234"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="237"/>
         <source>Simples</source>
         <translation>Simple</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="253"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="256"/>
         <source>Conjunto</source>
         <translation>Set</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="269"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="272"/>
         <source>Tabela</source>
         <translation>Table</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="294"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="297"/>
         <source>Tabela de Retorno</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="302"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="305"/>
         <source>Parâmetros</source>
         <translation>Parameters</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="307"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="310"/>
         <source>Definição</source>
         <translation>Definition</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="325"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="337"/>
         <source>Biblioteca Dinâmica:</source>
         <translation>Dynamic Library:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="370"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="382"/>
         <source>Símbolo:</source>
         <translation>Symbol:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="399"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="411"/>
         <source>Biblioteca:</source>
         <translation>Library:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="447"/>
+        <location filename="../pgmodeler_ui/ui/funcaowidget.ui" line="462"/>
         <source>Código-Fonte:</source>
         <translation>Source code:</translation>
     </message>
@@ -2204,37 +2204,37 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Elements</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="352"/>
+        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="355"/>
         <source>Coluna:</source>
         <translation>Column:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="405"/>
+        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="408"/>
         <source>Expressão:</source>
         <translation>Expression:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="479"/>
+        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="482"/>
         <source>Classe Operadores:</source>
         <translation>Operator Class:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="498"/>
+        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="501"/>
         <source>Ordenação: </source>
         <translation>Sorting:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="507"/>
+        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="510"/>
         <source>Ascendente</source>
         <translation>Ascending</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="517"/>
+        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="520"/>
         <source>Descendente</source>
         <translation>Descending</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="524"/>
+        <location filename="../pgmodeler_ui/ui/indicewidget.ui" line="527"/>
         <source>Nulos primeiro</source>
         <translation>Nulls first</translation>
     </message>
@@ -2264,17 +2264,17 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Nulls first</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/indicewidget.cpp" line="145"/>
+        <location filename="../pgmodeler_ui/src/indicewidget.cpp" line="137"/>
         <source>Expressão</source>
         <translation>Expression</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/indicewidget.cpp" line="161"/>
+        <location filename="../pgmodeler_ui/src/indicewidget.cpp" line="153"/>
         <source>Sim</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/indicewidget.cpp" line="163"/>
+        <location filename="../pgmodeler_ui/src/indicewidget.cpp" line="155"/>
         <source>Não</source>
         <translation>No</translation>
     </message>
@@ -2733,22 +2733,22 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Parent Object:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/objetobasewidget.cpp" line="39"/>
+        <location filename="../pgmodeler_ui/src/objetobasewidget.cpp" line="43"/>
         <source>Criação / Edição: </source>
         <translation>Create / Edit:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/objetobasewidget.cpp" line="435"/>
+        <location filename="../pgmodeler_ui/src/objetobasewidget.cpp" line="428"/>
         <source>Valor(es)</source>
         <translation>Value(s)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/objetobasewidget.cpp" line="448"/>
+        <location filename="../pgmodeler_ui/src/objetobasewidget.cpp" line="441"/>
         <source>Versão</source>
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/objetobasewidget.cpp" line="489"/>
+        <location filename="../pgmodeler_ui/src/objetobasewidget.cpp" line="482"/>
         <source>O(s) campo(s) ou valor(es) destacado(s) no formulário é(são) de uso exclusivo e/ou obrigatório em versões específicas do PostgreSQL. O não preenchimento do(s) mesmo(s) pode ocasionar erros na geração de código SQL de cada versão indicada nas dicas de ferramenta dos campos destacados.</source>
         <translation>The field(s) or value(s) highlighted on the form is(are) for the exclusive use and/or mandatory in specific versions of PostgreSQL. Failure to complete that may cause errors in the generation of SQL code for each version shown in tool tips of the highlighted fields.</translation>
     </message>
@@ -2786,52 +2786,52 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Functions</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="84"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="87"/>
         <source>Junção:</source>
         <translation>Joins:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="91"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="94"/>
         <source>Restrição:</source>
         <translation>Constraints:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="111"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="114"/>
         <source>Operador:</source>
         <translation>Operator:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="119"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="122"/>
         <source>Operadores</source>
         <translation>Operators</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="128"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="134"/>
         <source>Comutação:</source>
         <translation>Commutation:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="135"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="141"/>
         <source>Negação:</source>
         <translation>Negation:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="142"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="148"/>
         <source>Ordenação (1):</source>
         <translation>Sort (1):</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="149"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="155"/>
         <source>Ordenação (2):</source>
         <translation>Sort (2):</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="156"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="162"/>
         <source>Menor que:</source>
         <translation>Less than:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="163"/>
+        <location filename="../pgmodeler_ui/ui/operadorwidget.ui" line="169"/>
         <source>Maior que:</source>
         <translation>Greater then:</translation>
     </message>
@@ -2889,49 +2889,49 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Attributes</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="127"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="130"/>
         <source>Superusuário</source>
         <translation>Superuser</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="134"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="137"/>
         <source>Herdar Permissões</source>
         <translation>Inherit Permissions</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="141"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="144"/>
         <source>Criar Banco de Dados</source>
         <translation>Create Database</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="148"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="151"/>
         <source>Permitir Login</source>
         <translation>Can Login</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="155"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="158"/>
         <source>Criar Usuários/Grupos</source>
         <translation>Create Users/Groups</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="162"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="165"/>
         <source>Senha Criptografada</source>
         <translation>Encrypted Password</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="176"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="179"/>
         <location filename="../pgmodeler_ui/src/papelwidget.cpp" line="48"/>
         <source>Membros</source>
         <translation>Members</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="181"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="184"/>
         <location filename="../pgmodeler_ui/src/papelwidget.cpp" line="45"/>
         <source>Membro de</source>
         <translation>Member Of</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="186"/>
+        <location filename="../pgmodeler_ui/ui/papelwidget.ui" line="189"/>
         <source>Membros (Administradores)</source>
         <translation>Members (Administrators)</translation>
     </message>
@@ -3014,27 +3014,27 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Privileges</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="166"/>
+        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="169"/>
         <source>Privilégio</source>
         <translation>Privilege</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="171"/>
+        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="174"/>
         <source>GRANT OPTION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="185"/>
+        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="188"/>
         <source>Cancelar Operação</source>
         <translation>Cancel Operation</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="208"/>
+        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="211"/>
         <source>Atualizar Permissão</source>
         <translation>Update Permission</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="231"/>
+        <location filename="../pgmodeler_ui/ui/permissaowidget.ui" line="234"/>
         <source>Adicionar Permissão</source>
         <translation>Add Permission</translation>
     </message>
@@ -3690,7 +3690,20 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>The type &apos;%1&apos; can not self refer in the attributes &apos;element&apos; or &apos;copy type&apos; or be used as a data type of an attribute in the configuration of a composite type!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="160"/>
+        <location filename="../libutil/src/excecao.cpp" line="155"/>
+        <source>O processo de exportação falhou devido a um erro disparado pelo servidor PostgreSQL na tentativa de execução de um comando SQL. Para obter mais detalhes sobre erro cheque a pilha de exceções!
+
+** Comando SQL executado: **
+
+%1</source>
+        <translation>The export process failed due to an error triggered by the PostgreSQL server in an attempt to execute a SQL command. For more details about the error check the exception stack!
+
+** Executed SQL command: **
+
+%1</translation>
+    </message>
+    <message>
+        <location filename="../libutil/src/excecao.cpp" line="161"/>
         <source>Atribuição de buffer de código XML vazio ao parser!</source>
         <translation>Assignment of empty XML buffer to parser!</translation>
     </message>
@@ -3799,128 +3812,128 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         <translation>Could not find the default settings file &apos;%1&apos;! To restore default settings check the existence of the file and try again!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="155"/>
+        <location filename="../libutil/src/excecao.cpp" line="156"/>
         <source>Sintaxe inválida no arquivo %1, linha %2, coluna %3!</source>
         <translation>Invalid syntax in file %1, line %2, column %3!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="156"/>
+        <location filename="../libutil/src/excecao.cpp" line="157"/>
         <source>Instrução condicional &apos;%1&apos; inválida no arquivo %2, linha %3, coluna %4!</source>
         <translation>Invalid conditional instruction &apos;%1&apos; on file %2, line %3, column %4!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="157"/>
+        <location filename="../libutil/src/excecao.cpp" line="158"/>
         <source>Atributo &apos;%1&apos; desconhecido no arquivo %2, linha %3, coluna %4!</source>
         <translation>Unknown attribute &apos;%1&apos; in file %2, line %3, column %4!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="158"/>
+        <location filename="../libutil/src/excecao.cpp" line="159"/>
         <source>Metacaractere &apos;%1&apos; inválido no arquivo %2, linha %3, coluna %4!</source>
         <translation>Invalid metacharacter &apos;%1&apos; in file %2, line %3, column %4!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="159"/>
+        <location filename="../libutil/src/excecao.cpp" line="160"/>
         <source>Atributo &apos;%1&apos; com valor indefinido no arquivo %2, linha %3, coluna %4!</source>
         <translation>Attribute &apos;%1&apos; with an undefined value in file %2, line %3, column %4!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="161"/>
+        <location filename="../libutil/src/excecao.cpp" line="162"/>
         <source>Não foi possível acessar o arquivo ou diretório %1! Verifique se ele existe ou se o usuário possui permissões de acesso sobre o mesmo!</source>
         <translation>Could not access the file or directory%1! Make sure that it exists or if the user has access permissions on it!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="162"/>
+        <location filename="../libutil/src/excecao.cpp" line="163"/>
         <source>Atribuição de nome de arquivo DTD vazio!</source>
         <translation>Assignment of empty DTD file name!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="163"/>
+        <location filename="../libutil/src/excecao.cpp" line="164"/>
         <source>Atribuição de nome vazio à declaração DTD!</source>
         <translation>Assignment of empty name to the DTD declaration!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="164"/>
+        <location filename="../libutil/src/excecao.cpp" line="165"/>
         <source>Erro ao interpretar buffer XML na linha %1 coluna %2.
  Mensagem gerada pelo parser: &apos;%3&apos;. %4</source>
         <translation>Error while interpreting XML buffer at line %1 column %2.
 Message generated by the parser: &apos;%3&apos;. %4</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="165"/>
+        <location filename="../libutil/src/excecao.cpp" line="166"/>
         <source>Operação sobre árvore de elementos não alocada! É necessário carregar o buffer XML do parser e interpretá-lo para que a árvore seja gerada!</source>
         <translation>Operation on unallocated element tree! It is necessary to load the XML parser buffer and interpret it so that the tree is generated!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="166"/>
+        <location filename="../libutil/src/excecao.cpp" line="167"/>
         <source>Não foi possível carregar o arquivo %1. O mesmo parece estar inconsistente ou uma de suas dependências (arquivos DTD) possui erros ou está ausente!</source>
         <translation>Could not load file %1. The same appears to be inconsistent or one of its dependencies (DTD files) has errors or is missing!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="167"/>
+        <location filename="../libutil/src/excecao.cpp" line="168"/>
         <source>Operação com elemento de árvore de elementos não alocado!</source>
         <translation>Operation with unallocated tree element!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="168"/>
+        <location filename="../libutil/src/excecao.cpp" line="169"/>
         <source>Operação com elemento o qual não faz parte da árvore de elementos carregada atualmente!</source>
         <translation>Operation with element which does not exists in the element tree currently loaded!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="169"/>
+        <location filename="../libutil/src/excecao.cpp" line="170"/>
         <source>Atribuição de valor a um parâmetro de conexão inválido!</source>
         <translation>Assignment of a value to an invalid connection parameter!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="170"/>
+        <location filename="../libutil/src/excecao.cpp" line="171"/>
         <source>Operação sobre conexão não estabelecida!</source>
         <translation>Operation on connection not established!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="171"/>
+        <location filename="../libutil/src/excecao.cpp" line="172"/>
         <source>Tentativa de conexão sem parâmetros de configuração definidos!</source>
         <translation>Attempt to connect without define configuration parameters!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="172"/>
+        <location filename="../libutil/src/excecao.cpp" line="173"/>
         <source>Não foi possível estabelecer conexão com o banco de dados.
 Mensagem retornada: &apos;%1&apos;</source>
         <translation>Could not connect to the database.
 Message returned: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="173"/>
+        <location filename="../libutil/src/excecao.cpp" line="174"/>
         <source>Atribuição de resultado de comando SQL não alocado!</source>
         <translation>Assignment of not allocated SQL command result!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="174"/>
+        <location filename="../libutil/src/excecao.cpp" line="175"/>
         <source>Não foi possível alocar o resultado do comando SQL pois a resposta do SGBD não foi compreendida pelo cliente!</source>
         <translation>Unable to allocate the result of the SQL command because the response from the DBMS was not understood by the client!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="175"/>
+        <location filename="../libutil/src/excecao.cpp" line="176"/>
         <source>Não foi possível alocar o resultado do comando SQL pois o servidor gerou um erro fatal!
 Mensagem retornada pelo SGBD: %1</source>
         <translation>Unable to allocate command result for the SQL because the server has generated a fatal error!
 Message returned by the DBMS: %1</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="176"/>
+        <location filename="../libutil/src/excecao.cpp" line="177"/>
         <source>Não foi possível alocar o resultado do comando SQL pois o comando passado foi uma SQL vazia!</source>
         <translation>Unable to allocate the result of the SQL command because the command passed was an empty SQL!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="177"/>
+        <location filename="../libutil/src/excecao.cpp" line="178"/>
         <source>Referência à uma coluna da tupla com índice inválido!</source>
         <translation>Reference to a column of tuple with invalid index!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="178"/>
+        <location filename="../libutil/src/excecao.cpp" line="179"/>
         <source>Referência à uma coluna da tupla com nome inválido!</source>
         <translation>Reference to a column of tuple with invalid name!</translation>
     </message>
     <message>
-        <location filename="../libutil/src/excecao.cpp" line="179"/>
+        <location filename="../libutil/src/excecao.cpp" line="180"/>
         <source>Referência à uma tupla com índice inválido ou o resultado está vazio (sem tuplas)!</source>
         <translation>Reference to a tuple with index invalid or the result is empty (no tuples)!</translation>
     </message>
@@ -4132,7 +4145,7 @@ Message returned by the DBMS: %1</translation>
         <translation>Executed Commands</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/regrawidget.ui" line="216"/>
+        <location filename="../pgmodeler_ui/ui/regrawidget.ui" line="219"/>
         <source>Comando SQL:</source>
         <translation>SQL Command:</translation>
     </message>
@@ -4270,27 +4283,27 @@ Message returned by the DBMS: %1</translation>
         <translation>Foreign key</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="599"/>
+        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="602"/>
         <source>Postergável:</source>
         <translation>Deferrable:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="652"/>
+        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="655"/>
         <source>Postergação:</source>
         <translation>Deferral:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="704"/>
+        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="707"/>
         <source>Atributos</source>
         <translation>Attributes</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="709"/>
+        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="712"/>
         <source>Restrições</source>
         <translation>Constraints</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="714"/>
+        <location filename="../pgmodeler_ui/ui/relacionamentowidget.ui" line="717"/>
         <source>Chave-primária</source>
         <translation>Primary key</translation>
     </message>
@@ -4374,18 +4387,18 @@ Message returned by the DBMS: %1</translation>
         <translation>Columns</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/restricaowidget.ui" line="389"/>
-        <location filename="../pgmodeler_ui/ui/restricaowidget.ui" line="447"/>
+        <location filename="../pgmodeler_ui/ui/restricaowidget.ui" line="392"/>
+        <location filename="../pgmodeler_ui/ui/restricaowidget.ui" line="453"/>
         <source>Coluna:</source>
         <translation>Column:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/restricaowidget.ui" line="413"/>
+        <location filename="../pgmodeler_ui/ui/restricaowidget.ui" line="416"/>
         <source>Colunas Referenciadas</source>
         <translation>Referenced Columns</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/restricaowidget.ui" line="428"/>
+        <location filename="../pgmodeler_ui/ui/restricaowidget.ui" line="434"/>
         <source>Tabela:</source>
         <translation>Table:</translation>
     </message>
@@ -4655,7 +4668,7 @@ Message returned by the DBMS: %1</translation>
         <translation>Indexing</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="233"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="219"/>
         <source>nova_tabela</source>
         <translation>new_table</translation>
     </message>
@@ -4673,55 +4686,55 @@ Message returned by the DBMS: %1</translation>
         <translation>Data Type</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="95"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="89"/>
         <source>Tipo:</source>
         <translation>Type:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="152"/>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="183"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="146"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="177"/>
         <source>Comprimento</source>
         <translation>Length</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="158"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="152"/>
         <source>(c):</source>
         <translation>(l):</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="225"/>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="256"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="219"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="250"/>
         <source>Precisão</source>
         <translation>Precision</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="231"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="225"/>
         <source>(p):</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="301"/>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="332"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="295"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="326"/>
         <source>Dimensão</source>
         <translation>Dimension</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="307"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="301"/>
         <source>[ ]:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="377"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="371"/>
         <source>Intervalo:</source>
         <translation>Interval:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="427"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="421"/>
         <source>Formato:</source>
         <translation>Format:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="493"/>
+        <location filename="../pgmodeler_ui/ui/tipopgsqlwidget.ui" line="487"/>
         <source>Timezone:</source>
         <translation></translation>
     </message>
@@ -4759,113 +4772,113 @@ Message returned by the DBMS: %1</translation>
         <translation>Enumerations</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="115"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="118"/>
         <source>Enumeração:</source>
         <translation>Enumeration:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="140"/>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="151"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="143"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="154"/>
         <source>Atributos</source>
         <translation>Attributes</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="160"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="166"/>
         <source>Comp. Interno:</source>
         <translation>Internal Length:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="183"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="189"/>
         <source>Armazenamento:</source>
         <translation>Storage:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="193"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="199"/>
         <source>Por Valor: </source>
         <translation>By Value:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="213"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="219"/>
         <source>Categoria:</source>
         <translation>Category:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="223"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="229"/>
         <source>Preferido:</source>
         <translation>Preferred:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="243"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="249"/>
         <source>Delimitador:</source>
         <translation>Delimiter:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="257"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="263"/>
         <source>Alinhamento:</source>
         <translation>Alignment:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="277"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="283"/>
         <source>char</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="282"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="288"/>
         <source>smallint</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="287"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="293"/>
         <source>integer</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="292"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="298"/>
         <source>double precision</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="300"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="306"/>
         <source>Valor Padrão:</source>
         <translation>Default Value:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="311"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="317"/>
         <source>Funções</source>
         <translation>Functions</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="320"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="329"/>
         <source>Função INPUT:</source>
         <translation>INPUT Function:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="327"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="336"/>
         <source>Função OUTPUT:</source>
         <translation>OUTPUT Function:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="334"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="343"/>
         <source>Função RECV:</source>
         <translation>RECV Function:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="341"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="350"/>
         <source>Função SEND:</source>
         <translation>SEND Function:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="348"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="357"/>
         <source>Função TPMOD_IN:</source>
         <translation>TPMOD_IN Function:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="355"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="364"/>
         <source>Função TPMOD_OUT:</source>
         <translation>TPMOD_OUT Function:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="362"/>
+        <location filename="../pgmodeler_ui/ui/tipowidget.ui" line="371"/>
         <source>Função ANALYZE:</source>
         <translation>ANALYZE Function:</translation>
     </message>
@@ -4988,102 +5001,102 @@ Message returned by the DBMS: %1</translation>
         <translation>References</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="39"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="42"/>
         <source>Tipo:</source>
         <translation>Type:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="47"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="50"/>
         <source>Coluna</source>
         <translation>Column</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="52"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="55"/>
         <source>Expressão</source>
         <translation>Expression</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="73"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="76"/>
         <source>Usado em:</source>
         <translation>Used in:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="82"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="85"/>
         <source>SELECT-FROM</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="89"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="92"/>
         <source>FROM-WHERE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="96"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="99"/>
         <source>Após WHERE</source>
         <translation>After WHERE</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="105"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="108"/>
         <source>Tabela:</source>
         <translation>Table:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="118"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="121"/>
         <source>Alias Tabela:</source>
         <translation>Table Alias:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="135"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="138"/>
         <source>Coluna:</source>
         <translation>Column:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="148"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="151"/>
         <source>Alias Coluna:</source>
         <translation>Column Alias:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="165"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="168"/>
         <source>Expressão:</source>
         <translation>Expression:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="206"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="209"/>
         <source>Alias Expressão:</source>
         <translation>Expression Alias:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="237"/>
+        <location filename="../pgmodeler_ui/ui/visaowidget.ui" line="240"/>
         <source>Previsão de Código</source>
         <translation>Code Preview</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="33"/>
+        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="34"/>
         <source>Col./Expr.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="34"/>
+        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="35"/>
         <source>Alias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="35"/>
+        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="36"/>
         <source>Alias Col.</source>
         <translation>Col. Alias</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="36"/>
+        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="37"/>
         <source>SF FW AW</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="39"/>
+        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="40"/>
         <source>Para se referenciar todas as colunas de uma tabela (*) basta não preencher                                     o campo &lt;strong&gt;Coluna&lt;/strong&gt;, isso é equivalente a se                                      escrever &lt;em&gt;&lt;strong&gt;[esquema].[tabela].*&lt;/strong&gt;&lt;/em&gt;</source>
         <translation>To reference all columns in a table (*) just do not fill the field &lt;strong&gt;Column&lt;/strong&gt;, this is the same as write &lt;em&gt;&lt;strong&gt;[schema].[tablel].*&lt;/strong&gt;&lt;/em&gt;</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="381"/>
+        <location filename="../pgmodeler_ui/src/visaowidget.cpp" line="373"/>
         <source>-- Impossível gerar código. Verifique se todos os atributos foram preenchidos corretamente! --</source>
         <translation>-- Could not generate the code. Make sure all attributes are correctly filled! --</translation>
     </message>

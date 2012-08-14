@@ -175,7 +175,7 @@ void FuncaoWidget::exibirFormParametro(void)
    param_aux=obterParametro(tabela, idx_lin);
 
   //Exibe o formulário de parâmetros
-  parametro_wgt->definirAtributos(param_aux,modelo);
+  parametro_wgt->definirAtributos(param_aux, modelo);
   parametro_wgt->show();
  }
 }

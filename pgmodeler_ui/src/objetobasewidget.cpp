@@ -733,8 +733,9 @@ void ObjetoBaseWidget::finalizarConfiguracao(void)
   //Atualiza o objeto gráfico
   if(obj_graf || obj_tab)
   {
-   //Caso o objeto editado seja um objeto de tabela, atualiza a tabela pai
-   if(!obj_graf && obj_tab)
+   /* Caso o objeto editado seja um objeto de tabela (exceto um parâmetro de função,
+   pois este herda a classe Coluna), atualiza a tabela pai */
+   if(!obj_graf && obj_tab && obj_tab->obterTipoObjeto()!=OBJETO_PARAMETRO)
    {
     if(this->tabela)
      obj_graf=dynamic_cast<ObjetoGraficoBase *>(this->tabela);
@@ -744,7 +745,7 @@ void ObjetoBaseWidget::finalizarConfiguracao(void)
     obj_graf->definirModificado(true);
    }
    //Caso não seja um objeto de tabela atualiza o próprio objeto
-   else
+   else if(obj_graf)
    {
     if(!isnan(px_objeto) && !isnan(py_objeto))
      obj_graf->definirPosicaoObjeto(QPointF(px_objeto, py_objeto));

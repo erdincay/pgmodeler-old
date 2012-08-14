@@ -15,9 +15,7 @@ MOC_DIR = moc
 OBJECTS_DIR = obj
 UI_DIR = src
 DESTDIR = ../build
-TRANSLATIONS = lang/pgmodeler.en_US.ts
 CODECFORTR = UTF-8
-
 RESOURCES += res/resources.qrc
 
 SOURCES += src/main.cpp \

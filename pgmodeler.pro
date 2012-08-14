@@ -1,4 +1,5 @@
-CONFIG += ordered debug
+CONFIG += ordered
+TRANSLATIONS = lang/pgmodeler.en_US.ts
 
 unix {
  GLOBAL_INCLUDES = .\

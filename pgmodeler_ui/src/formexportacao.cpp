@@ -66,7 +66,7 @@ void FormExportacao::hideEvent(QHideEvent *)
 void FormExportacao::exportarModelo(void)
 {
  int idx_esptab=-1, idx_papel=-1;
- QString  versao;
+ QString  versao, buf_sql, cmd_sql;
  ConexaoBD *conexao=NULL, conex_novo_bd;
  EspacoTabela *esp_tab=NULL;
  Papel *papel=NULL;
@@ -164,7 +164,47 @@ void FormExportacao::exportarModelo(void)
    //Cria os demais objetos no novo banco
    rot_prog_lbl->setText(trUtf8("Criando objetos No banco de dados '%1'...").arg(QString::fromUtf8(modelo->obterNome())));
    rot_prog_lbl->repaint();
-   conex_novo_bd.executarComandoDDL(modelo->obterDefinicaoObjeto(ParserEsquema::DEFINICAO_SQL, false));
+
+   //Gera o código SQL de todo o banco
+   buf_sql=modelo->obterDefinicaoObjeto(ParserEsquema::DEFINICAO_SQL, false);
+
+   /* Extrai cada comando SQL do buffeer e o executa separadamente, isso é feito
+      para que, em caso de erro, o usuário saiba exatamente a SQL que gerou a
+      exceção uma vez que a libpq não proporciona este nível de detalhes */
+   i=0;
+   qtd=buf_sql.size();
+
+   while(i < qtd)
+   {
+    try
+    {
+     //Extrai os caracteres até encontrar o final do buffer ou um ';'
+     while(i < qtd && buf_sql.at(i)!=';')
+     {
+      cmd_sql+=buf_sql.at(i);
+      i++;
+     }
+
+     //Executa um trimm no comando SQL extraído
+     cmd_sql=cmd_sql.trimmed();
+
+     //Caso o comando não esteja vazio
+     if(!cmd_sql.isEmpty())
+     {
+      i++;
+      //Concatena um ';' para finalizar o comando
+      cmd_sql+=';';
+      //Executa-o na conexão
+      conex_novo_bd.executarComandoDDL(cmd_sql);
+      cmd_sql.clear();
+     }
+    }
+    catch(Excecao &e)
+    {
+     throw Excecao(Excecao::obterMensagemErro(ERR_PGMODELERUI_FALHAEXPORTACAO).arg(cmd_sql),
+                   ERR_PGMODELERUI_FALHAEXPORTACAO,__PRETTY_FUNCTION__,__FILE__,__LINE__,&e);
+    }
+   }
   }
 
   //Finaliza o progresso da exportação

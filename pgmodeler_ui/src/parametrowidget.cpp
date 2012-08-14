@@ -62,7 +62,7 @@ void ParametroWidget::aplicarConfiguracao(void)
 {
  try
  {
-  iniciarConfiguracao<Parametro>();
+  //iniciarConfiguracao<Parametro>();
 
   //Configura o parâmetro com os valores do formulário
   parametro.definirEntrada(param_in_chk->isChecked());
