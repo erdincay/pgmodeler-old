@@ -10,6 +10,8 @@ QT = core gui qt3support
 TEMPLATE = app
 TARGET = pgmodeler
 
+TRANSLATIONS = ../lang/pgmodeler.en_US.ts
+
 DEPENDPATH = ". res src ui moc obj"
 MOC_DIR = moc
 OBJECTS_DIR = obj

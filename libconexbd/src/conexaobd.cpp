@@ -159,7 +159,6 @@ void ConexaoBD::executarComandoDML(const QString &sql, Resultado &resultado)
 {
  Resultado *novo_res=NULL;
  PGresult *res_sql=NULL;
- QString str_aux;
 
  //Dispara um erro caso o usuário tente reiniciar uma conexão não iniciada
  if(!conexao)
@@ -169,9 +168,10 @@ void ConexaoBD::executarComandoDML(const QString &sql, Resultado &resultado)
  res_sql=PQexec(conexao, sql.toStdString().c_str());
  if(strlen(PQerrorMessage(conexao))>0)
  {
-  str_aux=QString(Excecao::obterMensagemErro(ERR_CONEXBD_CMDSQLNAOEXECUTADO))
-          .arg(PQerrorMessage(conexao));
-  throw Excecao(str_aux,ERR_CONEXBD_CMDSQLNAOEXECUTADO, __PRETTY_FUNCTION__, __FILE__, __LINE__);
+  throw Excecao(QString(Excecao::obterMensagemErro(ERR_CONEXBD_CMDSQLNAOEXECUTADO))
+                .arg(PQerrorMessage(conexao)),
+                ERR_CONEXBD_CMDSQLNAOEXECUTADO, __PRETTY_FUNCTION__, __FILE__, __LINE__, NULL,
+                QString(PQresultErrorField(res_sql, PG_DIAG_SQLSTATE)));
  }
 
  novo_res=new Resultado(res_sql);
@@ -183,19 +183,20 @@ void ConexaoBD::executarComandoDML(const QString &sql, Resultado &resultado)
 //-----------------------------------------------------------
 void ConexaoBD::executarComandoDDL(const QString &sql)
 {
- QString str_aux;
+ PGresult *res_sql=NULL;
 
  //Dispara um erro caso o usuário tente reiniciar uma conexão não iniciada
  if(!conexao)
   throw Excecao(ERR_CONEXBD_OPRCONEXNAOALOC, __PRETTY_FUNCTION__, __FILE__, __LINE__);
 
- PQexec(conexao, sql.toStdString().c_str());
+ res_sql=PQexec(conexao, sql.toStdString().c_str());
 
  if(strlen(PQerrorMessage(conexao)) > 0)
  {
-  str_aux=QString(Excecao::obterMensagemErro(ERR_CONEXBD_CMDSQLNAOEXECUTADO))
-          .arg(PQerrorMessage(conexao));
-  throw Excecao(str_aux,ERR_CONEXBD_CMDSQLNAOEXECUTADO, __PRETTY_FUNCTION__, __FILE__, __LINE__);
+  throw Excecao(QString(Excecao::obterMensagemErro(ERR_CONEXBD_CMDSQLNAOEXECUTADO))
+                .arg(PQerrorMessage(conexao)),
+                ERR_CONEXBD_CMDSQLNAOEXECUTADO, __PRETTY_FUNCTION__, __FILE__, __LINE__, NULL,
+                QString(PQresultErrorField(res_sql, PG_DIAG_SQLSTATE)));
  }
 }
 //-----------------------------------------------------------
