@@ -43,4 +43,4 @@ $tb %if @{connlimit} %then [CONNECTION LIMIT ] @{connlimit} %end $br
 %if @{sysid} %then $br $tb [SYSID ] @{sysid} %end
 ; $br
 
-@{comment}
+%if @{comment} %then @{comment} %end

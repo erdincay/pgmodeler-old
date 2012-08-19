@@ -25,6 +25,12 @@ FormExportacao::FormExportacao(QWidget *parent, Qt::WindowFlags f) : QDialog(par
  //Preenche os comboboxes de versões
  pgsqlvers_cmb->addItems(QStringList(QList<QString>::fromVector(QVector<QString>::fromStdVector(versoes))));
  pgsqlvers1_cmb->addItems(QStringList(QList<QString>::fromVector(QVector<QString>::fromStdVector(versoes))));
+
+ /** ticket#2 **/
+ //Fix específico para Windows: força a aparência do frame para WinPanel
+ #ifdef Q_OS_WIN32
+  this->frame->setFrameShape(QFrame::WinPanel);
+ #endif
 }
 //-----------------------------------------------------------
 void FormExportacao::show(ModeloBD *modelo)

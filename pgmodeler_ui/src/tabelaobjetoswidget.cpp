@@ -15,11 +15,22 @@ TabelaObjetosWidget::TabelaObjetosWidget(unsigned conf_botoes, bool conf_excluso
  connect(atualizar_tb, SIGNAL(clicked(bool)), this, SLOT(atualizarLinha(void)));
  connect(remover_todas_tb, SIGNAL(clicked(bool)), this, SLOT(removerLinhas(void)));
  connect(tabela_tbw, SIGNAL(cellClicked(int,int)), this, SLOT(habilitarBotoes(void)));
+  connect(tabela_tbw, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(editarLinha(void)));
 
  this->conf_exclusoes=conf_exclusoes;
  definirConfiguracaoBotoes(conf_botoes);
 
  definirNumColunas(1);
+
+ adicionar_tb->setToolTip(adicionar_tb->toolTip() + QString(" (%1)").arg(adicionar_tb->shortcut().toString()));
+ remover_tb->setToolTip(remover_tb->toolTip() + QString(" (%1)").arg(remover_tb->shortcut().toString()));
+ remover_todas_tb->setToolTip(remover_todas_tb->toolTip() + QString(" (%1)").arg(remover_todas_tb->shortcut().toString()));
+ atualizar_tb->setToolTip(atualizar_tb->toolTip() + QString(" (%1)").arg(atualizar_tb->shortcut().toString()));
+ editar_tb->setToolTip(editar_tb->toolTip() + QString(" (%1)").arg(editar_tb->shortcut().toString()));
+ mover_ultimo_tb->setToolTip(mover_ultimo_tb->toolTip() + QString(" (%1)").arg(mover_ultimo_tb->shortcut().toString()));
+ mover_primeiro_tb->setToolTip(mover_primeiro_tb->toolTip() + QString(" (%1)").arg(mover_primeiro_tb->shortcut().toString()));
+ mover_cima_tb->setToolTip(mover_cima_tb->toolTip() + QString(" (%1)").arg(mover_cima_tb->shortcut().toString()));
+ mover_baixo_tb->setToolTip(mover_baixo_tb->toolTip() + QString(" (%1)").arg(mover_baixo_tb->shortcut().toString()));
 }
 //-----------------------------------------------------------
 void TabelaObjetosWidget::definirConfiguracaoBotoes(unsigned conf_botoes)

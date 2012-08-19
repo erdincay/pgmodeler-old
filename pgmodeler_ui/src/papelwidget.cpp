@@ -59,7 +59,7 @@ PapelWidget::PapelWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_PAPEL
   membros_twg->widget(i)->setLayout(grid);
  }
 
- janela_pai->setMinimumSize(500, 500);
+ janela_pai->setMinimumSize(500, 530);
 }
 //----------------------------------------------------------
 void PapelWidget::configurarSelecaoPapeis(void)
@@ -105,6 +105,16 @@ void PapelWidget::hideEvent(QHideEvent *evento)
 
  //Configura o tab widget de membros para exibir a primeira tabela
  membros_twg->setCurrentIndex(0);
+
+ sysid_sb->setValue(sysid_sb->minValue());
+ senha_edt->clear();
+ limconexao_sb->setValue(limconexao_sb->minValue());
+ superusr_chk->setChecked(false);
+ herdarperm_chk->setChecked(false);
+ criarbd_chk->setChecked(false);
+ permitirlogin_chk->setChecked(false);
+ criarusr_chk->setChecked(false);
+ senhacripto_chk->setChecked(false);
 
  //Executa o método que trata o evento de esconder da classe superior
  ObjetoBaseWidget::hideEvent(evento);

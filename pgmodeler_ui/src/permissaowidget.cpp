@@ -94,6 +94,7 @@ PermissaoWidget::PermissaoWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJE
 
   //O segundo checkbox é o que indica se o privilégio é com GRANT OPTION
   check=new QCheckBox;
+  check->setText("GRANT OPTION");
   privilegios_tbw->setCellWidget(i,1,check);
   //Conecta o sinal de clique no chebox ao método que mapeia a marcação de privilégio
   connect(check, SIGNAL(clicked(bool)), this, SLOT(marcarPrivilegio(void)));
