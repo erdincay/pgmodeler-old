@@ -142,5 +142,8 @@
         <file>imagens/barra_logo_base.png</file>
         <file>imagens/model2sql.png</file>
         <file>imagens/model2sgdb.png</file>
+        <file>imagens/twitter.png</file>
+        <file>imagens/sourceforge.png</file>
+        <file>imagens/facebook.png</file>
     </qresource>
 </RCC>

@@ -6,11 +6,11 @@
 # Data de Criação: 09/04/2008
 #
 #
-# Copyright (C) 2006-2012 - Raphael Araujo e Silva <rkhaotix@gmail.com>
+# Copyleft 2006-2012 - Raphael Araujo e Silva <rkhaotix@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
+# the Free Software Foundation; either version 2 of the License
 # Q Public License version 1.0 (QPL 1.0)
 #
 # This program is distributed in the hope that it will be useful,

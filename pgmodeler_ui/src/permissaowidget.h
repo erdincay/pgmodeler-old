@@ -5,12 +5,12 @@
 # Descrição: Definição da classe que implementa o formulário de
 #            edição dos atributos de permissões de objetos.
 #
-# Copyright (C) 2006-2012 - Raphael Araujo e Silva <rkhaotix@gmail.com>
+# Copyleft 2006-2012 - Raphael Araujo e Silva <rkhaotix@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# Q Public License version 1.0 (QPL 1.0).
+# the Free Software Foundation; either version 2 of the License
+
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -73,12 +73,12 @@ class PermissaoWidget: public ObjetoBaseWidget, public Ui::PermissaoWidget {
    # Descrição: Definição da classe que implementa a arvore e lista de objetos
    #            no modelo de banco de dados.
    #
-   # Copyright (C) 2006-2012 - Raphael Araujo e Silva <rkhaotix@gmail.com>
+   # Copyleft 2006-2012 - Raphael Araujo e Silva <rkhaotix@gmail.com>
    #
    # This program is free software; you can redistribute it and/or modify
    # it under the terms of the GNU General Public License as published by
-   # the Free Software Foundation; either version 2 of the License, or
-   # Q Public License version 1.0 (QPL 1.0).
+   # the Free Software Foundation; either version 2 of the License
+   
    #
    # This program is distributed in the hope that it will be useful,
    # but WITHOUT ANY WARRANTY; without even the implied warranty of

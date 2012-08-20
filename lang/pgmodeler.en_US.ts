@@ -268,22 +268,22 @@
         <translation>Version:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="70"/>
+        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="86"/>
         <source>PostgreSQL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="121"/>
+        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="137"/>
         <source>iconecodigo</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="137"/>
+        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="153"/>
         <source>SQL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="172"/>
+        <location filename="../pgmodeler_ui/ui/codigofontewidget.ui" line="188"/>
         <source>XML</source>
         <translation></translation>
     </message>
@@ -1381,17 +1381,17 @@
         <translation>&amp;Close</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="109"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="115"/>
         <source>Gerando código-fonte...</source>
         <translation>Generating source code...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="113"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="119"/>
         <source>Iniciando exportação do modelo...</source>
         <translation>Initializing model export...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="122"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="128"/>
         <source>Salvando arquivo &apos;%1&apos;</source>
         <translation>Saving file &apos;%1&apos;</translation>
     </message>
@@ -1404,42 +1404,42 @@
         <translation type="obsolete">Creating tablespace &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="153"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="159"/>
         <source>Criando objeto &apos;%1&apos; (%2)...</source>
         <translation>Creating object &apos;%1&apos; (%2)...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="178"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="184"/>
         <source>Criando banco de dados &apos;%1&apos;...</source>
         <translation>Creating database &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="202"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="208"/>
         <source>Conectando ao banco de dados &apos;%1&apos;...</source>
         <translation>Connecting to database &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="208"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="214"/>
         <source>Criando objetos No banco de dados &apos;%1&apos;...</source>
         <translation>Creating objects on database &apos;%1&apos;...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="264"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="270"/>
         <source>Exportação finalizada com sucesso!</source>
         <translation>Exporting process sucessfuly ended!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="318"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="324"/>
         <source>Falha na exportação!</source>
         <translation>Error on export!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="370"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="376"/>
         <source>Exportar modelo como...</source>
         <translation>Export model as...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="371"/>
+        <location filename="../pgmodeler_ui/src/formexportacao.cpp" line="377"/>
         <source>Código SQL (*.sql);;Todos os Arquivos (*.*)</source>
         <translation>SQL code (*.sql);;All files (*.*)</translation>
     </message>
@@ -1797,55 +1797,95 @@
         <translation>About pgModeler</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="231"/>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="259"/>
         <source>PostgreSQL Database Modeler</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="264"/>
-        <source>Versão</source>
-        <translation>Version</translation>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="356"/>
+        <source>http://sourceforge.net/projects/pgmodeler</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="295"/>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="402"/>
+        <source>http://twitter.com/pgmodeler</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="439"/>
+        <source>http://facebook.com/pgmodeler</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="475"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Tahoma&apos;; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://facebook.com/pgmodeler&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Facebook&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="512"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Tahoma&apos;; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://twitter.com/pgmodeler&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="549"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Tahoma&apos;; font-size:10.5pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://sourceforge.net/projects/pgmodeler&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;Sourceforge&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="615"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;Copyleft 2006-2012 - Raphael Araújo e Silva &amp;lt;&lt;/span&gt;&lt;a href=&quot;rkhaotix@gmail.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; text-decoration: underline; color:#0000ff;&quot;&gt;rkhaotix@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Tahoma&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;O projeto pgModeler consiste numa ferramenta CASE para modelagem de bancos de dados relacionais para o SGBD PostgreSQL pelo uso das técnicas de modelagem provenientes dos Diagramas de Entidade-Relacionamento.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Tahoma&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;Agradecimentos especiais aos amigos da equipe de desenvolvimento de software da Assembleia Legislativa, Tocantins, Brasil: &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Michel de Almeida&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Filipe Santana&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Jonas Nepomuceno&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Ricardo Ishibashi&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt; e &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Álvaro Nunes.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright (C) 2006-2012 - Raphael Araújo e Silva &amp;lt;&lt;a href=&quot;rkhaotix@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;rkhaotix@gmail.com&lt;/span&gt;&lt;/a&gt;&amp;gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The pgModeler project consists in a CASE tool for modeling relational databases to PostgreSQL DBMS through the use of modeling techniques from the Entity-Relationship Diagrams.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Special thanks to friends of the software development team on Legislative Assembly, Tocantins, Brazil: &lt;span style=&quot; font-weight:600;&quot;&gt;Michel de Almeida&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Filipe Santana&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Jonas Nepomuceno&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Ricardo Ishibashi&lt;/span&gt; e &lt;span style=&quot; font-weight:600;&quot;&gt;Álvaro Nunes.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="682"/>
+        <source>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License (GPL) as published by the Free Software Foundation; either version 2.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Versão</source>
+        <translation type="obsolete">Version</translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="327"/>
         <source>0.0.0.0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="331"/>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="293"/>
         <source>Desenhe, configure, implante</source>
         <translation>Design, configure, deploy</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="365"/>
-        <source>pgModeler @ Facebook:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="383"/>
-        <source>pgModeler @ Sourceforget.net:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="407"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Tahoma&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.facebook.com/pgmodeler&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;facebook.com/pgmodeler&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="435"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Tahoma&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://sourceforge.net/projects/pgmodeler&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;sourceforge.net/projects/pgmodeler&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="503"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -1855,7 +1895,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;O projeto pgModeler consiste numa ferramenta CASE para modelagem de bancos de dados relacionais para o SGBD PostgreSQL pelo uso das técnicas de modelagem provenientes dos Diagramas de Entidade-Relacionamento.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Agradecimentos especiais aos amigos da equipe de desenvolvimento de software da Assembleia Legislativa, Tocantins, Brasil: &lt;span style=&quot; font-weight:600;&quot;&gt;Michel de Almeida&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Filipe Santana&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Jonas Nepomuceno&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Ricardo Ishibashi&lt;/span&gt; e &lt;span style=&quot; font-weight:600;&quot;&gt;Álvaro Nunes.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Tahoma&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1866,16 +1906,14 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Special thanks to friends of the software development team on Legislative Assembly, Tocantins, Brazil: &lt;span style=&quot; font-weight:600;&quot;&gt;Michel de Almeida&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Filipe Santana&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Jonas Nepomuceno&lt;/span&gt;, &lt;span style=&quot; font-weight:600;&quot;&gt;Ricardo Ishibashi&lt;/span&gt; e &lt;span style=&quot; font-weight:600;&quot;&gt;Álvaro Nunes.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="566"/>
-        <source>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or Q Public License version 1.0 (QPL 1.0).
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.</source>
+        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="175"/>
+        <source>Ok</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/formsobre.ui" line="617"/>
-        <source>Ok</source>
-        <translation></translation>
+        <location filename="../pgmodeler_ui/src/formsobre.cpp" line="6"/>
+        <source>Versão %1</source>
+        <translation>Version %1</translation>
     </message>
 </context>
 <context>
@@ -4506,58 +4544,103 @@ Message returned by the DBMS: %1</translation>
         <translation>Add Item</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="73"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="60"/>
+        <source>Ins</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="76"/>
         <source>Remover Item</source>
         <translation>Remove Item</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="96"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="86"/>
+        <source>Del</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="102"/>
         <source>Atualizar Item</source>
         <translation>Update Item</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="119"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="112"/>
+        <source>Alt+R</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="128"/>
         <source>Excluir Todos</source>
         <translation>Remove All</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="142"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="138"/>
+        <source>Shift+Del</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="154"/>
         <source>Editar Item</source>
         <translation>Edit Item</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="165"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="164"/>
+        <source>Space</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="180"/>
         <source>Mover para cima</source>
         <translation>Move Up</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="188"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="190"/>
+        <source>Ctrl+Up</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="206"/>
         <source>Mover para baixo</source>
         <translation>Move Down</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="211"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="216"/>
+        <source>Ctrl+Down</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="232"/>
         <source>Mover para o início</source>
         <translation>Move to start</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="234"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="242"/>
+        <source>Ctrl+Home</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="258"/>
         <source>Mover para o fim</source>
         <translation>Move to end</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelaobjetoswidget.cpp" line="394"/>
-        <location filename="../pgmodeler_ui/src/tabelaobjetoswidget.cpp" line="425"/>
+        <location filename="../pgmodeler_ui/ui/tabelaobjetoswidget.ui" line="268"/>
+        <source>Ctrl+End, Ctrl+S</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/src/tabelaobjetoswidget.cpp" line="405"/>
+        <location filename="../pgmodeler_ui/src/tabelaobjetoswidget.cpp" line="436"/>
         <source>Confirmação</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelaobjetoswidget.cpp" line="394"/>
+        <location filename="../pgmodeler_ui/src/tabelaobjetoswidget.cpp" line="405"/>
         <source>Tem certeza de que deseja remover o item selecionado?</source>
         <translation>Do you really want to remove the selected item?</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelaobjetoswidget.cpp" line="425"/>
+        <location filename="../pgmodeler_ui/src/tabelaobjetoswidget.cpp" line="436"/>
         <source>Tem certeza de que deseja remover todos os itens?</source>
         <translation>Do you really want to remove the all items?</translation>
     </message>
