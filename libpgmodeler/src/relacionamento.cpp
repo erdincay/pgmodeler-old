@@ -1018,7 +1018,7 @@ void Relacionamento::conectarRelacionamento(void)
  }
 }
 //-----------------------------------------------------------
-void Relacionamento::configurarRelIdentificador(Tabela *tab_dest)
+void Relacionamento::configurarRelIdentificador(Tabela *tab_receptora)
 {
  Restricao *pk=NULL;
  unsigned i, qtd;
@@ -1034,7 +1034,7 @@ void Relacionamento::configurarRelIdentificador(Tabela *tab_dest)
      (entidade fraca) */
 
   //Obtém a chave primária da tabela de destino
-  pk=tab_dest->obterChavePrimaria();
+  pk=tab_receptora->obterChavePrimaria();
 
   //Caso não exista a chave primária na entidade fraca, a mesma será criada
   if(!pk)
@@ -1053,12 +1053,12 @@ void Relacionamento::configurarRelIdentificador(Tabela *tab_dest)
    nova_pk=true;
    i=1;
    aux[0]='\0';
-   nome=tab_dest->obterNome() + SEPARADOR_SUFIXO + "pk";
+   nome=tab_receptora->obterNome() + SEPARADOR_SUFIXO + "pk";
 
    /* Verifica se já não existe uma restrição na tabela a qual se adiciona
       as retrições cujo nome seja o mesmo configurado acima. Enquanto isso
       ocorrer, será concatenado um número */
-   while(tab_dest->obterRestricao(nome + aux))
+   while(tab_receptora->obterRestricao(nome + aux))
    {
     aux=QString("%1").arg(i);
     i++;
@@ -1076,7 +1076,7 @@ void Relacionamento::configurarRelIdentificador(Tabela *tab_dest)
 
   //Caso a tabela não tenha uma chave primária a mesma será atribuída à ela
   if(nova_pk)
-   tab_dest->adicionarRestricao(pk);
+   tab_receptora->adicionarRestricao(pk);
  }
  catch(Excecao &e)
  {
@@ -1084,7 +1084,7 @@ void Relacionamento::configurarRelIdentificador(Tabela *tab_dest)
  }
 }
 //-----------------------------------------------------------
-void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_orig, Tabela *tab_dest, TipoAcao acao_del, TipoAcao acao_upd)
+void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_referencia, Tabela *tab_receptora, TipoAcao acao_del, TipoAcao acao_upd)
 {
  Restricao *pk=NULL, *pk_aux=NULL, *fk=NULL;
  unsigned i, i1, qtd;
@@ -1103,7 +1103,7 @@ void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_orig, Tabela *tab_des
    fk->definirTipo(TipoRestricao::foreign_key);
    fk->definirIncPorLigacao(true);
    //Define a tabela de destino da chave estrangeira
-   fk->definirTabReferenciada(tab_orig);
+   fk->definirTabReferenciada(tab_referencia);
 
    /* Caso o relacionamento seja 1-1 ou 1-n a chave estrangeira alocada
       será atribuída à chave estrangeira que representa o relacionamento */
@@ -1119,7 +1119,7 @@ void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_orig, Tabela *tab_des
 
   /* Obtém a chave primária da tabela de origem para ser referenciada
      pela chave estrangeira */
-  pk=tab_orig->obterChavePrimaria();
+  pk=tab_referencia->obterChavePrimaria();
 
   /* Relacionas as colunas da tabela de origem com as colunas da chave
      primária da tabela de destino, na chave estrangeira do relacionamento */
@@ -1148,11 +1148,11 @@ void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_orig, Tabela *tab_des
   if(tipo_relac==RELACIONAMENTO_NN)
   {
    //Caso 1: decrementando a quantidade de colunas a serem varridas
-   if((!autoRelacionamento() && tab_orig==tabela_orig) ||
+   if((!autoRelacionamento() && tab_referencia==tabela_orig) ||
       (autoRelacionamento() && tabela_relnn->obterNumRestricoes()==0))
     qtd-=dynamic_cast<Tabela *>(tabela_dest)->obterChavePrimaria()->obterNumColunas(Restricao::COLUNA_ORIGEM);
    //Caso 2: deslocando o índice de varredura
-   else if(tab_orig==tabela_dest)
+   else if(tab_referencia==tabela_dest)
    {
     pk_aux=dynamic_cast<Tabela *>(tabela_orig)->obterChavePrimaria();
     i=pk_aux->obterNumColunas(Restricao::COLUNA_ORIGEM);
@@ -1174,13 +1174,13 @@ void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_orig, Tabela *tab_des
   //Configura o nome da chave estrangeira
   i=1;
   aux[0]='\0';
-  nome=tab_orig->obterNome() + SEPARADOR_SUFIXO + "fk";
+  nome=tab_referencia->obterNome() + SEPARADOR_SUFIXO + "fk";
 
   /* Verifica a existencia de alguma restrição com mesmo nome
      na tabela a qual receberá a chave estrangeira. Enquanto existir
      um novo nome será gerado concatenando um número inteiro para
      pode diferenciar dos demais */
-  while(tab_dest->obterRestricao(nome + aux))
+  while(tab_receptora->obterRestricao(nome + aux))
   {
    aux=QString("%1").arg(i);
    i++;
@@ -1191,7 +1191,7 @@ void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_orig, Tabela *tab_des
 
   /* Após configurada a chave estrangeira que define o
      relacionamento é adicionado na tabela */
-  tab_dest->adicionarRestricao(fk);
+  tab_receptora->adicionarRestricao(fk);
  }
  catch(Excecao &e)
  {
@@ -1199,7 +1199,7 @@ void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_orig, Tabela *tab_des
  }
 }
 //-----------------------------------------------------------
-void Relacionamento::adicionarAtributos(Tabela *tab_dest)
+void Relacionamento::adicionarAtributos(Tabela *tab_receptora)
 {
  unsigned i, qtd, i1;
  Coluna *coluna=NULL;
@@ -1226,7 +1226,7 @@ void Relacionamento::adicionarAtributos(Tabela *tab_dest)
       existir, incrementa e concatena um número (i1) ao final do nome,
       até que este nome não exista nas colunas da tabela onde será
       inserido o atributo */
-   while(tab_dest->obterColuna(nome + aux))
+   while(tab_receptora->obterColuna(nome + aux))
    {
     aux=QString("%1").arg(i1);
     i1++;
@@ -1236,7 +1236,7 @@ void Relacionamento::adicionarAtributos(Tabela *tab_dest)
    aux[0]='\0';
 
    //Adiciona o atributo na tabela
-   tab_dest->adicionarColuna(coluna);
+   tab_receptora->adicionarColuna(coluna);
   }
  }
  catch(Excecao &e)
@@ -1245,7 +1245,7 @@ void Relacionamento::adicionarAtributos(Tabela *tab_dest)
  }
 }
 //-----------------------------------------------------------
-void Relacionamento::copiarColunas(Tabela *tab_orig, Tabela *tab_dest, bool nao_nulo)
+void Relacionamento::copiarColunas(Tabela *tab_referencia, Tabela *tab_receptora, bool nao_nulo)
 {
  Restricao *pk_dest=NULL, *pk_orig=NULL, *pk=NULL;
  unsigned i, qtd, i1;
@@ -1255,15 +1255,15 @@ void Relacionamento::copiarColunas(Tabela *tab_orig, Tabela *tab_dest, bool nao_
  try
  {
   //Obtém as chaves primárias das tabelas de origem e destino
-  pk_dest=tab_dest->obterChavePrimaria();
-  pk=pk_orig=tab_orig->obterChavePrimaria();
+  pk_dest=tab_receptora->obterChavePrimaria();
+  pk=pk_orig=tab_referencia->obterChavePrimaria();
 
    /* Selecionando a lista de colunas correta de acordo com a forma do relacionamento.
      Caso a tabela a qual receberá a chave estrangeira (tab_dest) for uma
      referência à tabela de origem do relacionamento, o sufixo das colunas a serem criadas
      será configurado como sendo o sufixo da tabela de origem. Caso contrário  o
       será o da própria tabela de destino. */
-  if(tab_dest==tabela_orig && !sufixo_dest.isEmpty())
+  if(tab_receptora==tabela_orig && !sufixo_dest.isEmpty())
    sufixo=SEPARADOR_SUFIXO + sufixo_dest;
   else if(!sufixo_orig.isEmpty())
    sufixo=SEPARADOR_SUFIXO + sufixo_orig;
@@ -1275,8 +1275,8 @@ void Relacionamento::copiarColunas(Tabela *tab_orig, Tabela *tab_dest, bool nao_
      (!pk_orig && !pk_dest && tipo_relac==RELACIONAMENTO_NN))
    throw Excecao(Excecao::obterMensagemErro(ERR_PGMODELER_RELTABSEMPK)
                           .arg(this->nome)
-                          .arg(tab_orig->obterNome(true))
-                          .arg(tab_dest->obterNome(true)),
+                          .arg(tab_referencia->obterNome(true))
+                          .arg(tab_receptora->obterNome(true)),
                  ERR_PGMODELER_RELTABSEMPK,__PRETTY_FUNCTION__,__FILE__,__LINE__);
 
 
@@ -1330,7 +1330,7 @@ void Relacionamento::copiarColunas(Tabela *tab_orig, Tabela *tab_dest, bool nao_
       ao final de seu nome. Enquanto esta condição for verdadeira
       este número (i1) será incrementado até que não exista uma coluna
       com tal nome (nome original + sufixo + número) */
-   while(tab_dest->obterColuna(nome + aux))
+   while(tab_receptora->obterColuna(nome + aux))
    {
     aux=QString("%1").arg(i1);
     i1++;
@@ -1363,7 +1363,7 @@ void Relacionamento::copiarColunas(Tabela *tab_orig, Tabela *tab_dest, bool nao_
 
    /* Adiciona a coluna na tabela a qual foi definida para receber os
       atributos, colunas e restições */
-   tab_dest->adicionarColuna(coluna);
+   tab_receptora->adicionarColuna(coluna);
   }
  }
  catch(Excecao &e)
@@ -1374,7 +1374,7 @@ void Relacionamento::copiarColunas(Tabela *tab_orig, Tabela *tab_dest, bool nao_
 //-----------------------------------------------------------
 void Relacionamento::adicionarColunasRel11(void)
 {
- Tabela *tab_orig=NULL, *tab_dest=NULL;
+ Tabela *tab_ref=NULL, *tab_recep=NULL;
 
  try
  {
@@ -1387,43 +1387,46 @@ void Relacionamento::adicionarColunasRel11(void)
 
   /* Caso 1: (0,1) ---<>--- (0,1)
      Caso 2: (1,1) ---<>--- (0,1) */
-  if((!obrig_orig && !obrig_dest) ||
+  /*if((!obrig_orig && !obrig_dest) ||
      (obrig_orig && !obrig_dest))
   {
-   tab_orig=dynamic_cast<Tabela *>(tabela_orig);
-   tab_dest=dynamic_cast<Tabela *>(tabela_dest);
-  }
+   tab_ref=dynamic_cast<Tabela *>(tabela_orig);
+   tab_recep=dynamic_cast<Tabela *>(tabela_dest);
+  }*/
   /* Caso 3: (0,1) ---<>--- (1,1)
              Adição de colunas na tabela cuja cardinalidade mínima é 0
              (opcionalidade de participação no relacionamento) */
-  else if(!obrig_orig && obrig_dest)
+  /*else if(!obrig_orig && obrig_dest)
   {
-   tab_orig=dynamic_cast<Tabela *>(tabela_dest);
-   tab_dest=dynamic_cast<Tabela *>(tabela_orig);
-  }
+   tab_ref=dynamic_cast<Tabela *>(tabela_dest);
+   tab_recep=dynamic_cast<Tabela *>(tabela_orig);
+  }*/
   //### Caso 4: (1,1) ---<>--- (1,1) (não implementado por quebrar a modelagem) ###
+
+  tab_ref=dynamic_cast<Tabela *>(this->obterTabelaReferencia());
+  tab_recep=dynamic_cast<Tabela *>(this->obterTabelaReceptora());
 
   if(autoRelacionamento())
   {
-   adicionarAtributos(tab_dest);
-   adicionarRestricoes(tab_dest);
-   copiarColunas(tab_orig, tab_dest, false);
-   adicionarChaveEstrangeira(tab_orig, tab_dest, TipoAcao::set_null, TipoAcao::cascade);
+   adicionarAtributos(tab_recep);
+   adicionarRestricoes(tab_recep);
+   copiarColunas(tab_ref, tab_recep, false);
+   adicionarChaveEstrangeira(tab_ref, tab_recep, TipoAcao::set_null, TipoAcao::cascade);
   }
   else
   {
-   copiarColunas(tab_orig, tab_dest, false);
+   copiarColunas(tab_ref, tab_recep, false);
 
    if(identificador)
-    configurarRelIdentificador(tab_dest);
+    configurarRelIdentificador(tab_recep);
 
-   adicionarAtributos(tab_dest);
-   adicionarRestricoes(tab_dest);
+   adicionarAtributos(tab_recep);
+   adicionarRestricoes(tab_recep);
 
    if(identificador)
-    adicionarChaveEstrangeira(tab_orig, tab_dest, TipoAcao::cascade, TipoAcao::cascade);
+    adicionarChaveEstrangeira(tab_ref, tab_recep, TipoAcao::cascade, TipoAcao::cascade);
    else
-    adicionarChaveEstrangeira(tab_orig, tab_dest, TipoAcao::set_null,  TipoAcao::cascade);
+    adicionarChaveEstrangeira(tab_ref, tab_recep, TipoAcao::set_null,  TipoAcao::cascade);
   }
 
  }
@@ -1435,7 +1438,7 @@ void Relacionamento::adicionarColunasRel11(void)
 //-----------------------------------------------------------
 void Relacionamento::adicionarColunasRel1n(void)
 {
- Tabela *tab_orig=NULL, *tab_dest=NULL;
+ Tabela *tab_ref=NULL, *tab_recep=NULL;
  bool nao_nulo=false;
  TipoAcao acao_del=TipoAcao::set_null, acao_upd=TipoAcao::cascade;
 
@@ -1443,9 +1446,9 @@ void Relacionamento::adicionarColunasRel1n(void)
  {
   /* Para relacionamentos 1-n a ordem das tabelas não se alteram, ou seja,
      as colunas da chave estrangeira são sempre adicionadas na tabela
-     de destino */
-  tab_orig=dynamic_cast<Tabela *>(tabela_orig);
-  tab_dest=dynamic_cast<Tabela *>(tabela_dest);
+     de origem */
+  tab_recep=dynamic_cast<Tabela *>(this->obterTabelaReceptora());
+  tab_ref=dynamic_cast<Tabela *>(this->obterTabelaReferencia());
 
   /* Caso o relacionamento não seja identificador e a participação da tabela
      de referência (origem) seja obrigatória (1,1)--<>--(0|1,n) as colunas da chave estrangeiras
@@ -1469,22 +1472,22 @@ void Relacionamento::adicionarColunasRel1n(void)
 
   if(autoRelacionamento())
   {
-   adicionarAtributos(tab_dest);
-   adicionarRestricoes(tab_dest);
-   copiarColunas(tab_orig, tab_dest, nao_nulo);
-   adicionarChaveEstrangeira(tab_orig, tab_dest, acao_del, acao_upd);
+   adicionarAtributos(tab_recep);
+   adicionarRestricoes(tab_recep);
+   copiarColunas(tab_ref, tab_recep, nao_nulo);
+   adicionarChaveEstrangeira(tab_ref, tab_recep, acao_del, acao_upd);
   }
   else
   {
-   copiarColunas(tab_orig, tab_dest, nao_nulo);
+   copiarColunas(tab_ref, tab_recep, nao_nulo);
 
    if(identificador)
-    configurarRelIdentificador(tab_dest);
+    configurarRelIdentificador(tab_recep);
 
-   adicionarAtributos(tab_dest);
-   adicionarRestricoes(tab_dest);
+   adicionarAtributos(tab_recep);
+   adicionarRestricoes(tab_recep);
 
-   adicionarChaveEstrangeira(tab_orig, tab_dest, acao_del, acao_upd);
+   adicionarChaveEstrangeira(tab_ref, tab_recep, acao_del, acao_upd);
   }
  }
  catch(Excecao &e)
@@ -1602,6 +1605,7 @@ Tabela *Relacionamento::obterTabelaReceptora(void)
     na tabela de destino */
  else if(tipo_relac==RELACIONAMENTO_1N)
   return(dynamic_cast<Tabela *>(tabela_dest));
+  //return(dynamic_cast<Tabela *>(tabela_orig));
  /* Para relacionamentos gen ou dep as colunas são sempre adicionadas
     na tabela de origem do relacionamento */
  else if(tipo_relac==RELACIONAMENTO_GEN ||
@@ -1751,7 +1755,7 @@ void Relacionamento::desconectarRelacionamento(bool rem_objs_tab)
        relacionamento da tabela, além disso colunas
        adicionadas à chave primária (no caso de um
        relacionamento identificador) precisam ser removidas */
-    if(tipo_relac==RELACIONAMENTO_11 || tipo_relac==RELACIONAMENTO_1N)
+    if(fk_rel1n && (tipo_relac==RELACIONAMENTO_11 || tipo_relac==RELACIONAMENTO_1N))
     {
      /* Obtém a tabela a qual possui a chave estrangeira que representa o
         relacionamento (tabela esta onde foi inserida a chave estrangeira
@@ -2253,5 +2257,6 @@ void Relacionamento::operator = (Relacionamento &rel)
  this->nome_tab_relnn=rel.nome_tab_relnn;
  this->tabela_relnn=NULL;
  this->fk_rel1n=pk_relident=pk_especial=NULL;
+ this->colunas_ref.clear();
 }
 //***********************************************************

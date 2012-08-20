@@ -802,11 +802,16 @@ void ObjetoBaseWidget::cancelarConfiguracao(void)
  if(lista_op && tipo_obj!=OBJETO_BANCO_DADOS &&
                 tipo_obj!=OBJETO_PERMISSAO)
  {
+  try
+  {
   /* Caso o objeto não seja novo, restaura seu estado anterior
      desfazendo a operação de modificação do mesmo na lista
      de operações */
   if(!novo_obj)
    lista_op->desfazerOperacao();
+  }
+  catch(Excecao &e)
+  {}
 
   //Remove a ultima operação adicionada referente ao objeto editado/criado
    lista_op->removerUltimaOperacao();

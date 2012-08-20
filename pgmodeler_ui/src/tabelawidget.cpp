@@ -23,6 +23,8 @@ TabelaWidget::TabelaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_TAB
 
  Ui_TabelaWidget::setupUi(this);
 
+ qtd_operacoes=0;
+
  //Configura as tabelas que armazenam os objetos da tabela
  for(unsigned i=0; i < 5; i++)
  {

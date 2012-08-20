@@ -798,6 +798,12 @@ void ListaOperacoes::executarOperacao(Operacao *oper, bool refazer)
    if(oper->tipo_op==Operacao::OBJETO_MODIFICADO ||
       oper->tipo_op==Operacao::OBJETO_MOVIMENTADO)
    {
+    /* Antes de qualquer restauração em um relacionamento é preciso desconectar
+       todos do modelo, aplicar a restauração e em seguida revalidar todos os
+       relacionamentos */
+    if(tipo==OBJETO_RELACAO)
+     modelo->desconectarRelacionamentos();
+
     //Obtém a objeto atual da tabela/relacionamento pai no índice especificado
     if(tabela_pai)
      obj_orig=dynamic_cast<ObjetoTabela *>(tabela_pai->obterObjeto(oper->idx_obj, tipo));
@@ -891,7 +897,6 @@ void ListaOperacoes::executarOperacao(Operacao *oper, bool refazer)
      modelo->validarRelacionamentos();
    }
   }
-
 }
 //-----------------------------------------------------------
 void ListaOperacoes::removerUltimaOperacao(void)

@@ -235,24 +235,24 @@ class Relacionamento: public RelacionamentoBase {
 
   /* Cria a chave estrangeira que representa o relacionamento e a adicionar à 
      tabela de destino do relacionamento */
-  void adicionarChaveEstrangeira(Tabela *tab_orig, Tabela *tab_dest, TipoAcao acao_del, TipoAcao acao_upd);
+  void adicionarChaveEstrangeira(Tabela *tab_referencia, Tabela *tab_receptora, TipoAcao acao_del, TipoAcao acao_upd);
 
   //Adiciona os atributos do relacionamento na tabela
-  void adicionarAtributos(Tabela *tab_dest);
+  void adicionarAtributos(Tabela *tab_receptora);
 
   /* Adiciona as restrições do relacionamento em uma das tabelas que compõe o
      relacionamento. Caso o relacionamento seja do tipo n-n, restrições serão
      adicionadas na tabela resultante do relacionamento. Caso dentre as restrições
      exista uma chave primária, então a mesma será fundida com a chave primária de
      uma das tabelas envolvidas no relacionamento */
-  void adicionarRestricoes(Tabela *tab_dest);
+  void adicionarRestricoes(Tabela *tab_receptora);
 
   //Executa configurações adicionais quando o relacionamento é identificador
-  void configurarRelIdentificador(Tabela *tab_dest);
+  void configurarRelIdentificador(Tabela *tab_receptora);
 
   /* Copia as colunas de uma tabela para outra. Este método é usado pelos métodos
      de adição de colunas para os relacionamentos 1-1, 1-n e n-n */
-  void copiarColunas(Tabela *tab_orig, Tabela *tab_dest, bool nao_nulo);
+  void copiarColunas(Tabela *tab_referencia, Tabela *tab_receptora, bool nao_nulo);
 
   /* Este método é executado sempre antes da desconexão do relacionamento.
      A função dele é remover da tabela receptora todos os atributos os quais

@@ -40,7 +40,7 @@
  Essa declaração não afeta o comportamento das demais classes que de algum
  modo referenciam a classe TipoPgSQL.*/
 #include <QMetaType>
-Q_DECLARE_METATYPE(TipoPgSQL);
+Q_DECLARE_METATYPE(TipoPgSQL)
 //***********************************************************
 class ObjetoBaseWidget: public QDialog, public Ui::ObjetoBaseWidget {
  Q_OBJECT

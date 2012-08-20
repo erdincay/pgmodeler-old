@@ -428,6 +428,22 @@ void OGRelacionamento::configurarLinha(void)
   //Caso não seja um autorelacionamento
   else
   {
+   Relacionamento *rel=dynamic_cast<Relacionamento *>(rel_base);
+
+   /* Caso especial: Relacionamento 1-1 identificadores.
+
+      Para este tipo de relacionamento, em especial, é necessário reatribuir
+      as tabelas nos índices corretamente para que a linha que designar relacionamento
+      identificador seja desenhado no lado correto da entidade fraca (tabela receptora)
+   */
+   if(rel &&
+      rel->obterTipoRelacionamento()==Relacionamento::RELACIONAMENTO_11 &&
+      rel->relacionamentoIdentificador())
+   {
+    tabelas[0]=dynamic_cast<OGTabelaBase *>(rel->obterTabelaReferencia()->obterObjetoReceptor());
+    tabelas[1]=dynamic_cast<OGTabelaBase *>(rel->obterTabelaReceptora()->obterObjetoReceptor());
+   }
+
    /* Cria linhas horizontais e verticais denotando as bordas das tabela.
       É com base nestas bordas que serão calculados os pontos de interseção
       da linha do relacionamento com a borda da tabela. Este ponto de interseção

@@ -368,7 +368,8 @@ vector<QPointF> RelacionamentoBase::obterPontos(void)
 void RelacionamentoBase::operator = (RelacionamentoBase &rel)
 {
  (*dynamic_cast<ObjetoGraficoBase *>(this))=dynamic_cast<ObjetoGraficoBase &>(rel);
- this->conectado=rel.conectado;
+ //this->conectado=rel.conectado;
+ this->conectado=false;
  this->tabela_orig=rel.tabela_orig;
  this->tabela_dest=rel.tabela_dest;
  this->tipo_relac=rel.tipo_relac;
@@ -389,6 +390,12 @@ void RelacionamentoBase::operator = (RelacionamentoBase &rel)
   }
   this->dist_rotulos[i]=rel.dist_rotulos[i];
  }
+
+
+ /* Define ambas as tabelas como não obrigatórias temporariamente a fim de evitar
+    um disparo de erro prematuro, vide definirTabelaObrigatoria() */
+ this->definirTabelaObrigatoria(TABELA_ORIGEM, false);
+ this->definirTabelaObrigatoria(TABELA_DESTINO, false);
 
  this->definirTabelaObrigatoria(TABELA_ORIGEM, rel.obrig_orig);
  this->definirTabelaObrigatoria(TABELA_DESTINO, rel.obrig_dest);

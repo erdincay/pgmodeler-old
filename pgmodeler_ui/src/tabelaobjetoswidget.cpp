@@ -15,7 +15,7 @@ TabelaObjetosWidget::TabelaObjetosWidget(unsigned conf_botoes, bool conf_excluso
  connect(atualizar_tb, SIGNAL(clicked(bool)), this, SLOT(atualizarLinha(void)));
  connect(remover_todas_tb, SIGNAL(clicked(bool)), this, SLOT(removerLinhas(void)));
  connect(tabela_tbw, SIGNAL(cellClicked(int,int)), this, SLOT(habilitarBotoes(void)));
-  connect(tabela_tbw, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(editarLinha(void)));
+ connect(tabela_tbw, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(editarLinha(void)));
 
  this->conf_exclusoes=conf_exclusoes;
  definirConfiguracaoBotoes(conf_botoes);

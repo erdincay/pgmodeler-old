@@ -18,6 +18,7 @@ RelacionamentoWidget::RelacionamentoWidget(QWidget *parent): ObjetoBaseWidget(pa
   Ui_RelacionamentoWidget::setupUi(this);
   //Alocando e configurando os destcadores de nomes das tabelas
   dest_tab_orig=NULL;
+  qtd_operacoes=0;
   dest_tab_orig=new DestaqueSintaxe(tabela_orig_txt, false);
   dest_tab_orig->carregarConfiguracao(AtributosGlobais::DIR_CONFIGURACOES +
                                      AtributosGlobais::SEP_DIRETORIO +
@@ -82,7 +83,7 @@ RelacionamentoWidget::RelacionamentoWidget(QWidget *parent): ObjetoBaseWidget(pa
   frame->setParent(atributosrel_tbw->widget(3));
 
   configurarLayouFormulario(relacionamento_grid, OBJETO_RELACAO);
-  janela_pai->setMinimumSize(600, 480);
+  janela_pai->setMinimumSize(600, 520);
 
   //Configurando o combo de tipo de postergação com os tipos disponíveis
   TipoPostergacao::obterTipos(lista);
@@ -616,6 +617,11 @@ void RelacionamentoWidget::aplicarConfiguracao(void)
   unsigned tipo_rel, qtd, i;
   vector<unsigned> id_cols;
 
+  /* Devido a complexidade da classe Relacionamento e a forte ligação entre todos os
+     relacinamentos do modelo, é necessário desconectar TODOS, executar a modificação no
+     relacionamento e logo após revalidar todos os relacionamentos */
+  modelo->desconectarRelacionamentos();
+
   if(!this->novo_obj)
   {
    //Adiciona o relacionamento à lista de operações antes de ser modificado
@@ -631,12 +637,16 @@ void RelacionamentoWidget::aplicarConfiguracao(void)
    //Obtém a referência ao mesmo fazendo o cast correto
    relacao=dynamic_cast<Relacionamento *>(this->objeto);
    tipo_rel=relacao->obterTipoRelacionamento();
+   relacao->blockSignals(true);
 
    /* Atribui os valores configurados no formulário ao relacionamento.
       Alguns campos são atribuído ao objeto somente para um tipo específico
       de relacionamento */
    relacao->definirSufixoTabela(RelacionamentoBase::TABELA_ORIGEM, sufixo_orig_edt->text());
    relacao->definirSufixoTabela(RelacionamentoBase::TABELA_DESTINO, sufixo_dest_edt->text());
+
+   relacao->definirTabelaObrigatoria(RelacionamentoBase::TABELA_ORIGEM, false);
+   relacao->definirTabelaObrigatoria(RelacionamentoBase::TABELA_DESTINO, false);
 
    relacao->definirTabelaObrigatoria(RelacionamentoBase::TABELA_ORIGEM, tab_orig_obrig_chk->isChecked());
    relacao->definirTabelaObrigatoria(RelacionamentoBase::TABELA_DESTINO, tab_dest_obrig_chk->isChecked());
@@ -680,7 +690,7 @@ void RelacionamentoWidget::aplicarConfiguracao(void)
     /* Faz a validação dos relacionamentos para refletir a nova configuração
        do relacionamento */
     modelo->validarRelacionamentos();
-
+    relacao->blockSignals(false);
     relacao->definirModificado(true);
    }
    catch(Excecao &e)
@@ -711,6 +721,11 @@ void RelacionamentoWidget::aplicarConfiguracao(void)
   lista_op->anularEncadeamentoOperacoes(true);
   this->cancelarConfiguracao();
   lista_op->anularEncadeamentoOperacoes(false);
+
+  /* Faz a validação dos relacionamentos para refletir a nova configuração
+     do relacionamento */
+  modelo->validarRelacionamentos();
+
   throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__, &e);
  }
 }
