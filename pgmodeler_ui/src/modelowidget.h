@@ -40,6 +40,8 @@ class ModeloWidget: public QWidget {
   //Fator de zoom atual da cena de objetos
   float zoom_atual;
 
+  bool modificado;
+
  protected:
   //Constantes usadas nas operações de zoom
   static const float ZOOM_MINIMO=0.35f,
@@ -133,6 +135,9 @@ class ModeloWidget: public QWidget {
 
   //Retorna o zoom atual em que se encontra o modelo
   float zoomAtual(void);
+
+  //Retorna se o modelo foi modificado ou não
+  bool modeloModificado(void);
 
  private slots:
   /* Os slots manipular*() gerenciam os sinais enviados pela cena e modelo para execução

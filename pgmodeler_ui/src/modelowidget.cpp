@@ -82,6 +82,7 @@ ModeloWidget::ModeloWidget(QWidget *parent) : QWidget(parent)
                         RelacionamentoBase::RELACIONAMENTO_GEN };
 
  zoom_atual=1;
+ modificado=true;
  tipo_novo_obj=OBJETO_BASE;
 
  modelo_protegido_frm=new QFrame(this);
@@ -367,6 +368,8 @@ void ModeloWidget::manipularAdicaoObjeto(ObjetoBase *objeto)
   //Após a criação do objeto o mesmo é inserido na cena
   cena->addItem(item);
  }
+
+ this->modificado=true;
 }
 //----------------------------------------------------------
 void ModeloWidget::adicionarNovoObjeto(void)
@@ -417,6 +420,8 @@ void ModeloWidget::manipularRemocaoObjeto(ObjetoBase *objeto)
  if(obj_graf)
   //Remove o objeto obtendo a referência ao objeto receptor (representação gráfico do mesmo na cena)
   cena->removeItem(dynamic_cast<QGraphicsItem *>(obj_graf->obterObjetoReceptor()));
+
+ this->modificado=true;
 }
 //----------------------------------------------------------
 void ModeloWidget::manipularDuploCliqueObjeto(ObjetoGraficoBase *objeto)
@@ -456,6 +461,7 @@ void ModeloWidget::manipularMovimentoObjetos(bool fim_movimento)
  {
   //Caso seja o final do movimento finaliza o encadeamento de operações
   lista_op->finalizarEncadeamentoOperacoes();
+  this->modificado=true;
   //Emite um sinal indicando que objetos foram movimentados
   emit s_objetosMovimentados();
  }
@@ -465,6 +471,7 @@ void ModeloWidget::manipularModificacaoObjeto(ObjetoGraficoBase *objeto)
 {
  //Adciona o objeto modificado à lista de operações
  lista_op->adicionarObjeto(objeto, Operacao::OBJETO_MODIFICADO);
+ this->modificado=true;
  //Emite um sinal indicando que um objeto foi modificado
  emit s_objetoModificado();
 }
@@ -742,6 +749,7 @@ void ModeloWidget::carregarModelo(const QString &nome_arq)
   disconnect(modelo, NULL, prog_tarefa, NULL);
 
   modelo_protegido_frm->setVisible(modelo->objetoProtegido());
+  this->modificado=false;
  }
  catch(Excecao &e)
  {
@@ -978,6 +986,7 @@ void ModeloWidget::salvarModelo(const QString &nome_arq)
   //Fecha o widget de progresso de tarefa
   prog_tarefa->close();
   disconnect(modelo, NULL, prog_tarefa, NULL);
+  this->modificado=false;
  }
  catch(Excecao &e)
  {
@@ -2263,5 +2272,10 @@ void ModeloWidget::configurarMenuPopup(vector<ObjetoBase *> objs_sel)
   acoes.back()->setEnabled(true);
   acoes.pop_back();
  }
+}
+//----------------------------------------------------------
+bool ModeloWidget::modeloModificado(void)
+{
+ return(modificado);
 }
 //**********************************************************

@@ -1743,48 +1743,58 @@
         <translation>Save All</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="734"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="348"/>
+        <source>Salvar modelos</source>
+        <translation>Save all models</translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="349"/>
+        <source>Alguns modelos foram modificados! Deseja salvar todos antes de encerrar o pgModeler?</source>
+        <translation>Some models were modified! Do you want to save them before finish the pgModeler?</translation>
+    </message>
+    <message>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="755"/>
         <source>Salvar &apos;%1&apos; como...</source>
         <translation>Save &apos;%1&apos; as...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="735"/>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="855"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="756"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="876"/>
         <source>Modelo de Banco de Dados (*.pgmodel);;Todos os Arquivos (*.*)</source>
         <translation>Database Model (*.pgmodel);;All Files (*.*)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="779"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="800"/>
         <source>Imprimir grade</source>
         <translation>Print grid</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="783"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="804"/>
         <source>Imprimir número de páginas</source>
         <translation>Print page numbers</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="790"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="811"/>
         <source>Opções do modelo</source>
         <translation>Model Options</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="807"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="828"/>
         <source>Impressão de modelo de banco de dados</source>
         <translation>Database Model Printing</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="827"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="848"/>
         <source>Confirmação</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="828"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="849"/>
         <source>Foram detectadas modificações nas definições de papel/margem do modelo o que pode provocar a impressão incorreta dos objetos. Deseja prosseguir com a impressão usando as novas configurações? Para usar as configurações padrão clique &apos;Não&apos; ou em &apos;Cancelar&apos; para abortar a impressão.</source>
         <translation>Were detected changes in the definitions of paper/margin of the model which may cause the incorrect print of the objects. Do you want to continue printing using the new settings? To use the default settings click &apos;No&apos; or &apos;Cancel&apos; to abort printing.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="857"/>
+        <location filename="../pgmodeler_ui/src/formprincipal.cpp" line="878"/>
         <source>Carregar modelo</source>
         <translation>Load model</translation>
     </message>
@@ -1854,7 +1864,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;O projeto pgModeler consiste numa ferramenta CASE para modelagem de bancos de dados relacionais para o SGBD PostgreSQL pelo uso das técnicas de modelagem provenientes dos Diagramas de Entidade-Relacionamento.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Tahoma&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;Agradecimentos especiais aos amigos da equipe de desenvolvimento de software da Assembleia Legislativa, Tocantins, Brasil: &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Michel de Almeida&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Filipe Santana&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Jonas Nepomuceno&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Ricardo Ishibashi&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;;&quot;&gt; e &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Tahoma&apos;; font-weight:600;&quot;&gt;Álvaro Nunes.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -2504,12 +2514,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ModeloBD</name>
     <message>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="2735"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="2739"/>
         <source>Carregando objeto: %1 (%2)</source>
         <translation>Loading object: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5991"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5995"/>
         <source>Gerando %1 do objeto: %2 (%3)</source>
         <translation>Generating %1 of object: %2 (%3)</translation>
     </message>
@@ -2527,199 +2537,199 @@ p, li { white-space: pre-wrap; }
         <translation>Generalization</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="114"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="115"/>
         <source>&lt;strong&gt;ATENÇÃO:&lt;/strong&gt; O modelo de objetos encontra-se protegido! Novos objetos só poderão ser inseridos quando esta situação for revertida!</source>
         <translation>&lt;strong&gt;CAUTION:&lt;/strong&gt; The object model is protected! New objects will be inserted only when the protection is removed!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="150"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2203"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="151"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2212"/>
         <source>Código-fonte</source>
         <translation>Source code</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="152"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="153"/>
         <source>Exibe o código-fonte do objeto</source>
         <translation>Show object source code</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="154"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2196"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="155"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2205"/>
         <source>Propriedades</source>
         <translation>Properties</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="156"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="157"/>
         <source>Edita as propriedades do objeto</source>
         <translation>Edit the object properties</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="158"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2225"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="159"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2234"/>
         <source>Proteger</source>
         <translation>Protect</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="159"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2220"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="160"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2229"/>
         <source>Desproteger</source>
         <translation>Unprotect</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="160"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="161"/>
         <source>Protege o(s) objeto(s) contra modificações</source>
         <translation>Pretects the object(s) against modifications</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="161"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="162"/>
         <source>Remove a proteção contra modificação do(s) objeto(s)</source>
         <translation>Removes from the objetc(s) the protection against modifications</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="163"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2232"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="164"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2241"/>
         <source>Excluir</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="165"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="166"/>
         <source>Exclui o(s) objeto(s) selecionado(s)</source>
         <translation>Delete the selected object(s)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="167"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="168"/>
         <source>Selecionar todos</source>
         <translation>Select all</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="169"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="170"/>
         <source>Seleciona todos os objetos gráficos no modelo</source>
         <translation>Selects all the graphical objects in the model</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="171"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="172"/>
         <source>Converter rel. n-n</source>
         <translation>Convert n-n rel.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="172"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="173"/>
         <source>Converte o relacionamento n-n para tabela própria</source>
         <translation>Converts the n-n relationship into table</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="174"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="175"/>
         <source>Copiar</source>
         <translation>Copy</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="176"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="177"/>
         <source>Copia o(s) objeto(s) selecionado(s)</source>
         <translation>Copy the selected objects(s)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="178"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="179"/>
         <source>Colar</source>
         <translation>Paste</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="180"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="181"/>
         <source>Cola o(s) objeto(s) anteriormente copiado(s)</source>
         <translation>Paste the previos copied object(s)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="182"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="183"/>
         <source>Recortar</source>
         <translation>Cut</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="184"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="185"/>
         <source>Recorta o(s) objeto(s) selecionado(s)</source>
         <translation>Cuts the selected object(s)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="186"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="187"/>
         <source>Depend. / Refer.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="187"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="188"/>
         <source>Exibe os objetos que referenciam e os que são dependência do objeto selecionado</source>
         <translation>Displays objects that reference and that are dependent of the selected object</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="189"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="190"/>
         <source>Novo objeto</source>
         <translation>New object</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="190"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="191"/>
         <source>Adiciona um novo objeto no modelo</source>
         <translation>Add a new object in the model</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="212"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="213"/>
         <source>Relacionamento </source>
         <translation>Relationship</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="732"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="739"/>
         <source>Carregando modelo de banco de dados</source>
         <translation>Loading database model</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="972"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="980"/>
         <source>Salvando modelo de banco de dados</source>
         <translation>Saving database model</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1416"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1801"/>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1807"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1425"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1810"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1816"/>
         <source>Confirmação</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1417"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1426"/>
         <source>Deseja copiar também todas dependências dos objetos selecionados? Isso minimiza a quebra de referências quando os objetos copiados forem colados em outro modelo.</source>
         <translation>Also copy all dependencies of selected objects? This minimizes the breakdown of references when copied objects are pasted into another model.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1512"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1521"/>
         <source>Colando objetos...</source>
         <translation>Pasting objects...</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1528"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1537"/>
         <source>Validando objeto: %1 (%2)</source>
         <translation>Validating object: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1643"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1652"/>
         <source>Gerando código XML do objeto: %1 (%2)</source>
         <translation>Generating XML code of the object: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1700"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1709"/>
         <source>Colando o objeto: %1 (%2)</source>
         <translation>Pasting object: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1737"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1746"/>
         <source>Nem todos objetos foram colados ao modelo devido a erros retornados durante o processo! Consulte a pilha de erros para mais detalhes!</source>
         <translation>Not all objects were pasted to the model due to errors returned during the process! Refer to error stack for more details!</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1802"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1811"/>
         <source>ATENÇÃO: Remover vários objetos de uma só vez pode provocar invalidações irreversíveis de outros objetos no modelo. Tem certeza de que deseja excluir TODOS os objetos selecionados?</source>
         <translation>CAUTION: Remove multiple objects at once can cause irreversible invalidations from other objects in the model. Do you really want to delete ALL selected objects?</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1808"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="1817"/>
         <source>Tem certeza de que deseja excluir o objeto selecionado?</source>
         <translation>Do you really want to delete the selected object?</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2246"/>
+        <location filename="../pgmodeler_ui/src/modelowidget.cpp" line="2255"/>
         <source>Restrições</source>
         <translation>Constraints</translation>
     </message>
@@ -3993,33 +4003,33 @@ Message returned by the DBMS: %1</translation>
         <translation>new_database</translation>
     </message>
     <message>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="2764"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="2821"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3165"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3199"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3228"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3319"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3490"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3560"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3796"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3882"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="3975"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4051"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4187"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4303"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4334"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4421"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4488"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4539"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4794"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="4952"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5026"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5201"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5294"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5442"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5480"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5679"/>
-        <location filename="../libpgmodeler/src/modelobd.cpp" line="5868"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="2768"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="2825"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3169"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3203"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3232"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3323"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3494"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3564"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3800"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3886"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="3979"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4055"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4191"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4307"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4338"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4425"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4492"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4543"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4798"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="4956"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5030"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5205"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5298"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5446"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5484"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5683"/>
+        <location filename="../libpgmodeler/src/modelobd.cpp" line="5872"/>
         <source>%1 (linha: %2)</source>
         <translation>%1 (line: %2)</translation>
     </message>
@@ -4358,28 +4368,28 @@ Message returned by the DBMS: %1</translation>
         <translation>Primary key</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="45"/>
+        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="46"/>
         <source>Atributo</source>
         <translation>Attribute</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="47"/>
-        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="53"/>
+        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="48"/>
+        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="54"/>
         <source>Tipo</source>
         <translation>Type</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="51"/>
+        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="52"/>
         <source>Restrição</source>
         <translation>Constraint</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="69"/>
+        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="70"/>
         <source>A edição de atributos de um relacionamento já existente é permitida, porém, deve ser  feita com atenção pois pode quebrar referências à colunas e causar a invalidez de objetos como gatilhos,  índices, restrições e sequências.</source>
         <translation>Editing attributes of an existing relationship is allowed, but must be done carefully because it may break references to columns and cause invalidation of objects such as triggers, indexes, constraints and sequences.</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="77"/>
+        <location filename="../pgmodeler_ui/src/relacionamentowidget.cpp" line="78"/>
         <source>Utilize o recurso de chave-primária especial caso queira incluir uma chave-primária contendo  as colunas heradas/copiadas na tabela receptora. Este é um recurso disponível apenas para relacionamentos  de generalização/dependência.</source>
         <translation>Use the special primary key if you want to include a primary key containing inherited / copied columns to the receiving table. This is a feature available only for generalization / dependency relationships.</translation>
     </message>
@@ -4698,72 +4708,72 @@ Message returned by the DBMS: %1</translation>
         <translation>Copied Tables:</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="51"/>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="59"/>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="67"/>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="76"/>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="82"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="53"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="61"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="69"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="78"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="84"/>
         <source>Nome</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="53"/>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="61"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="55"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="63"/>
         <source>Tipo</source>
         <translation>Type</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="55"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="57"/>
         <source>Valor Padrão</source>
         <translation>Default Value</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="56"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="58"/>
         <source>Atributos</source>
         <translation>Attributes</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="63"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="65"/>
         <source>ON DELETE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="64"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="66"/>
         <source>ON UPDATE</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="69"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="71"/>
         <source>Tab. Refer.</source>
         <translation>Refer. Table</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="71"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="73"/>
         <source>Disparo</source>
         <translation>Triggering</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="73"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="75"/>
         <source>Eventos</source>
         <translation>Events</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="78"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="80"/>
         <source>Execução</source>
         <translation>Execution</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="79"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="81"/>
         <source>Evento</source>
         <translation>Event</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="84"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="86"/>
         <source>Indexação</source>
         <translation>Indexing</translation>
     </message>
     <message>
-        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="219"/>
+        <location filename="../pgmodeler_ui/src/tabelawidget.cpp" line="221"/>
         <source>nova_tabela</source>
         <translation>new_table</translation>
     </message>

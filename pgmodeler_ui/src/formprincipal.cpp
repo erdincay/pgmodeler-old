@@ -331,7 +331,28 @@ void FormPrincipal::closeEvent(QCloseEvent *)
 {
  ConfGeralWidget *conf_wgt=NULL;
  map<QString, map<QString, QString> > confs;
- bool salvar_conf=false;
+ bool salvar_conf=false, modificado=false;
+ int i=0;
+
+ //Checa se existem modelos modificados e pergunta ao usuário se deseja salvá-los antes de sair
+ if(modelos_tab->count() > 0)
+ {
+  //Varre os modelos e obtém o estado da modificação
+  i=0;
+  while(i < modelos_tab->count() && !modificado)
+   modificado=dynamic_cast<ModeloWidget *>(modelos_tab->widget(i++))->modeloModificado();
+
+  //Se algum modelo foi encontrado como modificado
+  if(modificado)
+  {
+   caixa_msg->show(trUtf8("Salvar modelos"),
+                   trUtf8("Alguns modelos foram modificados! Deseja salvar todos antes de encerrar o pgModeler?"),
+                   CaixaMensagem::ICONE_CONFIRM,CaixaMensagem::BOTAO_SIM_NAO);
+
+   if(caixa_msg->result()==QDialog::Accepted)
+    this->salvarTodosModelos();
+  }
+ }
 
  conf_wgt=dynamic_cast<ConfGeralWidget *>(fconfiguracao->obterWidgetConfiguracao(0));
  confs=conf_wgt->obterParamsConfiguracao();
@@ -417,7 +438,7 @@ void FormPrincipal::closeEvent(QCloseEvent *)
  if(salvar_conf)
   conf_wgt->salvarConfiguracao();
 
- QMainWindow::close();
+ //QMainWindow::close();
 }
 //----------------------------------------------------------
 void FormPrincipal::adicionarNovoModelo(const QString &nome_arq)
