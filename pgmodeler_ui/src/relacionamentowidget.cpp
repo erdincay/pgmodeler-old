@@ -618,8 +618,10 @@ void RelacionamentoWidget::aplicarConfiguracao(void)
   vector<unsigned> id_cols;
 
   /* Devido a complexidade da classe Relacionamento e a forte ligação entre todos os
-     relacinamentos do modelo, é necessário desconectar TODOS, executar a modificação no
-     relacionamento e logo após revalidar todos os relacionamentos */
+     relacinamentos do modelo, é necessário armazenar o XML dos objetos especiais e
+     desconectar TODOS os relacionamentos, executar a modificação no
+     relacionamento e logo após revalidar todos os demais */
+  modelo->obterXMLObjetosEspeciais();
   modelo->desconectarRelacionamentos();
 
   if(!this->novo_obj)

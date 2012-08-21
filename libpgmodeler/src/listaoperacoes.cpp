@@ -798,11 +798,15 @@ void ListaOperacoes::executarOperacao(Operacao *oper, bool refazer)
    if(oper->tipo_op==Operacao::OBJETO_MODIFICADO ||
       oper->tipo_op==Operacao::OBJETO_MOVIMENTADO)
    {
-    /* Antes de qualquer restauração em um relacionamento é preciso desconectar
-       todos do modelo, aplicar a restauração e em seguida revalidar todos os
-       relacionamentos */
     if(tipo==OBJETO_RELACAO)
+    {
+     /* Devido a complexidade da classe Relacionamento e a forte ligação entre todos os
+        relacinamentos do modelo, é necessário armazenar o XML dos objetos especiais e
+        desconectar TODOS os relacionamentos, executar a modificação no
+        relacionamento e logo após revalidar todos os demais */
+     modelo->obterXMLObjetosEspeciais();
      modelo->desconectarRelacionamentos();
+    }
 
     //Obtém a objeto atual da tabela/relacionamento pai no índice especificado
     if(tabela_pai)

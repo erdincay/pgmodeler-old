@@ -189,7 +189,9 @@ class Relacionamento: public RelacionamentoBase {
             *pk_relident,
             /*Armazena a referência à chave primária especial. Esta
               referência só fica disponível quando o relacionamento é do tipo gen/dep */
-            *pk_especial;
+            *pk_especial,
+            //Armazena a chave única que representa (juntamente com a fk_rel1n) o rel. 1-1
+            *uq_rel11;
 
   //Tabela a qual representa o relacionamento n-n
   Tabela *tabela_relnn;
@@ -233,9 +235,13 @@ class Relacionamento: public RelacionamentoBase {
      verificar nomes duplicados e tipos incompatíves de colunas. */
   void adicionarColunasRelGen(void);
 
-  /* Cria a chave estrangeira que representa o relacionamento e a adicionar à 
+  /* Cria a chave estrangeira que representa o relacionamento e a adiciona à
      tabela de destino do relacionamento */
   void adicionarChaveEstrangeira(Tabela *tab_referencia, Tabela *tab_receptora, TipoAcao acao_del, TipoAcao acao_upd);
+
+  /* Cria a chave única que representa o relacionamento 1-1 e a adiciona à
+     tabela de destino do relacionamento */
+  void adicionarChaveUnica(Tabela *tab_referencia, Tabela *tab_receptora);
 
   //Adiciona os atributos do relacionamento na tabela
   void adicionarAtributos(Tabela *tab_receptora);
@@ -270,6 +276,11 @@ class Relacionamento: public RelacionamentoBase {
      Este é executado sempre antes de se deletar as colunas_ref do relacionamento */
   void removerColsChavePrimariaTabela(Tabela *tabela);
 
+ protected:
+  /* Destrói atributos e restrições do relacionamento, este método deve ser
+     sempre chamado antes de desalocar o objeto. */
+  void destruirObjetos(void);
+
  public:
   /* Constante indicativa de separador de sufixo de nomes de colunas
      adicionadas automaticamente no relacionamento, quando são chaves
@@ -285,16 +296,16 @@ class Relacionamento: public RelacionamentoBase {
                  bool identificador=false, bool postergavel=false,
                  TipoPostergacao tipo_postergacao=TipoPostergacao::immediate);
 
-  ~Relacionamento(void);
+   //~Relacionamento(void);
 
-  /* Conecta o relacionamento as tabelas e o configura de
-     acordo o tipo de relacionamento */
-  void conectarRelacionamento(void);
+   /* Conecta o relacionamento as tabelas e o configura de
+      acordo o tipo de relacionamento */
+   void conectarRelacionamento(void);
 
-  /* Desconecta o relacionamento das tabelas e o remove os atributos do mesmo caso
-     estes estiverem presente em alguma das tabelas. Este método desaloca todos os
-     objetos criados na conexão. */
-  void desconectarRelacionamento(bool rem_objs_tab=true);
+   /* Desconecta o relacionamento das tabelas e o remove os atributos do mesmo caso
+      estes estiverem presente em alguma das tabelas. Este método desaloca todos os
+      objetos criados na conexão. */
+   void desconectarRelacionamento(bool rem_objs_tab=true);
 
    //Retorna a lista de nomes das colunas geradas pela conexão do relacionamento
    vector<QString> obterColunasRelacionamento(void);

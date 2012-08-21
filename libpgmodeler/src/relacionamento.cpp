@@ -11,23 +11,27 @@ Relacionamento::Relacionamento(Relacionamento *relacao) : RelacionamentoBase(rel
  (*(this))=(*relacao);
 }
 //-----------------------------------------------------------
-Relacionamento::~Relacionamento(void)
+/*Relacionamento::~Relacionamento(void)
 {
  if(!conectado)
  {
-  while(!atributos_rel.empty())
-  {
-   delete(atributos_rel.back());
-   atributos_rel.pop_back();
-  }
+  Tabela *tab=this->obterTabelaReceptora();
 
   while(!restricoes_rel.empty())
   {
-   delete(restricoes_rel.back());
+   if(tab && tab->obterIndiceObjeto(restricoes_rel.back()) < 0)
+    delete(restricoes_rel.back());
    restricoes_rel.pop_back();
   }
+
+  while(!atributos_rel.empty())
+  {
+   if(tab && tab->obterIndiceObjeto(atributos_rel.back()) < 0)
+    delete(atributos_rel.back());
+   atributos_rel.pop_back();
+  }
  }
-}
+}*/
 //-----------------------------------------------------------
 Relacionamento::Relacionamento(const QString &nome, unsigned tipo_rel, Tabela *tab_orig,
                                Tabela *tab_dest, bool obrig_orig, bool obrig_dest,
@@ -55,7 +59,7 @@ Relacionamento::Relacionamento(const QString &nome, unsigned tipo_rel, Tabela *t
 
 
  tabela_relnn=NULL;
- fk_rel1n=pk_relident=pk_especial=NULL;
+ fk_rel1n=pk_relident=pk_especial=uq_rel11=NULL;
  this->postergavel=postergavel;
  this->tipo_postergacao=tipo_postergacao;
  this->invalidado=true;
@@ -406,6 +410,21 @@ void Relacionamento::removerObjetos(void)
 {
  atributos_rel.clear();
  restricoes_rel.clear();
+}
+//-----------------------------------------------------------
+void Relacionamento::destruirObjetos(void)
+{
+ while(!restricoes_rel.empty())
+ {
+  delete(restricoes_rel.back());
+  restricoes_rel.pop_back();
+ }
+
+ while(!atributos_rel.empty())
+ {
+  delete(atributos_rel.back());
+  atributos_rel.pop_back();
+ }
 }
 //-----------------------------------------------------------
 void Relacionamento::removerObjeto(unsigned id_obj, TipoObjetoBase tipo_obj)
@@ -1084,6 +1103,58 @@ void Relacionamento::configurarRelIdentificador(Tabela *tab_receptora)
  }
 }
 //-----------------------------------------------------------
+void Relacionamento::adicionarChaveUnica(Tabela *tab_referencia, Tabela *tab_receptora)
+{
+ Restricao *uq=NULL;
+ unsigned i, qtd;
+ QString nome, aux;
+
+ try
+ {
+  //Aloca a chave única
+  if(!uq_rel11)
+  {
+   uq=new Restricao;
+   uq->definirTipo(TipoRestricao::unique);
+   uq->definirIncPorLigacao(true);
+   uq_rel11=uq;
+  }
+
+  //Insere as colunas do relacionamentos à chave única
+  qtd=colunas_ref.size();
+  i=0;
+
+  while(i < qtd)
+   uq->adicionarColuna(colunas_ref[i++], Restricao::COLUNA_ORIGEM);
+
+  //Configura o nome da chave estrangeira
+  i=1;
+  aux[0]='\0';
+  nome=tab_referencia->obterNome() + SEPARADOR_SUFIXO + "uq";
+
+  /* Verifica a existencia de alguma restrição com mesmo nome
+     na tabela a qual receberá a chave única. Enquanto existir
+     um novo nome será gerado concatenando um número inteiro para
+     pode diferenciar dos demais */
+  while(tab_receptora->obterRestricao(nome + aux))
+  {
+   aux=QString("%1").arg(i);
+   i++;
+  }
+
+  //Atribui o nome configurado à chave única
+  uq->definirNome(nome + aux);
+
+  /* Após configurada a chave única que define o
+     relacionamento é adicionado na tabela */
+  tab_receptora->adicionarRestricao(uq);
+ }
+ catch(Excecao &e)
+ {
+  throw Excecao(e.obterMensagemErro(),e.obterTipoErro(),__PRETTY_FUNCTION__,__FILE__,__LINE__,&e);
+ }
+}
+//-----------------------------------------------------------
 void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_referencia, Tabela *tab_receptora, TipoAcao acao_del, TipoAcao acao_upd)
 {
  Restricao *pk=NULL, *pk_aux=NULL, *fk=NULL;
@@ -1096,6 +1167,7 @@ void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_referencia, Tabela *t
   //Aloca uma chave estrangeira para ser configurada
   if((tipo_relac==RELACIONAMENTO_NN) ||
      (!fk_rel1n && (tipo_relac==RELACIONAMENTO_11 || tipo_relac==RELACIONAMENTO_1N)))
+     //(!fk_rel1n && (tipo_relac==RELACIONAMENTO_11 || tipo_relac==RELACIONAMENTO_1N)))
   {
    fk=new Restricao;
    fk->definirPostergavel(this->postergavel);
@@ -1110,8 +1182,11 @@ void Relacionamento::adicionarChaveEstrangeira(Tabela *tab_referencia, Tabela *t
    if(tipo_relac==RELACIONAMENTO_11 || tipo_relac==RELACIONAMENTO_1N)
     fk_rel1n=fk;
   }
-  else if(fk_rel1n)
+  /*else if(fk_rel1n)
+  {
    fk=fk_rel1n;
+   fk->removerColunas();
+  } */
 
   //Configura a ação de ON DELETE e ON UPDATE da chave estrangeira
   fk->definirTipoAcao(acao_del, false);
@@ -1412,6 +1487,7 @@ void Relacionamento::adicionarColunasRel11(void)
    adicionarRestricoes(tab_recep);
    copiarColunas(tab_ref, tab_recep, false);
    adicionarChaveEstrangeira(tab_ref, tab_recep, TipoAcao::set_null, TipoAcao::cascade);
+   adicionarChaveUnica(tab_ref, tab_recep);
   }
   else
   {
@@ -1426,9 +1502,11 @@ void Relacionamento::adicionarColunasRel11(void)
    if(identificador)
     adicionarChaveEstrangeira(tab_ref, tab_recep, TipoAcao::cascade, TipoAcao::cascade);
    else
+   {
     adicionarChaveEstrangeira(tab_ref, tab_recep, TipoAcao::set_null,  TipoAcao::cascade);
+    adicionarChaveUnica(tab_ref, tab_recep);
+   }
   }
-
  }
  catch(Excecao &e)
  {
@@ -1780,6 +1858,15 @@ void Relacionamento::desconectarRelacionamento(bool rem_objs_tab)
      fk_rel1n->removerColunas();
      delete(fk_rel1n);
      fk_rel1n=NULL;
+
+     if(uq_rel11)
+     {
+      //Remove a chave única da tabela
+      tabela->removerRestricao(uq_rel11->obterNome());
+      uq_rel11->removerColunas();
+      delete(uq_rel11);
+      uq_rel11=NULL;
+     }
 
      /* Remove a chave primária da tabela caso esta foi criada automaticamente
         (caso de relacionamento identificador e entidade fraca sem chave primária) */
@@ -2164,6 +2251,10 @@ QString Relacionamento::obterDefinicaoObjeto(unsigned tipo_def)
   {
    atributos[AtributosParsers::RELAC_1N]="1";
    atributos[AtributosParsers::RESTRICAO]=fk_rel1n->obterDefinicaoObjeto(tipo_def);
+
+   if(uq_rel11)
+    atributos[AtributosParsers::RESTRICAO]+=uq_rel11->obterDefinicaoObjeto(tipo_def);
+
    atributos[AtributosParsers::TABELA]=obterTabelaReceptora()->obterNome(true);
   }
   else if(tabela_relnn && tipo_relac==RELACIONAMENTO_NN)

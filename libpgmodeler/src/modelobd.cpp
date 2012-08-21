@@ -704,6 +704,10 @@ void ModeloBD::destruirObjetos(void)
   while(!lista->empty())
   {
    objeto=lista->back();
+
+   if(objeto->obterTipoObjeto()==OBJETO_RELACAO)
+    dynamic_cast<Relacionamento *>(objeto)->destruirObjetos();
+
    delete(objeto);
    lista->pop_back();
   }
