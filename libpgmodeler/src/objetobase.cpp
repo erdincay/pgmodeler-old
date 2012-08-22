@@ -40,9 +40,12 @@ QString ObjetoBase::sql_objetos[QTD_TIPOS_OBJETO]={
 
 /* Inicializa o id global o qual é compartilhado entre as instâncias
    de classes derivadas da classe ObjetoBase. O valor do id_global
-   inicia-se em 4 pois os ids 0,1,2,3 estão atribuídos respectivamente
-   aos objetos das classes Papel, EspacoTabela, Esquema e ModeloBD. */
-unsigned ObjetoBase::id_global=40000;
+   inicia-se em 60k pois as faixas de ids 0,10k,20k,30k,40k e 50k
+   estão atribuídos respectivamente aos objetos das classes Papel, EspacoTabela,
+   ModeloBD, Esquema, Função e Tipo */
+unsigned ObjetoBase::id_global=60000;
+unsigned ObjetoBase::id_tipo=50000;
+unsigned ObjetoBase::id_funcao=40000;
 unsigned ObjetoBase::id_esquema=30000;
 unsigned ObjetoBase::id_modelobd=20000;
 unsigned ObjetoBase::id_esptabela=10000;

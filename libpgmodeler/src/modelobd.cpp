@@ -6280,6 +6280,8 @@ QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def, bool exportar_arq)
     //Obtendo a definição do tipo em forma de shell type
     if(tipo_usr->obterConfiguracao()==Tipo::TIPO_BASE)
      atribs_aux[AtributosParsers::TIPOS_SHELL]+=tipo_usr->obterDefinicaoObjeto(tipo_def, true);
+    else
+     atribs_aux[atrib]+=tipo_usr->obterDefinicaoObjeto(tipo_def);
    }
    else if(tipo_obj==OBJETO_BANCO_DADOS)
    {
@@ -6353,7 +6355,10 @@ QString ModeloBD::obterDefinicaoObjeto(unsigned tipo_def, bool exportar_arq)
    {
     tipo_usr=dynamic_cast<Tipo *>(tipos[i]);
     if(tipo_usr->obterConfiguracao()==Tipo::TIPO_BASE)
+    {
+     atribs_aux[atrib]+=tipo_usr->obterDefinicaoObjeto(tipo_def);
      tipo_usr->converterParametrosFuncoes(true);
+    }
    }
   }
  }

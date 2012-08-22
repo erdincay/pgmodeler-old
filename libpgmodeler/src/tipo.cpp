@@ -2,6 +2,7 @@
 //***********************************************************
 Tipo::Tipo(void)
 {
+ id_objeto=ObjetoBase::id_tipo++;
  tipo_objeto=OBJETO_TIPO;
  config=TIPO_ENUMERACAO;
  nome="novo_tipo";

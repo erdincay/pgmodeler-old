@@ -21,8 +21,8 @@ ColunaWidget::ColunaWidget(QWidget *parent): ObjetoBaseWidget(parent, OBJETO_COL
   configurarLayouFormulario(coluna_grid, OBJETO_COLUNA);
   connect(janela_pai->aplicar_ok_btn,SIGNAL(clicked(bool)), this, SLOT(aplicarConfiguracao(void)));
 
-  janela_pai->setMinimumSize(530, 350);
-  janela_pai->setMaximumSize(16777215, 350);
+  janela_pai->setMinimumSize(530, 380);
+  janela_pai->setMaximumHeight(380);
  }
  catch(Excecao &e)
  {

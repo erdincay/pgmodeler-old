@@ -76,7 +76,9 @@ class ObjetoBase {
                   id_esquema,
                   id_modelobd,
                   id_esptabela,
-                  id_papel;
+                  id_papel,
+                  id_tipo,
+                  id_funcao;
 
   /* Armazena um identificador único para o objeto. Este id nada mais
      do que o valor atual do id_global. Este identificador é usado
