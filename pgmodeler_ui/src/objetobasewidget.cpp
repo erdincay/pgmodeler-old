@@ -633,7 +633,6 @@ void ObjetoBaseWidget::finalizarConfiguracao(void)
      quando o usuário executar a operação de desfazer */
   if(novo_obj)
   {
-   novo_obj=false;
    if(tabela && (tipo_obj==OBJETO_COLUNA || tipo_obj==OBJETO_REGRA ||
                  tipo_obj==OBJETO_GATILHO ||
                  tipo_obj==OBJETO_INDICE || tipo_obj==OBJETO_RESTRICAO))
@@ -652,6 +651,7 @@ void ObjetoBaseWidget::finalizarConfiguracao(void)
     else if(tipo_obj!=OBJETO_RELACAO && tipo_obj!=OBJETO_TABELA)
      lista_op->adicionarObjeto(this->objeto, Operacao::OBJETO_CRIADO, -1, this->relacionamento);
    }
+   novo_obj=false;
   }
   else
    //Caso o objeto esteja sendo atualizado, apenas valida a definição do mesmo.
@@ -799,22 +799,21 @@ void ObjetoBaseWidget::cancelarConfiguracao(void)
   }
  }
 
- if(lista_op && tipo_obj!=OBJETO_BANCO_DADOS &&
+ /* Caso o objeto não seja novo, restaura seu estado anterior
+    desfazendo a operação de modificação do mesmo na lista
+    de operações */
+ if(!novo_obj &&
+    lista_op && tipo_obj!=OBJETO_BANCO_DADOS &&
                 tipo_obj!=OBJETO_PERMISSAO)
  {
   try
   {
-  /* Caso o objeto não seja novo, restaura seu estado anterior
-     desfazendo a operação de modificação do mesmo na lista
-     de operações */
-  if(!novo_obj)
    lista_op->desfazerOperacao();
+   //Remove a ultima operação adicionada referente ao objeto editado/criado
+   lista_op->removerUltimaOperacao();
   }
   catch(Excecao &e)
   {}
-
-  //Remove a ultima operação adicionada referente ao objeto editado/criado
-   lista_op->removerUltimaOperacao();
  }
 
   /* Emite um sinal indicando que o objeto foi manipulado de modo que

@@ -478,7 +478,6 @@ void RestricaoWidget::definirAtributos(ModeloBD *modelo, ObjetoBase *objeto_pai,
 //----------------------------------------------------------
 void RestricaoWidget::aplicarConfiguracao(void)
 {
- Excecao erro;
  try
  {
   Restricao *restricao=NULL;

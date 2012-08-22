@@ -39,6 +39,7 @@ void FormExportacao::show(ModeloBD *modelo)
  {
   map<QString, ConexaoBD *> conexoes;
   map<QString, ConexaoBD *>::iterator itr;
+  QString host;
 
   /* Atualiza a lista de conexões ao exibir o formulário de exportação, obtendo-as
      do widget de configuração de conexões */
@@ -50,7 +51,12 @@ void FormExportacao::show(ModeloBD *modelo)
 
   while(itr!=conexoes.end())
   {
-   conexoes_cmb->addItem(itr->first + QString(" (%1)").arg((itr->second)->obterParamConexao(ConexaoBD::PARAM_FQDN_SERVIDOR)),
+   host=(itr->second)->obterParamConexao(ConexaoBD::PARAM_FQDN_SERVIDOR);
+
+   if(host.isEmpty())
+    host=(itr->second)->obterParamConexao(ConexaoBD::PARAM_IP_SERVIDOR);
+
+   conexoes_cmb->addItem(itr->first + QString(" (%1)").arg(host),
                          QVariant::fromValue<void *>(itr->second));
    itr++;
   }

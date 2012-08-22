@@ -1774,6 +1774,7 @@ void ModeloWidget::colarObjetos(void)
 
  //Reconfigura o menu popup do modelo onde os objetos foram colados
  this->configurarMenuPopup();
+ this->modificado=true;
 }
 //----------------------------------------------------------
 void ModeloWidget::excluirObjetos(void)
@@ -1960,6 +1961,7 @@ void ModeloWidget::excluirObjetos(void)
     lista_op->finalizarEncadeamentoOperacoes();
     cena->clearSelection();
     this->configurarMenuPopup();
+    this->modificado=true;
     emit s_objetoRemovido();
    }
    catch(Excecao &e)
